@@ -1,9 +1,83 @@
 syntax = "proto3";
 option go_package = "../../dist/go/tokens;tokens";
 
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+
+package txpull.v1.tokens;
+
 message Token {
     
 }
 
+enum TokenStatus {
+    ANY        = 0;
+    QUEUED     = 1;
+    PROCESSING = 2;
+    PROCESSED  = 3;
+    FAILED     = 4;
+}
+
+// The `Status` type defines a logical error model that is suitable for
+// different programming environments, including REST APIs and RPC APIs.
+message Status {
+    // A simple error code that can be easily handled by the client. The
+    // actual error code is defined by `google.rpc.Code`.
+    int32 code = 1;
+
+    // A developer-facing human-readable error message in English. It should
+    // both explain the error and offer an actionable resolution to it.
+    string reason = 2;
+
+    // A developer-facing human-readable error message in English. It should
+    // both explain the error and offer an actionable resolution to it.
+    string message = 3;
+
+    // Additional error information that the client code can use to handle
+    // the error, such as retry info or a help link.
+    repeated google.protobuf.Any details = 4;
+}
+
+message FilterTokensRequest {
+    uint64 start_block = 1;
+    uint64 end_block = 2;
+    uint64 page = 3;
+    uint64 page_size = 4;
+    uint32 status = 5;
+}
+
+message FilterTokensResponse {
+    Status status = 1;
+    repeated txpull.v1.tokens.Token token = 2;
+}
+
+message GetTokenRequest {
+    uint64 token_id = 1;
+    string address = 2;
+}
+
+message GetTokenResponse {
+    txpull.v1.tokens.Token block = 1;
+}
+
+message SubscribeTokensRequest {
+    uint64 start_block = 1;
+    TokenStatus status = 2;
+}
+
+
 service Tokens {
+    rpc Filter(FilterTokensRequest) returns (FilterTokensResponse) {
+        option (google.api.http) = {
+            get: "/v1/tokens"
+        };
+    };
+
+    rpc Get(GetTokenRequest) returns (GetTokenResponse) {
+        option (google.api.http) = {
+            get: "/v1/tokens/{token_id}"
+        };
+    };
+
+    rpc Subscribe(SubscribeTokensRequest) returns (stream txpull.v1.tokens.Token) {};
 }

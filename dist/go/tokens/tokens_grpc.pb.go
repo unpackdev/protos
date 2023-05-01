@@ -3,7 +3,10 @@
 package tokens
 
 import (
+	context "context"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -15,6 +18,9 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TokensClient interface {
+	Filter(ctx context.Context, in *FilterTokensRequest, opts ...grpc.CallOption) (*FilterTokensResponse, error)
+	Get(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
+	Subscribe(ctx context.Context, in *SubscribeTokensRequest, opts ...grpc.CallOption) (Tokens_SubscribeClient, error)
 }
 
 type tokensClient struct {
@@ -25,10 +31,63 @@ func NewTokensClient(cc grpc.ClientConnInterface) TokensClient {
 	return &tokensClient{cc}
 }
 
+func (c *tokensClient) Filter(ctx context.Context, in *FilterTokensRequest, opts ...grpc.CallOption) (*FilterTokensResponse, error) {
+	out := new(FilterTokensResponse)
+	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Filter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tokensClient) Get(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
+	out := new(GetTokenResponse)
+	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tokensClient) Subscribe(ctx context.Context, in *SubscribeTokensRequest, opts ...grpc.CallOption) (Tokens_SubscribeClient, error) {
+	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[0], "/txpull.v1.tokens.Tokens/Subscribe", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &tokensSubscribeClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Tokens_SubscribeClient interface {
+	Recv() (*Token, error)
+	grpc.ClientStream
+}
+
+type tokensSubscribeClient struct {
+	grpc.ClientStream
+}
+
+func (x *tokensSubscribeClient) Recv() (*Token, error) {
+	m := new(Token)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // TokensServer is the server API for Tokens service.
 // All implementations must embed UnimplementedTokensServer
 // for forward compatibility
 type TokensServer interface {
+	Filter(context.Context, *FilterTokensRequest) (*FilterTokensResponse, error)
+	Get(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
+	Subscribe(*SubscribeTokensRequest, Tokens_SubscribeServer) error
 	mustEmbedUnimplementedTokensServer()
 }
 
@@ -36,6 +95,15 @@ type TokensServer interface {
 type UnimplementedTokensServer struct {
 }
 
+func (UnimplementedTokensServer) Filter(context.Context, *FilterTokensRequest) (*FilterTokensResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Filter not implemented")
+}
+func (UnimplementedTokensServer) Get(context.Context, *GetTokenRequest) (*GetTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedTokensServer) Subscribe(*SubscribeTokensRequest, Tokens_SubscribeServer) error {
+	return status.Errorf(codes.Unimplemented, "method Subscribe not implemented")
+}
 func (UnimplementedTokensServer) mustEmbedUnimplementedTokensServer() {}
 
 // UnsafeTokensServer may be embedded to opt out of forward compatibility for this service.
@@ -49,13 +117,85 @@ func RegisterTokensServer(s grpc.ServiceRegistrar, srv TokensServer) {
 	s.RegisterService(&Tokens_ServiceDesc, srv)
 }
 
+func _Tokens_Filter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FilterTokensRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TokensServer).Filter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/txpull.v1.tokens.Tokens/Filter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TokensServer).Filter(ctx, req.(*FilterTokensRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Tokens_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TokensServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/txpull.v1.tokens.Tokens/Get",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TokensServer).Get(ctx, req.(*GetTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Tokens_Subscribe_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SubscribeTokensRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(TokensServer).Subscribe(m, &tokensSubscribeServer{stream})
+}
+
+type Tokens_SubscribeServer interface {
+	Send(*Token) error
+	grpc.ServerStream
+}
+
+type tokensSubscribeServer struct {
+	grpc.ServerStream
+}
+
+func (x *tokensSubscribeServer) Send(m *Token) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 // Tokens_ServiceDesc is the grpc.ServiceDesc for Tokens service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Tokens_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Tokens",
+	ServiceName: "txpull.v1.tokens.Tokens",
 	HandlerType: (*TokensServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "tokens.proto",
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Filter",
+			Handler:    _Tokens_Filter_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _Tokens_Get_Handler,
+		},
+	},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Subscribe",
+			Handler:       _Tokens_Subscribe_Handler,
+			ServerStreams: true,
+		},
+	},
+	Metadata: "tokens.proto",
 }

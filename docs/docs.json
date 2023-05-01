@@ -3,18 +3,316 @@
     {
       "name": "tokens.proto",
       "description": "",
-      "package": "",
-      "hasEnums": false,
+      "package": "txpull.v1.tokens",
+      "hasEnums": true,
       "hasExtensions": false,
       "hasMessages": true,
       "hasServices": true,
-      "enums": [],
+      "enums": [
+        {
+          "name": "TokenStatus",
+          "longName": "TokenStatus",
+          "fullName": "txpull.v1.tokens.TokenStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "ANY",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "PROCESSING",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "PROCESSED",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "FAILED",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
       "extensions": [],
       "messages": [
         {
+          "name": "FilterTokensRequest",
+          "longName": "FilterTokensRequest",
+          "fullName": "txpull.v1.tokens.FilterTokensRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "start_block",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "end_block",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "page",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "page_size",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterTokensResponse",
+          "longName": "FilterTokensResponse",
+          "fullName": "txpull.v1.tokens.FilterTokensResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "Status",
+              "fullType": "txpull.v1.tokens.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "token",
+              "description": "",
+              "label": "repeated",
+              "type": "Token",
+              "longType": "Token",
+              "fullType": "txpull.v1.tokens.Token",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetTokenRequest",
+          "longName": "GetTokenRequest",
+          "fullName": "txpull.v1.tokens.GetTokenRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "token_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetTokenResponse",
+          "longName": "GetTokenResponse",
+          "fullName": "txpull.v1.tokens.GetTokenResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "block",
+              "description": "",
+              "label": "",
+              "type": "Token",
+              "longType": "Token",
+              "fullType": "txpull.v1.tokens.Token",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "longName": "Status",
+          "fullName": "txpull.v1.tokens.Status",
+          "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "code",
+              "description": "A simple error code that can be easily handled by the client. The\nactual error code is defined by `google.rpc.Code`.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "reason",
+              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "message",
+              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "details",
+              "description": "Additional error information that the client code can use to handle\nthe error, such as retry info or a help link.",
+              "label": "repeated",
+              "type": "Any",
+              "longType": "google.protobuf.Any",
+              "fullType": "google.protobuf.Any",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SubscribeTokensRequest",
+          "longName": "SubscribeTokensRequest",
+          "fullName": "txpull.v1.tokens.SubscribeTokensRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "start_block",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "TokenStatus",
+              "longType": "TokenStatus",
+              "fullType": "txpull.v1.tokens.TokenStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "Token",
           "longName": "Token",
-          "fullName": ".Token",
+          "fullName": "txpull.v1.tokens.Token",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
@@ -27,9 +325,66 @@
         {
           "name": "Tokens",
           "longName": "Tokens",
-          "fullName": ".Tokens",
+          "fullName": "txpull.v1.tokens.Tokens",
           "description": "",
-          "methods": null
+          "methods": [
+            {
+              "name": "Filter",
+              "description": "",
+              "requestType": "FilterTokensRequest",
+              "requestLongType": "FilterTokensRequest",
+              "requestFullType": "txpull.v1.tokens.FilterTokensRequest",
+              "requestStreaming": false,
+              "responseType": "FilterTokensResponse",
+              "responseLongType": "FilterTokensResponse",
+              "responseFullType": "txpull.v1.tokens.FilterTokensResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/tokens"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "GetTokenRequest",
+              "requestLongType": "GetTokenRequest",
+              "requestFullType": "txpull.v1.tokens.GetTokenRequest",
+              "requestStreaming": false,
+              "responseType": "GetTokenResponse",
+              "responseLongType": "GetTokenResponse",
+              "responseFullType": "txpull.v1.tokens.GetTokenResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/tokens/{token_id}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Subscribe",
+              "description": "",
+              "requestType": "SubscribeTokensRequest",
+              "requestLongType": "SubscribeTokensRequest",
+              "requestFullType": "txpull.v1.tokens.SubscribeTokensRequest",
+              "requestStreaming": false,
+              "responseType": "Token",
+              "responseLongType": "Token",
+              "responseFullType": "txpull.v1.tokens.Token",
+              "responseStreaming": true
+            }
+          ]
         }
       ]
     }

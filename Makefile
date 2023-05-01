@@ -2,6 +2,7 @@
 PROTO_GO_OUT := $(PWD)/dist/go
 PROTO_JS_OUT := $(PWD)/dist/js
 PROTO_PROTOSETS_OUT := $(PWD)/dist/protosets
+PROTO_PROTOSETS_OUT_FILENAME := txpull.protoset
 PROTO_DOCS_OUT := $(PWD)/docs
 
 
@@ -23,9 +24,6 @@ RESET := "\033[0m"
 # Define the input files for your protobuf definitions
 PROTO_FILES := $(wildcard $(PROTO_DIRS)/*.proto)
 
-# Define the path to the generated .proto_set file
-PROTO_SET_FILE := $(PWD)/proto_set
-
 # Define the commands to generate protobuf files for Golang and JavaScript
 build: build-go build-js
 	@echo $(GREEN) "All protobuf files generated successfully!" $(RESET)
@@ -35,8 +33,9 @@ build-go:
 	@if [ ! -d "$(PROTO_PROTOSETS_OUT)" ]; then mkdir -p "$(PROTO_PROTOSETS_OUT)"; fi
 	@if [ ! -d "$(PROTO_DOCS_OUT)" ]; then mkdir -p "$(PROTO_DOCS_OUT)"; fi
 	@$(PROTOC) $(PROTOC_PLUGIN_GO) \
+		-Ithird_party/googleapis \
 		--doc_out=$(PROTO_DOCS_OUT) --doc_opt=json,docs.json \
-		--descriptor_set_out=$(PROTO_PROTOSETS_OUT)/txpull.protoset \
+		--descriptor_set_out=$(PROTO_PROTOSETS_OUT)/$(PROTO_PROTOSETS_OUT_FILENAME) \
 		--include_source_info \
 		--include_imports \
 		--proto_path=$(PROTO_DIRS) $(PROTO_FILES)
@@ -46,7 +45,7 @@ build-js:
 	@if [ ! -d "$(PROTO_JS_OUT)" ]; then mkdir -p "$(PROTO_JS_OUT)"; fi
 		@if [ ! -d "$(PROTO_PROTOSETS_OUT)" ]; then mkdir -p "$(PROTO_PROTOSETS_OUT)"; fi
 	@if [ ! -d "$(PROTO_DOCS_OUT)" ]; then mkdir -p "$(PROTO_DOCS_OUT)"; fi
-	@$(PROTOC) $(PROTOC_PLUGIN_JS) --proto_path=$(PROTO_DIRS) $(PROTO_FILES)
+	@$(PROTOC) $(PROTOC_PLUGIN_JS) -Ithird_party/googleapi --proto_path=$(PROTO_DIRS) $(PROTO_FILES)
 	@echo $(GREEN) "JavaScript protobuf files generated successfully!" $(RESET)
 
 clean:
