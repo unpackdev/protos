@@ -2,6 +2,7 @@ import * as jspb from 'google-protobuf'
 
 import * as google_api_annotations_pb from './google/api/annotations_pb';
 import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 
 export class TokenUrls extends jspb.Message {
@@ -50,6 +51,24 @@ export namespace TokenUrls {
   }
 }
 
+export class TokenSecurityInfo extends jspb.Message {
+  getOwnershipRenounced(): boolean;
+  setOwnershipRenounced(value: boolean): TokenSecurityInfo;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TokenSecurityInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: TokenSecurityInfo): TokenSecurityInfo.AsObject;
+  static serializeBinaryToWriter(message: TokenSecurityInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TokenSecurityInfo;
+  static deserializeBinaryFromReader(message: TokenSecurityInfo, reader: jspb.BinaryReader): TokenSecurityInfo;
+}
+
+export namespace TokenSecurityInfo {
+  export type AsObject = {
+    ownershipRenounced: boolean,
+  }
+}
+
 export class Token extends jspb.Message {
   getId(): number;
   setId(value: number): Token;
@@ -59,6 +78,12 @@ export class Token extends jspb.Message {
 
   getAddress(): string;
   setAddress(value: string): Token;
+
+  getCreatorAddress(): string;
+  setCreatorAddress(value: string): Token;
+
+  getOwnerAddress(): string;
+  setOwnerAddress(value: string): Token;
 
   getName(): string;
   setName(value: string): Token;
@@ -72,6 +97,17 @@ export class Token extends jspb.Message {
   getDecimals(): number;
   setDecimals(value: number): Token;
 
+  getCreationBlockNumber(): number;
+  setCreationBlockNumber(value: number): Token;
+
+  getCreationTransactionHash(): string;
+  setCreationTransactionHash(value: string): Token;
+
+  getCreationTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setCreationTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): Token;
+  hasCreationTimestamp(): boolean;
+  clearCreationTimestamp(): Token;
+
   getTotalSupply(): string;
   setTotalSupply(value: string): Token;
 
@@ -82,6 +118,11 @@ export class Token extends jspb.Message {
   setUrls(value?: TokenUrls): Token;
   hasUrls(): boolean;
   clearUrls(): Token;
+
+  getSecurity(): TokenSecurityInfo | undefined;
+  setSecurity(value?: TokenSecurityInfo): Token;
+  hasSecurity(): boolean;
+  clearSecurity(): Token;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Token.AsObject;
@@ -96,13 +137,19 @@ export namespace Token {
     id: number,
     chainId: number,
     address: string,
+    creatorAddress: string,
+    ownerAddress: string,
     name: string,
     description: string,
     symbol: string,
     decimals: number,
+    creationBlockNumber: number,
+    creationTransactionHash: string,
+    creationTimestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     totalSupply: string,
     totalSupplyInCirculation: string,
     urls?: TokenUrls.AsObject,
+    security?: TokenSecurityInfo.AsObject,
   }
 }
 
