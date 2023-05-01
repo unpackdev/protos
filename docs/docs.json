@@ -13,7 +13,7 @@
           "name": "TokenStatus",
           "longName": "TokenStatus",
           "fullName": "txpull.v1.tokens.TokenStatus",
-          "description": "",
+          "description": "The `TokenStatus` defines subscription method when streaming tokens to the clients.",
           "values": [
             {
               "name": "ANY",
@@ -315,10 +315,23 @@
           "fullName": "txpull.v1.tokens.Token",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": [

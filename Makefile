@@ -45,7 +45,10 @@ build-js:
 	@if [ ! -d "$(PROTO_JS_OUT)" ]; then mkdir -p "$(PROTO_JS_OUT)"; fi
 		@if [ ! -d "$(PROTO_PROTOSETS_OUT)" ]; then mkdir -p "$(PROTO_PROTOSETS_OUT)"; fi
 	@if [ ! -d "$(PROTO_DOCS_OUT)" ]; then mkdir -p "$(PROTO_DOCS_OUT)"; fi
-	@$(PROTOC) $(PROTOC_PLUGIN_JS) -Ithird_party/googleapi --proto_path=$(PROTO_DIRS) $(PROTO_FILES)
+	@$(PROTOC) $(PROTOC_PLUGIN_JS) \
+	-Ithird_party/googleapis \
+	-Inode_modules/.bin \
+	--proto_path=$(PROTO_DIRS) $(PROTO_FILES)
 	@echo $(GREEN) "JavaScript protobuf files generated successfully!" $(RESET)
 
 clean:
@@ -61,6 +64,7 @@ deps:
 	@which protoc-gen-go-grpc >/dev/null || (echo "protoc-gen-go-grpc not found. Installing..." && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest)
 	@which protoc-gen-docs >/dev/null || (echo "protoc-gen-docs not found. Installing..." && go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc)
 	@which protoc-gen-js >/dev/null || (echo "protoc-gen-js not found. Installing..." && npm install grpc-tools)
+	@which protoc-gen-grpc-web >/dev/null || (echo "protoc-gen-grpc-web not found. Installing..." && npm install protoc-gen-grpc-web)
 
 	@echo $(GREEN) "All dependencies installed successfully!" $(RESET)
 
