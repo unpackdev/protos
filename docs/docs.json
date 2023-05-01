@@ -313,7 +313,7 @@
           "name": "Token",
           "longName": "Token",
           "fullName": "txpull.v1.tokens.Token",
-          "description": "",
+          "description": "The Token protocol buffer message defines a standardized data format for representing \ntoken objects. It includes fields such as the token identifier, blockchain identifier, \ntoken name, description, symbol, decimal places, total supply, creation information, \nowner information, and security information. The message can be used in a variety of contexts\nto provide a standardized way of representing token objects.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,

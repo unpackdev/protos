@@ -229,6 +229,11 @@ func (x *TokenSecurityInfo) GetOwnershipRenounced() bool {
 	return false
 }
 
+// The Token protocol buffer message defines a standardized data format for representing
+// token objects. It includes fields such as the token identifier, blockchain identifier,
+// token name, description, symbol, decimal places, total supply, creation information,
+// owner information, and security information. The message can be used in a variety of contexts
+// to provide a standardized way of representing token objects.
 type Token struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
