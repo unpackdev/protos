@@ -1,0 +1,9 @@
+syntax = "proto3";
+option go_package = "../../dist/go/tokens;tokens";
+
+message Token {
+    
+}
+
+service Tokens {
+}
