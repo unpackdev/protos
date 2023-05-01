@@ -207,14 +207,75 @@ proto.txpull.v1.tokens.TokensPromiseClient.prototype.get =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.txpull.v1.tokens.QueueTokenRequest,
+ *   !proto.txpull.v1.tokens.QueueTokenResponse>}
+ */
+const methodDescriptor_Tokens_Queue = new grpc.web.MethodDescriptor(
+  '/txpull.v1.tokens.Tokens/Queue',
+  grpc.web.MethodType.UNARY,
+  proto.txpull.v1.tokens.QueueTokenRequest,
+  proto.txpull.v1.tokens.QueueTokenResponse,
+  /**
+   * @param {!proto.txpull.v1.tokens.QueueTokenRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.txpull.v1.tokens.QueueTokenResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.txpull.v1.tokens.QueueTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.tokens.QueueTokenResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.tokens.QueueTokenResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.txpull.v1.tokens.TokensClient.prototype.queue =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/txpull.v1.tokens.Tokens/Queue',
+      request,
+      metadata || {},
+      methodDescriptor_Tokens_Queue,
+      callback);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.tokens.QueueTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.txpull.v1.tokens.QueueTokenResponse>}
+ *     Promise that resolves to the response
+ */
+proto.txpull.v1.tokens.TokensPromiseClient.prototype.queue =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/txpull.v1.tokens.Tokens/Queue',
+      request,
+      metadata || {},
+      methodDescriptor_Tokens_Queue);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.txpull.v1.tokens.SubscribeTokensRequest,
- *   !proto.txpull.v1.tokens.Token>}
+ *   !proto.txpull.v1.tokens.SubscriptionTokenResponse>}
  */
 const methodDescriptor_Tokens_Subscribe = new grpc.web.MethodDescriptor(
   '/txpull.v1.tokens.Tokens/Subscribe',
   grpc.web.MethodType.SERVER_STREAMING,
   proto.txpull.v1.tokens.SubscribeTokensRequest,
-  proto.txpull.v1.tokens.Token,
+  proto.txpull.v1.tokens.SubscriptionTokenResponse,
   /**
    * @param {!proto.txpull.v1.tokens.SubscribeTokensRequest} request
    * @return {!Uint8Array}
@@ -222,7 +283,7 @@ const methodDescriptor_Tokens_Subscribe = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  proto.txpull.v1.tokens.Token.deserializeBinary
+  proto.txpull.v1.tokens.SubscriptionTokenResponse.deserializeBinary
 );
 
 
@@ -230,7 +291,7 @@ const methodDescriptor_Tokens_Subscribe = new grpc.web.MethodDescriptor(
  * @param {!proto.txpull.v1.tokens.SubscribeTokensRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.tokens.Token>}
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.tokens.SubscriptionTokenResponse>}
  *     The XHR Node Readable Stream
  */
 proto.txpull.v1.tokens.TokensClient.prototype.subscribe =
@@ -247,7 +308,7 @@ proto.txpull.v1.tokens.TokensClient.prototype.subscribe =
  * @param {!proto.txpull.v1.tokens.SubscribeTokensRequest} request The request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.tokens.Token>}
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.tokens.SubscriptionTokenResponse>}
  *     The XHR Node Readable Stream
  */
 proto.txpull.v1.tokens.TokensPromiseClient.prototype.subscribe =

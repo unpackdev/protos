@@ -309,6 +309,78 @@ export namespace SubscribeTokensRequest {
   }
 }
 
+export class QueueTokenRequest extends jspb.Message {
+  getAddress(): string;
+  setAddress(value: string): QueueTokenRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): QueueTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: QueueTokenRequest): QueueTokenRequest.AsObject;
+  static serializeBinaryToWriter(message: QueueTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): QueueTokenRequest;
+  static deserializeBinaryFromReader(message: QueueTokenRequest, reader: jspb.BinaryReader): QueueTokenRequest;
+}
+
+export namespace QueueTokenRequest {
+  export type AsObject = {
+    address: string,
+  }
+}
+
+export class QueueTokenResponse extends jspb.Message {
+  getStatus(): Status | undefined;
+  setStatus(value?: Status): QueueTokenResponse;
+  hasStatus(): boolean;
+  clearStatus(): QueueTokenResponse;
+
+  getTokenQueueStatus(): TokenStatus;
+  setTokenQueueStatus(value: TokenStatus): QueueTokenResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): QueueTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: QueueTokenResponse): QueueTokenResponse.AsObject;
+  static serializeBinaryToWriter(message: QueueTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): QueueTokenResponse;
+  static deserializeBinaryFromReader(message: QueueTokenResponse, reader: jspb.BinaryReader): QueueTokenResponse;
+}
+
+export namespace QueueTokenResponse {
+  export type AsObject = {
+    status?: Status.AsObject,
+    tokenQueueStatus: TokenStatus,
+  }
+}
+
+export class SubscriptionTokenResponse extends jspb.Message {
+  getStatus(): Status | undefined;
+  setStatus(value?: Status): SubscriptionTokenResponse;
+  hasStatus(): boolean;
+  clearStatus(): SubscriptionTokenResponse;
+
+  getTokenDiscoveryStatus(): TokenStatus;
+  setTokenDiscoveryStatus(value: TokenStatus): SubscriptionTokenResponse;
+
+  getToken(): Token | undefined;
+  setToken(value?: Token): SubscriptionTokenResponse;
+  hasToken(): boolean;
+  clearToken(): SubscriptionTokenResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SubscriptionTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SubscriptionTokenResponse): SubscriptionTokenResponse.AsObject;
+  static serializeBinaryToWriter(message: SubscriptionTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SubscriptionTokenResponse;
+  static deserializeBinaryFromReader(message: SubscriptionTokenResponse, reader: jspb.BinaryReader): SubscriptionTokenResponse;
+}
+
+export namespace SubscriptionTokenResponse {
+  export type AsObject = {
+    status?: Status.AsObject,
+    tokenDiscoveryStatus: TokenStatus,
+    token?: Token.AsObject,
+  }
+}
+
 export enum TokenStatus { 
   ANY = 0,
   QUEUED = 1,

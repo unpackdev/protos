@@ -20,6 +20,11 @@ const _ = grpc.SupportPackageIsVersion7
 type TokensClient interface {
 	Filter(ctx context.Context, in *FilterTokensRequest, opts ...grpc.CallOption) (*FilterTokensResponse, error)
 	Get(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
+	// Queue new token to the network. Response will only return acknowledgements, not actual
+	// token.
+	Queue(ctx context.Context, in *QueueTokenRequest, opts ...grpc.CallOption) (*QueueTokenResponse, error)
+	// Queue new token to the network and wait for network response about the token
+	QueueAndWait(ctx context.Context, opts ...grpc.CallOption) (Tokens_QueueAndWaitClient, error)
 	Subscribe(ctx context.Context, in *SubscribeTokensRequest, opts ...grpc.CallOption) (Tokens_SubscribeClient, error)
 }
 
@@ -49,8 +54,48 @@ func (c *tokensClient) Get(ctx context.Context, in *GetTokenRequest, opts ...grp
 	return out, nil
 }
 
+func (c *tokensClient) Queue(ctx context.Context, in *QueueTokenRequest, opts ...grpc.CallOption) (*QueueTokenResponse, error) {
+	out := new(QueueTokenResponse)
+	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Queue", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tokensClient) QueueAndWait(ctx context.Context, opts ...grpc.CallOption) (Tokens_QueueAndWaitClient, error) {
+	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[0], "/txpull.v1.tokens.Tokens/QueueAndWait", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &tokensQueueAndWaitClient{stream}
+	return x, nil
+}
+
+type Tokens_QueueAndWaitClient interface {
+	Send(*QueueTokenRequest) error
+	Recv() (*SubscriptionTokenResponse, error)
+	grpc.ClientStream
+}
+
+type tokensQueueAndWaitClient struct {
+	grpc.ClientStream
+}
+
+func (x *tokensQueueAndWaitClient) Send(m *QueueTokenRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *tokensQueueAndWaitClient) Recv() (*SubscriptionTokenResponse, error) {
+	m := new(SubscriptionTokenResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 func (c *tokensClient) Subscribe(ctx context.Context, in *SubscribeTokensRequest, opts ...grpc.CallOption) (Tokens_SubscribeClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[0], "/txpull.v1.tokens.Tokens/Subscribe", opts...)
+	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[1], "/txpull.v1.tokens.Tokens/Subscribe", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +110,7 @@ func (c *tokensClient) Subscribe(ctx context.Context, in *SubscribeTokensRequest
 }
 
 type Tokens_SubscribeClient interface {
-	Recv() (*Token, error)
+	Recv() (*SubscriptionTokenResponse, error)
 	grpc.ClientStream
 }
 
@@ -73,8 +118,8 @@ type tokensSubscribeClient struct {
 	grpc.ClientStream
 }
 
-func (x *tokensSubscribeClient) Recv() (*Token, error) {
-	m := new(Token)
+func (x *tokensSubscribeClient) Recv() (*SubscriptionTokenResponse, error) {
+	m := new(SubscriptionTokenResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -87,6 +132,11 @@ func (x *tokensSubscribeClient) Recv() (*Token, error) {
 type TokensServer interface {
 	Filter(context.Context, *FilterTokensRequest) (*FilterTokensResponse, error)
 	Get(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
+	// Queue new token to the network. Response will only return acknowledgements, not actual
+	// token.
+	Queue(context.Context, *QueueTokenRequest) (*QueueTokenResponse, error)
+	// Queue new token to the network and wait for network response about the token
+	QueueAndWait(Tokens_QueueAndWaitServer) error
 	Subscribe(*SubscribeTokensRequest, Tokens_SubscribeServer) error
 	mustEmbedUnimplementedTokensServer()
 }
@@ -100,6 +150,12 @@ func (UnimplementedTokensServer) Filter(context.Context, *FilterTokensRequest) (
 }
 func (UnimplementedTokensServer) Get(context.Context, *GetTokenRequest) (*GetTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedTokensServer) Queue(context.Context, *QueueTokenRequest) (*QueueTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Queue not implemented")
+}
+func (UnimplementedTokensServer) QueueAndWait(Tokens_QueueAndWaitServer) error {
+	return status.Errorf(codes.Unimplemented, "method QueueAndWait not implemented")
 }
 func (UnimplementedTokensServer) Subscribe(*SubscribeTokensRequest, Tokens_SubscribeServer) error {
 	return status.Errorf(codes.Unimplemented, "method Subscribe not implemented")
@@ -153,6 +209,50 @@ func _Tokens_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Tokens_Queue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueueTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TokensServer).Queue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/txpull.v1.tokens.Tokens/Queue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TokensServer).Queue(ctx, req.(*QueueTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Tokens_QueueAndWait_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(TokensServer).QueueAndWait(&tokensQueueAndWaitServer{stream})
+}
+
+type Tokens_QueueAndWaitServer interface {
+	Send(*SubscriptionTokenResponse) error
+	Recv() (*QueueTokenRequest, error)
+	grpc.ServerStream
+}
+
+type tokensQueueAndWaitServer struct {
+	grpc.ServerStream
+}
+
+func (x *tokensQueueAndWaitServer) Send(m *SubscriptionTokenResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *tokensQueueAndWaitServer) Recv() (*QueueTokenRequest, error) {
+	m := new(QueueTokenRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 func _Tokens_Subscribe_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(SubscribeTokensRequest)
 	if err := stream.RecvMsg(m); err != nil {
@@ -162,7 +262,7 @@ func _Tokens_Subscribe_Handler(srv interface{}, stream grpc.ServerStream) error 
 }
 
 type Tokens_SubscribeServer interface {
-	Send(*Token) error
+	Send(*SubscriptionTokenResponse) error
 	grpc.ServerStream
 }
 
@@ -170,7 +270,7 @@ type tokensSubscribeServer struct {
 	grpc.ServerStream
 }
 
-func (x *tokensSubscribeServer) Send(m *Token) error {
+func (x *tokensSubscribeServer) Send(m *SubscriptionTokenResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -189,8 +289,18 @@ var Tokens_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "Get",
 			Handler:    _Tokens_Get_Handler,
 		},
+		{
+			MethodName: "Queue",
+			Handler:    _Tokens_Queue_Handler,
+		},
 	},
 	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "QueueAndWait",
+			Handler:       _Tokens_QueueAndWait_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
 		{
 			StreamName:    "Subscribe",
 			Handler:       _Tokens_Subscribe_Handler,

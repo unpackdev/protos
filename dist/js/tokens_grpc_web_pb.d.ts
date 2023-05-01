@@ -22,10 +22,17 @@ export class TokensClient {
                response: tokens_pb.GetTokenResponse) => void
   ): grpcWeb.ClientReadableStream<tokens_pb.GetTokenResponse>;
 
+  queue(
+    request: tokens_pb.QueueTokenRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: tokens_pb.QueueTokenResponse) => void
+  ): grpcWeb.ClientReadableStream<tokens_pb.QueueTokenResponse>;
+
   subscribe(
     request: tokens_pb.SubscribeTokensRequest,
     metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<tokens_pb.Token>;
+  ): grpcWeb.ClientReadableStream<tokens_pb.SubscriptionTokenResponse>;
 
 }
 
@@ -44,10 +51,15 @@ export class TokensPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<tokens_pb.GetTokenResponse>;
 
+  queue(
+    request: tokens_pb.QueueTokenRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<tokens_pb.QueueTokenResponse>;
+
   subscribe(
     request: tokens_pb.SubscribeTokensRequest,
     metadata?: grpcWeb.Metadata
-  ): grpcWeb.ClientReadableStream<tokens_pb.Token>;
+  ): grpcWeb.ClientReadableStream<tokens_pb.SubscriptionTokenResponse>;
 
 }
 

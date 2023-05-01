@@ -214,6 +214,66 @@
           ]
         },
         {
+          "name": "QueueTokenRequest",
+          "longName": "QueueTokenRequest",
+          "fullName": "txpull.v1.tokens.QueueTokenRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueueTokenResponse",
+          "longName": "QueueTokenResponse",
+          "fullName": "txpull.v1.tokens.QueueTokenResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "Status",
+              "fullType": "txpull.v1.tokens.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "token_queue_status",
+              "description": "",
+              "label": "",
+              "type": "TokenStatus",
+              "longType": "TokenStatus",
+              "fullType": "txpull.v1.tokens.TokenStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "Status",
           "longName": "Status",
           "fullName": "txpull.v1.tokens.Status",
@@ -302,6 +362,54 @@
               "type": "TokenStatus",
               "longType": "TokenStatus",
               "fullType": "txpull.v1.tokens.TokenStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SubscriptionTokenResponse",
+          "longName": "SubscriptionTokenResponse",
+          "fullName": "txpull.v1.tokens.SubscriptionTokenResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "Status",
+              "fullType": "txpull.v1.tokens.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "token_discovery_status",
+              "description": "",
+              "label": "",
+              "type": "TokenStatus",
+              "longType": "TokenStatus",
+              "fullType": "txpull.v1.tokens.TokenStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "Token",
+              "description": "",
+              "label": "",
+              "type": "Token",
+              "longType": "Token",
+              "fullType": "txpull.v1.tokens.Token",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -691,11 +799,45 @@
                   "rules": [
                     {
                       "method": "GET",
-                      "pattern": "/v1/tokens/{token_id}"
+                      "pattern": "/v1/tokens/{address}"
                     }
                   ]
                 }
               }
+            },
+            {
+              "name": "Queue",
+              "description": "Queue new token to the network. Response will only return acknowledgements, not actual\ntoken.",
+              "requestType": "QueueTokenRequest",
+              "requestLongType": "QueueTokenRequest",
+              "requestFullType": "txpull.v1.tokens.QueueTokenRequest",
+              "requestStreaming": false,
+              "responseType": "QueueTokenResponse",
+              "responseLongType": "QueueTokenResponse",
+              "responseFullType": "txpull.v1.tokens.QueueTokenResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/tokens/queue"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "QueueAndWait",
+              "description": "Queue new token to the network and wait for network response about the token",
+              "requestType": "QueueTokenRequest",
+              "requestLongType": "QueueTokenRequest",
+              "requestFullType": "txpull.v1.tokens.QueueTokenRequest",
+              "requestStreaming": true,
+              "responseType": "SubscriptionTokenResponse",
+              "responseLongType": "SubscriptionTokenResponse",
+              "responseFullType": "txpull.v1.tokens.SubscriptionTokenResponse",
+              "responseStreaming": true
             },
             {
               "name": "Subscribe",
@@ -704,9 +846,9 @@
               "requestLongType": "SubscribeTokensRequest",
               "requestFullType": "txpull.v1.tokens.SubscribeTokensRequest",
               "requestStreaming": false,
-              "responseType": "Token",
-              "responseLongType": "Token",
-              "responseFullType": "txpull.v1.tokens.Token",
+              "responseType": "SubscriptionTokenResponse",
+              "responseLongType": "SubscriptionTokenResponse",
+              "responseFullType": "txpull.v1.tokens.SubscriptionTokenResponse",
               "responseStreaming": true
             }
           ]

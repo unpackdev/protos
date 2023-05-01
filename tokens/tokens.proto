@@ -102,6 +102,20 @@ message SubscribeTokensRequest {
     TokenStatus status = 2;
 }
 
+message QueueTokenRequest {
+    string address = 1;
+}
+
+message QueueTokenResponse {
+    Status status = 1;
+    TokenStatus token_queue_status = 2;
+}
+
+message SubscriptionTokenResponse {
+    Status status = 1;
+    TokenStatus token_discovery_status = 2;
+    txpull.v1.tokens.Token Token = 3;
+}
 
 service Tokens {
     rpc Filter(FilterTokensRequest) returns (FilterTokensResponse) {
@@ -112,9 +126,20 @@ service Tokens {
 
     rpc Get(GetTokenRequest) returns (GetTokenResponse) {
         option (google.api.http) = {
-            get: "/v1/tokens/{token_id}"
+            get: "/v1/tokens/{address}"
         };
     };
 
-    rpc Subscribe(SubscribeTokensRequest) returns (stream txpull.v1.tokens.Token) {};
+    // Queue new token to the network. Response will only return acknowledgements, not actual
+    // token.
+    rpc Queue(QueueTokenRequest) returns (QueueTokenResponse) {
+        option (google.api.http) = {
+            get: "/v1/tokens/queue"
+        };
+    };
+
+    // Queue new token to the network and wait for network response about the token 
+    rpc QueueAndWait(stream QueueTokenRequest) returns (stream SubscriptionTokenResponse) {};
+
+    rpc Subscribe(SubscribeTokensRequest) returns (stream SubscriptionTokenResponse) {};
 }
