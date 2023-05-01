@@ -1,4 +1,4 @@
-# Protos
+# TxPull Protocol Buffers
 
 `Protos` is a repository that contains the protocol buffer definitions for the entire ecosystem of TxPull. We provide protocol buffer definitions for Go and JavaScript, and generate documentation and protoset files for use by our team and the wider community.
 
