@@ -4,9 +4,84 @@ import * as google_api_annotations_pb from './google/api/annotations_pb';
 import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
 
 
+export class TokenUrls extends jspb.Message {
+  getWebsite(): string;
+  setWebsite(value: string): TokenUrls;
+
+  getTechnicalDocumentation(): string;
+  setTechnicalDocumentation(value: string): TokenUrls;
+
+  getExplorer(): string;
+  setExplorer(value: string): TokenUrls;
+
+  getRepository(): string;
+  setRepository(value: string): TokenUrls;
+
+  getTelegram(): string;
+  setTelegram(value: string): TokenUrls;
+
+  getDiscord(): string;
+  setDiscord(value: string): TokenUrls;
+
+  getMedium(): string;
+  setMedium(value: string): TokenUrls;
+
+  getTwitter(): string;
+  setTwitter(value: string): TokenUrls;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TokenUrls.AsObject;
+  static toObject(includeInstance: boolean, msg: TokenUrls): TokenUrls.AsObject;
+  static serializeBinaryToWriter(message: TokenUrls, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TokenUrls;
+  static deserializeBinaryFromReader(message: TokenUrls, reader: jspb.BinaryReader): TokenUrls;
+}
+
+export namespace TokenUrls {
+  export type AsObject = {
+    website: string,
+    technicalDocumentation: string,
+    explorer: string,
+    repository: string,
+    telegram: string,
+    discord: string,
+    medium: string,
+    twitter: string,
+  }
+}
+
 export class Token extends jspb.Message {
   getId(): number;
   setId(value: number): Token;
+
+  getChainId(): number;
+  setChainId(value: number): Token;
+
+  getAddress(): string;
+  setAddress(value: string): Token;
+
+  getName(): string;
+  setName(value: string): Token;
+
+  getDescription(): string;
+  setDescription(value: string): Token;
+
+  getSymbol(): string;
+  setSymbol(value: string): Token;
+
+  getDecimals(): number;
+  setDecimals(value: number): Token;
+
+  getTotalSupply(): string;
+  setTotalSupply(value: string): Token;
+
+  getTotalSupplyInCirculation(): string;
+  setTotalSupplyInCirculation(value: string): Token;
+
+  getUrls(): TokenUrls | undefined;
+  setUrls(value?: TokenUrls): Token;
+  hasUrls(): boolean;
+  clearUrls(): Token;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Token.AsObject;
@@ -19,6 +94,15 @@ export class Token extends jspb.Message {
 export namespace Token {
   export type AsObject = {
     id: number,
+    chainId: number,
+    address: string,
+    name: string,
+    description: string,
+    symbol: string,
+    decimals: number,
+    totalSupply: string,
+    totalSupplyInCirculation: string,
+    urls?: TokenUrls.AsObject,
   }
 }
 

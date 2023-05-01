@@ -6,11 +6,29 @@ import "google/protobuf/any.proto";
 
 package txpull.v1.tokens;
 
-message Token {
-    int64 id = 1;
+message TokenUrls {
+    string website = 1;
+    string technical_documentation = 2;
+    string explorer = 3;
+    string repository = 4;
+    string telegram = 5;
+    string discord = 6;
+    string medium = 7;
+    string twitter = 8;
 }
 
-
+message Token {
+    int64  id = 1;
+    int64  chain_id = 2;
+    string address = 3;
+    string name = 4;
+    string description = 5;
+    string symbol = 6;
+    int32  decimals = 7;
+    string total_supply = 8;
+    string total_supply_in_circulation = 9;
+    TokenUrls urls = 10;
+}
 
 // The `Status` type defines a logical error model that is suitable for
 // different programming environments, including REST APIs and RPC APIs.
