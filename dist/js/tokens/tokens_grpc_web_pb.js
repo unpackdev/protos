@@ -8,7 +8,7 @@
 // versions:
 // 	protoc-gen-grpc-web v1.4.1
 // 	protoc              v3.12.4
-// source: tokens.proto
+// source: tokens/tokens.proto
 
 
 /* eslint-disable */
@@ -20,7 +20,7 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
-var google_api_annotations_pb = require('./google/api/annotations_pb.js')
+var google_api_annotations_pb = require('../google/api/annotations_pb.js')
 
 var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js')
 

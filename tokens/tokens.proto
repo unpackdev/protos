@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "../../dist/go/tokens;tokens";
+option go_package = "github.com/txpull/protos/dist/go/tokens;tokens";
 
 import "google/api/annotations.proto";
 import "google/protobuf/any.proto";

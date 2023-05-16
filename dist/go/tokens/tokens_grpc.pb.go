@@ -307,5 +307,5 @@ var Tokens_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "tokens.proto",
+	Metadata: "tokens/tokens.proto",
 }

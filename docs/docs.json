@@ -1,7 +1,81 @@
 {
   "files": [
     {
-      "name": "tokens.proto",
+      "name": "common/status.proto",
+      "description": "",
+      "package": "txpull.v1.common",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Status",
+          "longName": "Status",
+          "fullName": "txpull.v1.common.Status",
+          "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "code",
+              "description": "A simple error code that can be easily handled by the client. The\nactual error code is defined by `google.rpc.Code`.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "reason",
+              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "message",
+              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "details",
+              "description": "Additional error information that the client code can use to handle\nthe error, such as retry info or a help link.",
+              "label": "repeated",
+              "type": "Any",
+              "longType": "google.protobuf.Any",
+              "fullType": "google.protobuf.Any",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "tokens/tokens.proto",
       "description": "",
       "package": "txpull.v1.tokens",
       "hasEnums": true,
@@ -850,6 +924,359 @@
               "responseLongType": "SubscriptionTokenResponse",
               "responseFullType": "txpull.v1.tokens.SubscriptionTokenResponse",
               "responseStreaming": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chains/chains.proto",
+      "description": "",
+      "package": "txpull.v1.chains",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "ChainStatus",
+          "longName": "ChainStatus",
+          "fullName": "txpull.v1.chains.ChainStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "CS_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "CS_OFFLINE",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "CS_ONLINE",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "CS_DISABLED",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "CS_WIP",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Chain",
+          "longName": "Chain",
+          "fullName": "txpull.v1.chains.Chain",
+          "description": "The Token protocol buffer message defines a standardized data format for representing \ntoken objects. It includes fields such as the token identifier, blockchain identifier, \ntoken name, description, symbol, decimal places, total supply, creation information, \nowner information, and security information. The message can be used in a variety of contexts\nto provide a standardized way of representing token objects.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "latest_block",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "latest_indexed_block",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "total_indexed_blocks",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "average_index_time_ms",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "ChainStatus",
+              "longType": "ChainStatus",
+              "fullType": "txpull.v1.chains.ChainStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "creation_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterChainRequest",
+          "longName": "FilterChainRequest",
+          "fullName": "txpull.v1.chains.FilterChainRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterChainResponse",
+          "longName": "FilterChainResponse",
+          "fullName": "txpull.v1.chains.FilterChainResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chains",
+              "description": "",
+              "label": "repeated",
+              "type": "Chain",
+              "longType": "Chain",
+              "fullType": "txpull.v1.chains.Chain",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetChainRequest",
+          "longName": "GetChainRequest",
+          "fullName": "txpull.v1.chains.GetChainRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetChainResponse",
+          "longName": "GetChainResponse",
+          "fullName": "txpull.v1.chains.GetChainResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain",
+              "description": "",
+              "label": "",
+              "type": "Chain",
+              "longType": "Chain",
+              "fullType": "txpull.v1.chains.Chain",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Chains",
+          "longName": "Chains",
+          "fullName": "txpull.v1.chains.Chains",
+          "description": "",
+          "methods": [
+            {
+              "name": "Filter",
+              "description": "",
+              "requestType": "FilterChainRequest",
+              "requestLongType": "FilterChainRequest",
+              "requestFullType": "txpull.v1.chains.FilterChainRequest",
+              "requestStreaming": false,
+              "responseType": "FilterChainResponse",
+              "responseLongType": "FilterChainResponse",
+              "responseFullType": "txpull.v1.chains.FilterChainResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/chains"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "GetChainRequest",
+              "requestLongType": "GetChainRequest",
+              "requestFullType": "txpull.v1.chains.GetChainRequest",
+              "requestStreaming": false,
+              "responseType": "GetChainResponse",
+              "responseLongType": "GetChainResponse",
+              "responseFullType": "txpull.v1.chains.GetChainResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/chains/{id}"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
