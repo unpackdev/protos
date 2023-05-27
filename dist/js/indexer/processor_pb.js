@@ -96,7 +96,7 @@ proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.toObject = functio
 proto.txpull.v1.indexer.processor.QueueBlockRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     chainId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    blockId: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    blockNumber: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -139,7 +139,7 @@ proto.txpull.v1.indexer.processor.QueueBlockRequest.deserializeBinaryFromReader 
       break;
     case 2:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setBlockId(value);
+      msg.setBlockNumber(value);
       break;
     default:
       reader.skipField();
@@ -177,7 +177,7 @@ proto.txpull.v1.indexer.processor.QueueBlockRequest.serializeBinaryToWriter = fu
       f
     );
   }
-  f = message.getBlockId();
+  f = message.getBlockNumber();
   if (f !== 0) {
     writer.writeUint64(
       2,
@@ -206,10 +206,10 @@ proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.setChainId = funct
 
 
 /**
- * optional uint64 block_id = 2;
+ * optional uint64 block_number = 2;
  * @return {number}
  */
-proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.getBlockId = function() {
+proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.getBlockNumber = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
@@ -218,7 +218,7 @@ proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.getBlockId = funct
  * @param {number} value
  * @return {!proto.txpull.v1.indexer.processor.QueueBlockRequest} returns this
  */
-proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.setBlockId = function(value) {
+proto.txpull.v1.indexer.processor.QueueBlockRequest.prototype.setBlockNumber = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 

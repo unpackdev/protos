@@ -9,8 +9,8 @@ export class QueueBlockRequest extends jspb.Message {
   getChainId(): number;
   setChainId(value: number): QueueBlockRequest;
 
-  getBlockId(): number;
-  setBlockId(value: number): QueueBlockRequest;
+  getBlockNumber(): number;
+  setBlockNumber(value: number): QueueBlockRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): QueueBlockRequest.AsObject;
@@ -23,7 +23,7 @@ export class QueueBlockRequest extends jspb.Message {
 export namespace QueueBlockRequest {
   export type AsObject = {
     chainId: number,
-    blockId: number,
+    blockNumber: number,
   }
 }
 

@@ -18,7 +18,7 @@ enum ProcessorQueueStatus {
 
 message QueueBlockRequest {
     uint64 chain_id = 1;
-    uint64 block_id = 2;
+    uint64 block_number = 2;
 }
 
 message QueueBlockResponse {

@@ -2397,6 +2397,442 @@
       ]
     },
     {
+      "name": "addresses/addresses.proto",
+      "description": "",
+      "package": "txpull.v1.addresses",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "AddressStatus",
+          "longName": "AddressStatus",
+          "fullName": "txpull.v1.addresses.AddressStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "AS_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "AS_QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "AS_PROCESSING",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "AS_PROCESSED",
+              "number": "3",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "MaliciousAddressReasons",
+          "longName": "MaliciousAddressReasons",
+          "fullName": "txpull.v1.addresses.MaliciousAddressReasons",
+          "description": "",
+          "values": [
+            {
+              "name": "MAR_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "MAR_CONTRACT_DEPLOYMENT_FRAUD",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "MAR_TRANSFER_TO_MALICIOUS_ADDR",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "MAR_TRANSFER_FROM_MALICIOUS_ADDR",
+              "number": "3",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Address",
+          "longName": "Address",
+          "fullName": "txpull.v1.addresses.Address",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "first_transaction",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "malicious",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "malicious_reason",
+              "description": "",
+              "label": "",
+              "type": "MaliciousAddressReasons",
+              "longType": "MaliciousAddressReasons",
+              "fullType": "txpull.v1.addresses.MaliciousAddressReasons",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "malicious_reason_details",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "AddressStatus",
+              "longType": "AddressStatus",
+              "fullType": "txpull.v1.addresses.AddressStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "available_since_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "queued_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "processed_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterAddressRequest",
+          "longName": "FilterAddressRequest",
+          "fullName": "txpull.v1.addresses.FilterAddressRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "malicious",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "malicious_reason",
+              "description": "",
+              "label": "",
+              "type": "MaliciousAddressReasons",
+              "longType": "MaliciousAddressReasons",
+              "fullType": "txpull.v1.addresses.MaliciousAddressReasons",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterAddressResponse",
+          "longName": "FilterAddressResponse",
+          "fullName": "txpull.v1.addresses.FilterAddressResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "addresses",
+              "description": "",
+              "label": "repeated",
+              "type": "Address",
+              "longType": "Address",
+              "fullType": "txpull.v1.addresses.Address",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetAddressRequest",
+          "longName": "GetAddressRequest",
+          "fullName": "txpull.v1.addresses.GetAddressRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetAddressResponse",
+          "longName": "GetAddressResponse",
+          "fullName": "txpull.v1.addresses.GetAddressResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "Address",
+              "longType": "Address",
+              "fullType": "txpull.v1.addresses.Address",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Addresses",
+          "longName": "Addresses",
+          "fullName": "txpull.v1.addresses.Addresses",
+          "description": "",
+          "methods": [
+            {
+              "name": "Filter",
+              "description": "",
+              "requestType": "FilterAddressRequest",
+              "requestLongType": "FilterAddressRequest",
+              "requestFullType": "txpull.v1.addresses.FilterAddressRequest",
+              "requestStreaming": false,
+              "responseType": "FilterAddressResponse",
+              "responseLongType": "FilterAddressResponse",
+              "responseFullType": "txpull.v1.addresses.FilterAddressResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/addresses"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "GetAddressRequest",
+              "requestLongType": "GetAddressRequest",
+              "requestFullType": "txpull.v1.addresses.GetAddressRequest",
+              "requestStreaming": false,
+              "responseType": "GetAddressResponse",
+              "responseLongType": "GetAddressResponse",
+              "responseFullType": "txpull.v1.addresses.GetAddressResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/addresses/{id}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "indexer/processor.proto",
       "description": "",
       "package": "txpull.v1.indexer.processor",
@@ -2464,7 +2900,7 @@
               "defaultValue": ""
             },
             {
-              "name": "block_id",
+              "name": "block_number",
               "description": "",
               "label": "",
               "type": "uint64",
