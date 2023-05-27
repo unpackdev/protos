@@ -2395,6 +2395,135 @@
           ]
         }
       ]
+    },
+    {
+      "name": "indexer/processor.proto",
+      "description": "",
+      "package": "txpull.v1.indexer.processor",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "ProcessorQueueStatus",
+          "longName": "ProcessorQueueStatus",
+          "fullName": "txpull.v1.indexer.processor.ProcessorQueueStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "PQS_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "PQS_QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "PQS_PROCESSING",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "PQS_PROCESSED",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "PQS_FAILED",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "QueueBlockRequest",
+          "longName": "QueueBlockRequest",
+          "fullName": "txpull.v1.indexer.processor.QueueBlockRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "block_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueueBlockResponse",
+          "longName": "QueueBlockResponse",
+          "fullName": "txpull.v1.indexer.processor.QueueBlockResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Processor",
+          "longName": "Processor",
+          "fullName": "txpull.v1.indexer.processor.Processor",
+          "description": "",
+          "methods": [
+            {
+              "name": "QueueBlock",
+              "description": "",
+              "requestType": "QueueBlockRequest",
+              "requestLongType": "QueueBlockRequest",
+              "requestFullType": "txpull.v1.indexer.processor.QueueBlockRequest",
+              "requestStreaming": false,
+              "responseType": "QueueBlockResponse",
+              "responseLongType": "QueueBlockResponse",
+              "responseFullType": "txpull.v1.indexer.processor.QueueBlockResponse",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "scalarValueTypes": [

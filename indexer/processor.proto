@@ -1,0 +1,30 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/indexer;indexer";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "common/status.proto";
+
+package txpull.v1.indexer.processor;
+
+
+enum ProcessorQueueStatus {
+    PQS_NONE = 0;
+    PQS_QUEUED = 1;
+    PQS_PROCESSING = 2;
+    PQS_PROCESSED = 3;
+    PQS_FAILED = 4;
+}
+
+message QueueBlockRequest {
+    uint64 chain_id = 1;
+    uint64 block_id = 2;
+}
+
+message QueueBlockResponse {
+    txpull.v1.common.Status status = 1;
+}
+
+service Processor {
+    rpc QueueBlock(QueueBlockRequest) returns (QueueBlockResponse) {};
+}
