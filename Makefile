@@ -5,12 +5,6 @@ PROTO_PROTOSETS_OUT := $(PWD)/dist/protosets
 PROTO_PROTOSETS_OUT_FILENAME := txpull.protoset
 PROTO_DOCS_OUT := $(PWD)/docs
 
-
-# Define the directories that contain your protobuf definitions
-PROTO_DIRS := $(PWD)/tokens \
-	$(PWD)/common \
-	$(PWD)/chains
-
 # Define the path to the protoc binary
 PROTOC := protoc
 
@@ -18,13 +12,17 @@ PROTOC := protoc
 PROTOC_PLUGIN_GO := --go-grpc_out=paths=source_relative:$(PROTO_GO_OUT) --go_out=paths=source_relative:$(PROTO_GO_OUT)
 PROTOC_PLUGIN_JS := --js_out=import_style=commonjs,binary:$(PROTO_JS_OUT) --grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(PROTO_JS_OUT)
 
-
 # Define color codes for output
 GREEN := "\033[32m"
 RESET := "\033[0m"
 
 # Define the input files for your protobuf definitions
-PROTO_FILES := $(wildcard $(PWD)/common/*.proto $(PWD)/tokens/*.proto $(PWD)/chains/*.proto)
+PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
+	 $(PWD)/tokens/*.proto \
+	 $(PWD)/chains/*.proto \
+	 $(PWD)/blocks/*.proto \
+	 $(PWD)/transactions/*.proto \
+)
 
 # Define the commands to generate protobuf files for Golang and JavaScript
 build: build-go build-js

@@ -1,0 +1,46 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/transactions;transactions";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "common/status.proto";
+
+package txpull.v1.transaction;
+
+message Transaction {
+    uint64  id = 1;
+    uint64  chain_id = 2;
+}
+
+message FilterTransactionRequest {
+    txpull.v1.common.Status status = 5;
+}
+
+message FilterTransactionResponse {
+    txpull.v1.common.Status status = 1;
+    repeated txpull.v1.transaction.Transaction transaction = 2;
+}
+
+message GetTransactionRequest {
+    uint64 transaction_id = 1;
+    uint64 id = 2;
+}
+
+message GetTransactionResponse {
+    txpull.v1.common.Status status = 1;
+    txpull.v1.transaction.Transaction transaction = 2;
+}
+
+service Transactions {
+    rpc Filter(FilterTransactionRequest) returns (FilterTransactionResponse) {
+        option (google.api.http) = {
+            get: "/v1/transaction"
+        };
+    };
+
+    rpc Get(GetTransactionRequest) returns (GetTransactionResponse) {
+        option (google.api.http) = {
+            get: "/v1/transaction/{id}"
+        };
+    };
+}

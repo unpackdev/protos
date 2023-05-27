@@ -163,12 +163,13 @@ proto.txpull.v1.chains.Chain.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     chainId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    address: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    latestBlock: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    latestIndexedBlock: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    totalIndexedBlocks: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    averageIndexTimeMs: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    address: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    latestBlock: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    latestIndexedBlock: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    totalIndexedBlocks: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    averageIndexTimeMs: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    status: jspb.Message.getFieldWithDefault(msg, 9, 0),
     creationTimestamp: (f = msg.getCreationTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -216,29 +217,33 @@ proto.txpull.v1.chains.Chain.deserializeBinaryFromReader = function(msg, reader)
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAddress(value);
+      msg.setName(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setLatestBlock(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddress(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setLatestIndexedBlock(value);
+      msg.setLatestBlock(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setTotalIndexedBlocks(value);
+      msg.setLatestIndexedBlock(value);
       break;
     case 7:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setAverageIndexTimeMs(value);
+      msg.setTotalIndexedBlocks(value);
       break;
     case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAverageIndexTimeMs(value);
+      break;
+    case 9:
       var value = /** @type {!proto.txpull.v1.chains.ChainStatus} */ (reader.readEnum());
       msg.setStatus(value);
       break;
-    case 9:
+    case 10:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setCreationTimestamp(value);
@@ -286,52 +291,59 @@ proto.txpull.v1.chains.Chain.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
-  f = message.getAddress();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getLatestBlock();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getAddress();
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
   }
-  f = message.getLatestIndexedBlock();
+  f = message.getLatestBlock();
   if (f !== 0) {
     writer.writeUint64(
       5,
       f
     );
   }
-  f = message.getTotalIndexedBlocks();
+  f = message.getLatestIndexedBlock();
   if (f !== 0) {
     writer.writeUint64(
       6,
       f
     );
   }
-  f = message.getAverageIndexTimeMs();
+  f = message.getTotalIndexedBlocks();
   if (f !== 0) {
     writer.writeUint64(
       7,
       f
     );
   }
+  f = message.getAverageIndexTimeMs();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
   f = message.getStatus();
   if (f !== 0.0) {
     writer.writeEnum(
-      8,
+      9,
       f
     );
   }
   f = message.getCreationTimestamp();
   if (f != null) {
     writer.writeMessage(
-      9,
+      10,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -376,10 +388,10 @@ proto.txpull.v1.chains.Chain.prototype.setChainId = function(value) {
 
 
 /**
- * optional string address = 3;
+ * optional string name = 3;
  * @return {string}
  */
-proto.txpull.v1.chains.Chain.prototype.getAddress = function() {
+proto.txpull.v1.chains.Chain.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -388,34 +400,34 @@ proto.txpull.v1.chains.Chain.prototype.getAddress = function() {
  * @param {string} value
  * @return {!proto.txpull.v1.chains.Chain} returns this
  */
-proto.txpull.v1.chains.Chain.prototype.setAddress = function(value) {
+proto.txpull.v1.chains.Chain.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional uint64 latest_block = 4;
+ * optional string address = 4;
+ * @return {string}
+ */
+proto.txpull.v1.chains.Chain.prototype.getAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.chains.Chain} returns this
+ */
+proto.txpull.v1.chains.Chain.prototype.setAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 latest_block = 5;
  * @return {number}
  */
 proto.txpull.v1.chains.Chain.prototype.getLatestBlock = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.txpull.v1.chains.Chain} returns this
- */
-proto.txpull.v1.chains.Chain.prototype.setLatestBlock = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
-};
-
-
-/**
- * optional uint64 latest_indexed_block = 5;
- * @return {number}
- */
-proto.txpull.v1.chains.Chain.prototype.getLatestIndexedBlock = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
@@ -424,16 +436,16 @@ proto.txpull.v1.chains.Chain.prototype.getLatestIndexedBlock = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.chains.Chain} returns this
  */
-proto.txpull.v1.chains.Chain.prototype.setLatestIndexedBlock = function(value) {
+proto.txpull.v1.chains.Chain.prototype.setLatestBlock = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional uint64 total_indexed_blocks = 6;
+ * optional uint64 latest_indexed_block = 6;
  * @return {number}
  */
-proto.txpull.v1.chains.Chain.prototype.getTotalIndexedBlocks = function() {
+proto.txpull.v1.chains.Chain.prototype.getLatestIndexedBlock = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
@@ -442,16 +454,16 @@ proto.txpull.v1.chains.Chain.prototype.getTotalIndexedBlocks = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.chains.Chain} returns this
  */
-proto.txpull.v1.chains.Chain.prototype.setTotalIndexedBlocks = function(value) {
+proto.txpull.v1.chains.Chain.prototype.setLatestIndexedBlock = function(value) {
   return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
 /**
- * optional uint64 average_index_time_ms = 7;
+ * optional uint64 total_indexed_blocks = 7;
  * @return {number}
  */
-proto.txpull.v1.chains.Chain.prototype.getAverageIndexTimeMs = function() {
+proto.txpull.v1.chains.Chain.prototype.getTotalIndexedBlocks = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
@@ -460,17 +472,35 @@ proto.txpull.v1.chains.Chain.prototype.getAverageIndexTimeMs = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.chains.Chain} returns this
  */
-proto.txpull.v1.chains.Chain.prototype.setAverageIndexTimeMs = function(value) {
+proto.txpull.v1.chains.Chain.prototype.setTotalIndexedBlocks = function(value) {
   return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
 /**
- * optional ChainStatus status = 8;
+ * optional uint64 average_index_time_ms = 8;
+ * @return {number}
+ */
+proto.txpull.v1.chains.Chain.prototype.getAverageIndexTimeMs = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.chains.Chain} returns this
+ */
+proto.txpull.v1.chains.Chain.prototype.setAverageIndexTimeMs = function(value) {
+  return jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional ChainStatus status = 9;
  * @return {!proto.txpull.v1.chains.ChainStatus}
  */
 proto.txpull.v1.chains.Chain.prototype.getStatus = function() {
-  return /** @type {!proto.txpull.v1.chains.ChainStatus} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+  return /** @type {!proto.txpull.v1.chains.ChainStatus} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
@@ -479,17 +509,17 @@ proto.txpull.v1.chains.Chain.prototype.getStatus = function() {
  * @return {!proto.txpull.v1.chains.Chain} returns this
  */
 proto.txpull.v1.chains.Chain.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3EnumField(this, 8, value);
+  return jspb.Message.setProto3EnumField(this, 9, value);
 };
 
 
 /**
- * optional google.protobuf.Timestamp creation_timestamp = 9;
+ * optional google.protobuf.Timestamp creation_timestamp = 10;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.txpull.v1.chains.Chain.prototype.getCreationTimestamp = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 10));
 };
 
 
@@ -498,7 +528,7 @@ proto.txpull.v1.chains.Chain.prototype.getCreationTimestamp = function() {
  * @return {!proto.txpull.v1.chains.Chain} returns this
 */
 proto.txpull.v1.chains.Chain.prototype.setCreationTimestamp = function(value) {
-  return jspb.Message.setWrapperField(this, 9, value);
+  return jspb.Message.setWrapperField(this, 10, value);
 };
 
 
@@ -516,7 +546,7 @@ proto.txpull.v1.chains.Chain.prototype.clearCreationTimestamp = function() {
  * @return {boolean}
  */
 proto.txpull.v1.chains.Chain.prototype.hasCreationTimestamp = function() {
-  return jspb.Message.getField(this, 9) != null;
+  return jspb.Message.getField(this, 10) != null;
 };
 
 

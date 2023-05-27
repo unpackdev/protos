@@ -1009,6 +1009,18 @@
               "defaultValue": ""
             },
             {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "address",
               "description": "",
               "label": "",
@@ -1273,6 +1285,786 @@
                     {
                       "method": "GET",
                       "pattern": "/v1/chains/{id}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blocks/blocks.proto",
+      "description": "",
+      "package": "txpull.v1.blocks",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [
+        {
+          "name": "BlockStatus",
+          "longName": "BlockStatus",
+          "fullName": "txpull.v1.blocks.BlockStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "BS_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "BS_QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "BS_PROCESSING",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "BS_PROCESSED",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "BS_FAILED",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Block",
+          "longName": "Block",
+          "fullName": "txpull.v1.blocks.Block",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "number",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parent_hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "uncle_hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "mix_hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "nonce",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "logs_bloom",
+              "description": "",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_root",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "transactions_root",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "receipts_root",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "coinbase",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "difficulty",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "size",
+              "description": "",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "extra_data",
+              "description": "",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_limit",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_used",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "base_fee",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "total_transactions_count",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "processed_transactions_count",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "BlockStatus",
+              "longType": "BlockStatus",
+              "fullType": "txpull.v1.blocks.BlockStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "queued_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "processed_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterBlockRequest",
+          "longName": "FilterBlockRequest",
+          "fullName": "txpull.v1.blocks.FilterBlockRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterBlockResponse",
+          "longName": "FilterBlockResponse",
+          "fullName": "txpull.v1.blocks.FilterBlockResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "blocks",
+              "description": "",
+              "label": "repeated",
+              "type": "Block",
+              "longType": "Block",
+              "fullType": "txpull.v1.blocks.Block",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetBlockRequest",
+          "longName": "GetBlockRequest",
+          "fullName": "txpull.v1.blocks.GetBlockRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "block_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetBlockResponse",
+          "longName": "GetBlockResponse",
+          "fullName": "txpull.v1.blocks.GetBlockResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "block",
+              "description": "",
+              "label": "",
+              "type": "Block",
+              "longType": "Block",
+              "fullType": "txpull.v1.blocks.Block",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Blocks",
+          "longName": "Blocks",
+          "fullName": "txpull.v1.blocks.Blocks",
+          "description": "",
+          "methods": [
+            {
+              "name": "Filter",
+              "description": "",
+              "requestType": "FilterBlockRequest",
+              "requestLongType": "FilterBlockRequest",
+              "requestFullType": "txpull.v1.blocks.FilterBlockRequest",
+              "requestStreaming": false,
+              "responseType": "FilterBlockResponse",
+              "responseLongType": "FilterBlockResponse",
+              "responseFullType": "txpull.v1.blocks.FilterBlockResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/blocks"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "GetBlockRequest",
+              "requestLongType": "GetBlockRequest",
+              "requestFullType": "txpull.v1.blocks.GetBlockRequest",
+              "requestStreaming": false,
+              "responseType": "GetBlockResponse",
+              "responseLongType": "GetBlockResponse",
+              "responseFullType": "txpull.v1.blocks.GetBlockResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/blocks/{id}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transactions/transactions.proto",
+      "description": "",
+      "package": "txpull.v1.transaction",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "FilterTransactionRequest",
+          "longName": "FilterTransactionRequest",
+          "fullName": "txpull.v1.transaction.FilterTransactionRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "FilterTransactionResponse",
+          "longName": "FilterTransactionResponse",
+          "fullName": "txpull.v1.transaction.FilterTransactionResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "transaction",
+              "description": "",
+              "label": "repeated",
+              "type": "Transaction",
+              "longType": "Transaction",
+              "fullType": "txpull.v1.transaction.Transaction",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetTransactionRequest",
+          "longName": "GetTransactionRequest",
+          "fullName": "txpull.v1.transaction.GetTransactionRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "transaction_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "GetTransactionResponse",
+          "longName": "GetTransactionResponse",
+          "fullName": "txpull.v1.transaction.GetTransactionResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "transaction",
+              "description": "",
+              "label": "",
+              "type": "Transaction",
+              "longType": "Transaction",
+              "fullType": "txpull.v1.transaction.Transaction",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Transaction",
+          "longName": "Transaction",
+          "fullName": "txpull.v1.transaction.Transaction",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Transactions",
+          "longName": "Transactions",
+          "fullName": "txpull.v1.transaction.Transactions",
+          "description": "",
+          "methods": [
+            {
+              "name": "Filter",
+              "description": "",
+              "requestType": "FilterTransactionRequest",
+              "requestLongType": "FilterTransactionRequest",
+              "requestFullType": "txpull.v1.transaction.FilterTransactionRequest",
+              "requestStreaming": false,
+              "responseType": "FilterTransactionResponse",
+              "responseLongType": "FilterTransactionResponse",
+              "responseFullType": "txpull.v1.transaction.FilterTransactionResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/transaction"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "GetTransactionRequest",
+              "requestLongType": "GetTransactionRequest",
+              "requestFullType": "txpull.v1.transaction.GetTransactionRequest",
+              "requestStreaming": false,
+              "responseType": "GetTransactionResponse",
+              "responseLongType": "GetTransactionResponse",
+              "responseFullType": "txpull.v1.transaction.GetTransactionResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/transaction/{id}"
                     }
                   ]
                 }

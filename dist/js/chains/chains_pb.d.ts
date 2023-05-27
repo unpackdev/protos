@@ -12,6 +12,9 @@ export class Chain extends jspb.Message {
   getChainId(): number;
   setChainId(value: number): Chain;
 
+  getName(): string;
+  setName(value: string): Chain;
+
   getAddress(): string;
   setAddress(value: string): Chain;
 
@@ -47,6 +50,7 @@ export namespace Chain {
   export type AsObject = {
     id: number,
     chainId: number,
+    name: string,
     address: string,
     latestBlock: number,
     latestIndexedBlock: number,
