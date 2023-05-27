@@ -12,6 +12,82 @@ export class Transaction extends jspb.Message {
   getChainId(): number;
   setChainId(value: number): Transaction;
 
+  getBlockId(): number;
+  setBlockId(value: number): Transaction;
+
+  getTransactionIndex(): number;
+  setTransactionIndex(value: number): Transaction;
+
+  getHash(): string;
+  setHash(value: string): Transaction;
+
+  getNonce(): number;
+  setNonce(value: number): Transaction;
+
+  getFromAddress(): string;
+  setFromAddress(value: string): Transaction;
+
+  getToAddress(): string;
+  setToAddress(value: string): Transaction;
+
+  getMethod(): string;
+  setMethod(value: string): Transaction;
+
+  getMethodDetails(): string;
+  setMethodDetails(value: string): Transaction;
+
+  getData(): string;
+  setData(value: string): Transaction;
+
+  getValue(): string;
+  setValue(value: string): Transaction;
+
+  getGas(): number;
+  setGas(value: number): Transaction;
+
+  getGasUsed(): number;
+  setGasUsed(value: number): Transaction;
+
+  getCumulativeGasUsed(): number;
+  setCumulativeGasUsed(value: number): Transaction;
+
+  getGasFeeCap(): string;
+  setGasFeeCap(value: string): Transaction;
+
+  getGasTipCap(): string;
+  setGasTipCap(value: string): Transaction;
+
+  getGasPrice(): string;
+  setGasPrice(value: string): Transaction;
+
+  getPrice(): string;
+  setPrice(value: string): Transaction;
+
+  getType(): number;
+  setType(value: number): Transaction;
+
+  getSize(): number;
+  setSize(value: number): Transaction;
+
+  getProtected(): boolean;
+  setProtected(value: boolean): Transaction;
+
+  getLogsCount(): number;
+  setLogsCount(value: number): Transaction;
+
+  getStatus(): TransactionStatus;
+  setStatus(value: TransactionStatus): Transaction;
+
+  getQueuedTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setQueuedTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): Transaction;
+  hasQueuedTimestamp(): boolean;
+  clearQueuedTimestamp(): Transaction;
+
+  getProcessedTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
+  setProcessedTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): Transaction;
+  hasProcessedTimestamp(): boolean;
+  clearProcessedTimestamp(): Transaction;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Transaction.AsObject;
   static toObject(includeInstance: boolean, msg: Transaction): Transaction.AsObject;
@@ -24,6 +100,30 @@ export namespace Transaction {
   export type AsObject = {
     id: number,
     chainId: number,
+    blockId: number,
+    transactionIndex: number,
+    hash: string,
+    nonce: number,
+    fromAddress: string,
+    toAddress: string,
+    method: string,
+    methodDetails: string,
+    data: string,
+    value: string,
+    gas: number,
+    gasUsed: number,
+    cumulativeGasUsed: number,
+    gasFeeCap: string,
+    gasTipCap: string,
+    gasPrice: string,
+    price: string,
+    type: number,
+    size: number,
+    pb_protected: boolean,
+    logsCount: number,
+    status: TransactionStatus,
+    queuedTimestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+    processedTimestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
   }
 }
 
@@ -121,3 +221,10 @@ export namespace GetTransactionResponse {
   }
 }
 
+export enum TransactionStatus { 
+  TS_NONE = 0,
+  TS_QUEUED = 1,
+  TS_PROCESSING = 2,
+  TS_PROCESSED = 3,
+  TS_FAILED = 4,
+}

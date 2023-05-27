@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for txpull.v1.transaction
+ * @fileoverview gRPC-Web generated client stub for txpull.v1.transactions
  * @enhanceable
  * @public
  */
@@ -28,7 +28,7 @@ var common_status_pb = require('../common/status_pb.js')
 const proto = {};
 proto.txpull = {};
 proto.txpull.v1 = {};
-proto.txpull.v1.transaction = require('./transactions_pb.js');
+proto.txpull.v1.transactions = require('./transactions_pb.js');
 
 /**
  * @param {string} hostname
@@ -38,7 +38,7 @@ proto.txpull.v1.transaction = require('./transactions_pb.js');
  * @struct
  * @final
  */
-proto.txpull.v1.transaction.TransactionsClient =
+proto.txpull.v1.transactions.TransactionsClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -64,7 +64,7 @@ proto.txpull.v1.transaction.TransactionsClient =
  * @struct
  * @final
  */
-proto.txpull.v1.transaction.TransactionsPromiseClient =
+proto.txpull.v1.transactions.TransactionsPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -85,39 +85,39 @@ proto.txpull.v1.transaction.TransactionsPromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.txpull.v1.transaction.FilterTransactionRequest,
- *   !proto.txpull.v1.transaction.FilterTransactionResponse>}
+ *   !proto.txpull.v1.transactions.FilterTransactionRequest,
+ *   !proto.txpull.v1.transactions.FilterTransactionResponse>}
  */
 const methodDescriptor_Transactions_Filter = new grpc.web.MethodDescriptor(
-  '/txpull.v1.transaction.Transactions/Filter',
+  '/txpull.v1.transactions.Transactions/Filter',
   grpc.web.MethodType.UNARY,
-  proto.txpull.v1.transaction.FilterTransactionRequest,
-  proto.txpull.v1.transaction.FilterTransactionResponse,
+  proto.txpull.v1.transactions.FilterTransactionRequest,
+  proto.txpull.v1.transactions.FilterTransactionResponse,
   /**
-   * @param {!proto.txpull.v1.transaction.FilterTransactionRequest} request
+   * @param {!proto.txpull.v1.transactions.FilterTransactionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.txpull.v1.transaction.FilterTransactionResponse.deserializeBinary
+  proto.txpull.v1.transactions.FilterTransactionResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.txpull.v1.transaction.FilterTransactionRequest} request The
+ * @param {!proto.txpull.v1.transactions.FilterTransactionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.transaction.FilterTransactionResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.transactions.FilterTransactionResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.transaction.FilterTransactionResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.transactions.FilterTransactionResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.txpull.v1.transaction.TransactionsClient.prototype.filter =
+proto.txpull.v1.transactions.TransactionsClient.prototype.filter =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/txpull.v1.transaction.Transactions/Filter',
+      '/txpull.v1.transactions.Transactions/Filter',
       request,
       metadata || {},
       methodDescriptor_Transactions_Filter,
@@ -126,17 +126,17 @@ proto.txpull.v1.transaction.TransactionsClient.prototype.filter =
 
 
 /**
- * @param {!proto.txpull.v1.transaction.FilterTransactionRequest} request The
+ * @param {!proto.txpull.v1.transactions.FilterTransactionRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.txpull.v1.transaction.FilterTransactionResponse>}
+ * @return {!Promise<!proto.txpull.v1.transactions.FilterTransactionResponse>}
  *     Promise that resolves to the response
  */
-proto.txpull.v1.transaction.TransactionsPromiseClient.prototype.filter =
+proto.txpull.v1.transactions.TransactionsPromiseClient.prototype.filter =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/txpull.v1.transaction.Transactions/Filter',
+      '/txpull.v1.transactions.Transactions/Filter',
       request,
       metadata || {},
       methodDescriptor_Transactions_Filter);
@@ -146,39 +146,39 @@ proto.txpull.v1.transaction.TransactionsPromiseClient.prototype.filter =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.txpull.v1.transaction.GetTransactionRequest,
- *   !proto.txpull.v1.transaction.GetTransactionResponse>}
+ *   !proto.txpull.v1.transactions.GetTransactionRequest,
+ *   !proto.txpull.v1.transactions.GetTransactionResponse>}
  */
 const methodDescriptor_Transactions_Get = new grpc.web.MethodDescriptor(
-  '/txpull.v1.transaction.Transactions/Get',
+  '/txpull.v1.transactions.Transactions/Get',
   grpc.web.MethodType.UNARY,
-  proto.txpull.v1.transaction.GetTransactionRequest,
-  proto.txpull.v1.transaction.GetTransactionResponse,
+  proto.txpull.v1.transactions.GetTransactionRequest,
+  proto.txpull.v1.transactions.GetTransactionResponse,
   /**
-   * @param {!proto.txpull.v1.transaction.GetTransactionRequest} request
+   * @param {!proto.txpull.v1.transactions.GetTransactionRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.txpull.v1.transaction.GetTransactionResponse.deserializeBinary
+  proto.txpull.v1.transactions.GetTransactionResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.txpull.v1.transaction.GetTransactionRequest} request The
+ * @param {!proto.txpull.v1.transactions.GetTransactionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.transaction.GetTransactionResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.transactions.GetTransactionResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.transaction.GetTransactionResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.transactions.GetTransactionResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.txpull.v1.transaction.TransactionsClient.prototype.get =
+proto.txpull.v1.transactions.TransactionsClient.prototype.get =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/txpull.v1.transaction.Transactions/Get',
+      '/txpull.v1.transactions.Transactions/Get',
       request,
       metadata || {},
       methodDescriptor_Transactions_Get,
@@ -187,22 +187,22 @@ proto.txpull.v1.transaction.TransactionsClient.prototype.get =
 
 
 /**
- * @param {!proto.txpull.v1.transaction.GetTransactionRequest} request The
+ * @param {!proto.txpull.v1.transactions.GetTransactionRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.txpull.v1.transaction.GetTransactionResponse>}
+ * @return {!Promise<!proto.txpull.v1.transactions.GetTransactionResponse>}
  *     Promise that resolves to the response
  */
-proto.txpull.v1.transaction.TransactionsPromiseClient.prototype.get =
+proto.txpull.v1.transactions.TransactionsPromiseClient.prototype.get =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/txpull.v1.transaction.Transactions/Get',
+      '/txpull.v1.transactions.Transactions/Get',
       request,
       metadata || {},
       methodDescriptor_Transactions_Get);
 };
 
 
-module.exports = proto.txpull.v1.transaction;
+module.exports = proto.txpull.v1.transactions;
 

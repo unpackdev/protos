@@ -18,7 +18,7 @@ enum BlockStatus {
 message Block {
     uint64  id = 1;
     uint64  chain_id = 2;
-	uint64  number = 3;
+    uint64  number = 3;
     string  hash = 4;
     string  parent_hash = 5;
     string  uncle_hash = 6;
@@ -44,7 +44,7 @@ message Block {
 }
 
 message FilterBlockRequest {
-    txpull.v1.common.Status status = 5;
+    txpull.v1.common.Status status = 1;
 }
 
 message FilterBlockResponse {

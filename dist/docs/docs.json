@@ -1842,18 +1842,52 @@
     {
       "name": "transactions/transactions.proto",
       "description": "",
-      "package": "txpull.v1.transaction",
-      "hasEnums": false,
+      "package": "txpull.v1.transactions",
+      "hasEnums": true,
       "hasExtensions": false,
       "hasMessages": true,
       "hasServices": true,
-      "enums": [],
+      "enums": [
+        {
+          "name": "TransactionStatus",
+          "longName": "TransactionStatus",
+          "fullName": "txpull.v1.transactions.TransactionStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "TS_NONE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "TS_QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "TS_PROCESSING",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "TS_PROCESSED",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "TS_FAILED",
+              "number": "4",
+              "description": ""
+            }
+          ]
+        }
+      ],
       "extensions": [],
       "messages": [
         {
           "name": "FilterTransactionRequest",
           "longName": "FilterTransactionRequest",
-          "fullName": "txpull.v1.transaction.FilterTransactionRequest",
+          "fullName": "txpull.v1.transactions.FilterTransactionRequest",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -1877,7 +1911,7 @@
         {
           "name": "FilterTransactionResponse",
           "longName": "FilterTransactionResponse",
-          "fullName": "txpull.v1.transaction.FilterTransactionResponse",
+          "fullName": "txpull.v1.transactions.FilterTransactionResponse",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -1902,7 +1936,7 @@
               "label": "repeated",
               "type": "Transaction",
               "longType": "Transaction",
-              "fullType": "txpull.v1.transaction.Transaction",
+              "fullType": "txpull.v1.transactions.Transaction",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -1913,7 +1947,7 @@
         {
           "name": "GetTransactionRequest",
           "longName": "GetTransactionRequest",
-          "fullName": "txpull.v1.transaction.GetTransactionRequest",
+          "fullName": "txpull.v1.transactions.GetTransactionRequest",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -1949,7 +1983,7 @@
         {
           "name": "GetTransactionResponse",
           "longName": "GetTransactionResponse",
-          "fullName": "txpull.v1.transaction.GetTransactionResponse",
+          "fullName": "txpull.v1.transactions.GetTransactionResponse",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -1974,7 +2008,7 @@
               "label": "",
               "type": "Transaction",
               "longType": "Transaction",
-              "fullType": "txpull.v1.transaction.Transaction",
+              "fullType": "txpull.v1.transactions.Transaction",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -1985,7 +2019,7 @@
         {
           "name": "Transaction",
           "longName": "Transaction",
-          "fullName": "txpull.v1.transaction.Transaction",
+          "fullName": "txpull.v1.transactions.Transaction",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -2015,6 +2049,294 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "block_id",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "transaction_index",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "nonce",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "from_address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "to_address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "method",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "method_details",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "data",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_used",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "cumulative_gas_used",
+              "description": "",
+              "label": "",
+              "type": "uint64",
+              "longType": "uint64",
+              "fullType": "uint64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_fee_cap",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_tip_cap",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "gas_price",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "price",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "size",
+              "description": "",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "protected",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "logs_count",
+              "description": "",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "TransactionStatus",
+              "longType": "TransactionStatus",
+              "fullType": "txpull.v1.transactions.TransactionStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "queued_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "processed_timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         }
@@ -2023,7 +2345,7 @@
         {
           "name": "Transactions",
           "longName": "Transactions",
-          "fullName": "txpull.v1.transaction.Transactions",
+          "fullName": "txpull.v1.transactions.Transactions",
           "description": "",
           "methods": [
             {
@@ -2031,11 +2353,11 @@
               "description": "",
               "requestType": "FilterTransactionRequest",
               "requestLongType": "FilterTransactionRequest",
-              "requestFullType": "txpull.v1.transaction.FilterTransactionRequest",
+              "requestFullType": "txpull.v1.transactions.FilterTransactionRequest",
               "requestStreaming": false,
               "responseType": "FilterTransactionResponse",
               "responseLongType": "FilterTransactionResponse",
-              "responseFullType": "txpull.v1.transaction.FilterTransactionResponse",
+              "responseFullType": "txpull.v1.transactions.FilterTransactionResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {
@@ -2053,11 +2375,11 @@
               "description": "",
               "requestType": "GetTransactionRequest",
               "requestLongType": "GetTransactionRequest",
-              "requestFullType": "txpull.v1.transaction.GetTransactionRequest",
+              "requestFullType": "txpull.v1.transactions.GetTransactionRequest",
               "requestStreaming": false,
               "responseType": "GetTransactionResponse",
               "responseLongType": "GetTransactionResponse",
-              "responseFullType": "txpull.v1.transaction.GetTransactionResponse",
+              "responseFullType": "txpull.v1.transactions.GetTransactionResponse",
               "responseStreaming": false,
               "options": {
                 "google.api.http": {

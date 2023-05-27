@@ -1159,7 +1159,7 @@ proto.txpull.v1.blocks.FilterBlockRequest.deserializeBinaryFromReader = function
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 5:
+    case 1:
       var value = new common_status_pb.Status;
       reader.readMessage(value,common_status_pb.Status.deserializeBinaryFromReader);
       msg.setStatus(value);
@@ -1196,7 +1196,7 @@ proto.txpull.v1.blocks.FilterBlockRequest.serializeBinaryToWriter = function(mes
   f = message.getStatus();
   if (f != null) {
     writer.writeMessage(
-      5,
+      1,
       f,
       common_status_pb.Status.serializeBinaryToWriter
     );
@@ -1205,12 +1205,12 @@ proto.txpull.v1.blocks.FilterBlockRequest.serializeBinaryToWriter = function(mes
 
 
 /**
- * optional txpull.v1.common.Status status = 5;
+ * optional txpull.v1.common.Status status = 1;
  * @return {?proto.txpull.v1.common.Status}
  */
 proto.txpull.v1.blocks.FilterBlockRequest.prototype.getStatus = function() {
   return /** @type{?proto.txpull.v1.common.Status} */ (
-    jspb.Message.getWrapperField(this, common_status_pb.Status, 5));
+    jspb.Message.getWrapperField(this, common_status_pb.Status, 1));
 };
 
 
@@ -1219,7 +1219,7 @@ proto.txpull.v1.blocks.FilterBlockRequest.prototype.getStatus = function() {
  * @return {!proto.txpull.v1.blocks.FilterBlockRequest} returns this
 */
 proto.txpull.v1.blocks.FilterBlockRequest.prototype.setStatus = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
@@ -1237,7 +1237,7 @@ proto.txpull.v1.blocks.FilterBlockRequest.prototype.clearStatus = function() {
  * @return {boolean}
  */
 proto.txpull.v1.blocks.FilterBlockRequest.prototype.hasStatus = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
