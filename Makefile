@@ -23,6 +23,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/blocks/*.proto \
 	 $(PWD)/transactions/*.proto \
 	 $(PWD)/addresses/*.proto \
+	 $(PWD)/holders/*.proto \
 	 $(PWD)/indexer/*.proto \
 )
 
