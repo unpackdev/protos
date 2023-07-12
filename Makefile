@@ -25,6 +25,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/addresses/*.proto \
 	 $(PWD)/holders/*.proto \
 	 $(PWD)/indexer/*.proto \
+	 $(PWD)/unpack/*.proto \
 )
 
 # Define the commands to generate protobuf files for Golang and JavaScript

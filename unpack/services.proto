@@ -1,0 +1,44 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/unpack;unpack_pb";
+
+import "unpack/types.proto";
+
+package txpull.v1.unpack;
+
+
+service AuthorizationService {}
+
+
+service ObserverService {
+    rpc GetNetworks(NetworkRequest) returns (NetworkResponse) {};
+    rpc GetAST(AstRequest) returns (AstResponse) {};
+    rpc GetOpCode(OpCodeRequest) returns (OpCodeResponse) {};
+    rpc GetMethod(MethodRequest) returns (MethodResponse) {};
+    rpc GetMetadata(MetadataRequest) returns (MetadataResponse) {};
+    rpc GetAnalysis(AnalysisRequest) returns (AnalysisResponse) {};
+    rpc GetContract(ContractRequest) returns (ContractResponse) {};
+    rpc GetVerificationDetails(VerificationDetailsRequest) returns (VerificationDetailsResponse) {};
+    rpc GetABI(AbiRequest) returns (AbiResponse) {};
+    rpc GetSourceCode(SourceCodeRequest) returns (SourceCodeResponse) {};
+    rpc GetBytecode(BytecodeRequest) returns (BytecodeResponse) {};
+    rpc GetMethodsBySignature(MethodsBySignatureRequest) returns (MethodsBySignatureResponse) {};
+
+    rpc GetBlock(BlockRequest) returns (BlockResponse) {};
+    rpc GetTransaction(TransactionRequest) returns (TransactionResponse) {};
+    rpc GetReceipt(ReceiptRequest) returns (ReceiptResponse) {};
+    rpc GetLog(LogRequest) returns (LogResponse) {};
+    rpc GetTrace(TraceRequest) returns (TraceResponse) {};
+
+    // Queue RPC methods
+
+    rpc QueueContract(QueueContractRequest) returns (QueueContractResponse) {};
+    rpc QueueMethod(QueueMethodRequest) returns (QueueMethodResponse) {};
+    rpc QueueBytecode(QueueBytecodeRequest) returns (QueueBytecodeResponse) {};
+ 
+    // Statistics RPC methods
+
+    rpc GetStatistics(StatisticsRequest) returns (StatisticsResponse) {};
+    rpc GetQueueStatus(QueueStatusRequest) returns (QueueStatusResponse) {};
+    rpc GetQueueStatistics(QueueStatisticsRequest) returns (QueueStatisticsResponse) {};
+    rpc GetHealth(HealthRequest) returns (HealthResponse) {};
+}

@@ -1,0 +1,162 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/unpack;unpack_pb";
+import "unpack/types.proto";
+package txpull.v1.unpack;
+
+enum ReceiptStatus {
+    RS_UNKNOWN = 0;
+    RS_SUCCESS = 1;
+    RS_FAILURE = 2;
+}
+
+enum VerificationStatus {
+    VS_UNKNOWN = 0;
+    VS_VERIFIED = 1;
+    VS_PARTIAL = 2;
+    VS_UNVERIFIED = 3;
+}
+
+enum ContractType {
+    CT_UNKNOWN = 0;
+    CT_ERC20 = 1;
+    CT_ERC721 = 2;
+    CT_ERC1155 = 3;
+    CT_BEP20 = 4;
+    CT_BEP721 = 5;
+    CT_BEP1155 = 6;
+}
+
+enum ContractLanguage {
+    CL_UNKNOWN = 0;
+    CL_SOLIDITY = 1;
+    CL_VYPER = 2;
+    CL_OTHER = 3;
+}
+
+message Metadata {
+    string              license = 1;
+    string              compiler_version_raw = 2;
+    string              compiler_version = 3;
+    string              evm_version = 4;
+    ContractLanguage    language = 5;
+    ContractType        type = 6;
+    bool                cbor_encoded = 7;
+    bytes               cbor_raw_metadata = 8;
+    int32               cbor_length = 9;
+    string              ipfs = 10;
+    string              bzzr0 = 11;
+    string              bzzr1 = 12;
+    repeated string     remappings = 13;
+    bool                is_proxy = 14;
+    uint32              proxy_confidence = 15;
+}
+
+message YulDetails {
+    bool  stack_allocation = 1;
+    int32 optimizer_steps = 2;
+}
+
+message OptimizerDetails {
+    bool       peephole = 1;
+    bool       inliner = 2;
+    bool       jumpdest_remover = 3;
+    bool       order_literals = 4;
+    bool       deduplicate = 5;
+    bool       cse = 6;
+    bool       constant_optimizer = 7;
+    bool       yul = 8;
+    YulDetails yul_details = 9;
+}
+
+message Optimizer {
+    bool enabled = 1;
+    int32 runs = 2;
+    OptimizerDetails details = 3;
+}
+
+message SourceDetails {
+    repeated string      comments = 1;
+    repeated string      pragmas  = 2;
+    repeated string      imports  = 3;
+    repeated string      inherits = 4;
+    bool                 is_interface = 5;
+    bool                 is_library = 6;
+    bool                 is_abstract = 7;
+    bool                 is_contract = 8;
+    repeated SyntaxError syntax_errors = 9;
+}
+
+message Source {
+    string        uuid = 1;
+    string        name = 2;
+    string        path = 3;
+    string        license = 4;
+    string        source = 5;
+    bool          entrypoint = 6;
+    string        abi = 7;
+    string        ast = 8;
+    SourceDetails details = 13;
+}
+
+message Company {
+    string  name = 1;
+    string  symbol = 2;
+    string  country = 3;
+}
+
+message Social {
+    string twitter = 1;
+    string github  = 2;
+    string reddit  = 3;
+    string slack   = 4;
+    string discord = 5;
+    string telegram = 6;
+    string website = 7;
+    string email = 8;
+    string medium = 9;
+    string linkedin = 10;
+    string facebook = 11;
+    string youtube = 12;
+    string instagram = 13;
+    string whatsapp = 14;
+    string viber = 15;
+    string snapchat = 16;
+    string tiktok = 17;
+    string pinterest = 18;
+    string tumblr = 19;
+    string twitch = 20;
+    string cohost = 21;
+    repeated Company companies = 22;
+}
+
+message SyntaxError {
+    int32   line = 1;
+    int32   column = 2;
+    string  message = 3;
+    string  severity = 4;
+}
+
+message Contract {
+    string               uuid = 1;
+    int64                network_id = 2;
+    string               address = 3;
+    string               name = 4;
+    int64                block_number = 5;
+    string               block_hash = 6;
+    string               transaction_hash = 7;
+    ReceiptStatus        receipt_status = 8;
+    Metadata             metadata = 9;
+    Optimizer            optimizer = 10;
+    bytes                bytecode = 11;
+    int64                bytecode_size = 12;
+    bytes                creation_bytecode = 13;
+    int64                creation_bytecode_size = 14;
+    uint64               gas_used = 15;
+    uint64               effective_gas_price = 16;
+    VerificationStatus   verification_status = 17;
+    string               abi = 18;
+    string               source_entry_point = 19;
+    map<string, string>  compilation_targets = 20;
+    repeated Source      sources = 21;
+    Social               social = 22;
+}
