@@ -136,6 +136,19 @@ message SyntaxError {
     string  severity = 4;
 }
 
+message ConstructorArgument {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+    bool   indexed = 4;
+}
+
+message Constructor {
+    string abi = 1;
+    string signature_raw = 2;
+    repeated ConstructorArgument arguments = 3;
+}
+
 message Contract {
     string               uuid = 1;
     int64                network_id = 2;
@@ -157,6 +170,7 @@ message Contract {
     string               abi = 18;
     string               source_entry_point = 19;
     map<string, string>  compilation_targets = 20;
-    repeated Source      sources = 21;
-    Social               social = 22;
+    Constructor          constructor = 21;
+    repeated Source      sources = 22;
+    Social               social = 23;
 }

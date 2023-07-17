@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+package txpull.v1.ast;
+
+message Src {
+    int64 line = 1;
+    int64 column = 2;
+    int64 start = 3;
+    int64 end = 4;
+    int64 length = 5;
+    int64 parent_index = 6;
+}

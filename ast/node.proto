@@ -1,0 +1,31 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/parameters.proto";
+import "ast/body.proto";
+package txpull.v1.ast;
+
+message Node {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    txpull.v1.ast.Src src = 4;
+    bool abstract = 5;
+    txpull.v1.ast.NodeType kind = 6;
+    bool fully_implemented = 7;
+    bool implemented = 8;
+    repeated int64 linearized_base_contracts = 9;
+    repeated string literals = 10;
+    repeated txpull.v1.ast.Node nodes = 11;
+    string visibility = 12;
+    string state_mutability = 13;
+    bool virtual = 14;
+    txpull.v1.ast.ParametersList parameters = 15;
+    txpull.v1.ast.ParametersList return_parameters = 16;
+    txpull.v1.ast.Body body = 17;
+}
+
+message RootNode {
+    repeated txpull.v1.ast.Node nodes = 1;
+}

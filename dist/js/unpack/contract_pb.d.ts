@@ -455,6 +455,64 @@ export namespace SyntaxError {
   }
 }
 
+export class ConstructorArgument extends jspb.Message {
+  getName(): string;
+  setName(value: string): ConstructorArgument;
+
+  getType(): string;
+  setType(value: string): ConstructorArgument;
+
+  getValue(): string;
+  setValue(value: string): ConstructorArgument;
+
+  getIndexed(): boolean;
+  setIndexed(value: boolean): ConstructorArgument;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ConstructorArgument.AsObject;
+  static toObject(includeInstance: boolean, msg: ConstructorArgument): ConstructorArgument.AsObject;
+  static serializeBinaryToWriter(message: ConstructorArgument, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ConstructorArgument;
+  static deserializeBinaryFromReader(message: ConstructorArgument, reader: jspb.BinaryReader): ConstructorArgument;
+}
+
+export namespace ConstructorArgument {
+  export type AsObject = {
+    name: string,
+    type: string,
+    value: string,
+    indexed: boolean,
+  }
+}
+
+export class Constructor extends jspb.Message {
+  getAbi(): string;
+  setAbi(value: string): Constructor;
+
+  getSignatureRaw(): string;
+  setSignatureRaw(value: string): Constructor;
+
+  getArgumentsList(): Array<ConstructorArgument>;
+  setArgumentsList(value: Array<ConstructorArgument>): Constructor;
+  clearArgumentsList(): Constructor;
+  addArguments(value?: ConstructorArgument, index?: number): ConstructorArgument;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Constructor.AsObject;
+  static toObject(includeInstance: boolean, msg: Constructor): Constructor.AsObject;
+  static serializeBinaryToWriter(message: Constructor, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Constructor;
+  static deserializeBinaryFromReader(message: Constructor, reader: jspb.BinaryReader): Constructor;
+}
+
+export namespace Constructor {
+  export type AsObject = {
+    abi: string,
+    signatureRaw: string,
+    argumentsList: Array<ConstructorArgument.AsObject>,
+  }
+}
+
 export class Contract extends jspb.Message {
   getUuid(): string;
   setUuid(value: string): Contract;
@@ -524,6 +582,11 @@ export class Contract extends jspb.Message {
   getCompilationTargetsMap(): jspb.Map<string, string>;
   clearCompilationTargetsMap(): Contract;
 
+  getConstructor(): Constructor | undefined;
+  setConstructor(value?: Constructor): Contract;
+  hasConstructor(): boolean;
+  clearConstructor(): Contract;
+
   getSourcesList(): Array<Source>;
   setSourcesList(value: Array<Source>): Contract;
   clearSourcesList(): Contract;
@@ -564,6 +627,7 @@ export namespace Contract {
     abi: string,
     sourceEntryPoint: string,
     compilationTargetsMap: Array<[string, string]>,
+    constructor?: Constructor.AsObject,
     sourcesList: Array<Source.AsObject>,
     social?: Social.AsObject,
   }

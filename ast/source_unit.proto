@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/node.proto";
+import "ast/comment.proto";
+package txpull.v1.ast;
+
+
+message RootSourceUnit {
+    repeated txpull.v1.ast.SourceUnit source_units = 1;
+}
+
+message SourceUnit {
+    int64 id = 1;
+    string license = 2;
+    string absolute_path = 3;
+    repeated txpull.v1.ast.ExportedSymbols exported_symbols = 4;
+    txpull.v1.ast.NodeType node_type = 5;
+    txpull.v1.ast.RootNode nodes = 6;
+    txpull.v1.ast.Src src = 7;
+    repeated txpull.v1.ast.Comment comments = 8;
+}
+
+message ExportedSymbols {
+    int64 id = 1;
+    string name = 2;
+}
