@@ -44,6 +44,7 @@ message Node {
     bool is_state_variable = 27;
     txpull.v1.ast.TypeDescriptions type_descriptions = 28;
     txpull.v1.ast.StorageLocation storage_location = 29;
+    bool anonymous = 30;
 }
 
 message RootNode {

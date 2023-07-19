@@ -24,6 +24,7 @@ message Parameter {
     txpull.v1.ast.TypeDescriptions type_descriptions = 10;
     txpull.v1.ast.TypeName type_name = 11;
     txpull.v1.ast.Visibility visibility = 12;
+    bool indexed = 13;
 }
 
 message FunctionReturnParameters {

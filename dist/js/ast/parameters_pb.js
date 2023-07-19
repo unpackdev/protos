@@ -440,7 +440,8 @@ proto.txpull.v1.ast.Parameter.toObject = function(includeInstance, msg) {
     storageLocation: jspb.Message.getFieldWithDefault(msg, 9, ""),
     typeDescriptions: (f = msg.getTypeDescriptions()) && proto.txpull.v1.ast.TypeDescriptions.toObject(includeInstance, f),
     typeName: (f = msg.getTypeName()) && proto.txpull.v1.ast.TypeName.toObject(includeInstance, f),
-    visibility: jspb.Message.getFieldWithDefault(msg, 12, 0)
+    visibility: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    indexed: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
   };
 
   if (includeInstance) {
@@ -527,6 +528,10 @@ proto.txpull.v1.ast.Parameter.deserializeBinaryFromReader = function(msg, reader
     case 12:
       var value = /** @type {!proto.txpull.v1.ast.Visibility} */ (reader.readEnum());
       msg.setVisibility(value);
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIndexed(value);
       break;
     default:
       reader.skipField();
@@ -641,6 +646,13 @@ proto.txpull.v1.ast.Parameter.serializeBinaryToWriter = function(message, writer
   if (f !== 0.0) {
     writer.writeEnum(
       12,
+      f
+    );
+  }
+  f = message.getIndexed();
+  if (f) {
+    writer.writeBool(
+      13,
       f
     );
   }
@@ -917,6 +929,24 @@ proto.txpull.v1.ast.Parameter.prototype.getVisibility = function() {
  */
 proto.txpull.v1.ast.Parameter.prototype.setVisibility = function(value) {
   return jspb.Message.setProto3EnumField(this, 12, value);
+};
+
+
+/**
+ * optional bool indexed = 13;
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.Parameter.prototype.getIndexed = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.txpull.v1.ast.Parameter} returns this
+ */
+proto.txpull.v1.ast.Parameter.prototype.setIndexed = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 

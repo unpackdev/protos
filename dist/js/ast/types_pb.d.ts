@@ -60,6 +60,7 @@ export enum NodeType {
   FUNCTION_TYPE_NAME = 54,
   UNKNOWN_TYPE_NAME = 55,
   EXPRESSION_CONTEXT = 56,
+  EVENT_DEFINITION = 57,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

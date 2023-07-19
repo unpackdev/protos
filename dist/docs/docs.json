@@ -6489,6 +6489,18 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "anonymous",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         },
@@ -6727,6 +6739,18 @@
               "type": "Visibility",
               "longType": "Visibility",
               "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "indexed",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -8214,6 +8238,11 @@
             {
               "name": "EXPRESSION_CONTEXT",
               "number": "56",
+              "description": ""
+            },
+            {
+              "name": "EVENT_DEFINITION",
+              "number": "57",
               "description": ""
             }
           ]

@@ -81,6 +81,9 @@ export class Parameter extends jspb.Message {
   getVisibility(): ast_types_pb.Visibility;
   setVisibility(value: ast_types_pb.Visibility): Parameter;
 
+  getIndexed(): boolean;
+  setIndexed(value: boolean): Parameter;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Parameter.AsObject;
   static toObject(includeInstance: boolean, msg: Parameter): Parameter.AsObject;
@@ -103,6 +106,7 @@ export namespace Parameter {
     typeDescriptions?: TypeDescriptions.AsObject,
     typeName?: TypeName.AsObject,
     visibility: ast_types_pb.Visibility,
+    indexed: boolean,
   }
 }
 

@@ -152,6 +152,9 @@ export class Node extends jspb.Message {
   getStorageLocation(): ast_types_pb.StorageLocation;
   setStorageLocation(value: ast_types_pb.StorageLocation): Node;
 
+  getAnonymous(): boolean;
+  setAnonymous(value: boolean): Node;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Node.AsObject;
   static toObject(includeInstance: boolean, msg: Node): Node.AsObject;
@@ -191,6 +194,7 @@ export namespace Node {
     isStateVariable: boolean,
     typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
     storageLocation: ast_types_pb.StorageLocation,
+    anonymous: boolean,
   }
 }
 

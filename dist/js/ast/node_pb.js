@@ -425,7 +425,8 @@ proto.txpull.v1.ast.Node.toObject = function(includeInstance, msg) {
     isConstant: jspb.Message.getBooleanFieldWithDefault(msg, 26, false),
     isStateVariable: jspb.Message.getBooleanFieldWithDefault(msg, 27, false),
     typeDescriptions: (f = msg.getTypeDescriptions()) && ast_parameters_pb.TypeDescriptions.toObject(includeInstance, f),
-    storageLocation: jspb.Message.getFieldWithDefault(msg, 29, 0)
+    storageLocation: jspb.Message.getFieldWithDefault(msg, 29, 0),
+    anonymous: jspb.Message.getBooleanFieldWithDefault(msg, 30, false)
   };
 
   if (includeInstance) {
@@ -585,6 +586,10 @@ proto.txpull.v1.ast.Node.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = /** @type {!proto.txpull.v1.ast.StorageLocation} */ (reader.readEnum());
       msg.setStorageLocation(value);
+      break;
+    case 30:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAnonymous(value);
       break;
     default:
       reader.skipField();
@@ -823,6 +828,13 @@ proto.txpull.v1.ast.Node.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       29,
+      f
+    );
+  }
+  f = message.getAnonymous();
+  if (f) {
+    writer.writeBool(
+      30,
       f
     );
   }
@@ -1558,6 +1570,24 @@ proto.txpull.v1.ast.Node.prototype.getStorageLocation = function() {
  */
 proto.txpull.v1.ast.Node.prototype.setStorageLocation = function(value) {
   return jspb.Message.setProto3EnumField(this, 29, value);
+};
+
+
+/**
+ * optional bool anonymous = 30;
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.Node.prototype.getAnonymous = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 30, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.txpull.v1.ast.Node} returns this
+ */
+proto.txpull.v1.ast.Node.prototype.setAnonymous = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 30, value);
 };
 
 
