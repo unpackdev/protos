@@ -36,18 +36,18 @@ export class SourceUnit extends jspb.Message {
   getAbsolutePath(): string;
   setAbsolutePath(value: string): SourceUnit;
 
-  getExportedSymbolsList(): Array<ExportedSymbols>;
-  setExportedSymbolsList(value: Array<ExportedSymbols>): SourceUnit;
+  getExportedSymbolsList(): Array<ExportedSymbol>;
+  setExportedSymbolsList(value: Array<ExportedSymbol>): SourceUnit;
   clearExportedSymbolsList(): SourceUnit;
-  addExportedSymbols(value?: ExportedSymbols, index?: number): ExportedSymbols;
+  addExportedSymbols(value?: ExportedSymbol, index?: number): ExportedSymbol;
 
   getNodeType(): ast_types_pb.NodeType;
   setNodeType(value: ast_types_pb.NodeType): SourceUnit;
 
-  getNodes(): ast_node_pb.RootNode | undefined;
-  setNodes(value?: ast_node_pb.RootNode): SourceUnit;
-  hasNodes(): boolean;
-  clearNodes(): SourceUnit;
+  getRoot(): ast_node_pb.RootNode | undefined;
+  setRoot(value?: ast_node_pb.RootNode): SourceUnit;
+  hasRoot(): boolean;
+  clearRoot(): SourceUnit;
 
   getSrc(): ast_src_pb.Src | undefined;
   setSrc(value?: ast_src_pb.Src): SourceUnit;
@@ -72,33 +72,37 @@ export namespace SourceUnit {
     id: number,
     license: string,
     absolutePath: string,
-    exportedSymbolsList: Array<ExportedSymbols.AsObject>,
+    exportedSymbolsList: Array<ExportedSymbol.AsObject>,
     nodeType: ast_types_pb.NodeType,
-    nodes?: ast_node_pb.RootNode.AsObject,
+    root?: ast_node_pb.RootNode.AsObject,
     src?: ast_src_pb.Src.AsObject,
     commentsList: Array<ast_comment_pb.Comment.AsObject>,
   }
 }
 
-export class ExportedSymbols extends jspb.Message {
+export class ExportedSymbol extends jspb.Message {
   getId(): number;
-  setId(value: number): ExportedSymbols;
+  setId(value: number): ExportedSymbol;
 
   getName(): string;
-  setName(value: string): ExportedSymbols;
+  setName(value: string): ExportedSymbol;
+
+  getAbsolutePath(): string;
+  setAbsolutePath(value: string): ExportedSymbol;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ExportedSymbols.AsObject;
-  static toObject(includeInstance: boolean, msg: ExportedSymbols): ExportedSymbols.AsObject;
-  static serializeBinaryToWriter(message: ExportedSymbols, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ExportedSymbols;
-  static deserializeBinaryFromReader(message: ExportedSymbols, reader: jspb.BinaryReader): ExportedSymbols;
+  toObject(includeInstance?: boolean): ExportedSymbol.AsObject;
+  static toObject(includeInstance: boolean, msg: ExportedSymbol): ExportedSymbol.AsObject;
+  static serializeBinaryToWriter(message: ExportedSymbol, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExportedSymbol;
+  static deserializeBinaryFromReader(message: ExportedSymbol, reader: jspb.BinaryReader): ExportedSymbol;
 }
 
-export namespace ExportedSymbols {
+export namespace ExportedSymbol {
   export type AsObject = {
     id: number,
     name: string,
+    absolutePath: string,
   }
 }
 

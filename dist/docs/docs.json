@@ -6061,6 +6061,78 @@
       "extensions": [],
       "messages": [
         {
+          "name": "LibraryName",
+          "longName": "LibraryName",
+          "fullName": "txpull.v1.ast.LibraryName",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "Node",
           "longName": "Node",
           "fullName": "txpull.v1.ast.Node",
@@ -6206,9 +6278,9 @@
               "name": "visibility",
               "description": "",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6218,9 +6290,9 @@
               "name": "state_mutability",
               "description": "",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6269,6 +6341,150 @@
               "type": "Body",
               "longType": "Body",
               "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "absolute_path",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "file",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "scope",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "source_unit",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "symbol_aliases",
+              "description": "",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "unit_alias",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "library_name",
+              "description": "",
+              "label": "",
+              "type": "LibraryName",
+              "longType": "LibraryName",
+              "fullType": "txpull.v1.ast.LibraryName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_state_variable",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_descriptions",
+              "description": "",
+              "label": "",
+              "type": "TypeDescriptions",
+              "longType": "TypeDescriptions",
+              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "storage_location",
+              "description": "",
+              "label": "",
+              "type": "StorageLocation",
+              "longType": "StorageLocation",
+              "fullType": "txpull.v1.ast.StorageLocation",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6701,9 +6917,9 @@
       "extensions": [],
       "messages": [
         {
-          "name": "ExportedSymbols",
-          "longName": "ExportedSymbols",
-          "fullName": "txpull.v1.ast.ExportedSymbols",
+          "name": "ExportedSymbol",
+          "longName": "ExportedSymbol",
+          "fullName": "txpull.v1.ast.ExportedSymbol",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6724,6 +6940,18 @@
             },
             {
               "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "absolute_path",
               "description": "",
               "label": "",
               "type": "string",
@@ -6810,9 +7038,9 @@
               "name": "exported_symbols",
               "description": "",
               "label": "repeated",
-              "type": "ExportedSymbols",
-              "longType": "ExportedSymbols",
-              "fullType": "txpull.v1.ast.ExportedSymbols",
+              "type": "ExportedSymbol",
+              "longType": "ExportedSymbol",
+              "fullType": "txpull.v1.ast.ExportedSymbol",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6831,7 +7059,7 @@
               "defaultValue": ""
             },
             {
-              "name": "nodes",
+              "name": "root",
               "description": "",
               "label": "",
               "type": "RootNode",
@@ -6981,198 +7209,6 @@
       "extensions": [],
       "messages": [
         {
-          "name": "Argument",
-          "longName": "Argument",
-          "fullName": "txpull.v1.ast.Argument",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "common_type",
-              "description": "",
-              "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "is_constant",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "is_l_value",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "is_pure",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "l_value_requested",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "left_expression",
-              "description": "",
-              "label": "",
-              "type": "Expression",
-              "longType": "Expression",
-              "fullType": "txpull.v1.ast.Expression",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "operator",
-              "description": "",
-              "label": "",
-              "type": "Operator",
-              "longType": "Operator",
-              "fullType": "txpull.v1.ast.Operator",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "right_expression",
-              "description": "",
-              "label": "",
-              "type": "Expression",
-              "longType": "Expression",
-              "fullType": "txpull.v1.ast.Expression",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_descriptions",
-              "description": "",
-              "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "value",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "hex_value",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
           "name": "Declaration",
           "longName": "Declaration",
           "fullName": "txpull.v1.ast.Declaration",
@@ -7183,7 +7219,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "constant",
+              "name": "is_constant",
               "description": "",
               "label": "",
               "type": "bool",
@@ -7267,7 +7303,7 @@
               "defaultValue": ""
             },
             {
-              "name": "state_variable",
+              "name": "is_state_variable",
               "description": "",
               "label": "",
               "type": "bool",
@@ -7423,12 +7459,168 @@
               "defaultValue": ""
             },
             {
+              "name": "common_type",
+              "description": "",
+              "label": "",
+              "type": "TypeDescriptions",
+              "longType": "TypeDescriptions",
+              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "argument_types",
               "description": "",
               "label": "repeated",
               "type": "TypeDescriptions",
               "longType": "TypeDescriptions",
               "fullType": "txpull.v1.ast.TypeDescriptions",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "",
+              "label": "",
+              "type": "Operator",
+              "longType": "Operator",
+              "fullType": "txpull.v1.ast.Operator",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "left_expression",
+              "description": "",
+              "label": "",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "right_expression",
+              "description": "",
+              "label": "",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "hex_value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_l_value",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "l_value_requested",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "member_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7534,9 +7726,9 @@
               "name": "initial_value",
               "description": "",
               "label": "",
-              "type": "Argument",
-              "longType": "Argument",
-              "fullType": "txpull.v1.ast.Argument",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7642,9 +7834,45 @@
               "name": "arguments",
               "description": "",
               "label": "repeated",
-              "type": "Argument",
-              "longType": "Argument",
-              "fullType": "txpull.v1.ast.Argument",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "",
+              "label": "",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "true_body",
+              "description": "",
+              "label": "",
+              "type": "Statement",
+              "longType": "Statement",
+              "fullType": "txpull.v1.ast.Statement",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "statements",
+              "description": "",
+              "label": "repeated",
+              "type": "Statement",
+              "longType": "Statement",
+              "fullType": "txpull.v1.ast.Statement",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7671,13 +7899,28 @@
           "description": "",
           "values": [
             {
-              "name": "MUTABLE",
+              "name": "M_DEFAULT",
               "number": "0",
               "description": ""
             },
             {
-              "name": "IMMUTABLE",
+              "name": "MUTABLE",
               "number": "1",
+              "description": ""
+            },
+            {
+              "name": "IMMUTABLE",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "PAYABLE",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "NONPAYABLE",
+              "number": "4",
               "description": ""
             }
           ]
@@ -7689,238 +7932,288 @@
           "description": "",
           "values": [
             {
-              "name": "SOURCE_UNIT",
+              "name": "NT_DEFAULT",
               "number": "0",
               "description": ""
             },
             {
-              "name": "CONTRACT",
+              "name": "SOURCE_UNIT",
               "number": "1",
               "description": ""
             },
             {
-              "name": "MODIFIER",
+              "name": "CONTRACT",
               "number": "2",
               "description": ""
             },
             {
-              "name": "VARIABLE",
+              "name": "MODIFIER",
               "number": "3",
               "description": ""
             },
             {
-              "name": "ENUM",
+              "name": "VARIABLE",
               "number": "4",
               "description": ""
             },
             {
-              "name": "STRUCT",
+              "name": "ENUM",
               "number": "5",
               "description": ""
             },
             {
-              "name": "EVENT",
+              "name": "STRUCT",
               "number": "6",
               "description": ""
             },
             {
-              "name": "ERROR",
+              "name": "EVENT",
               "number": "7",
               "description": ""
             },
             {
-              "name": "USING",
+              "name": "ERROR",
               "number": "8",
               "description": ""
             },
             {
-              "name": "PRAGMA_DIRECTIVE",
+              "name": "USING",
               "number": "9",
               "description": ""
             },
             {
-              "name": "CONSTRUCTOR",
+              "name": "PRAGMA_DIRECTIVE",
               "number": "10",
               "description": ""
             },
             {
-              "name": "RETURN",
+              "name": "CONSTRUCTOR",
               "number": "11",
               "description": ""
             },
             {
-              "name": "MAPPING",
+              "name": "RETURN",
               "number": "12",
               "description": ""
             },
             {
-              "name": "ARRAY",
+              "name": "MAPPING",
               "number": "13",
               "description": ""
             },
             {
-              "name": "ENUM_VALUE",
+              "name": "ARRAY",
               "number": "14",
               "description": ""
             },
             {
-              "name": "IDENTIFIER",
+              "name": "ENUM_VALUE",
               "number": "15",
               "description": ""
             },
             {
-              "name": "LITERAL",
+              "name": "IDENTIFIER",
               "number": "16",
               "description": ""
             },
             {
-              "name": "UNARY_OPERATION",
+              "name": "LITERAL",
               "number": "17",
               "description": ""
             },
             {
-              "name": "BINARY_OPERATION",
+              "name": "UNARY_OPERATION",
               "number": "18",
               "description": ""
             },
             {
-              "name": "TERNARY_OPERATION",
+              "name": "BINARY_OPERATION",
               "number": "19",
               "description": ""
             },
             {
-              "name": "TUPLE",
+              "name": "TERNARY_OPERATION",
               "number": "20",
               "description": ""
             },
             {
-              "name": "INDEX_ACCESS",
+              "name": "TUPLE",
               "number": "21",
               "description": ""
             },
             {
-              "name": "MEMBER_ACCESS",
+              "name": "INDEX_ACCESS",
               "number": "22",
               "description": ""
             },
             {
-              "name": "FUNCTION_CALL",
+              "name": "MEMBER_ACCESS",
               "number": "23",
               "description": ""
             },
             {
-              "name": "NEW_EXPRESSION",
+              "name": "FUNCTION_CALL",
               "number": "24",
               "description": ""
             },
             {
-              "name": "CONDITIONAL",
+              "name": "NEW_EXPRESSION",
               "number": "25",
               "description": ""
             },
             {
-              "name": "ASSIGNMENT",
+              "name": "CONDITIONAL",
               "number": "26",
               "description": ""
             },
             {
-              "name": "EMIT",
+              "name": "ASSIGNMENT",
               "number": "27",
               "description": ""
             },
             {
-              "name": "IMPORT",
+              "name": "EMIT",
               "number": "28",
               "description": ""
             },
             {
-              "name": "ELEMENTARY_TYPE_NAME",
+              "name": "IMPORT_DIRECTIVE",
               "number": "29",
               "description": ""
             },
             {
-              "name": "COMMENT",
+              "name": "ELEMENTARY_TYPE_NAME",
               "number": "30",
               "description": ""
             },
             {
-              "name": "COMMENT_MULTILINE",
+              "name": "COMMENT",
               "number": "31",
               "description": ""
             },
             {
-              "name": "LICENSE",
+              "name": "COMMENT_MULTILINE",
               "number": "32",
               "description": ""
             },
             {
-              "name": "LIBRARY_DEFINITION",
+              "name": "LICENSE",
               "number": "33",
               "description": ""
             },
             {
-              "name": "CONTRACT_DEFINITION",
+              "name": "LIBRARY_DEFINITION",
               "number": "34",
               "description": ""
             },
             {
-              "name": "KIND_CONTRACT",
+              "name": "CONTRACT_DEFINITION",
               "number": "35",
               "description": ""
             },
             {
-              "name": "KIND_LIBRARY",
+              "name": "KIND_CONTRACT",
               "number": "36",
               "description": ""
             },
             {
-              "name": "KIND_INTERFACE",
+              "name": "KIND_LIBRARY",
               "number": "37",
               "description": ""
             },
             {
-              "name": "KIND_STRUCT",
+              "name": "KIND_INTERFACE",
               "number": "38",
               "description": ""
             },
             {
-              "name": "KIND_ENUM",
+              "name": "KIND_STRUCT",
               "number": "39",
               "description": ""
             },
             {
-              "name": "KIND_FUNCTION",
+              "name": "KIND_ENUM",
               "number": "40",
               "description": ""
             },
             {
-              "name": "FUNCTION_DEFINITION",
+              "name": "KIND_FUNCTION",
               "number": "41",
               "description": ""
             },
             {
-              "name": "PARAMETER_LIST",
+              "name": "FUNCTION_DEFINITION",
               "number": "42",
               "description": ""
             },
             {
-              "name": "VARIABLE_DECLARATION",
+              "name": "PARAMETER_LIST",
               "number": "43",
               "description": ""
             },
             {
-              "name": "VARIABLE_DECLARATION_STATEMENT",
+              "name": "VARIABLE_DECLARATION",
               "number": "44",
               "description": ""
             },
             {
-              "name": "BLOCK",
+              "name": "VARIABLE_DECLARATION_STATEMENT",
               "number": "45",
               "description": ""
             },
             {
-              "name": "RETURN_STATEMENT",
+              "name": "BLOCK",
               "number": "46",
+              "description": ""
+            },
+            {
+              "name": "RETURN_STATEMENT",
+              "number": "47",
+              "description": ""
+            },
+            {
+              "name": "IF_STATEMENT",
+              "number": "48",
+              "description": ""
+            },
+            {
+              "name": "NUMBER",
+              "number": "49",
+              "description": ""
+            },
+            {
+              "name": "STRING",
+              "number": "50",
+              "description": ""
+            },
+            {
+              "name": "USING_FOR_DIRECTIVE",
+              "number": "51",
+              "description": ""
+            },
+            {
+              "name": "IDENTIFIER_PATH",
+              "number": "52",
+              "description": ""
+            },
+            {
+              "name": "MAPPING_TYPE_NAME",
+              "number": "53",
+              "description": ""
+            },
+            {
+              "name": "FUNCTION_TYPE_NAME",
+              "number": "54",
+              "description": ""
+            },
+            {
+              "name": "UNKNOWN_TYPE_NAME",
+              "number": "55",
+              "description": ""
+            },
+            {
+              "name": "EXPRESSION_CONTEXT",
+              "number": "56",
               "description": ""
             }
           ]
@@ -7987,8 +8280,83 @@
               "description": ""
             },
             {
-              "name": "EXACT",
+              "name": "EQUAL",
               "number": "11",
+              "description": ""
+            },
+            {
+              "name": "NOT_EQUAL",
+              "number": "12",
+              "description": ""
+            },
+            {
+              "name": "PLUS_EQUAL",
+              "number": "13",
+              "description": ""
+            },
+            {
+              "name": "MINUS_EQUAL",
+              "number": "14",
+              "description": ""
+            },
+            {
+              "name": "MUL_EQUAL",
+              "number": "15",
+              "description": ""
+            },
+            {
+              "name": "DIV_EQUAL",
+              "number": "16",
+              "description": ""
+            },
+            {
+              "name": "MOD_EQUAL",
+              "number": "17",
+              "description": ""
+            },
+            {
+              "name": "AND_EQUAL",
+              "number": "18",
+              "description": ""
+            },
+            {
+              "name": "OR_EQUAL",
+              "number": "19",
+              "description": ""
+            },
+            {
+              "name": "XOR_EQUAL",
+              "number": "20",
+              "description": ""
+            },
+            {
+              "name": "SHIFT_LEFT_EQUAL",
+              "number": "21",
+              "description": ""
+            },
+            {
+              "name": "SHIFT_RIGHT_EQUAL",
+              "number": "22",
+              "description": ""
+            },
+            {
+              "name": "BIT_AND_EQUAL",
+              "number": "23",
+              "description": ""
+            },
+            {
+              "name": "BIT_OR_EQUAL",
+              "number": "24",
+              "description": ""
+            },
+            {
+              "name": "BIT_XOR_EQUAL",
+              "number": "25",
+              "description": ""
+            },
+            {
+              "name": "POW_EQUAL",
+              "number": "26",
               "description": ""
             }
           ]
@@ -8000,23 +8368,28 @@
           "description": "",
           "values": [
             {
-              "name": "DEFAULT",
+              "name": "ST_UNKNOWN",
               "number": "0",
               "description": ""
             },
             {
-              "name": "MEMORY",
+              "name": "DEFAULT",
               "number": "1",
               "description": ""
             },
             {
-              "name": "STORAGE",
+              "name": "MEMORY",
               "number": "2",
               "description": ""
             },
             {
-              "name": "CALLDATA",
+              "name": "STORAGE",
               "number": "3",
+              "description": ""
+            },
+            {
+              "name": "CALLDATA",
+              "number": "4",
               "description": ""
             }
           ]
@@ -8028,18 +8401,28 @@
           "description": "",
           "values": [
             {
-              "name": "INTERNAL",
+              "name": "V_DEFAULT",
               "number": "0",
               "description": ""
             },
             {
-              "name": "PRIVATE",
+              "name": "INTERNAL",
               "number": "1",
               "description": ""
             },
             {
-              "name": "PUBLIC",
+              "name": "PRIVATE",
               "number": "2",
+              "description": ""
+            },
+            {
+              "name": "PUBLIC",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "EXTERNAL",
+              "number": "4",
               "description": ""
             }
           ]

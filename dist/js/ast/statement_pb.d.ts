@@ -35,8 +35,8 @@ export class Statement extends jspb.Message {
   clearAssignmentsList(): Statement;
   addAssignments(value: number, index?: number): Statement;
 
-  getInitialValue(): Argument | undefined;
-  setInitialValue(value?: Argument): Statement;
+  getInitialValue(): Expression | undefined;
+  setInitialValue(value?: Expression): Statement;
   hasInitialValue(): boolean;
   clearInitialValue(): Statement;
 
@@ -68,10 +68,25 @@ export class Statement extends jspb.Message {
   hasTypeDescriptions(): boolean;
   clearTypeDescriptions(): Statement;
 
-  getArgumentsList(): Array<Argument>;
-  setArgumentsList(value: Array<Argument>): Statement;
+  getArgumentsList(): Array<Expression>;
+  setArgumentsList(value: Array<Expression>): Statement;
   clearArgumentsList(): Statement;
-  addArguments(value?: Argument, index?: number): Argument;
+  addArguments(value?: Expression, index?: number): Expression;
+
+  getCondition(): Expression | undefined;
+  setCondition(value?: Expression): Statement;
+  hasCondition(): boolean;
+  clearCondition(): Statement;
+
+  getTrueBody(): Statement | undefined;
+  setTrueBody(value?: Statement): Statement;
+  hasTrueBody(): boolean;
+  clearTrueBody(): Statement;
+
+  getStatementsList(): Array<Statement>;
+  setStatementsList(value: Array<Statement>): Statement;
+  clearStatementsList(): Statement;
+  addStatements(value?: Statement, index?: number): Statement;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Statement.AsObject;
@@ -90,7 +105,7 @@ export namespace Statement {
     functionReturnParameters: number,
     declarationsList: Array<Declaration.AsObject>,
     assignmentsList: Array<number>,
-    initialValue?: Argument.AsObject,
+    initialValue?: Expression.AsObject,
     kind: ast_types_pb.NodeType,
     isConstant: boolean,
     isLValue: boolean,
@@ -99,7 +114,10 @@ export namespace Statement {
     namesList: Array<string>,
     tryCall: boolean,
     typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
-    argumentsList: Array<Argument.AsObject>,
+    argumentsList: Array<Expression.AsObject>,
+    condition?: Expression.AsObject,
+    trueBody?: Statement.AsObject,
+    statementsList: Array<Statement.AsObject>,
   }
 }
 
@@ -136,10 +154,57 @@ export class Expression extends jspb.Message {
   hasExpression(): boolean;
   clearExpression(): Expression;
 
+  getCommonType(): ast_parameters_pb.TypeDescriptions | undefined;
+  setCommonType(value?: ast_parameters_pb.TypeDescriptions): Expression;
+  hasCommonType(): boolean;
+  clearCommonType(): Expression;
+
   getArgumentTypesList(): Array<ast_parameters_pb.TypeDescriptions>;
   setArgumentTypesList(value: Array<ast_parameters_pb.TypeDescriptions>): Expression;
   clearArgumentTypesList(): Expression;
   addArgumentTypes(value?: ast_parameters_pb.TypeDescriptions, index?: number): ast_parameters_pb.TypeDescriptions;
+
+  getOperator(): ast_types_pb.Operator;
+  setOperator(value: ast_types_pb.Operator): Expression;
+
+  getLeftExpression(): Expression | undefined;
+  setLeftExpression(value?: Expression): Expression;
+  hasLeftExpression(): boolean;
+  clearLeftExpression(): Expression;
+
+  getRightExpression(): Expression | undefined;
+  setRightExpression(value?: Expression): Expression;
+  hasRightExpression(): boolean;
+  clearRightExpression(): Expression;
+
+  getKind(): ast_types_pb.NodeType;
+  setKind(value: ast_types_pb.NodeType): Expression;
+
+  getValue(): string;
+  setValue(value: string): Expression;
+
+  getHexValue(): string;
+  setHexValue(value: string): Expression;
+
+  getIsConstant(): boolean;
+  setIsConstant(value: boolean): Expression;
+
+  getIsLValue(): boolean;
+  setIsLValue(value: boolean): Expression;
+
+  getIsPure(): boolean;
+  setIsPure(value: boolean): Expression;
+
+  getLValueRequested(): boolean;
+  setLValueRequested(value: boolean): Expression;
+
+  getArgumentsList(): Array<Expression>;
+  setArgumentsList(value: Array<Expression>): Expression;
+  clearArgumentsList(): Expression;
+  addArguments(value?: Expression, index?: number): Expression;
+
+  getMemberName(): string;
+  setMemberName(value: string): Expression;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Expression.AsObject;
@@ -159,13 +224,26 @@ export namespace Expression {
     referencedDeclaration: number,
     typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
     expression?: Expression.AsObject,
+    commonType?: ast_parameters_pb.TypeDescriptions.AsObject,
     argumentTypesList: Array<ast_parameters_pb.TypeDescriptions.AsObject>,
+    operator: ast_types_pb.Operator,
+    leftExpression?: Expression.AsObject,
+    rightExpression?: Expression.AsObject,
+    kind: ast_types_pb.NodeType,
+    value: string,
+    hexValue: string,
+    isConstant: boolean,
+    isLValue: boolean,
+    isPure: boolean,
+    lValueRequested: boolean,
+    argumentsList: Array<Expression.AsObject>,
+    memberName: string,
   }
 }
 
 export class Declaration extends jspb.Message {
-  getConstant(): boolean;
-  setConstant(value: boolean): Declaration;
+  getIsConstant(): boolean;
+  setIsConstant(value: boolean): Declaration;
 
   getId(): number;
   setId(value: number): Declaration;
@@ -187,8 +265,8 @@ export class Declaration extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Declaration;
 
-  getStateVariable(): boolean;
-  setStateVariable(value: boolean): Declaration;
+  getIsStateVariable(): boolean;
+  setIsStateVariable(value: boolean): Declaration;
 
   getStorageLocation(): ast_types_pb.StorageLocation;
   setStorageLocation(value: ast_types_pb.StorageLocation): Declaration;
@@ -211,101 +289,17 @@ export class Declaration extends jspb.Message {
 
 export namespace Declaration {
   export type AsObject = {
-    constant: boolean,
+    isConstant: boolean,
     id: number,
     mutability: ast_types_pb.Mutability,
     name: string,
     nodeType: ast_types_pb.NodeType,
     scope: number,
     src?: ast_src_pb.Src.AsObject,
-    stateVariable: boolean,
+    isStateVariable: boolean,
     storageLocation: ast_types_pb.StorageLocation,
     typeName?: ast_parameters_pb.TypeName.AsObject,
     visibility: ast_types_pb.Visibility,
-  }
-}
-
-export class Argument extends jspb.Message {
-  getId(): number;
-  setId(value: number): Argument;
-
-  getNodeType(): ast_types_pb.NodeType;
-  setNodeType(value: ast_types_pb.NodeType): Argument;
-
-  getSrc(): ast_src_pb.Src | undefined;
-  setSrc(value?: ast_src_pb.Src): Argument;
-  hasSrc(): boolean;
-  clearSrc(): Argument;
-
-  getCommonType(): ast_parameters_pb.TypeDescriptions | undefined;
-  setCommonType(value?: ast_parameters_pb.TypeDescriptions): Argument;
-  hasCommonType(): boolean;
-  clearCommonType(): Argument;
-
-  getIsConstant(): boolean;
-  setIsConstant(value: boolean): Argument;
-
-  getIsLValue(): boolean;
-  setIsLValue(value: boolean): Argument;
-
-  getIsPure(): boolean;
-  setIsPure(value: boolean): Argument;
-
-  getLValueRequested(): boolean;
-  setLValueRequested(value: boolean): Argument;
-
-  getLeftExpression(): Expression | undefined;
-  setLeftExpression(value?: Expression): Argument;
-  hasLeftExpression(): boolean;
-  clearLeftExpression(): Argument;
-
-  getOperator(): ast_types_pb.Operator;
-  setOperator(value: ast_types_pb.Operator): Argument;
-
-  getRightExpression(): Expression | undefined;
-  setRightExpression(value?: Expression): Argument;
-  hasRightExpression(): boolean;
-  clearRightExpression(): Argument;
-
-  getTypeDescriptions(): ast_parameters_pb.TypeDescriptions | undefined;
-  setTypeDescriptions(value?: ast_parameters_pb.TypeDescriptions): Argument;
-  hasTypeDescriptions(): boolean;
-  clearTypeDescriptions(): Argument;
-
-  getName(): string;
-  setName(value: string): Argument;
-
-  getValue(): string;
-  setValue(value: string): Argument;
-
-  getHexValue(): string;
-  setHexValue(value: string): Argument;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Argument.AsObject;
-  static toObject(includeInstance: boolean, msg: Argument): Argument.AsObject;
-  static serializeBinaryToWriter(message: Argument, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Argument;
-  static deserializeBinaryFromReader(message: Argument, reader: jspb.BinaryReader): Argument;
-}
-
-export namespace Argument {
-  export type AsObject = {
-    id: number,
-    nodeType: ast_types_pb.NodeType,
-    src?: ast_src_pb.Src.AsObject,
-    commonType?: ast_parameters_pb.TypeDescriptions.AsObject,
-    isConstant: boolean,
-    isLValue: boolean,
-    isPure: boolean,
-    lValueRequested: boolean,
-    leftExpression?: Expression.AsObject,
-    operator: ast_types_pb.Operator,
-    rightExpression?: Expression.AsObject,
-    typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
-    name: string,
-    value: string,
-    hexValue: string,
   }
 }
 

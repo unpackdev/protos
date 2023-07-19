@@ -74,7 +74,7 @@ func (x *ParametersList) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
-	return NodeType_SOURCE_UNIT
+	return NodeType_NT_DEFAULT
 }
 
 func (x *ParametersList) GetParameters() []*Parameter {
@@ -160,7 +160,7 @@ func (x *Parameter) GetMutability() Mutability {
 	if x != nil {
 		return x.Mutability
 	}
-	return Mutability_MUTABLE
+	return Mutability_M_DEFAULT
 }
 
 func (x *Parameter) GetName() string {
@@ -174,7 +174,7 @@ func (x *Parameter) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
-	return NodeType_SOURCE_UNIT
+	return NodeType_NT_DEFAULT
 }
 
 func (x *Parameter) GetScope() int64 {
@@ -223,7 +223,7 @@ func (x *Parameter) GetVisibility() Visibility {
 	if x != nil {
 		return x.Visibility
 	}
-	return Visibility_INTERNAL
+	return Visibility_V_DEFAULT
 }
 
 type FunctionReturnParameters struct {
@@ -280,7 +280,7 @@ func (x *FunctionReturnParameters) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
-	return NodeType_SOURCE_UNIT
+	return NodeType_NT_DEFAULT
 }
 
 func (x *FunctionReturnParameters) GetSrc() *Src {
@@ -352,7 +352,7 @@ func (x *TypeName) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
-	return NodeType_SOURCE_UNIT
+	return NodeType_NT_DEFAULT
 }
 
 func (x *TypeName) GetSrc() *Src {

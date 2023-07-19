@@ -74,7 +74,7 @@ func (x *Body) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
-	return NodeType_SOURCE_UNIT
+	return NodeType_NT_DEFAULT
 }
 
 func (x *Body) GetSrc() *Src {

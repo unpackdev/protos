@@ -6,6 +6,42 @@ import * as ast_parameters_pb from '../ast/parameters_pb';
 import * as ast_body_pb from '../ast/body_pb';
 
 
+export class LibraryName extends jspb.Message {
+  getId(): number;
+  setId(value: number): LibraryName;
+
+  getName(): string;
+  setName(value: string): LibraryName;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): LibraryName;
+
+  getReferencedDeclaration(): number;
+  setReferencedDeclaration(value: number): LibraryName;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): LibraryName;
+  hasSrc(): boolean;
+  clearSrc(): LibraryName;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LibraryName.AsObject;
+  static toObject(includeInstance: boolean, msg: LibraryName): LibraryName.AsObject;
+  static serializeBinaryToWriter(message: LibraryName, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LibraryName;
+  static deserializeBinaryFromReader(message: LibraryName, reader: jspb.BinaryReader): LibraryName;
+}
+
+export namespace LibraryName {
+  export type AsObject = {
+    id: number,
+    name: string,
+    nodeType: ast_types_pb.NodeType,
+    referencedDeclaration: number,
+    src?: ast_src_pb.Src.AsObject,
+  }
+}
+
 export class Node extends jspb.Message {
   getId(): number;
   setId(value: number): Node;
@@ -48,11 +84,11 @@ export class Node extends jspb.Message {
   clearNodesList(): Node;
   addNodes(value?: Node, index?: number): Node;
 
-  getVisibility(): string;
-  setVisibility(value: string): Node;
+  getVisibility(): ast_types_pb.Visibility;
+  setVisibility(value: ast_types_pb.Visibility): Node;
 
-  getStateMutability(): string;
-  setStateMutability(value: string): Node;
+  getStateMutability(): ast_types_pb.Mutability;
+  setStateMutability(value: ast_types_pb.Mutability): Node;
 
   getVirtual(): boolean;
   setVirtual(value: boolean): Node;
@@ -71,6 +107,50 @@ export class Node extends jspb.Message {
   setBody(value?: ast_body_pb.Body): Node;
   hasBody(): boolean;
   clearBody(): Node;
+
+  getAbsolutePath(): string;
+  setAbsolutePath(value: string): Node;
+
+  getFile(): string;
+  setFile(value: string): Node;
+
+  getScope(): number;
+  setScope(value: number): Node;
+
+  getSourceUnit(): number;
+  setSourceUnit(value: number): Node;
+
+  getSymbolAliasesList(): Array<string>;
+  setSymbolAliasesList(value: Array<string>): Node;
+  clearSymbolAliasesList(): Node;
+  addSymbolAliases(value: string, index?: number): Node;
+
+  getUnitAlias(): string;
+  setUnitAlias(value: string): Node;
+
+  getLibraryName(): LibraryName | undefined;
+  setLibraryName(value?: LibraryName): Node;
+  hasLibraryName(): boolean;
+  clearLibraryName(): Node;
+
+  getTypeName(): ast_parameters_pb.TypeName | undefined;
+  setTypeName(value?: ast_parameters_pb.TypeName): Node;
+  hasTypeName(): boolean;
+  clearTypeName(): Node;
+
+  getIsConstant(): boolean;
+  setIsConstant(value: boolean): Node;
+
+  getIsStateVariable(): boolean;
+  setIsStateVariable(value: boolean): Node;
+
+  getTypeDescriptions(): ast_parameters_pb.TypeDescriptions | undefined;
+  setTypeDescriptions(value?: ast_parameters_pb.TypeDescriptions): Node;
+  hasTypeDescriptions(): boolean;
+  clearTypeDescriptions(): Node;
+
+  getStorageLocation(): ast_types_pb.StorageLocation;
+  setStorageLocation(value: ast_types_pb.StorageLocation): Node;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Node.AsObject;
@@ -93,12 +173,24 @@ export namespace Node {
     linearizedBaseContractsList: Array<number>,
     literalsList: Array<string>,
     nodesList: Array<Node.AsObject>,
-    visibility: string,
-    stateMutability: string,
+    visibility: ast_types_pb.Visibility,
+    stateMutability: ast_types_pb.Mutability,
     virtual: boolean,
     parameters?: ast_parameters_pb.ParametersList.AsObject,
     returnParameters?: ast_parameters_pb.ParametersList.AsObject,
     body?: ast_body_pb.Body.AsObject,
+    absolutePath: string,
+    file: string,
+    scope: number,
+    sourceUnit: number,
+    symbolAliasesList: Array<string>,
+    unitAlias: string,
+    libraryName?: LibraryName.AsObject,
+    typeName?: ast_parameters_pb.TypeName.AsObject,
+    isConstant: boolean,
+    isStateVariable: boolean,
+    typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
+    storageLocation: ast_types_pb.StorageLocation,
   }
 }
 

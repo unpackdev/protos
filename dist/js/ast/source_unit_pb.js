@@ -20,7 +20,7 @@ var ast_node_pb = require('../ast/node_pb.js');
 goog.object.extend(proto, ast_node_pb);
 var ast_comment_pb = require('../ast/comment_pb.js');
 goog.object.extend(proto, ast_comment_pb);
-goog.exportSymbol('proto.txpull.v1.ast.ExportedSymbols', null, global);
+goog.exportSymbol('proto.txpull.v1.ast.ExportedSymbol', null, global);
 goog.exportSymbol('proto.txpull.v1.ast.RootSourceUnit', null, global);
 goog.exportSymbol('proto.txpull.v1.ast.SourceUnit', null, global);
 /**
@@ -75,16 +75,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.txpull.v1.ast.ExportedSymbols = function(opt_data) {
+proto.txpull.v1.ast.ExportedSymbol = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.txpull.v1.ast.ExportedSymbols, jspb.Message);
+goog.inherits(proto.txpull.v1.ast.ExportedSymbol, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.txpull.v1.ast.ExportedSymbols.displayName = 'proto.txpull.v1.ast.ExportedSymbols';
+  proto.txpull.v1.ast.ExportedSymbol.displayName = 'proto.txpull.v1.ast.ExportedSymbol';
 }
 
 /**
@@ -289,9 +289,9 @@ proto.txpull.v1.ast.SourceUnit.toObject = function(includeInstance, msg) {
     license: jspb.Message.getFieldWithDefault(msg, 2, ""),
     absolutePath: jspb.Message.getFieldWithDefault(msg, 3, ""),
     exportedSymbolsList: jspb.Message.toObjectList(msg.getExportedSymbolsList(),
-    proto.txpull.v1.ast.ExportedSymbols.toObject, includeInstance),
+    proto.txpull.v1.ast.ExportedSymbol.toObject, includeInstance),
     nodeType: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    nodes: (f = msg.getNodes()) && ast_node_pb.RootNode.toObject(includeInstance, f),
+    root: (f = msg.getRoot()) && ast_node_pb.RootNode.toObject(includeInstance, f),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
     commentsList: jspb.Message.toObjectList(msg.getCommentsList(),
     ast_comment_pb.Comment.toObject, includeInstance)
@@ -344,8 +344,8 @@ proto.txpull.v1.ast.SourceUnit.deserializeBinaryFromReader = function(msg, reade
       msg.setAbsolutePath(value);
       break;
     case 4:
-      var value = new proto.txpull.v1.ast.ExportedSymbols;
-      reader.readMessage(value,proto.txpull.v1.ast.ExportedSymbols.deserializeBinaryFromReader);
+      var value = new proto.txpull.v1.ast.ExportedSymbol;
+      reader.readMessage(value,proto.txpull.v1.ast.ExportedSymbol.deserializeBinaryFromReader);
       msg.addExportedSymbols(value);
       break;
     case 5:
@@ -355,7 +355,7 @@ proto.txpull.v1.ast.SourceUnit.deserializeBinaryFromReader = function(msg, reade
     case 6:
       var value = new ast_node_pb.RootNode;
       reader.readMessage(value,ast_node_pb.RootNode.deserializeBinaryFromReader);
-      msg.setNodes(value);
+      msg.setRoot(value);
       break;
     case 7:
       var value = new ast_src_pb.Src;
@@ -422,7 +422,7 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
     writer.writeRepeatedMessage(
       4,
       f,
-      proto.txpull.v1.ast.ExportedSymbols.serializeBinaryToWriter
+      proto.txpull.v1.ast.ExportedSymbol.serializeBinaryToWriter
     );
   }
   f = message.getNodeType();
@@ -432,7 +432,7 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getNodes();
+  f = message.getRoot();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -514,17 +514,17 @@ proto.txpull.v1.ast.SourceUnit.prototype.setAbsolutePath = function(value) {
 
 
 /**
- * repeated ExportedSymbols exported_symbols = 4;
- * @return {!Array<!proto.txpull.v1.ast.ExportedSymbols>}
+ * repeated ExportedSymbol exported_symbols = 4;
+ * @return {!Array<!proto.txpull.v1.ast.ExportedSymbol>}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getExportedSymbolsList = function() {
-  return /** @type{!Array<!proto.txpull.v1.ast.ExportedSymbols>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.ExportedSymbols, 4));
+  return /** @type{!Array<!proto.txpull.v1.ast.ExportedSymbol>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.ExportedSymbol, 4));
 };
 
 
 /**
- * @param {!Array<!proto.txpull.v1.ast.ExportedSymbols>} value
+ * @param {!Array<!proto.txpull.v1.ast.ExportedSymbol>} value
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
 proto.txpull.v1.ast.SourceUnit.prototype.setExportedSymbolsList = function(value) {
@@ -533,12 +533,12 @@ proto.txpull.v1.ast.SourceUnit.prototype.setExportedSymbolsList = function(value
 
 
 /**
- * @param {!proto.txpull.v1.ast.ExportedSymbols=} opt_value
+ * @param {!proto.txpull.v1.ast.ExportedSymbol=} opt_value
  * @param {number=} opt_index
- * @return {!proto.txpull.v1.ast.ExportedSymbols}
+ * @return {!proto.txpull.v1.ast.ExportedSymbol}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.addExportedSymbols = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.txpull.v1.ast.ExportedSymbols, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.txpull.v1.ast.ExportedSymbol, opt_index);
 };
 
 
@@ -570,10 +570,10 @@ proto.txpull.v1.ast.SourceUnit.prototype.setNodeType = function(value) {
 
 
 /**
- * optional RootNode nodes = 6;
+ * optional RootNode root = 6;
  * @return {?proto.txpull.v1.ast.RootNode}
  */
-proto.txpull.v1.ast.SourceUnit.prototype.getNodes = function() {
+proto.txpull.v1.ast.SourceUnit.prototype.getRoot = function() {
   return /** @type{?proto.txpull.v1.ast.RootNode} */ (
     jspb.Message.getWrapperField(this, ast_node_pb.RootNode, 6));
 };
@@ -583,7 +583,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.getNodes = function() {
  * @param {?proto.txpull.v1.ast.RootNode|undefined} value
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
-proto.txpull.v1.ast.SourceUnit.prototype.setNodes = function(value) {
+proto.txpull.v1.ast.SourceUnit.prototype.setRoot = function(value) {
   return jspb.Message.setWrapperField(this, 6, value);
 };
 
@@ -592,8 +592,8 @@ proto.txpull.v1.ast.SourceUnit.prototype.setNodes = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
  */
-proto.txpull.v1.ast.SourceUnit.prototype.clearNodes = function() {
-  return this.setNodes(undefined);
+proto.txpull.v1.ast.SourceUnit.prototype.clearRoot = function() {
+  return this.setRoot(undefined);
 };
 
 
@@ -601,7 +601,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.clearNodes = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.txpull.v1.ast.SourceUnit.prototype.hasNodes = function() {
+proto.txpull.v1.ast.SourceUnit.prototype.hasRoot = function() {
   return jspb.Message.getField(this, 6) != null;
 };
 
@@ -697,8 +697,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.toObject = function(opt_includeInstance) {
-  return proto.txpull.v1.ast.ExportedSymbols.toObject(opt_includeInstance, this);
+proto.txpull.v1.ast.ExportedSymbol.prototype.toObject = function(opt_includeInstance) {
+  return proto.txpull.v1.ast.ExportedSymbol.toObject(opt_includeInstance, this);
 };
 
 
@@ -707,14 +707,15 @@ proto.txpull.v1.ast.ExportedSymbols.prototype.toObject = function(opt_includeIns
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.txpull.v1.ast.ExportedSymbols} msg The msg instance to transform.
+ * @param {!proto.txpull.v1.ast.ExportedSymbol} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.txpull.v1.ast.ExportedSymbols.toObject = function(includeInstance, msg) {
+proto.txpull.v1.ast.ExportedSymbol.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    name: jspb.Message.getFieldWithDefault(msg, 2, "")
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    absolutePath: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -728,23 +729,23 @@ proto.txpull.v1.ast.ExportedSymbols.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.txpull.v1.ast.ExportedSymbols}
+ * @return {!proto.txpull.v1.ast.ExportedSymbol}
  */
-proto.txpull.v1.ast.ExportedSymbols.deserializeBinary = function(bytes) {
+proto.txpull.v1.ast.ExportedSymbol.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.txpull.v1.ast.ExportedSymbols;
-  return proto.txpull.v1.ast.ExportedSymbols.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.txpull.v1.ast.ExportedSymbol;
+  return proto.txpull.v1.ast.ExportedSymbol.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.txpull.v1.ast.ExportedSymbols} msg The message object to deserialize into.
+ * @param {!proto.txpull.v1.ast.ExportedSymbol} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.txpull.v1.ast.ExportedSymbols}
+ * @return {!proto.txpull.v1.ast.ExportedSymbol}
  */
-proto.txpull.v1.ast.ExportedSymbols.deserializeBinaryFromReader = function(msg, reader) {
+proto.txpull.v1.ast.ExportedSymbol.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -759,6 +760,10 @@ proto.txpull.v1.ast.ExportedSymbols.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAbsolutePath(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -772,9 +777,9 @@ proto.txpull.v1.ast.ExportedSymbols.deserializeBinaryFromReader = function(msg, 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.serializeBinary = function() {
+proto.txpull.v1.ast.ExportedSymbol.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.txpull.v1.ast.ExportedSymbols.serializeBinaryToWriter(this, writer);
+  proto.txpull.v1.ast.ExportedSymbol.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -782,11 +787,11 @@ proto.txpull.v1.ast.ExportedSymbols.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.txpull.v1.ast.ExportedSymbols} message
+ * @param {!proto.txpull.v1.ast.ExportedSymbol} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.txpull.v1.ast.ExportedSymbols.serializeBinaryToWriter = function(message, writer) {
+proto.txpull.v1.ast.ExportedSymbol.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getId();
   if (f !== 0) {
@@ -802,6 +807,13 @@ proto.txpull.v1.ast.ExportedSymbols.serializeBinaryToWriter = function(message, 
       f
     );
   }
+  f = message.getAbsolutePath();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -809,16 +821,16 @@ proto.txpull.v1.ast.ExportedSymbols.serializeBinaryToWriter = function(message, 
  * optional int64 id = 1;
  * @return {number}
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.getId = function() {
+proto.txpull.v1.ast.ExportedSymbol.prototype.getId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /**
  * @param {number} value
- * @return {!proto.txpull.v1.ast.ExportedSymbols} returns this
+ * @return {!proto.txpull.v1.ast.ExportedSymbol} returns this
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.setId = function(value) {
+proto.txpull.v1.ast.ExportedSymbol.prototype.setId = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
@@ -827,17 +839,35 @@ proto.txpull.v1.ast.ExportedSymbols.prototype.setId = function(value) {
  * optional string name = 2;
  * @return {string}
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.getName = function() {
+proto.txpull.v1.ast.ExportedSymbol.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.txpull.v1.ast.ExportedSymbols} returns this
+ * @return {!proto.txpull.v1.ast.ExportedSymbol} returns this
  */
-proto.txpull.v1.ast.ExportedSymbols.prototype.setName = function(value) {
+proto.txpull.v1.ast.ExportedSymbol.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string absolute_path = 3;
+ * @return {string}
+ */
+proto.txpull.v1.ast.ExportedSymbol.prototype.getAbsolutePath = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.ast.ExportedSymbol} returns this
+ */
+proto.txpull.v1.ast.ExportedSymbol.prototype.setAbsolutePath = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

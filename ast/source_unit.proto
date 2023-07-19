@@ -15,14 +15,15 @@ message SourceUnit {
     int64 id = 1;
     string license = 2;
     string absolute_path = 3;
-    repeated txpull.v1.ast.ExportedSymbols exported_symbols = 4;
+    repeated txpull.v1.ast.ExportedSymbol exported_symbols = 4;
     txpull.v1.ast.NodeType node_type = 5;
-    txpull.v1.ast.RootNode nodes = 6;
+    txpull.v1.ast.RootNode root = 6;
     txpull.v1.ast.Src src = 7;
     repeated txpull.v1.ast.Comment comments = 8;
 }
 
-message ExportedSymbols {
+message ExportedSymbol {
     int64 id = 1;
     string name = 2;
+    string absolute_path = 3;
 }
