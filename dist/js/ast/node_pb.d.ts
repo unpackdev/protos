@@ -42,6 +42,76 @@ export namespace LibraryName {
   }
 }
 
+export class BaseContractName extends jspb.Message {
+  getId(): number;
+  setId(value: number): BaseContractName;
+
+  getName(): string;
+  setName(value: string): BaseContractName;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): BaseContractName;
+
+  getReferencedDeclaration(): number;
+  setReferencedDeclaration(value: number): BaseContractName;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): BaseContractName;
+  hasSrc(): boolean;
+  clearSrc(): BaseContractName;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BaseContractName.AsObject;
+  static toObject(includeInstance: boolean, msg: BaseContractName): BaseContractName.AsObject;
+  static serializeBinaryToWriter(message: BaseContractName, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BaseContractName;
+  static deserializeBinaryFromReader(message: BaseContractName, reader: jspb.BinaryReader): BaseContractName;
+}
+
+export namespace BaseContractName {
+  export type AsObject = {
+    id: number,
+    name: string,
+    nodeType: ast_types_pb.NodeType,
+    referencedDeclaration: number,
+    src?: ast_src_pb.Src.AsObject,
+  }
+}
+
+export class BaseContract extends jspb.Message {
+  getId(): number;
+  setId(value: number): BaseContract;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): BaseContract;
+
+  getBaseName(): BaseContractName | undefined;
+  setBaseName(value?: BaseContractName): BaseContract;
+  hasBaseName(): boolean;
+  clearBaseName(): BaseContract;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): BaseContract;
+  hasSrc(): boolean;
+  clearSrc(): BaseContract;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BaseContract.AsObject;
+  static toObject(includeInstance: boolean, msg: BaseContract): BaseContract.AsObject;
+  static serializeBinaryToWriter(message: BaseContract, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BaseContract;
+  static deserializeBinaryFromReader(message: BaseContract, reader: jspb.BinaryReader): BaseContract;
+}
+
+export namespace BaseContract {
+  export type AsObject = {
+    id: number,
+    nodeType: ast_types_pb.NodeType,
+    baseName?: BaseContractName.AsObject,
+    src?: ast_src_pb.Src.AsObject,
+  }
+}
+
 export class Node extends jspb.Message {
   getId(): number;
   setId(value: number): Node;
@@ -155,6 +225,16 @@ export class Node extends jspb.Message {
   getAnonymous(): boolean;
   setAnonymous(value: boolean): Node;
 
+  getContractDependenciesList(): Array<number>;
+  setContractDependenciesList(value: Array<number>): Node;
+  clearContractDependenciesList(): Node;
+  addContractDependencies(value: number, index?: number): Node;
+
+  getBaseContractsList(): Array<BaseContract>;
+  setBaseContractsList(value: Array<BaseContract>): Node;
+  clearBaseContractsList(): Node;
+  addBaseContracts(value?: BaseContract, index?: number): BaseContract;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Node.AsObject;
   static toObject(includeInstance: boolean, msg: Node): Node.AsObject;
@@ -195,6 +275,8 @@ export namespace Node {
     typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
     storageLocation: ast_types_pb.StorageLocation,
     anonymous: boolean,
+    contractDependenciesList: Array<number>,
+    baseContractsList: Array<BaseContract.AsObject>,
   }
 }
 

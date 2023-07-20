@@ -14,6 +14,21 @@ message LibraryName {
     txpull.v1.ast.Src src = 5;
 }
 
+message BaseContractName {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    int64 referenced_declaration = 4;
+    txpull.v1.ast.Src src = 5;
+}
+
+message BaseContract {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.BaseContractName base_name = 3;
+    txpull.v1.ast.Src src = 4;
+}
+
 message Node {
     int64 id = 1;
     string name = 2;
@@ -45,6 +60,8 @@ message Node {
     txpull.v1.ast.TypeDescriptions type_descriptions = 28;
     txpull.v1.ast.StorageLocation storage_location = 29;
     bool anonymous = 30;
+    repeated int64 contract_dependencies = 31;
+    repeated txpull.v1.ast.BaseContract base_contracts = 32;
 }
 
 message RootNode {

@@ -6061,6 +6061,138 @@
       "extensions": [],
       "messages": [
         {
+          "name": "BaseContract",
+          "longName": "BaseContract",
+          "fullName": "txpull.v1.ast.BaseContract",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "base_name",
+              "description": "",
+              "label": "",
+              "type": "BaseContractName",
+              "longType": "BaseContractName",
+              "fullType": "txpull.v1.ast.BaseContractName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "BaseContractName",
+          "longName": "BaseContractName",
+          "fullName": "txpull.v1.ast.BaseContractName",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
           "name": "LibraryName",
           "longName": "LibraryName",
           "fullName": "txpull.v1.ast.LibraryName",
@@ -6497,6 +6629,30 @@
               "type": "bool",
               "longType": "bool",
               "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contract_dependencies",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "base_contracts",
+              "description": "",
+              "label": "repeated",
+              "type": "BaseContract",
+              "longType": "BaseContract",
+              "fullType": "txpull.v1.ast.BaseContract",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
