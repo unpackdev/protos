@@ -206,6 +206,14 @@ export class Expression extends jspb.Message {
   getMemberName(): string;
   setMemberName(value: string): Expression;
 
+  getComponentsList(): Array<Expression>;
+  setComponentsList(value: Array<Expression>): Expression;
+  clearComponentsList(): Expression;
+  addComponents(value?: Expression, index?: number): Expression;
+
+  getFunctionReturnParameters(): number;
+  setFunctionReturnParameters(value: number): Expression;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Expression.AsObject;
   static toObject(includeInstance: boolean, msg: Expression): Expression.AsObject;
@@ -238,6 +246,8 @@ export namespace Expression {
     lValueRequested: boolean,
     argumentsList: Array<Expression.AsObject>,
     memberName: string,
+    componentsList: Array<Expression.AsObject>,
+    functionReturnParameters: number,
   }
 }
 

@@ -51,6 +51,8 @@ message Expression {
     bool l_value_requested = 20;
     repeated txpull.v1.ast.Expression arguments = 21;
     string member_name = 22;
+    repeated txpull.v1.ast.Expression components = 23;
+    int64 function_return_parameters = 24;
 }
 
 message Declaration {

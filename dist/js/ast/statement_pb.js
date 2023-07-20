@@ -1030,7 +1030,7 @@ proto.txpull.v1.ast.Statement.prototype.clearStatementsList = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ast.Expression.repeatedFields_ = [5,10,21];
+proto.txpull.v1.ast.Expression.repeatedFields_ = [5,10,21,23];
 
 
 
@@ -1086,7 +1086,10 @@ proto.txpull.v1.ast.Expression.toObject = function(includeInstance, msg) {
     lValueRequested: jspb.Message.getBooleanFieldWithDefault(msg, 20, false),
     argumentsList: jspb.Message.toObjectList(msg.getArgumentsList(),
     proto.txpull.v1.ast.Expression.toObject, includeInstance),
-    memberName: jspb.Message.getFieldWithDefault(msg, 22, "")
+    memberName: jspb.Message.getFieldWithDefault(msg, 22, ""),
+    componentsList: jspb.Message.toObjectList(msg.getComponentsList(),
+    proto.txpull.v1.ast.Expression.toObject, includeInstance),
+    functionReturnParameters: jspb.Message.getFieldWithDefault(msg, 24, 0)
   };
 
   if (includeInstance) {
@@ -1218,6 +1221,15 @@ proto.txpull.v1.ast.Expression.deserializeBinaryFromReader = function(msg, reade
     case 22:
       var value = /** @type {string} */ (reader.readString());
       msg.setMemberName(value);
+      break;
+    case 23:
+      var value = new proto.txpull.v1.ast.Expression;
+      reader.readMessage(value,proto.txpull.v1.ast.Expression.deserializeBinaryFromReader);
+      msg.addComponents(value);
+      break;
+    case 24:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setFunctionReturnParameters(value);
       break;
     default:
       reader.skipField();
@@ -1407,6 +1419,21 @@ proto.txpull.v1.ast.Expression.serializeBinaryToWriter = function(message, write
   if (f.length > 0) {
     writer.writeString(
       22,
+      f
+    );
+  }
+  f = message.getComponentsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      23,
+      f,
+      proto.txpull.v1.ast.Expression.serializeBinaryToWriter
+    );
+  }
+  f = message.getFunctionReturnParameters();
+  if (f !== 0) {
+    writer.writeInt64(
+      24,
       f
     );
   }
@@ -1979,6 +2006,62 @@ proto.txpull.v1.ast.Expression.prototype.getMemberName = function() {
  */
 proto.txpull.v1.ast.Expression.prototype.setMemberName = function(value) {
   return jspb.Message.setProto3StringField(this, 22, value);
+};
+
+
+/**
+ * repeated Expression components = 23;
+ * @return {!Array<!proto.txpull.v1.ast.Expression>}
+ */
+proto.txpull.v1.ast.Expression.prototype.getComponentsList = function() {
+  return /** @type{!Array<!proto.txpull.v1.ast.Expression>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.Expression, 23));
+};
+
+
+/**
+ * @param {!Array<!proto.txpull.v1.ast.Expression>} value
+ * @return {!proto.txpull.v1.ast.Expression} returns this
+*/
+proto.txpull.v1.ast.Expression.prototype.setComponentsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 23, value);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ast.Expression=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.txpull.v1.ast.Expression}
+ */
+proto.txpull.v1.ast.Expression.prototype.addComponents = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 23, opt_value, proto.txpull.v1.ast.Expression, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.txpull.v1.ast.Expression} returns this
+ */
+proto.txpull.v1.ast.Expression.prototype.clearComponentsList = function() {
+  return this.setComponentsList([]);
+};
+
+
+/**
+ * optional int64 function_return_parameters = 24;
+ * @return {number}
+ */
+proto.txpull.v1.ast.Expression.prototype.getFunctionReturnParameters = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 24, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.ast.Expression} returns this
+ */
+proto.txpull.v1.ast.Expression.prototype.setFunctionReturnParameters = function(value) {
+  return jspb.Message.setProto3IntField(this, 24, value);
 };
 
 

@@ -7649,6 +7649,30 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "components",
+              "description": "",
+              "label": "repeated",
+              "type": "Expression",
+              "longType": "Expression",
+              "fullType": "txpull.v1.ast.Expression",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "function_return_parameters",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         },
@@ -8243,6 +8267,31 @@
             {
               "name": "EVENT_DEFINITION",
               "number": "57",
+              "description": ""
+            },
+            {
+              "name": "INTERFACE_DEFINITION",
+              "number": "58",
+              "description": ""
+            },
+            {
+              "name": "UNCHECKED_BLOCK",
+              "number": "59",
+              "description": ""
+            },
+            {
+              "name": "TUPLE_EXPRESSION",
+              "number": "60",
+              "description": ""
+            },
+            {
+              "name": "BOOLEAN",
+              "number": "61",
+              "description": ""
+            },
+            {
+              "name": "INHERITANCE_SPECIFIER",
+              "number": "62",
               "description": ""
             }
           ]

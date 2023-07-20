@@ -57,7 +57,7 @@ build-js:
 	@echo $(GREEN) "JavaScript protobuf files generated successfully!" $(RESET)
 
 clean:
-	@rm -rf $(PROTO_GO_OUT)/*
+# @rm -rf $(PROTO_GO_OUT)/*
 	@rm -rf $(PROTO_JS_OUT)/*
 	@rm -rf $(PROTO_DOCS_OUT)/*
 	@rm -rf $(PROTO_PROTOSETS_OUT)/*
