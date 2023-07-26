@@ -1,0 +1,7 @@
+syntax = "proto3";
+package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+
+message For {
+
+}

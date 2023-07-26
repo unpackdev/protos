@@ -23,7 +23,6 @@ goog.exportSymbol('proto.txpull.v1.ast.Visibility', null, global);
 proto.txpull.v1.ast.NodeType = {
   NT_DEFAULT: 0,
   SOURCE_UNIT: 1,
-  ROOT_SOURCE_UNIT: 80,
   CONTRACT: 2,
   MODIFIER: 3,
   VARIABLE: 4,
@@ -102,7 +101,11 @@ proto.txpull.v1.ast.NodeType = {
   ERROR_DEFINITION: 77,
   REVERT_STATEMENT: 78,
   FOR_STATEMENT: 79,
-  EXPRESSION_STATEMENT: 81
+  ROOT_SOURCE_UNIT: 80,
+  EXPRESSION_STATEMENT: 81,
+  PLACEHOLDER_STATEMENT: 82,
+  WHILE: 83,
+  PAYABLE_CONVERSION: 84
 };
 
 /**
@@ -170,7 +173,13 @@ proto.txpull.v1.ast.Operator = {
   BIT_AND_EQUAL: 23,
   BIT_OR_EQUAL: 24,
   BIT_XOR_EQUAL: 25,
-  POW_EQUAL: 26
+  POW_EQUAL: 26,
+  INCREMENT: 27,
+  DECREMENT: 28,
+  BIT_NOT: 29,
+  BIT_AND: 30,
+  NOT: 31,
+  SUBTRACT: 32
 };
 
 goog.object.extend(exports, proto.txpull.v1.ast);

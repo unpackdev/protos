@@ -5902,7 +5902,7 @@
       "services": []
     },
     {
-      "name": "ast/binary_operation_expression.proto",
+      "name": "ast/binary_operation.proto",
       "description": "",
       "package": "txpull.v1.ast",
       "hasEnums": false,
@@ -5916,6 +5916,31 @@
           "name": "BinaryOperationExpression",
           "longName": "BinaryOperationExpression",
           "fullName": "txpull.v1.ast.BinaryOperationExpression",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/break.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Break",
+          "longName": "Break",
+          "fullName": "txpull.v1.ast.Break",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
@@ -6001,6 +6026,31 @@
       "services": []
     },
     {
+      "name": "ast/continue.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Continue",
+          "longName": "Continue",
+          "fullName": "txpull.v1.ast.Continue",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/contract.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -6076,6 +6126,31 @@
       "services": []
     },
     {
+      "name": "ast/error.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Error",
+          "longName": "Error",
+          "fullName": "txpull.v1.ast.Error",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/event.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -6090,6 +6165,56 @@
           "name": "Event",
           "longName": "Event",
           "fullName": "txpull.v1.ast.Event",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/fallback.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Fallback",
+          "longName": "Fallback",
+          "fullName": "txpull.v1.ast.Fallback",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/for.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "For",
+          "longName": "For",
+          "fullName": "txpull.v1.ast.For",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
@@ -7768,6 +7893,31 @@
       "services": []
     },
     {
+      "name": "ast/payable_conversion.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "PayableConversion",
+          "longName": "PayableConversion",
+          "fullName": "txpull.v1.ast.PayableConversion",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/pragma.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -7818,6 +7968,31 @@
       "services": []
     },
     {
+      "name": "ast/receive.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Receive",
+          "longName": "Receive",
+          "fullName": "txpull.v1.ast.Receive",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/return.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -7832,6 +8007,31 @@
           "name": "Return",
           "longName": "Return",
           "fullName": "txpull.v1.ast.Return",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/revert.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Revert",
+          "longName": "Revert",
+          "fullName": "txpull.v1.ast.Revert",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
@@ -9070,11 +9270,6 @@
               "description": ""
             },
             {
-              "name": "ROOT_SOURCE_UNIT",
-              "number": "80",
-              "description": ""
-            },
-            {
               "name": "CONTRACT",
               "number": "2",
               "description": ""
@@ -9465,8 +9660,28 @@
               "description": ""
             },
             {
+              "name": "ROOT_SOURCE_UNIT",
+              "number": "80",
+              "description": ""
+            },
+            {
               "name": "EXPRESSION_STATEMENT",
               "number": "81",
+              "description": ""
+            },
+            {
+              "name": "PLACEHOLDER_STATEMENT",
+              "number": "82",
+              "description": ""
+            },
+            {
+              "name": "WHILE",
+              "number": "83",
+              "description": ""
+            },
+            {
+              "name": "PAYABLE_CONVERSION",
+              "number": "84",
               "description": ""
             }
           ]
@@ -9611,6 +9826,36 @@
               "name": "POW_EQUAL",
               "number": "26",
               "description": ""
+            },
+            {
+              "name": "INCREMENT",
+              "number": "27",
+              "description": ""
+            },
+            {
+              "name": "DECREMENT",
+              "number": "28",
+              "description": ""
+            },
+            {
+              "name": "BIT_NOT",
+              "number": "29",
+              "description": ""
+            },
+            {
+              "name": "BIT_AND",
+              "number": "30",
+              "description": ""
+            },
+            {
+              "name": "NOT",
+              "number": "31",
+              "description": ""
+            },
+            {
+              "name": "SUBTRACT",
+              "number": "32",
+              "description": ""
             }
           ]
         },
@@ -9686,6 +9931,56 @@
       "services": []
     },
     {
+      "name": "ast/unary_prefix.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "UnaryPrefixOperator",
+          "longName": "UnaryPrefixOperator",
+          "fullName": "txpull.v1.ast.UnaryPrefixOperator",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/unary_suffix.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "UnarySuffixOperator",
+          "longName": "UnarySuffixOperator",
+          "fullName": "txpull.v1.ast.UnarySuffixOperator",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/using.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -9725,6 +10020,31 @@
           "name": "VariableDeclaration",
           "longName": "VariableDeclaration",
           "fullName": "txpull.v1.ast.VariableDeclaration",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/while.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "While",
+          "longName": "While",
+          "fullName": "txpull.v1.ast.While",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
