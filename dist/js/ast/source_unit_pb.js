@@ -92,7 +92,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ast.RootSourceUnit.repeatedFields_ = [1];
+proto.txpull.v1.ast.RootSourceUnit.repeatedFields_ = [2];
 
 
 
@@ -125,6 +125,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.toObject = function(opt_includeInst
  */
 proto.txpull.v1.ast.RootSourceUnit.toObject = function(includeInstance, msg) {
   var f, obj = {
+    entrySourceUnit: jspb.Message.getFieldWithDefault(msg, 1, 0),
     sourceUnitsList: jspb.Message.toObjectList(msg.getSourceUnitsList(),
     proto.txpull.v1.ast.SourceUnit.toObject, includeInstance)
   };
@@ -164,6 +165,10 @@ proto.txpull.v1.ast.RootSourceUnit.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setEntrySourceUnit(value);
+      break;
+    case 2:
       var value = new proto.txpull.v1.ast.SourceUnit;
       reader.readMessage(value,proto.txpull.v1.ast.SourceUnit.deserializeBinaryFromReader);
       msg.addSourceUnits(value);
@@ -197,10 +202,17 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.serializeBinary = function() {
  */
 proto.txpull.v1.ast.RootSourceUnit.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getEntrySourceUnit();
+  if (f !== 0) {
+    writer.writeInt64(
+      1,
+      f
+    );
+  }
   f = message.getSourceUnitsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      1,
+      2,
       f,
       proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter
     );
@@ -209,12 +221,30 @@ proto.txpull.v1.ast.RootSourceUnit.serializeBinaryToWriter = function(message, w
 
 
 /**
- * repeated SourceUnit source_units = 1;
+ * optional int64 entry_source_unit = 1;
+ * @return {number}
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.getEntrySourceUnit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.setEntrySourceUnit = function(value) {
+  return jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * repeated SourceUnit source_units = 2;
  * @return {!Array<!proto.txpull.v1.ast.SourceUnit>}
  */
 proto.txpull.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ast.SourceUnit>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.SourceUnit, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.SourceUnit, 2));
 };
 
 
@@ -223,7 +253,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
  * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
 */
 proto.txpull.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -233,7 +263,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value
  * @return {!proto.txpull.v1.ast.SourceUnit}
  */
 proto.txpull.v1.ast.RootSourceUnit.prototype.addSourceUnits = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.txpull.v1.ast.SourceUnit, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.txpull.v1.ast.SourceUnit, opt_index);
 };
 
 
@@ -252,7 +282,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.clearSourceUnitsList = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ast.SourceUnit.repeatedFields_ = [4,8];
+proto.txpull.v1.ast.SourceUnit.repeatedFields_ = [5,9];
 
 
 
@@ -287,10 +317,11 @@ proto.txpull.v1.ast.SourceUnit.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     license: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    absolutePath: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    absolutePath: jspb.Message.getFieldWithDefault(msg, 4, ""),
     exportedSymbolsList: jspb.Message.toObjectList(msg.getExportedSymbolsList(),
     proto.txpull.v1.ast.ExportedSymbol.toObject, includeInstance),
-    nodeType: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    nodeType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     root: (f = msg.getRoot()) && ast_node_pb.RootNode.toObject(includeInstance, f),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
     commentsList: jspb.Message.toObjectList(msg.getCommentsList(),
@@ -341,28 +372,32 @@ proto.txpull.v1.ast.SourceUnit.deserializeBinaryFromReader = function(msg, reade
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAbsolutePath(value);
+      msg.setName(value);
       break;
     case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAbsolutePath(value);
+      break;
+    case 5:
       var value = new proto.txpull.v1.ast.ExportedSymbol;
       reader.readMessage(value,proto.txpull.v1.ast.ExportedSymbol.deserializeBinaryFromReader);
       msg.addExportedSymbols(value);
       break;
-    case 5:
+    case 6:
       var value = /** @type {!proto.txpull.v1.ast.NodeType} */ (reader.readEnum());
       msg.setNodeType(value);
       break;
-    case 6:
+    case 7:
       var value = new ast_node_pb.RootNode;
       reader.readMessage(value,ast_node_pb.RootNode.deserializeBinaryFromReader);
       msg.setRoot(value);
       break;
-    case 7:
+    case 8:
       var value = new ast_src_pb.Src;
       reader.readMessage(value,ast_src_pb.Src.deserializeBinaryFromReader);
       msg.setSrc(value);
       break;
-    case 8:
+    case 9:
       var value = new ast_comment_pb.Comment;
       reader.readMessage(value,ast_comment_pb.Comment.deserializeBinaryFromReader);
       msg.addComments(value);
@@ -410,17 +445,24 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getAbsolutePath();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
+  f = message.getAbsolutePath();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
   f = message.getExportedSymbolsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      4,
+      5,
       f,
       proto.txpull.v1.ast.ExportedSymbol.serializeBinaryToWriter
     );
@@ -428,14 +470,14 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
   f = message.getNodeType();
   if (f !== 0.0) {
     writer.writeEnum(
-      5,
+      6,
       f
     );
   }
   f = message.getRoot();
   if (f != null) {
     writer.writeMessage(
-      6,
+      7,
       f,
       ast_node_pb.RootNode.serializeBinaryToWriter
     );
@@ -443,7 +485,7 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
   f = message.getSrc();
   if (f != null) {
     writer.writeMessage(
-      7,
+      8,
       f,
       ast_src_pb.Src.serializeBinaryToWriter
     );
@@ -451,7 +493,7 @@ proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter = function(message, write
   f = message.getCommentsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      8,
+      9,
       f,
       ast_comment_pb.Comment.serializeBinaryToWriter
     );
@@ -496,10 +538,10 @@ proto.txpull.v1.ast.SourceUnit.prototype.setLicense = function(value) {
 
 
 /**
- * optional string absolute_path = 3;
+ * optional string name = 3;
  * @return {string}
  */
-proto.txpull.v1.ast.SourceUnit.prototype.getAbsolutePath = function() {
+proto.txpull.v1.ast.SourceUnit.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -508,18 +550,36 @@ proto.txpull.v1.ast.SourceUnit.prototype.getAbsolutePath = function() {
  * @param {string} value
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
  */
-proto.txpull.v1.ast.SourceUnit.prototype.setAbsolutePath = function(value) {
+proto.txpull.v1.ast.SourceUnit.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * repeated ExportedSymbol exported_symbols = 4;
+ * optional string absolute_path = 4;
+ * @return {string}
+ */
+proto.txpull.v1.ast.SourceUnit.prototype.getAbsolutePath = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.ast.SourceUnit} returns this
+ */
+proto.txpull.v1.ast.SourceUnit.prototype.setAbsolutePath = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * repeated ExportedSymbol exported_symbols = 5;
  * @return {!Array<!proto.txpull.v1.ast.ExportedSymbol>}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getExportedSymbolsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ast.ExportedSymbol>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.ExportedSymbol, 4));
+    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.ExportedSymbol, 5));
 };
 
 
@@ -528,7 +588,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.getExportedSymbolsList = function() {
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
 proto.txpull.v1.ast.SourceUnit.prototype.setExportedSymbolsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 4, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -538,7 +598,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.setExportedSymbolsList = function(value
  * @return {!proto.txpull.v1.ast.ExportedSymbol}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.addExportedSymbols = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.txpull.v1.ast.ExportedSymbol, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.txpull.v1.ast.ExportedSymbol, opt_index);
 };
 
 
@@ -552,11 +612,11 @@ proto.txpull.v1.ast.SourceUnit.prototype.clearExportedSymbolsList = function() {
 
 
 /**
- * optional NodeType node_type = 5;
+ * optional NodeType node_type = 6;
  * @return {!proto.txpull.v1.ast.NodeType}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getNodeType = function() {
-  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -565,17 +625,17 @@ proto.txpull.v1.ast.SourceUnit.prototype.getNodeType = function() {
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
  */
 proto.txpull.v1.ast.SourceUnit.prototype.setNodeType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 
 /**
- * optional RootNode root = 6;
+ * optional RootNode root = 7;
  * @return {?proto.txpull.v1.ast.RootNode}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getRoot = function() {
   return /** @type{?proto.txpull.v1.ast.RootNode} */ (
-    jspb.Message.getWrapperField(this, ast_node_pb.RootNode, 6));
+    jspb.Message.getWrapperField(this, ast_node_pb.RootNode, 7));
 };
 
 
@@ -584,7 +644,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.getRoot = function() {
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
 proto.txpull.v1.ast.SourceUnit.prototype.setRoot = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -602,17 +662,17 @@ proto.txpull.v1.ast.SourceUnit.prototype.clearRoot = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.hasRoot = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
 /**
- * optional Src src = 7;
+ * optional Src src = 8;
  * @return {?proto.txpull.v1.ast.Src}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getSrc = function() {
   return /** @type{?proto.txpull.v1.ast.Src} */ (
-    jspb.Message.getWrapperField(this, ast_src_pb.Src, 7));
+    jspb.Message.getWrapperField(this, ast_src_pb.Src, 8));
 };
 
 
@@ -621,7 +681,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.getSrc = function() {
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
 proto.txpull.v1.ast.SourceUnit.prototype.setSrc = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
@@ -639,17 +699,17 @@ proto.txpull.v1.ast.SourceUnit.prototype.clearSrc = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.hasSrc = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 8) != null;
 };
 
 
 /**
- * repeated Comment comments = 8;
+ * repeated Comment comments = 9;
  * @return {!Array<!proto.txpull.v1.ast.Comment>}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.getCommentsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ast.Comment>} */ (
-    jspb.Message.getRepeatedWrapperField(this, ast_comment_pb.Comment, 8));
+    jspb.Message.getRepeatedWrapperField(this, ast_comment_pb.Comment, 9));
 };
 
 
@@ -658,7 +718,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.getCommentsList = function() {
  * @return {!proto.txpull.v1.ast.SourceUnit} returns this
 */
 proto.txpull.v1.ast.SourceUnit.prototype.setCommentsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 8, value);
+  return jspb.Message.setRepeatedWrapperField(this, 9, value);
 };
 
 
@@ -668,7 +728,7 @@ proto.txpull.v1.ast.SourceUnit.prototype.setCommentsList = function(value) {
  * @return {!proto.txpull.v1.ast.Comment}
  */
 proto.txpull.v1.ast.SourceUnit.prototype.addComments = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.txpull.v1.ast.Comment, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.txpull.v1.ast.Comment, opt_index);
 };
 
 

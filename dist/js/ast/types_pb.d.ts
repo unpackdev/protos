@@ -5,6 +5,7 @@ import * as jspb from 'google-protobuf'
 export enum NodeType { 
   NT_DEFAULT = 0,
   SOURCE_UNIT = 1,
+  ROOT_SOURCE_UNIT = 80,
   CONTRACT = 2,
   MODIFIER = 3,
   VARIABLE = 4,
@@ -66,6 +67,24 @@ export enum NodeType {
   TUPLE_EXPRESSION = 60,
   BOOLEAN = 61,
   INHERITANCE_SPECIFIER = 62,
+  OVERRIDE_SPECIFIER = 63,
+  EMIT_STATEMENT = 64,
+  HEX_STRING = 65,
+  ENUM_DEFINITION = 66,
+  STRUCT_DEFINITION = 67,
+  MODIFIER_DEFINITION = 68,
+  USER_DEFINED_PATH_NAME = 69,
+  FALLBACK = 70,
+  RECEIVE = 71,
+  MODIFIER_INVOCATION = 72,
+  WHILE_STATEMENT = 73,
+  BREAK = 74,
+  CONTINUE = 75,
+  DO_WHILE_STATEMENT = 76,
+  ERROR_DEFINITION = 77,
+  REVERT_STATEMENT = 78,
+  FOR_STATEMENT = 79,
+  EXPRESSION_STATEMENT = 81,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
@@ -73,6 +92,8 @@ export enum Mutability {
   IMMUTABLE = 2,
   PAYABLE = 3,
   NONPAYABLE = 4,
+  VIEW = 5,
+  PURE = 6,
 }
 export enum StorageLocation { 
   ST_UNKNOWN = 0,

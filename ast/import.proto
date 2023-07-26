@@ -1,0 +1,5 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+package txpull.v1.ast;
+
+message Import {}

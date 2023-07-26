@@ -65,8 +65,8 @@ export class Parameter extends jspb.Message {
   getStateVariable(): boolean;
   setStateVariable(value: boolean): Parameter;
 
-  getStorageLocation(): string;
-  setStorageLocation(value: string): Parameter;
+  getStorageLocation(): ast_types_pb.StorageLocation;
+  setStorageLocation(value: ast_types_pb.StorageLocation): Parameter;
 
   getTypeDescriptions(): TypeDescriptions | undefined;
   setTypeDescriptions(value?: TypeDescriptions): Parameter;
@@ -102,7 +102,7 @@ export namespace Parameter {
     scope: number,
     src?: ast_src_pb.Src.AsObject,
     stateVariable: boolean,
-    storageLocation: string,
+    storageLocation: ast_types_pb.StorageLocation,
     typeDescriptions?: TypeDescriptions.AsObject,
     typeName?: TypeName.AsObject,
     visibility: ast_types_pb.Visibility,
@@ -138,6 +138,42 @@ export namespace FunctionReturnParameters {
   }
 }
 
+export class PathNode extends jspb.Message {
+  getId(): number;
+  setId(value: number): PathNode;
+
+  getName(): string;
+  setName(value: string): PathNode;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): PathNode;
+
+  getReferencedDeclaration(): number;
+  setReferencedDeclaration(value: number): PathNode;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): PathNode;
+  hasSrc(): boolean;
+  clearSrc(): PathNode;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PathNode.AsObject;
+  static toObject(includeInstance: boolean, msg: PathNode): PathNode.AsObject;
+  static serializeBinaryToWriter(message: PathNode, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PathNode;
+  static deserializeBinaryFromReader(message: PathNode, reader: jspb.BinaryReader): PathNode;
+}
+
+export namespace PathNode {
+  export type AsObject = {
+    id: number,
+    name: string,
+    nodeType: ast_types_pb.NodeType,
+    referencedDeclaration: number,
+    src?: ast_src_pb.Src.AsObject,
+  }
+}
+
 export class TypeName extends jspb.Message {
   getId(): number;
   setId(value: number): TypeName;
@@ -158,6 +194,24 @@ export class TypeName extends jspb.Message {
   hasTypeDescriptions(): boolean;
   clearTypeDescriptions(): TypeName;
 
+  getKeyType(): TypeName | undefined;
+  setKeyType(value?: TypeName): TypeName;
+  hasKeyType(): boolean;
+  clearKeyType(): TypeName;
+
+  getValueType(): TypeName | undefined;
+  setValueType(value?: TypeName): TypeName;
+  hasValueType(): boolean;
+  clearValueType(): TypeName;
+
+  getPathNode(): PathNode | undefined;
+  setPathNode(value?: PathNode): TypeName;
+  hasPathNode(): boolean;
+  clearPathNode(): TypeName;
+
+  getReferencedDeclaration(): number;
+  setReferencedDeclaration(value: number): TypeName;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TypeName.AsObject;
   static toObject(includeInstance: boolean, msg: TypeName): TypeName.AsObject;
@@ -173,6 +227,10 @@ export namespace TypeName {
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
     typeDescriptions?: TypeDescriptions.AsObject,
+    keyType?: TypeName.AsObject,
+    valueType?: TypeName.AsObject,
+    pathNode?: PathNode.AsObject,
+    referencedDeclaration: number,
   }
 }
 

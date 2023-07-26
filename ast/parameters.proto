@@ -20,7 +20,7 @@ message Parameter {
     int64 scope = 6;
     txpull.v1.ast.Src src = 7;
     bool state_variable = 8;
-    string storage_location = 9;
+    txpull.v1.ast.StorageLocation storage_location = 9;
     txpull.v1.ast.TypeDescriptions type_descriptions = 10;
     txpull.v1.ast.TypeName type_name = 11;
     txpull.v1.ast.Visibility visibility = 12;
@@ -34,12 +34,24 @@ message FunctionReturnParameters {
     txpull.v1.ast.Src src = 4;
 }
 
+message PathNode {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    int64 referenced_declaration = 4;
+    txpull.v1.ast.Src src = 5;
+}
+
 message TypeName {
     int64 id = 1;
     string name = 2;
     txpull.v1.ast.NodeType node_type = 3;
     txpull.v1.ast.Src src = 4;
     txpull.v1.ast.TypeDescriptions type_descriptions = 5;
+    txpull.v1.ast.TypeName key_type = 6;
+    txpull.v1.ast.TypeName value_type = 7;
+    txpull.v1.ast.PathNode path_node = 8;
+    int64 referenced_declaration = 9;
 }
 
 message TypeDescriptions {

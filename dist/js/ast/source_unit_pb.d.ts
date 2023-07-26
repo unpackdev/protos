@@ -7,6 +7,9 @@ import * as ast_comment_pb from '../ast/comment_pb';
 
 
 export class RootSourceUnit extends jspb.Message {
+  getEntrySourceUnit(): number;
+  setEntrySourceUnit(value: number): RootSourceUnit;
+
   getSourceUnitsList(): Array<SourceUnit>;
   setSourceUnitsList(value: Array<SourceUnit>): RootSourceUnit;
   clearSourceUnitsList(): RootSourceUnit;
@@ -22,6 +25,7 @@ export class RootSourceUnit extends jspb.Message {
 
 export namespace RootSourceUnit {
   export type AsObject = {
+    entrySourceUnit: number,
     sourceUnitsList: Array<SourceUnit.AsObject>,
   }
 }
@@ -32,6 +36,9 @@ export class SourceUnit extends jspb.Message {
 
   getLicense(): string;
   setLicense(value: string): SourceUnit;
+
+  getName(): string;
+  setName(value: string): SourceUnit;
 
   getAbsolutePath(): string;
   setAbsolutePath(value: string): SourceUnit;
@@ -71,6 +78,7 @@ export namespace SourceUnit {
   export type AsObject = {
     id: number,
     license: string,
+    name: string,
     absolutePath: string,
     exportedSymbolsList: Array<ExportedSymbol.AsObject>,
     nodeType: ast_types_pb.NodeType,

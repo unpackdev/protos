@@ -5,6 +5,40 @@ import * as ast_src_pb from '../ast/src_pb';
 import * as ast_parameters_pb from '../ast/parameters_pb';
 
 
+export class Body extends jspb.Message {
+  getId(): number;
+  setId(value: number): Body;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): Body;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): Body;
+  hasSrc(): boolean;
+  clearSrc(): Body;
+
+  getStatementsList(): Array<Statement>;
+  setStatementsList(value: Array<Statement>): Body;
+  clearStatementsList(): Body;
+  addStatements(value?: Statement, index?: number): Statement;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Body.AsObject;
+  static toObject(includeInstance: boolean, msg: Body): Body.AsObject;
+  static serializeBinaryToWriter(message: Body, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Body;
+  static deserializeBinaryFromReader(message: Body, reader: jspb.BinaryReader): Body;
+}
+
+export namespace Body {
+  export type AsObject = {
+    id: number,
+    nodeType: ast_types_pb.NodeType,
+    src?: ast_src_pb.Src.AsObject,
+    statementsList: Array<Statement.AsObject>,
+  }
+}
+
 export class Statement extends jspb.Message {
   getId(): number;
   setId(value: number): Statement;
@@ -88,6 +122,11 @@ export class Statement extends jspb.Message {
   clearStatementsList(): Statement;
   addStatements(value?: Statement, index?: number): Statement;
 
+  getBody(): Body | undefined;
+  setBody(value?: Body): Statement;
+  hasBody(): boolean;
+  clearBody(): Statement;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Statement.AsObject;
   static toObject(includeInstance: boolean, msg: Statement): Statement.AsObject;
@@ -118,6 +157,7 @@ export namespace Statement {
     condition?: Expression.AsObject,
     trueBody?: Statement.AsObject,
     statementsList: Array<Statement.AsObject>,
+    body?: Body.AsObject,
   }
 }
 
@@ -214,6 +254,16 @@ export class Expression extends jspb.Message {
   getFunctionReturnParameters(): number;
   setFunctionReturnParameters(value: number): Expression;
 
+  getBaseExpression(): Expression | undefined;
+  setBaseExpression(value?: Expression): Expression;
+  hasBaseExpression(): boolean;
+  clearBaseExpression(): Expression;
+
+  getIndexExpression(): Expression | undefined;
+  setIndexExpression(value?: Expression): Expression;
+  hasIndexExpression(): boolean;
+  clearIndexExpression(): Expression;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Expression.AsObject;
   static toObject(includeInstance: boolean, msg: Expression): Expression.AsObject;
@@ -248,6 +298,8 @@ export namespace Expression {
     memberName: string,
     componentsList: Array<Expression.AsObject>,
     functionReturnParameters: number,
+    baseExpression?: Expression.AsObject,
+    indexExpression?: Expression.AsObject,
   }
 }
 
@@ -289,6 +341,11 @@ export class Declaration extends jspb.Message {
   getVisibility(): ast_types_pb.Visibility;
   setVisibility(value: ast_types_pb.Visibility): Declaration;
 
+  getTypeDescriptions(): ast_parameters_pb.TypeDescriptions | undefined;
+  setTypeDescriptions(value?: ast_parameters_pb.TypeDescriptions): Declaration;
+  hasTypeDescriptions(): boolean;
+  clearTypeDescriptions(): Declaration;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Declaration.AsObject;
   static toObject(includeInstance: boolean, msg: Declaration): Declaration.AsObject;
@@ -310,6 +367,7 @@ export namespace Declaration {
     storageLocation: ast_types_pb.StorageLocation,
     typeName?: ast_parameters_pb.TypeName.AsObject,
     visibility: ast_types_pb.Visibility,
+    typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
   }
 }
 

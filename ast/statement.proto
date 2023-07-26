@@ -5,6 +5,13 @@ import "ast/src.proto";
 import "ast/parameters.proto";
 package txpull.v1.ast;
 
+message Body {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.Src src = 3;
+    repeated txpull.v1.ast.Statement statements = 4;
+}
+
 message Statement {
     int64 id = 1;
     txpull.v1.ast.NodeType node_type = 2;
@@ -26,6 +33,7 @@ message Statement {
     txpull.v1.ast.Expression condition = 18;
     txpull.v1.ast.Statement true_body = 19;
     repeated txpull.v1.ast.Statement statements = 20;
+    txpull.v1.ast.Body body = 21;
 }
 
 message Expression {
@@ -53,6 +61,8 @@ message Expression {
     string member_name = 22;
     repeated txpull.v1.ast.Expression components = 23;
     int64 function_return_parameters = 24;
+    txpull.v1.ast.Expression base_expression = 25;
+    txpull.v1.ast.Expression index_expression = 26;
 }
 
 message Declaration {
@@ -67,4 +77,5 @@ message Declaration {
     txpull.v1.ast.StorageLocation storage_location = 9;
     txpull.v1.ast.TypeName type_name = 11;
     txpull.v1.ast.Visibility visibility = 12;
+    txpull.v1.ast.TypeDescriptions type_descriptions = 13;
 }
