@@ -6026,6 +6026,81 @@
       "services": []
     },
     {
+      "name": "ast/emit.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Emit",
+          "longName": "Emit",
+          "fullName": "txpull.v1.ast.Emit",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/enum.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Enum",
+          "longName": "Enum",
+          "fullName": "txpull.v1.ast.Enum",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/event.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Event",
+          "longName": "Event",
+          "fullName": "txpull.v1.ast.Event",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/function.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -6076,6 +6151,31 @@
       "services": []
     },
     {
+      "name": "ast/index_access.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "IndexAccessExpression",
+          "longName": "IndexAccessExpression",
+          "fullName": "txpull.v1.ast.IndexAccessExpression",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/member_access.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -6090,6 +6190,31 @@
           "name": "MemberAccessExpression",
           "longName": "MemberAccessExpression",
           "fullName": "txpull.v1.ast.MemberAccessExpression",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/meta_type.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "MetaTypeExpression",
+          "longName": "MetaTypeExpression",
+          "fullName": "txpull.v1.ast.MetaTypeExpression",
           "description": "",
           "hasExtensions": false,
           "hasFields": false,
@@ -8847,6 +8972,31 @@
               "defaultValue": ""
             }
           ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/struct.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Struct",
+          "longName": "Struct",
+          "fullName": "txpull.v1.ast.Struct",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
         }
       ],
       "services": []
