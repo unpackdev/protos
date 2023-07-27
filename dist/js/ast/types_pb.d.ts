@@ -88,6 +88,10 @@ export enum NodeType {
   PLACEHOLDER_STATEMENT = 82,
   WHILE = 83,
   PAYABLE_CONVERSION = 84,
+  TRY_STATEMENT = 85,
+  TRY = 86,
+  TRY_CATCH_CLAUSE = 87,
+  CATCH = 88,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

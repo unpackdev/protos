@@ -5952,6 +5952,31 @@
       "services": []
     },
     {
+      "name": "ast/catch.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Catch",
+          "longName": "Catch",
+          "fullName": "txpull.v1.ast.Catch",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/comment.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -9202,6 +9227,31 @@
       "services": []
     },
     {
+      "name": "ast/try.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Try",
+          "longName": "Try",
+          "fullName": "txpull.v1.ast.Try",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/types.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -9682,6 +9732,26 @@
             {
               "name": "PAYABLE_CONVERSION",
               "number": "84",
+              "description": ""
+            },
+            {
+              "name": "TRY_STATEMENT",
+              "number": "85",
+              "description": ""
+            },
+            {
+              "name": "TRY",
+              "number": "86",
+              "description": ""
+            },
+            {
+              "name": "TRY_CATCH_CLAUSE",
+              "number": "87",
+              "description": ""
+            },
+            {
+              "name": "CATCH",
+              "number": "88",
               "description": ""
             }
           ]
