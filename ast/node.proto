@@ -1,11 +1,11 @@
 syntax = "proto3";
+package txpull.v1.ast;
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 import "ast/types.proto";
 import "ast/src.proto";
 import "ast/parameters.proto";
 import "ast/statement.proto";
 import "ast/modifiers.proto";
-package txpull.v1.ast;
 import "google/protobuf/any.proto";
 
 message LibraryName {

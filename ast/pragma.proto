@@ -1,5 +1,20 @@
 syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
+import "ast/src.proto";
+import "ast/types.proto";
 
-message Pragma {}
+// The Pragma message represents a pragma directive in a Solidity source file.
+// A pragma directive provides instructions to the compiler about how to treat the source code (e.g., compiler version).
+message Pragma {
+    // id is the unique identifier of the pragma directive.
+    int64 id = 1;
+    // node_type is the type of the node. For a Pragma, this is always NodeType_PRAGMA_DIRECTIVE.
+    txpull.v1.ast.NodeType node_type = 2;
+    // src contains source information about the node, such as its line and column numbers in the source file.
+    txpull.v1.ast.Src src = 3;
+    // literals is a repeated field of strings that represent the literals of the pragma directive.
+    // For example, for the pragma directive "pragma solidity ^0.5.0;", the literals would
+    // be ["solidity", "^", "0", ".", "5", ".", "0"].
+    repeated string literals = 4;
+}

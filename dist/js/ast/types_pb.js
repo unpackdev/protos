@@ -109,7 +109,11 @@ proto.txpull.v1.ast.NodeType = {
   TRY_STATEMENT: 85,
   TRY: 86,
   TRY_CATCH_CLAUSE: 87,
-  CATCH: 88
+  CATCH: 88,
+  ASSEMBLY_STATEMENT: 89,
+  AST: 90,
+  YUL_STATEMENT: 91,
+  YUL_ASSIGNMENT: 92
 };
 
 /**

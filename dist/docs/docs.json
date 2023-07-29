@@ -5941,12 +5941,49 @@
           "name": "Break",
           "longName": "Break",
           "fullName": "txpull.v1.ast.Break",
-          "description": "",
+          "description": "The Break message represents a 'break' statement in Solidity.",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "The unique identifier for the 'break' statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node, which is 'BREAK' for a 'break' statement.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "The source information about the 'break' statement, such as its line and column numbers in the source file.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -5968,10 +6005,95 @@
           "fullName": "txpull.v1.ast.Catch",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParametersList",
+              "longType": "ParametersList",
+              "fullType": "txpull.v1.ast.ParametersList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -7957,12 +8079,61 @@
           "name": "Pragma",
           "longName": "Pragma",
           "fullName": "txpull.v1.ast.Pragma",
-          "description": "",
+          "description": "The Pragma message represents a pragma directive in a Solidity source file.\nA pragma directive provides instructions to the compiler about how to treat the source code (e.g., compiler version).",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "id is the unique identifier of the pragma directive.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "node_type is the type of the node. For a Pragma, this is always NodeType_PRAGMA_DIRECTIVE.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "src contains source information about the node, such as its line and column numbers in the source file.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "literals",
+              "description": "literals is a repeated field of strings that represent the literals of the pragma directive.\nFor example, for the pragma directive \"pragma solidity ^0.5.0;\", the literals would\nbe [\"solidity\", \"^\", \"0\", \".\", \"5\", \".\", \"0\"].",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -8300,15 +8471,27 @@
           "name": "Src",
           "longName": "Src",
           "fullName": "txpull.v1.ast.Src",
-          "description": "",
+          "description": "The Src message represents source information about an AST (Abstract Syntax Tree) node in a Solidity source file.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
+              "name": "id",
+              "description": "id is the unique identifier of the source information.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "line",
-              "description": "",
+              "description": "line is the line number in the source file where the AST node starts.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -8320,7 +8503,7 @@
             },
             {
               "name": "column",
-              "description": "",
+              "description": "column is the column number in the source file where the AST node starts.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -8332,7 +8515,7 @@
             },
             {
               "name": "start",
-              "description": "",
+              "description": "start is the character position in the source file where the AST node starts.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -8344,7 +8527,7 @@
             },
             {
               "name": "end",
-              "description": "",
+              "description": "end is the character position in the source file where the AST node ends.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -8356,7 +8539,7 @@
             },
             {
               "name": "length",
-              "description": "",
+              "description": "length is the length of the source code for the AST node. It is calculated as (end - start + 1).",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -8368,7 +8551,7 @@
             },
             {
               "name": "parent_index",
-              "description": "",
+              "description": "parent_index is the id of the parent AST node in the tree hierarchy.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -9252,6 +9435,80 @@
       "services": []
     },
     {
+      "name": "ast/tuple.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Tuple",
+          "longName": "Tuple",
+          "fullName": "txpull.v1.ast.Tuple",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/types.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -9752,6 +10009,26 @@
             {
               "name": "CATCH",
               "number": "88",
+              "description": ""
+            },
+            {
+              "name": "ASSEMBLY_STATEMENT",
+              "number": "89",
+              "description": ""
+            },
+            {
+              "name": "AST",
+              "number": "90",
+              "description": ""
+            },
+            {
+              "name": "YUL_STATEMENT",
+              "number": "91",
+              "description": ""
+            },
+            {
+              "name": "YUL_ASSIGNMENT",
+              "number": "92",
               "description": ""
             }
           ]

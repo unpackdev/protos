@@ -3,6 +3,9 @@ import * as jspb from 'google-protobuf'
 
 
 export class Src extends jspb.Message {
+  getId(): number;
+  setId(value: number): Src;
+
   getLine(): number;
   setLine(value: number): Src;
 
@@ -31,6 +34,7 @@ export class Src extends jspb.Message {
 
 export namespace Src {
   export type AsObject = {
+    id: number,
     line: number,
     column: number,
     start: number,

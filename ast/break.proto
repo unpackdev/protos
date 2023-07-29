@@ -1,7 +1,15 @@
 syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
+import "ast/src.proto";
+import "ast/types.proto";
 
+// The Break message represents a 'break' statement in Solidity.
 message Break {
-
+    // The unique identifier for the 'break' statement.
+    int64 id = 1;
+    // The type of the node, which is 'BREAK' for a 'break' statement.
+    txpull.v1.ast.NodeType node_type = 2;
+    // The source information about the 'break' statement, such as its line and column numbers in the source file.
+    txpull.v1.ast.Src src = 3;
 }

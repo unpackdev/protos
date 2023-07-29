@@ -66,12 +66,13 @@ proto.txpull.v1.ast.Src.prototype.toObject = function(opt_includeInstance) {
  */
 proto.txpull.v1.ast.Src.toObject = function(includeInstance, msg) {
   var f, obj = {
-    line: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    column: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    start: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    end: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    length: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    parentIndex: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    line: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    column: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    start: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    end: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    length: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    parentIndex: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -110,25 +111,29 @@ proto.txpull.v1.ast.Src.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setLine(value);
+      msg.setId(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setColumn(value);
+      msg.setLine(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setStart(value);
+      msg.setColumn(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setEnd(value);
+      msg.setStart(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setLength(value);
+      msg.setEnd(value);
       break;
     case 6:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setLength(value);
+      break;
+    case 7:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setParentIndex(value);
       break;
@@ -161,45 +166,52 @@ proto.txpull.v1.ast.Src.prototype.serializeBinary = function() {
  */
 proto.txpull.v1.ast.Src.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getLine();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = message.getColumn();
+  f = message.getLine();
   if (f !== 0) {
     writer.writeInt64(
       2,
       f
     );
   }
-  f = message.getStart();
+  f = message.getColumn();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = message.getEnd();
+  f = message.getStart();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = message.getLength();
+  f = message.getEnd();
   if (f !== 0) {
     writer.writeInt64(
       5,
       f
     );
   }
-  f = message.getParentIndex();
+  f = message.getLength();
   if (f !== 0) {
     writer.writeInt64(
       6,
+      f
+    );
+  }
+  f = message.getParentIndex();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
       f
     );
   }
@@ -207,10 +219,10 @@ proto.txpull.v1.ast.Src.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int64 line = 1;
+ * optional int64 id = 1;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getLine = function() {
+proto.txpull.v1.ast.Src.prototype.getId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -219,16 +231,16 @@ proto.txpull.v1.ast.Src.prototype.getLine = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setLine = function(value) {
+proto.txpull.v1.ast.Src.prototype.setId = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * optional int64 column = 2;
+ * optional int64 line = 2;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getColumn = function() {
+proto.txpull.v1.ast.Src.prototype.getLine = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
@@ -237,16 +249,16 @@ proto.txpull.v1.ast.Src.prototype.getColumn = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setColumn = function(value) {
+proto.txpull.v1.ast.Src.prototype.setLine = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
- * optional int64 start = 3;
+ * optional int64 column = 3;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getStart = function() {
+proto.txpull.v1.ast.Src.prototype.getColumn = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
@@ -255,16 +267,16 @@ proto.txpull.v1.ast.Src.prototype.getStart = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setStart = function(value) {
+proto.txpull.v1.ast.Src.prototype.setColumn = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
- * optional int64 end = 4;
+ * optional int64 start = 4;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getEnd = function() {
+proto.txpull.v1.ast.Src.prototype.getStart = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
@@ -273,16 +285,16 @@ proto.txpull.v1.ast.Src.prototype.getEnd = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setEnd = function(value) {
+proto.txpull.v1.ast.Src.prototype.setStart = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
- * optional int64 length = 5;
+ * optional int64 end = 5;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getLength = function() {
+proto.txpull.v1.ast.Src.prototype.getEnd = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
@@ -291,16 +303,16 @@ proto.txpull.v1.ast.Src.prototype.getLength = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setLength = function(value) {
+proto.txpull.v1.ast.Src.prototype.setEnd = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional int64 parent_index = 6;
+ * optional int64 length = 6;
  * @return {number}
  */
-proto.txpull.v1.ast.Src.prototype.getParentIndex = function() {
+proto.txpull.v1.ast.Src.prototype.getLength = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
@@ -309,8 +321,26 @@ proto.txpull.v1.ast.Src.prototype.getParentIndex = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Src} returns this
  */
-proto.txpull.v1.ast.Src.prototype.setParentIndex = function(value) {
+proto.txpull.v1.ast.Src.prototype.setLength = function(value) {
   return jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional int64 parent_index = 7;
+ * @return {number}
+ */
+proto.txpull.v1.ast.Src.prototype.getParentIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.ast.Src} returns this
+ */
+proto.txpull.v1.ast.Src.prototype.setParentIndex = function(value) {
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
