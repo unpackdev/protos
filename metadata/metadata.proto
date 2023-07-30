@@ -1,0 +1,108 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/metadata;metadata_pb";
+package txpull.v1.metadata;
+
+import "common/status.proto";
+import "google/protobuf/any.proto";
+
+// BytecodeMetadata represents metadata associated with bytecode.
+message BytecodeMetadata {
+    bytes execution_bytecode = 1; // The execution bytecode.
+    uint32 cbor_length = 2; // The length of the CBOR data.
+    bytes raw = 3; // The raw bytecode.
+    string ipfs = 4; // The IPFS hash of the bytecode.
+    string bzzr1 = 5; // The bzzr1 hash of the bytecode.
+    string bzzr0 = 6; // The bzzr0 hash of the bytecode.
+    bool experimental = 7; // Indicates if the bytecode is experimental.
+    string solc = 8; // The version of the Solidity compiler used.
+    string solgo = 9; // The version of SolGo used.
+}
+
+// MetadataRequest represents a request for metadata.
+message MetadataRequest {
+    int64  chain_id = 1; // The chain ID.
+    string address = 2; // The address of the contract.
+    string bytecode = 3; // The bytecode of the contract.
+}
+
+// Metadata represents contract metadata.
+message Metadata {
+    string raw = 1; // The raw metadata.
+    int32 version = 2; // The version of the metadata.
+    Compiler compiler = 3; // The compiler used to compile the contract.
+    string language = 4; // The language used to write the contract.
+    Settings settings = 5; // The settings used to compile the contract.
+    Output output = 6; // The output of the contract compilation.
+    map<string, Source> sources = 7; // The sources of the contract.
+
+    // Compiler represents the compiler used to compile the contract.
+    message Compiler {
+        string version = 1; // The version of the compiler.
+        string keccak256 = 2; // The Keccak-256 hash of the compiler.
+    }
+
+    // Settings represents the settings used to compile the contract.
+    message Settings {
+        string evm_version = 1; // The version of the EVM used.
+        map<string, string> compilation_target = 2; // The compilation target.
+        map<string, string> libraries = 3; // The libraries used.
+        repeated string remappings = 4; // The remappings used.
+        MetadataSettings metadata = 5; // The metadata settings.
+        Optimizer optimizer = 6; // The optimizer settings.
+
+        // MetadataSettings represents the metadata settings.
+        message MetadataSettings {
+            string bytecode_hash = 1; // The hash of the bytecode.
+            bool use_literal_content = 2; // Indicates if literal content was used.
+            bool append_cbor = 3; // Indicates if CBOR was appended.
+        }
+
+        // Optimizer represents the optimizer settings.
+        message Optimizer {
+            bool enabled = 1; // Indicates if the optimizer was enabled.
+            int32 runs = 2; // The number of runs the optimizer made.
+            Details details = 3; // The details of the optimizer.
+
+            // Details represents the details of the optimizer.
+            message Details {
+                bool peephole = 1; // Indicates if the peephole optimization was used.
+                bool inliner = 2; // Indicates if the inliner optimization was used.
+                bool jumpdest_remover = 3; // Indicates if the jumpdest remover optimization was used.
+                bool order_literals = 4; // Indicates if the order literals optimization was used.
+                bool deduplicate = 5; // Indicates if the deduplicate optimization was used.
+                bool cse = 6; // Indicates if the common subexpression elimination optimization was used.
+                bool constant_optimizer = 7; // Indicates if the constant optimizer was used.
+                bool yul = 8; // Indicates if the Yul optimizer was used.
+                YulDetails yul_details = 9; // The details of the Yul optimizer.
+
+                // YulDetails represents the details of the Yul optimizer.
+                message YulDetails {
+                    bool stack_allocation = 1; // Indicates if stack allocation was used.
+                    int32 optimizer_steps = 2; // The number of steps the optimizer made.
+                }
+            }
+        }
+    }
+
+    // Output represents the output of the contract compilation.
+    message Output {
+        repeated google.protobuf.Any abi = 1; // The ABI of the contract.
+    }
+
+    // Source represents a source of the contract.
+    message Source {
+        string content = 1; // The content of the source.
+        string keccak = 2; // The Keccak-256 hash of the source.
+        string license = 3; // The license of the source.
+    }
+}
+
+// MetadataResponse represents a response to a metadata request.
+message MetadataResponse {
+    txpull.v1.common.Status status = 1; // The status of the response.
+    int64 chain_id = 2; // The chain ID.
+    string address = 3; // The address of the contract.
+    string bytecode = 4; // The bytecode of the contract.
+    BytecodeMetadata bytecode_metadata = 5; // The bytecode metadata.
+    Metadata metadata = 6; // The contract metadata.
+}

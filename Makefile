@@ -18,15 +18,11 @@ RESET := "\033[0m"
 
 # Define the input files for your protobuf definitions
 PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
-	 $(PWD)/tokens/*.proto \
-	 $(PWD)/chains/*.proto \
-	 $(PWD)/blocks/*.proto \
-	 $(PWD)/transactions/*.proto \
-	 $(PWD)/addresses/*.proto \
-	 $(PWD)/holders/*.proto \
-	 $(PWD)/indexer/*.proto \
+	 $(PWD)/health/*.proto \
+	 $(PWD)/metadata/*.proto \
 	 $(PWD)/unpack/*.proto \
 	 $(PWD)/ast/*.proto \
+	 $(PWD)/solgo/*.proto \
 )
 
 # Define the commands to generate protobuf files for Golang and JavaScript

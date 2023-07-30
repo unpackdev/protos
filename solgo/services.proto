@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/solgo;solgo_pb";
+package txpull.v1.solgo;
+
+import "metadata/metadata.proto";
+import "health/health.proto";
+
+service SolGoService {
+    rpc GetMetadata(txpull.v1.metadata.MetadataRequest) returns (txpull.v1.metadata.MetadataResponse) {};
+    rpc GetHealth(txpull.v1.health.HealthRequest) returns (txpull.v1.health.HealthResponse) {};
+}
+    

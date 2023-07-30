@@ -1,0 +1,8 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/health;health_pb";
+package txpull.v1.health;
+
+
+message HealthRequest {}
+
+message HealthResponse {}

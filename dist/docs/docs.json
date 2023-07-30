@@ -75,111 +75,77 @@
       "services": []
     },
     {
-      "name": "tokens/tokens.proto",
+      "name": "health/health.proto",
       "description": "",
-      "package": "txpull.v1.tokens",
-      "hasEnums": true,
+      "package": "txpull.v1.health",
+      "hasEnums": false,
       "hasExtensions": false,
       "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "TokenStatus",
-          "longName": "TokenStatus",
-          "fullName": "txpull.v1.tokens.TokenStatus",
-          "description": "The `TokenStatus` defines subscription method when streaming tokens to the clients.",
-          "values": [
-            {
-              "name": "ANY",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "QUEUED",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "PROCESSING",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "PROCESSED",
-              "number": "3",
-              "description": ""
-            },
-            {
-              "name": "FAILED",
-              "number": "4",
-              "description": ""
-            }
-          ]
-        }
-      ],
+      "hasServices": false,
+      "enums": [],
       "extensions": [],
       "messages": [
         {
-          "name": "FilterTokensRequest",
-          "longName": "FilterTokensRequest",
-          "fullName": "txpull.v1.tokens.FilterTokensRequest",
+          "name": "HealthRequest",
+          "longName": "HealthRequest",
+          "fullName": "txpull.v1.health.HealthRequest",
           "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        },
+        {
+          "name": "HealthResponse",
+          "longName": "HealthResponse",
+          "fullName": "txpull.v1.health.HealthResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": false,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "metadata/metadata.proto",
+      "description": "",
+      "package": "txpull.v1.metadata",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "BytecodeMetadata",
+          "longName": "BytecodeMetadata",
+          "fullName": "txpull.v1.metadata.BytecodeMetadata",
+          "description": "BytecodeMetadata represents metadata associated with bytecode.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "start_block",
-              "description": "",
+              "name": "execution_bytecode",
+              "description": "The execution bytecode.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "end_block",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "page",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "page_size",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
+              "name": "cbor_length",
+              "description": "The length of the CBOR data.",
               "label": "",
               "type": "uint32",
               "longType": "uint32",
@@ -188,70 +154,82 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterTokensResponse",
-          "longName": "FilterTokensResponse",
-          "fullName": "txpull.v1.tokens.FilterTokensResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
+            },
             {
-              "name": "status",
-              "description": "",
+              "name": "raw",
+              "description": "The raw bytecode.",
               "label": "",
-              "type": "Status",
-              "longType": "Status",
-              "fullType": "txpull.v1.tokens.Status",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "token",
-              "description": "",
-              "label": "repeated",
-              "type": "Token",
-              "longType": "Token",
-              "fullType": "txpull.v1.tokens.Token",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetTokenRequest",
-          "longName": "GetTokenRequest",
-          "fullName": "txpull.v1.tokens.GetTokenRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "token_id",
-              "description": "",
+              "name": "ipfs",
+              "description": "The IPFS hash of the bytecode.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "address",
-              "description": "",
+              "name": "bzzr1",
+              "description": "The bzzr1 hash of the bytecode.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bzzr0",
+              "description": "The bzzr0 hash of the bytecode.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "experimental",
+              "description": "Indicates if the bytecode is experimental.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "solc",
+              "description": "The version of the Solidity compiler used.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "solgo",
+              "description": "The version of SolGo used.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -264,42 +242,18 @@
           ]
         },
         {
-          "name": "GetTokenResponse",
-          "longName": "GetTokenResponse",
-          "fullName": "txpull.v1.tokens.GetTokenResponse",
-          "description": "",
+          "name": "Metadata",
+          "longName": "Metadata",
+          "fullName": "txpull.v1.metadata.Metadata",
+          "description": "Metadata represents contract metadata.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "block",
-              "description": "",
-              "label": "",
-              "type": "Token",
-              "longType": "Token",
-              "fullType": "txpull.v1.tokens.Token",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "QueueTokenRequest",
-          "longName": "QueueTokenRequest",
-          "fullName": "txpull.v1.tokens.QueueTokenRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "address",
-              "description": "",
+              "name": "raw",
+              "description": "The raw metadata.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -308,58 +262,10 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "QueueTokenResponse",
-          "longName": "QueueTokenResponse",
-          "fullName": "txpull.v1.tokens.QueueTokenResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "Status",
-              "fullType": "txpull.v1.tokens.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
             },
             {
-              "name": "token_queue_status",
-              "description": "",
-              "label": "",
-              "type": "TokenStatus",
-              "longType": "TokenStatus",
-              "fullType": "txpull.v1.tokens.TokenStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Status",
-          "longName": "Status",
-          "fullName": "txpull.v1.tokens.Status",
-          "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs.",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "code",
-              "description": "A simple error code that can be easily handled by the client. The\nactual error code is defined by `google.rpc.Code`.",
+              "name": "version",
+              "description": "The version of the metadata.",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -370,8 +276,20 @@
               "defaultValue": ""
             },
             {
-              "name": "reason",
-              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "name": "compiler",
+              "description": "The compiler used to compile the contract.",
+              "label": "",
+              "type": "Compiler",
+              "longType": "Metadata.Compiler",
+              "fullType": "txpull.v1.metadata.Metadata.Compiler",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "language",
+              "description": "The language used to write the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -382,8 +300,56 @@
               "defaultValue": ""
             },
             {
-              "name": "message",
-              "description": "A developer-facing human-readable error message in English. It should\nboth explain the error and offer an actionable resolution to it.",
+              "name": "settings",
+              "description": "The settings used to compile the contract.",
+              "label": "",
+              "type": "Settings",
+              "longType": "Metadata.Settings",
+              "fullType": "txpull.v1.metadata.Metadata.Settings",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "output",
+              "description": "The output of the contract compilation.",
+              "label": "",
+              "type": "Output",
+              "longType": "Metadata.Output",
+              "fullType": "txpull.v1.metadata.Metadata.Output",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "sources",
+              "description": "The sources of the contract.",
+              "label": "repeated",
+              "type": "SourcesEntry",
+              "longType": "Metadata.SourcesEntry",
+              "fullType": "txpull.v1.metadata.Metadata.SourcesEntry",
+              "ismap": true,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Compiler",
+          "longName": "Metadata.Compiler",
+          "fullName": "txpull.v1.metadata.Metadata.Compiler",
+          "description": "Compiler represents the compiler used to compile the contract.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "version",
+              "description": "The version of the compiler.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -394,8 +360,32 @@
               "defaultValue": ""
             },
             {
-              "name": "details",
-              "description": "Additional error information that the client code can use to handle\nthe error, such as retry info or a help link.",
+              "name": "keccak256",
+              "description": "The Keccak-256 hash of the compiler.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Output",
+          "longName": "Metadata.Output",
+          "fullName": "txpull.v1.metadata.Metadata.Output",
+          "description": "Output represents the output of the contract compilation.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "abi",
+              "description": "The ABI of the contract.",
               "label": "repeated",
               "type": "Any",
               "longType": "google.protobuf.Any",
@@ -408,126 +398,18 @@
           ]
         },
         {
-          "name": "SubscribeTokensRequest",
-          "longName": "SubscribeTokensRequest",
-          "fullName": "txpull.v1.tokens.SubscribeTokensRequest",
-          "description": "",
+          "name": "Settings",
+          "longName": "Metadata.Settings",
+          "fullName": "txpull.v1.metadata.Metadata.Settings",
+          "description": "Settings represents the settings used to compile the contract.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "start_block",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "TokenStatus",
-              "longType": "TokenStatus",
-              "fullType": "txpull.v1.tokens.TokenStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "SubscriptionTokenResponse",
-          "longName": "SubscriptionTokenResponse",
-          "fullName": "txpull.v1.tokens.SubscriptionTokenResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "Status",
-              "fullType": "txpull.v1.tokens.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "token_discovery_status",
-              "description": "",
-              "label": "",
-              "type": "TokenStatus",
-              "longType": "TokenStatus",
-              "fullType": "txpull.v1.tokens.TokenStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "Token",
-              "description": "",
-              "label": "",
-              "type": "Token",
-              "longType": "Token",
-              "fullType": "txpull.v1.tokens.Token",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Token",
-          "longName": "Token",
-          "fullName": "txpull.v1.tokens.Token",
-          "description": "The Token protocol buffer message defines a standardized data format for representing \ntoken objects. It includes fields such as the token identifier, blockchain identifier, \ntoken name, description, symbol, decimal places, total supply, creation information, \nowner information, and security information. The message can be used in a variety of contexts\nto provide a standardized way of representing token objects.",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
+              "name": "evm_version",
+              "description": "The version of the EVM used.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -538,1405 +420,60 @@
               "defaultValue": ""
             },
             {
-              "name": "creator_address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "owner_address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "description",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "symbol",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "decimals",
-              "description": "",
-              "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "creation_block_number",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "creation_transaction_hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "creation_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "total_supply",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "total_supply_in_circulation",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "urls",
-              "description": "",
-              "label": "",
-              "type": "TokenUrls",
-              "longType": "TokenUrls",
-              "fullType": "txpull.v1.tokens.TokenUrls",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "security",
-              "description": "",
-              "label": "",
-              "type": "TokenSecurityInfo",
-              "longType": "TokenSecurityInfo",
-              "fullType": "txpull.v1.tokens.TokenSecurityInfo",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "TokenSecurityInfo",
-          "longName": "TokenSecurityInfo",
-          "fullName": "txpull.v1.tokens.TokenSecurityInfo",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "ownership_renounced",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "TokenUrls",
-          "longName": "TokenUrls",
-          "fullName": "txpull.v1.tokens.TokenUrls",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "website",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "technical_documentation",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "explorer",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "repository",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "telegram",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "discord",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "medium",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "twitter",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Tokens",
-          "longName": "Tokens",
-          "fullName": "txpull.v1.tokens.Tokens",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterTokensRequest",
-              "requestLongType": "FilterTokensRequest",
-              "requestFullType": "txpull.v1.tokens.FilterTokensRequest",
-              "requestStreaming": false,
-              "responseType": "FilterTokensResponse",
-              "responseLongType": "FilterTokensResponse",
-              "responseFullType": "txpull.v1.tokens.FilterTokensResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/tokens"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetTokenRequest",
-              "requestLongType": "GetTokenRequest",
-              "requestFullType": "txpull.v1.tokens.GetTokenRequest",
-              "requestStreaming": false,
-              "responseType": "GetTokenResponse",
-              "responseLongType": "GetTokenResponse",
-              "responseFullType": "txpull.v1.tokens.GetTokenResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/tokens/{address}"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Queue",
-              "description": "Queue new token to the network. Response will only return acknowledgements, not actual\ntoken.",
-              "requestType": "QueueTokenRequest",
-              "requestLongType": "QueueTokenRequest",
-              "requestFullType": "txpull.v1.tokens.QueueTokenRequest",
-              "requestStreaming": false,
-              "responseType": "QueueTokenResponse",
-              "responseLongType": "QueueTokenResponse",
-              "responseFullType": "txpull.v1.tokens.QueueTokenResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/tokens/queue"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "QueueAndWait",
-              "description": "Queue new token to the network and wait for network response about the token",
-              "requestType": "QueueTokenRequest",
-              "requestLongType": "QueueTokenRequest",
-              "requestFullType": "txpull.v1.tokens.QueueTokenRequest",
-              "requestStreaming": true,
-              "responseType": "SubscriptionTokenResponse",
-              "responseLongType": "SubscriptionTokenResponse",
-              "responseFullType": "txpull.v1.tokens.SubscriptionTokenResponse",
-              "responseStreaming": true
-            },
-            {
-              "name": "Subscribe",
-              "description": "",
-              "requestType": "SubscribeTokensRequest",
-              "requestLongType": "SubscribeTokensRequest",
-              "requestFullType": "txpull.v1.tokens.SubscribeTokensRequest",
-              "requestStreaming": false,
-              "responseType": "SubscriptionTokenResponse",
-              "responseLongType": "SubscriptionTokenResponse",
-              "responseFullType": "txpull.v1.tokens.SubscriptionTokenResponse",
-              "responseStreaming": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "chains/chains.proto",
-      "description": "",
-      "package": "txpull.v1.chains",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "ChainStatus",
-          "longName": "ChainStatus",
-          "fullName": "txpull.v1.chains.ChainStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "CS_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "CS_OFFLINE",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "CS_ONLINE",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "CS_DISABLED",
-              "number": "3",
-              "description": ""
-            },
-            {
-              "name": "CS_WIP",
-              "number": "4",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Chain",
-          "longName": "Chain",
-          "fullName": "txpull.v1.chains.Chain",
-          "description": "The Token protocol buffer message defines a standardized data format for representing \ntoken objects. It includes fields such as the token identifier, blockchain identifier, \ntoken name, description, symbol, decimal places, total supply, creation information, \nowner information, and security information. The message can be used in a variety of contexts\nto provide a standardized way of representing token objects.",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "latest_block",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "latest_indexed_block",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "total_indexed_blocks",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "average_index_time_ms",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "ChainStatus",
-              "longType": "ChainStatus",
-              "fullType": "txpull.v1.chains.ChainStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "creation_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterChainRequest",
-          "longName": "FilterChainRequest",
-          "fullName": "txpull.v1.chains.FilterChainRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterChainResponse",
-          "longName": "FilterChainResponse",
-          "fullName": "txpull.v1.chains.FilterChainResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chains",
-              "description": "",
+              "name": "compilation_target",
+              "description": "The compilation target.",
               "label": "repeated",
-              "type": "Chain",
-              "longType": "Chain",
-              "fullType": "txpull.v1.chains.Chain",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetChainRequest",
-          "longName": "GetChainRequest",
-          "fullName": "txpull.v1.chains.GetChainRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
+              "type": "CompilationTargetEntry",
+              "longType": "Metadata.Settings.CompilationTargetEntry",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.CompilationTargetEntry",
+              "ismap": true,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetChainResponse",
-          "longName": "GetChainResponse",
-          "fullName": "txpull.v1.chains.GetChainResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain",
-              "description": "",
-              "label": "",
-              "type": "Chain",
-              "longType": "Chain",
-              "fullType": "txpull.v1.chains.Chain",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Chains",
-          "longName": "Chains",
-          "fullName": "txpull.v1.chains.Chains",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterChainRequest",
-              "requestLongType": "FilterChainRequest",
-              "requestFullType": "txpull.v1.chains.FilterChainRequest",
-              "requestStreaming": false,
-              "responseType": "FilterChainResponse",
-              "responseLongType": "FilterChainResponse",
-              "responseFullType": "txpull.v1.chains.FilterChainResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/chains"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetChainRequest",
-              "requestLongType": "GetChainRequest",
-              "requestFullType": "txpull.v1.chains.GetChainRequest",
-              "requestStreaming": false,
-              "responseType": "GetChainResponse",
-              "responseLongType": "GetChainResponse",
-              "responseFullType": "txpull.v1.chains.GetChainResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/chains/{id}"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "blocks/blocks.proto",
-      "description": "",
-      "package": "txpull.v1.blocks",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "BlockStatus",
-          "longName": "BlockStatus",
-          "fullName": "txpull.v1.blocks.BlockStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "BS_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "BS_QUEUED",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "BS_PROCESSING",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "BS_PROCESSED",
-              "number": "3",
-              "description": ""
-            },
-            {
-              "name": "BS_FAILED",
-              "number": "4",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Block",
-          "longName": "Block",
-          "fullName": "txpull.v1.blocks.Block",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "number",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "parent_hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "uncle_hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "mix_hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "nonce",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "logs_bloom",
-              "description": "",
-              "label": "",
-              "type": "bytes",
-              "longType": "bytes",
-              "fullType": "bytes",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "state_root",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "transactions_root",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "receipts_root",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "coinbase",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "difficulty",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "size",
-              "description": "",
-              "label": "",
-              "type": "double",
-              "longType": "double",
-              "fullType": "double",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "extra_data",
-              "description": "",
-              "label": "",
-              "type": "bytes",
-              "longType": "bytes",
-              "fullType": "bytes",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "gas_limit",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "gas_used",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "base_fee",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "total_transactions_count",
-              "description": "",
-              "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "processed_transactions_count",
-              "description": "",
-              "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "BlockStatus",
-              "longType": "BlockStatus",
-              "fullType": "txpull.v1.blocks.BlockStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "queued_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "processed_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterBlockRequest",
-          "longName": "FilterBlockRequest",
-          "fullName": "txpull.v1.blocks.FilterBlockRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterBlockResponse",
-          "longName": "FilterBlockResponse",
-          "fullName": "txpull.v1.blocks.FilterBlockResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "blocks",
-              "description": "",
+              "name": "libraries",
+              "description": "The libraries used.",
               "label": "repeated",
-              "type": "Block",
-              "longType": "Block",
-              "fullType": "txpull.v1.blocks.Block",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetBlockRequest",
-          "longName": "GetBlockRequest",
-          "fullName": "txpull.v1.blocks.GetBlockRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "block_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
+              "type": "LibrariesEntry",
+              "longType": "Metadata.Settings.LibrariesEntry",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.LibrariesEntry",
+              "ismap": true,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetBlockResponse",
-          "longName": "GetBlockResponse",
-          "fullName": "txpull.v1.blocks.GetBlockResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "block",
-              "description": "",
-              "label": "",
-              "type": "Block",
-              "longType": "Block",
-              "fullType": "txpull.v1.blocks.Block",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Blocks",
-          "longName": "Blocks",
-          "fullName": "txpull.v1.blocks.Blocks",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterBlockRequest",
-              "requestLongType": "FilterBlockRequest",
-              "requestFullType": "txpull.v1.blocks.FilterBlockRequest",
-              "requestStreaming": false,
-              "responseType": "FilterBlockResponse",
-              "responseLongType": "FilterBlockResponse",
-              "responseFullType": "txpull.v1.blocks.FilterBlockResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/blocks"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetBlockRequest",
-              "requestLongType": "GetBlockRequest",
-              "requestFullType": "txpull.v1.blocks.GetBlockRequest",
-              "requestStreaming": false,
-              "responseType": "GetBlockResponse",
-              "responseLongType": "GetBlockResponse",
-              "responseFullType": "txpull.v1.blocks.GetBlockResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/blocks/{id}"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "transactions/transactions.proto",
-      "description": "",
-      "package": "txpull.v1.transactions",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "TransactionStatus",
-          "longName": "TransactionStatus",
-          "fullName": "txpull.v1.transactions.TransactionStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "TS_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "TS_QUEUED",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "TS_PROCESSING",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "TS_PROCESSED",
-              "number": "3",
-              "description": ""
-            },
-            {
-              "name": "TS_FAILED",
-              "number": "4",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "FilterTransactionRequest",
-          "longName": "FilterTransactionRequest",
-          "fullName": "txpull.v1.transactions.FilterTransactionRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "FilterTransactionResponse",
-          "longName": "FilterTransactionResponse",
-          "fullName": "txpull.v1.transactions.FilterTransactionResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "transaction",
-              "description": "",
+              "name": "remappings",
+              "description": "The remappings used.",
               "label": "repeated",
-              "type": "Transaction",
-              "longType": "Transaction",
-              "fullType": "txpull.v1.transactions.Transaction",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "metadata",
+              "description": "The metadata settings.",
+              "label": "",
+              "type": "MetadataSettings",
+              "longType": "Metadata.Settings.MetadataSettings",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.MetadataSettings",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "optimizer",
+              "description": "The optimizer settings.",
+              "label": "",
+              "type": "Optimizer",
+              "longType": "Metadata.Settings.Optimizer",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.Optimizer",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -1945,9 +482,9 @@
           ]
         },
         {
-          "name": "GetTransactionRequest",
-          "longName": "GetTransactionRequest",
-          "fullName": "txpull.v1.transactions.GetTransactionRequest",
+          "name": "CompilationTargetEntry",
+          "longName": "Metadata.Settings.CompilationTargetEntry",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.CompilationTargetEntry",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -1955,199 +492,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "transaction_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetTransactionResponse",
-          "longName": "GetTransactionResponse",
-          "fullName": "txpull.v1.transactions.GetTransactionResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "transaction",
-              "description": "",
-              "label": "",
-              "type": "Transaction",
-              "longType": "Transaction",
-              "fullType": "txpull.v1.transactions.Transaction",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Transaction",
-          "longName": "Transaction",
-          "fullName": "txpull.v1.transactions.Transaction",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "block_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "transaction_index",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "hash",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "nonce",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "from_address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "to_address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "method",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "method_details",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "data",
+              "name": "key",
               "description": "",
               "label": "",
               "type": "string",
@@ -2169,45 +514,21 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            },
+            }
+          ]
+        },
+        {
+          "name": "LibrariesEntry",
+          "longName": "Metadata.Settings.LibrariesEntry",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.LibrariesEntry",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
             {
-              "name": "gas",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "gas_used",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "cumulative_gas_used",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "gas_fee_cap",
+              "name": "key",
               "description": "",
               "label": "",
               "type": "string",
@@ -2219,8 +540,32 @@
               "defaultValue": ""
             },
             {
-              "name": "gas_tip_cap",
+              "name": "value",
               "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "MetadataSettings",
+          "longName": "Metadata.Settings.MetadataSettings",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.MetadataSettings",
+          "description": "MetadataSettings represents the metadata settings.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "bytecode_hash",
+              "description": "The hash of the bytecode.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2231,56 +576,8 @@
               "defaultValue": ""
             },
             {
-              "name": "gas_price",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "price",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type",
-              "description": "",
-              "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "size",
-              "description": "",
-              "label": "",
-              "type": "double",
-              "longType": "double",
-              "fullType": "double",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "protected",
-              "description": "",
+              "name": "use_literal_content",
+              "description": "Indicates if literal content was used.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -2291,240 +588,32 @@
               "defaultValue": ""
             },
             {
-              "name": "logs_count",
-              "description": "",
+              "name": "append_cbor",
+              "description": "Indicates if CBOR was appended.",
               "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "TransactionStatus",
-              "longType": "TransactionStatus",
-              "fullType": "txpull.v1.transactions.TransactionStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "queued_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "processed_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Transactions",
-          "longName": "Transactions",
-          "fullName": "txpull.v1.transactions.Transactions",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterTransactionRequest",
-              "requestLongType": "FilterTransactionRequest",
-              "requestFullType": "txpull.v1.transactions.FilterTransactionRequest",
-              "requestStreaming": false,
-              "responseType": "FilterTransactionResponse",
-              "responseLongType": "FilterTransactionResponse",
-              "responseFullType": "txpull.v1.transactions.FilterTransactionResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/transaction"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetTransactionRequest",
-              "requestLongType": "GetTransactionRequest",
-              "requestFullType": "txpull.v1.transactions.GetTransactionRequest",
-              "requestStreaming": false,
-              "responseType": "GetTransactionResponse",
-              "responseLongType": "GetTransactionResponse",
-              "responseFullType": "txpull.v1.transactions.GetTransactionResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/transaction/{id}"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "addresses/addresses.proto",
-      "description": "",
-      "package": "txpull.v1.addresses",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "AddressStatus",
-          "longName": "AddressStatus",
-          "fullName": "txpull.v1.addresses.AddressStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "AS_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "AS_QUEUED",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "AS_PROCESSING",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "AS_PROCESSED",
-              "number": "3",
-              "description": ""
             }
           ]
         },
         {
-          "name": "MaliciousAddressReasons",
-          "longName": "MaliciousAddressReasons",
-          "fullName": "txpull.v1.addresses.MaliciousAddressReasons",
-          "description": "",
-          "values": [
-            {
-              "name": "MAR_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "MAR_CONTRACT_DEPLOYMENT_FRAUD",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "MAR_TRANSFER_TO_MALICIOUS_ADDR",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "MAR_TRANSFER_FROM_MALICIOUS_ADDR",
-              "number": "3",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Address",
-          "longName": "Address",
-          "fullName": "txpull.v1.addresses.Address",
-          "description": "",
+          "name": "Optimizer",
+          "longName": "Metadata.Settings.Optimizer",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.Optimizer",
+          "description": "Optimizer represents the optimizer settings.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "first_transaction",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "malicious",
-              "description": "",
+              "name": "enabled",
+              "description": "Indicates if the optimizer was enabled.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -2535,72 +624,24 @@
               "defaultValue": ""
             },
             {
-              "name": "malicious_reason",
-              "description": "",
+              "name": "runs",
+              "description": "The number of runs the optimizer made.",
               "label": "",
-              "type": "MaliciousAddressReasons",
-              "longType": "MaliciousAddressReasons",
-              "fullType": "txpull.v1.addresses.MaliciousAddressReasons",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "malicious_reason_details",
-              "description": "",
+              "name": "details",
+              "description": "The details of the optimizer.",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "AddressStatus",
-              "longType": "AddressStatus",
-              "fullType": "txpull.v1.addresses.AddressStatus",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "available_since_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "queued_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "processed_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
+              "type": "Details",
+              "longType": "Metadata.Settings.Optimizer.Details",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.Optimizer.Details",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2609,30 +650,18 @@
           ]
         },
         {
-          "name": "FilterAddressRequest",
-          "longName": "FilterAddressRequest",
-          "fullName": "txpull.v1.addresses.FilterAddressRequest",
-          "description": "",
+          "name": "Details",
+          "longName": "Metadata.Settings.Optimizer.Details",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.Optimizer.Details",
+          "description": "Details represents the details of the optimizer.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "malicious",
-              "description": "",
+              "name": "peephole",
+              "description": "Indicates if the peephole optimization was used.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -2643,12 +672,96 @@
               "defaultValue": ""
             },
             {
-              "name": "malicious_reason",
-              "description": "",
+              "name": "inliner",
+              "description": "Indicates if the inliner optimization was used.",
               "label": "",
-              "type": "MaliciousAddressReasons",
-              "longType": "MaliciousAddressReasons",
-              "fullType": "txpull.v1.addresses.MaliciousAddressReasons",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "jumpdest_remover",
+              "description": "Indicates if the jumpdest remover optimization was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "order_literals",
+              "description": "Indicates if the order literals optimization was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "deduplicate",
+              "description": "Indicates if the deduplicate optimization was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "cse",
+              "description": "Indicates if the common subexpression elimination optimization was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "constant_optimizer",
+              "description": "Indicates if the constant optimizer was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "yul",
+              "description": "Indicates if the Yul optimizer was used.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "yul_details",
+              "description": "The details of the Yul optimizer.",
+              "label": "",
+              "type": "YulDetails",
+              "longType": "Metadata.Settings.Optimizer.Details.YulDetails",
+              "fullType": "txpull.v1.metadata.Metadata.Settings.Optimizer.Details.YulDetails",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2657,34 +770,34 @@
           ]
         },
         {
-          "name": "FilterAddressResponse",
-          "longName": "FilterAddressResponse",
-          "fullName": "txpull.v1.addresses.FilterAddressResponse",
-          "description": "",
+          "name": "YulDetails",
+          "longName": "Metadata.Settings.Optimizer.Details.YulDetails",
+          "fullName": "txpull.v1.metadata.Metadata.Settings.Optimizer.Details.YulDetails",
+          "description": "YulDetails represents the details of the Yul optimizer.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "status",
-              "description": "",
+              "name": "stack_allocation",
+              "description": "Indicates if stack allocation was used.",
               "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "addresses",
-              "description": "",
-              "label": "repeated",
-              "type": "Address",
-              "longType": "Address",
-              "fullType": "txpull.v1.addresses.Address",
+              "name": "optimizer_steps",
+              "description": "The number of steps the optimizer made.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2693,42 +806,42 @@
           ]
         },
         {
-          "name": "GetAddressRequest",
-          "longName": "GetAddressRequest",
-          "fullName": "txpull.v1.addresses.GetAddressRequest",
-          "description": "",
+          "name": "Source",
+          "longName": "Metadata.Source",
+          "fullName": "txpull.v1.metadata.Metadata.Source",
+          "description": "Source represents a source of the contract.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
           "fields": [
             {
-              "name": "chain_id",
-              "description": "",
+              "name": "content",
+              "description": "The content of the source.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "id",
-              "description": "",
+              "name": "keccak",
+              "description": "The Keccak-256 hash of the source.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "address",
-              "description": "",
+              "name": "license",
+              "description": "The license of the source.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2741,9 +854,9 @@
           ]
         },
         {
-          "name": "GetAddressResponse",
-          "longName": "GetAddressResponse",
-          "fullName": "txpull.v1.addresses.GetAddressResponse",
+          "name": "SourcesEntry",
+          "longName": "Metadata.SourcesEntry",
+          "fullName": "txpull.v1.metadata.Metadata.SourcesEntry",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -2751,153 +864,24 @@
           "extensions": [],
           "fields": [
             {
-              "name": "status",
+              "name": "key",
               "description": "",
               "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "address",
+              "name": "value",
               "description": "",
               "label": "",
-              "type": "Address",
-              "longType": "Address",
-              "fullType": "txpull.v1.addresses.Address",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Addresses",
-          "longName": "Addresses",
-          "fullName": "txpull.v1.addresses.Addresses",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterAddressRequest",
-              "requestLongType": "FilterAddressRequest",
-              "requestFullType": "txpull.v1.addresses.FilterAddressRequest",
-              "requestStreaming": false,
-              "responseType": "FilterAddressResponse",
-              "responseLongType": "FilterAddressResponse",
-              "responseFullType": "txpull.v1.addresses.FilterAddressResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/addresses"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetAddressRequest",
-              "requestLongType": "GetAddressRequest",
-              "requestFullType": "txpull.v1.addresses.GetAddressRequest",
-              "requestStreaming": false,
-              "responseType": "GetAddressResponse",
-              "responseLongType": "GetAddressResponse",
-              "responseFullType": "txpull.v1.addresses.GetAddressResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/addresses/{id}"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "holders/holders.proto",
-      "description": "",
-      "package": "txpull.v1.holders",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "HolderStatus",
-          "longName": "HolderStatus",
-          "fullName": "txpull.v1.holders.HolderStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "HS_NONE",
-              "number": "0",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "FilterHolderRequest",
-          "longName": "FilterHolderRequest",
-          "fullName": "txpull.v1.holders.FilterHolderRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "percentage_owned",
-              "description": "",
-              "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "token_id",
-              "description": "",
-              "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "HolderStatus",
-              "longType": "HolderStatus",
-              "fullType": "txpull.v1.holders.HolderStatus",
+              "type": "Source",
+              "longType": "Metadata.Source",
+              "fullType": "txpull.v1.metadata.Metadata.Source",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2906,46 +890,10 @@
           ]
         },
         {
-          "name": "FilterHolderResponse",
-          "longName": "FilterHolderResponse",
-          "fullName": "txpull.v1.holders.FilterHolderResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "holders",
-              "description": "",
-              "label": "repeated",
-              "type": "Holder",
-              "longType": "Holder",
-              "fullType": "txpull.v1.holders.Holder",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "GetHolderRequest",
-          "longName": "GetHolderRequest",
-          "fullName": "txpull.v1.holders.GetHolderRequest",
-          "description": "",
+          "name": "MetadataRequest",
+          "longName": "MetadataRequest",
+          "fullName": "txpull.v1.metadata.MetadataRequest",
+          "description": "MetadataRequest represents a request for metadata.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2953,23 +901,11 @@
           "fields": [
             {
               "name": "chain_id",
-              "description": "",
+              "description": "The chain ID.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2977,7 +913,19 @@
             },
             {
               "name": "address",
-              "description": "",
+              "description": "The address of the contract.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "The bytecode of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2990,10 +938,10 @@
           ]
         },
         {
-          "name": "GetHolderResponse",
-          "longName": "GetHolderResponse",
-          "fullName": "txpull.v1.holders.GetHolderResponse",
-          "description": "",
+          "name": "MetadataResponse",
+          "longName": "MetadataResponse",
+          "fullName": "txpull.v1.metadata.MetadataResponse",
+          "description": "MetadataResponse represents a response to a metadata request.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3001,7 +949,7 @@
           "fields": [
             {
               "name": "status",
-              "description": "",
+              "description": "The status of the response.",
               "label": "",
               "type": "Status",
               "longType": "txpull.v1.common.Status",
@@ -3012,80 +960,20 @@
               "defaultValue": ""
             },
             {
-              "name": "holder",
-              "description": "",
-              "label": "",
-              "type": "Holder",
-              "longType": "Holder",
-              "fullType": "txpull.v1.holders.Holder",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Holder",
-          "longName": "Holder",
-          "fullName": "txpull.v1.holders.Holder",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
               "name": "chain_id",
-              "description": "",
+              "description": "The chain ID.",
               "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "token_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "amount",
-              "description": "",
+              "name": "address",
+              "description": "The address of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3096,60 +984,36 @@
               "defaultValue": ""
             },
             {
-              "name": "percentage_owned",
-              "description": "",
+              "name": "bytecode",
+              "description": "The bytecode of the contract.",
               "label": "",
-              "type": "uint32",
-              "longType": "uint32",
-              "fullType": "uint32",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "status",
-              "description": "",
+              "name": "bytecode_metadata",
+              "description": "The bytecode metadata.",
               "label": "",
-              "type": "HolderStatus",
-              "longType": "HolderStatus",
-              "fullType": "txpull.v1.holders.HolderStatus",
+              "type": "BytecodeMetadata",
+              "longType": "BytecodeMetadata",
+              "fullType": "txpull.v1.metadata.BytecodeMetadata",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             },
             {
-              "name": "holder_since_timestamp",
-              "description": "",
+              "name": "metadata",
+              "description": "The contract metadata.",
               "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "queued_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "processed_timestamp",
-              "description": "",
-              "label": "",
-              "type": "Timestamp",
-              "longType": "google.protobuf.Timestamp",
-              "fullType": "google.protobuf.Timestamp",
+              "type": "Metadata",
+              "longType": "Metadata",
+              "fullType": "txpull.v1.metadata.Metadata",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -3158,189 +1022,7 @@
           ]
         }
       ],
-      "services": [
-        {
-          "name": "Holders",
-          "longName": "Holders",
-          "fullName": "txpull.v1.holders.Holders",
-          "description": "",
-          "methods": [
-            {
-              "name": "Filter",
-              "description": "",
-              "requestType": "FilterHolderRequest",
-              "requestLongType": "FilterHolderRequest",
-              "requestFullType": "txpull.v1.holders.FilterHolderRequest",
-              "requestStreaming": false,
-              "responseType": "FilterHolderResponse",
-              "responseLongType": "FilterHolderResponse",
-              "responseFullType": "txpull.v1.holders.FilterHolderResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/holders"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "GetHolderRequest",
-              "requestLongType": "GetHolderRequest",
-              "requestFullType": "txpull.v1.holders.GetHolderRequest",
-              "requestStreaming": false,
-              "responseType": "GetHolderResponse",
-              "responseLongType": "GetHolderResponse",
-              "responseFullType": "txpull.v1.holders.GetHolderResponse",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/holders/{id}"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "indexer/processor.proto",
-      "description": "",
-      "package": "txpull.v1.indexer.processor",
-      "hasEnums": true,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": true,
-      "enums": [
-        {
-          "name": "ProcessorQueueStatus",
-          "longName": "ProcessorQueueStatus",
-          "fullName": "txpull.v1.indexer.processor.ProcessorQueueStatus",
-          "description": "",
-          "values": [
-            {
-              "name": "PQS_NONE",
-              "number": "0",
-              "description": ""
-            },
-            {
-              "name": "PQS_QUEUED",
-              "number": "1",
-              "description": ""
-            },
-            {
-              "name": "PQS_PROCESSING",
-              "number": "2",
-              "description": ""
-            },
-            {
-              "name": "PQS_PROCESSED",
-              "number": "3",
-              "description": ""
-            },
-            {
-              "name": "PQS_FAILED",
-              "number": "4",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "QueueBlockRequest",
-          "longName": "QueueBlockRequest",
-          "fullName": "txpull.v1.indexer.processor.QueueBlockRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "block_number",
-              "description": "",
-              "label": "",
-              "type": "uint64",
-              "longType": "uint64",
-              "fullType": "uint64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "QueueBlockResponse",
-          "longName": "QueueBlockResponse",
-          "fullName": "txpull.v1.indexer.processor.QueueBlockResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Processor",
-          "longName": "Processor",
-          "fullName": "txpull.v1.indexer.processor.Processor",
-          "description": "",
-          "methods": [
-            {
-              "name": "QueueBlock",
-              "description": "",
-              "requestType": "QueueBlockRequest",
-              "requestLongType": "QueueBlockRequest",
-              "requestFullType": "txpull.v1.indexer.processor.QueueBlockRequest",
-              "requestStreaming": false,
-              "responseType": "QueueBlockResponse",
-              "responseLongType": "QueueBlockResponse",
-              "responseFullType": "txpull.v1.indexer.processor.QueueBlockResponse",
-              "responseStreaming": false
-            }
-          ]
-        }
-      ]
+      "services": []
     },
     {
       "name": "unpack/contract.proto",
@@ -10401,6 +8083,52 @@
         }
       ],
       "services": []
+    },
+    {
+      "name": "solgo/services.proto",
+      "description": "",
+      "package": "txpull.v1.solgo",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [],
+      "services": [
+        {
+          "name": "SolGoService",
+          "longName": "SolGoService",
+          "fullName": "txpull.v1.solgo.SolGoService",
+          "description": "",
+          "methods": [
+            {
+              "name": "GetMetadata",
+              "description": "",
+              "requestType": "MetadataRequest",
+              "requestLongType": ".txpull.v1.metadata.MetadataRequest",
+              "requestFullType": "txpull.v1.metadata.MetadataRequest",
+              "requestStreaming": false,
+              "responseType": "MetadataResponse",
+              "responseLongType": ".txpull.v1.metadata.MetadataResponse",
+              "responseFullType": "txpull.v1.metadata.MetadataResponse",
+              "responseStreaming": false
+            },
+            {
+              "name": "GetHealth",
+              "description": "",
+              "requestType": "HealthRequest",
+              "requestLongType": ".txpull.v1.health.HealthRequest",
+              "requestFullType": "txpull.v1.health.HealthRequest",
+              "requestStreaming": false,
+              "responseType": "HealthResponse",
+              "responseLongType": ".txpull.v1.health.HealthResponse",
+              "responseFullType": "txpull.v1.health.HealthResponse",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "scalarValueTypes": [
