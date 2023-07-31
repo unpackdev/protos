@@ -386,7 +386,7 @@
             {
               "name": "abi",
               "description": "The ABI of the contract.",
-              "label": "repeated",
+              "label": "",
               "type": "Any",
               "longType": "google.protobuf.Any",
               "fullType": "google.protobuf.Any",
@@ -828,7 +828,7 @@
               "defaultValue": ""
             },
             {
-              "name": "keccak",
+              "name": "keccak256",
               "description": "The Keccak-256 hash of the source.",
               "label": "",
               "type": "string",
@@ -843,6 +843,18 @@
               "name": "license",
               "description": "The license of the source.",
               "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "urls",
+              "description": "The URLs of the source.",
+              "label": "repeated",
               "type": "string",
               "longType": "string",
               "fullType": "string",

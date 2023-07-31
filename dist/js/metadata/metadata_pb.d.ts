@@ -332,10 +332,10 @@ export namespace Metadata {
 
 
   export class Output extends jspb.Message {
-    getAbiList(): Array<google_protobuf_any_pb.Any>;
-    setAbiList(value: Array<google_protobuf_any_pb.Any>): Output;
-    clearAbiList(): Output;
-    addAbi(value?: google_protobuf_any_pb.Any, index?: number): google_protobuf_any_pb.Any;
+    getAbi(): google_protobuf_any_pb.Any | undefined;
+    setAbi(value?: google_protobuf_any_pb.Any): Output;
+    hasAbi(): boolean;
+    clearAbi(): Output;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Output.AsObject;
@@ -347,7 +347,7 @@ export namespace Metadata {
 
   export namespace Output {
     export type AsObject = {
-      abiList: Array<google_protobuf_any_pb.Any.AsObject>,
+      abi?: google_protobuf_any_pb.Any.AsObject,
     }
   }
 
@@ -356,11 +356,16 @@ export namespace Metadata {
     getContent(): string;
     setContent(value: string): Source;
 
-    getKeccak(): string;
-    setKeccak(value: string): Source;
+    getKeccak256(): string;
+    setKeccak256(value: string): Source;
 
     getLicense(): string;
     setLicense(value: string): Source;
+
+    getUrlsList(): Array<string>;
+    setUrlsList(value: Array<string>): Source;
+    clearUrlsList(): Source;
+    addUrls(value: string, index?: number): Source;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Source.AsObject;
@@ -373,8 +378,9 @@ export namespace Metadata {
   export namespace Source {
     export type AsObject = {
       content: string,
-      keccak: string,
+      keccak256: string,
       license: string,
+      urlsList: Array<string>,
     }
   }
 

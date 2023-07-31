@@ -86,14 +86,15 @@ message Metadata {
 
     // Output represents the output of the contract compilation.
     message Output {
-        repeated google.protobuf.Any abi = 1; // The ABI of the contract.
+        google.protobuf.Any abi = 1; // The ABI of the contract.
     }
 
     // Source represents a source of the contract.
     message Source {
         string content = 1; // The content of the source.
-        string keccak = 2; // The Keccak-256 hash of the source.
+        string keccak256 = 2; // The Keccak-256 hash of the source.
         string license = 3; // The license of the source.
+        repeated string urls = 4; // The URLs of the source.
     }
 }
 

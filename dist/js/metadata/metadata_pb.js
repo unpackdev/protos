@@ -228,7 +228,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.txpull.v1.metadata.Metadata.Output = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.txpull.v1.metadata.Metadata.Output.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.txpull.v1.metadata.Metadata.Output, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -249,7 +249,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.txpull.v1.metadata.Metadata.Source = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.txpull.v1.metadata.Metadata.Source.repeatedFields_, null);
 };
 goog.inherits(proto.txpull.v1.metadata.Metadata.Source, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -2544,13 +2544,6 @@ proto.txpull.v1.metadata.Metadata.Settings.prototype.hasOptimizer = function() {
 
 
 
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.txpull.v1.metadata.Metadata.Output.repeatedFields_ = [1];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -2582,8 +2575,7 @@ proto.txpull.v1.metadata.Metadata.Output.prototype.toObject = function(opt_inclu
  */
 proto.txpull.v1.metadata.Metadata.Output.toObject = function(includeInstance, msg) {
   var f, obj = {
-    abiList: jspb.Message.toObjectList(msg.getAbiList(),
-    google_protobuf_any_pb.Any.toObject, includeInstance)
+    abi: (f = msg.getAbi()) && google_protobuf_any_pb.Any.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2623,7 +2615,7 @@ proto.txpull.v1.metadata.Metadata.Output.deserializeBinaryFromReader = function(
     case 1:
       var value = new google_protobuf_any_pb.Any;
       reader.readMessage(value,google_protobuf_any_pb.Any.deserializeBinaryFromReader);
-      msg.addAbi(value);
+      msg.setAbi(value);
       break;
     default:
       reader.skipField();
@@ -2654,9 +2646,9 @@ proto.txpull.v1.metadata.Metadata.Output.prototype.serializeBinary = function() 
  */
 proto.txpull.v1.metadata.Metadata.Output.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getAbiList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
+  f = message.getAbi();
+  if (f != null) {
+    writer.writeMessage(
       1,
       f,
       google_protobuf_any_pb.Any.serializeBinaryToWriter
@@ -2666,43 +2658,49 @@ proto.txpull.v1.metadata.Metadata.Output.serializeBinaryToWriter = function(mess
 
 
 /**
- * repeated google.protobuf.Any abi = 1;
- * @return {!Array<!proto.google.protobuf.Any>}
+ * optional google.protobuf.Any abi = 1;
+ * @return {?proto.google.protobuf.Any}
  */
-proto.txpull.v1.metadata.Metadata.Output.prototype.getAbiList = function() {
-  return /** @type{!Array<!proto.google.protobuf.Any>} */ (
-    jspb.Message.getRepeatedWrapperField(this, google_protobuf_any_pb.Any, 1));
+proto.txpull.v1.metadata.Metadata.Output.prototype.getAbi = function() {
+  return /** @type{?proto.google.protobuf.Any} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_any_pb.Any, 1));
 };
 
 
 /**
- * @param {!Array<!proto.google.protobuf.Any>} value
+ * @param {?proto.google.protobuf.Any|undefined} value
  * @return {!proto.txpull.v1.metadata.Metadata.Output} returns this
 */
-proto.txpull.v1.metadata.Metadata.Output.prototype.setAbiList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+proto.txpull.v1.metadata.Metadata.Output.prototype.setAbi = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.google.protobuf.Any=} opt_value
- * @param {number=} opt_index
- * @return {!proto.google.protobuf.Any}
- */
-proto.txpull.v1.metadata.Metadata.Output.prototype.addAbi = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.google.protobuf.Any, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
+ * Clears the message field making it undefined.
  * @return {!proto.txpull.v1.metadata.Metadata.Output} returns this
  */
-proto.txpull.v1.metadata.Metadata.Output.prototype.clearAbiList = function() {
-  return this.setAbiList([]);
+proto.txpull.v1.metadata.Metadata.Output.prototype.clearAbi = function() {
+  return this.setAbi(undefined);
 };
 
 
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.txpull.v1.metadata.Metadata.Output.prototype.hasAbi = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.txpull.v1.metadata.Metadata.Source.repeatedFields_ = [4];
 
 
 
@@ -2736,8 +2734,9 @@ proto.txpull.v1.metadata.Metadata.Source.prototype.toObject = function(opt_inclu
 proto.txpull.v1.metadata.Metadata.Source.toObject = function(includeInstance, msg) {
   var f, obj = {
     content: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    keccak: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    license: jspb.Message.getFieldWithDefault(msg, 3, "")
+    keccak256: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    license: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    urlsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2780,11 +2779,15 @@ proto.txpull.v1.metadata.Metadata.Source.deserializeBinaryFromReader = function(
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setKeccak(value);
+      msg.setKeccak256(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setLicense(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addUrls(value);
       break;
     default:
       reader.skipField();
@@ -2822,7 +2825,7 @@ proto.txpull.v1.metadata.Metadata.Source.serializeBinaryToWriter = function(mess
       f
     );
   }
-  f = message.getKeccak();
+  f = message.getKeccak256();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -2833,6 +2836,13 @@ proto.txpull.v1.metadata.Metadata.Source.serializeBinaryToWriter = function(mess
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getUrlsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      4,
       f
     );
   }
@@ -2858,10 +2868,10 @@ proto.txpull.v1.metadata.Metadata.Source.prototype.setContent = function(value) 
 
 
 /**
- * optional string keccak = 2;
+ * optional string keccak256 = 2;
  * @return {string}
  */
-proto.txpull.v1.metadata.Metadata.Source.prototype.getKeccak = function() {
+proto.txpull.v1.metadata.Metadata.Source.prototype.getKeccak256 = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -2870,7 +2880,7 @@ proto.txpull.v1.metadata.Metadata.Source.prototype.getKeccak = function() {
  * @param {string} value
  * @return {!proto.txpull.v1.metadata.Metadata.Source} returns this
  */
-proto.txpull.v1.metadata.Metadata.Source.prototype.setKeccak = function(value) {
+proto.txpull.v1.metadata.Metadata.Source.prototype.setKeccak256 = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -2890,6 +2900,43 @@ proto.txpull.v1.metadata.Metadata.Source.prototype.getLicense = function() {
  */
 proto.txpull.v1.metadata.Metadata.Source.prototype.setLicense = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated string urls = 4;
+ * @return {!Array<string>}
+ */
+proto.txpull.v1.metadata.Metadata.Source.prototype.getUrlsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.txpull.v1.metadata.Metadata.Source} returns this
+ */
+proto.txpull.v1.metadata.Metadata.Source.prototype.setUrlsList = function(value) {
+  return jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.txpull.v1.metadata.Metadata.Source} returns this
+ */
+proto.txpull.v1.metadata.Metadata.Source.prototype.addUrls = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.txpull.v1.metadata.Metadata.Source} returns this
+ */
+proto.txpull.v1.metadata.Metadata.Source.prototype.clearUrlsList = function() {
+  return this.setUrlsList([]);
 };
 
 
