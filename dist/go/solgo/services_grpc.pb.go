@@ -4,6 +4,7 @@ package solgo_pb
 
 import (
 	context "context"
+	ast "github.com/txpull/protos/dist/go/ast"
 	health "github.com/txpull/protos/dist/go/health"
 	metadata "github.com/txpull/protos/dist/go/metadata"
 	grpc "google.golang.org/grpc"
@@ -20,6 +21,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SolGoServiceClient interface {
+	GetAst(ctx context.Context, in *ast.AstRequest, opts ...grpc.CallOption) (*ast.AstResponse, error)
+	GetAstFromSource(ctx context.Context, in *ast.AstRawRequest, opts ...grpc.CallOption) (*ast.AstResponse, error)
 	GetMetadata(ctx context.Context, in *metadata.MetadataRequest, opts ...grpc.CallOption) (*metadata.MetadataResponse, error)
 	GetHealth(ctx context.Context, in *health.HealthRequest, opts ...grpc.CallOption) (*health.HealthResponse, error)
 }
@@ -30,6 +33,24 @@ type solGoServiceClient struct {
 
 func NewSolGoServiceClient(cc grpc.ClientConnInterface) SolGoServiceClient {
 	return &solGoServiceClient{cc}
+}
+
+func (c *solGoServiceClient) GetAst(ctx context.Context, in *ast.AstRequest, opts ...grpc.CallOption) (*ast.AstResponse, error) {
+	out := new(ast.AstResponse)
+	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetAst", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *solGoServiceClient) GetAstFromSource(ctx context.Context, in *ast.AstRawRequest, opts ...grpc.CallOption) (*ast.AstResponse, error) {
+	out := new(ast.AstResponse)
+	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetAstFromSource", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *solGoServiceClient) GetMetadata(ctx context.Context, in *metadata.MetadataRequest, opts ...grpc.CallOption) (*metadata.MetadataResponse, error) {
@@ -54,6 +75,8 @@ func (c *solGoServiceClient) GetHealth(ctx context.Context, in *health.HealthReq
 // All implementations must embed UnimplementedSolGoServiceServer
 // for forward compatibility
 type SolGoServiceServer interface {
+	GetAst(context.Context, *ast.AstRequest) (*ast.AstResponse, error)
+	GetAstFromSource(context.Context, *ast.AstRawRequest) (*ast.AstResponse, error)
 	GetMetadata(context.Context, *metadata.MetadataRequest) (*metadata.MetadataResponse, error)
 	GetHealth(context.Context, *health.HealthRequest) (*health.HealthResponse, error)
 	mustEmbedUnimplementedSolGoServiceServer()
@@ -63,6 +86,12 @@ type SolGoServiceServer interface {
 type UnimplementedSolGoServiceServer struct {
 }
 
+func (UnimplementedSolGoServiceServer) GetAst(context.Context, *ast.AstRequest) (*ast.AstResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAst not implemented")
+}
+func (UnimplementedSolGoServiceServer) GetAstFromSource(context.Context, *ast.AstRawRequest) (*ast.AstResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAstFromSource not implemented")
+}
 func (UnimplementedSolGoServiceServer) GetMetadata(context.Context, *metadata.MetadataRequest) (*metadata.MetadataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMetadata not implemented")
 }
@@ -80,6 +109,42 @@ type UnsafeSolGoServiceServer interface {
 
 func RegisterSolGoServiceServer(s grpc.ServiceRegistrar, srv SolGoServiceServer) {
 	s.RegisterService(&SolGoService_ServiceDesc, srv)
+}
+
+func _SolGoService_GetAst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ast.AstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SolGoServiceServer).GetAst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/txpull.v1.solgo.SolGoService/GetAst",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SolGoServiceServer).GetAst(ctx, req.(*ast.AstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SolGoService_GetAstFromSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ast.AstRawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SolGoServiceServer).GetAstFromSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/txpull.v1.solgo.SolGoService/GetAstFromSource",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SolGoServiceServer).GetAstFromSource(ctx, req.(*ast.AstRawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _SolGoService_GetMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -125,6 +190,14 @@ var SolGoService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "txpull.v1.solgo.SolGoService",
 	HandlerType: (*SolGoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAst",
+			Handler:    _SolGoService_GetAst_Handler,
+		},
+		{
+			MethodName: "GetAstFromSource",
+			Handler:    _SolGoService_GetAstFromSource_Handler,
+		},
 		{
 			MethodName: "GetMetadata",
 			Handler:    _SolGoService_GetMetadata_Handler,

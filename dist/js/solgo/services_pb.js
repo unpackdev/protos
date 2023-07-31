@@ -12,6 +12,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var ast_ast_pb = require('../ast/ast_pb.js');
+goog.object.extend(proto, ast_ast_pb);
 var metadata_metadata_pb = require('../metadata/metadata_pb.js');
 goog.object.extend(proto, metadata_metadata_pb);
 var health_health_pb = require('../health/health_pb.js');

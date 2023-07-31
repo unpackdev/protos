@@ -3596,6 +3596,224 @@
       "services": []
     },
     {
+      "name": "ast/ast.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "AstRawRequest",
+          "longName": "AstRawRequest",
+          "fullName": "txpull.v1.ast.AstRawRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "entry_source_unit",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "sources",
+              "description": "",
+              "label": "repeated",
+              "type": "SourceUnits",
+              "longType": "SourceUnits",
+              "fullType": "txpull.v1.ast.SourceUnits",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "AstRequest",
+          "longName": "AstRequest",
+          "fullName": "txpull.v1.ast.AstRequest",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "AstResponse",
+          "longName": "AstResponse",
+          "fullName": "txpull.v1.ast.AstResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "root",
+              "description": "",
+              "label": "",
+              "type": "RootSourceUnit",
+              "longType": "RootSourceUnit",
+              "fullType": "txpull.v1.ast.RootSourceUnit",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SourceUnits",
+          "longName": "SourceUnits",
+          "fullName": "txpull.v1.ast.SourceUnits",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "source",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/binary_operation.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -8114,6 +8332,30 @@
           "fullName": "txpull.v1.solgo.SolGoService",
           "description": "",
           "methods": [
+            {
+              "name": "GetAst",
+              "description": "",
+              "requestType": "AstRequest",
+              "requestLongType": ".txpull.v1.ast.AstRequest",
+              "requestFullType": "txpull.v1.ast.AstRequest",
+              "requestStreaming": false,
+              "responseType": "AstResponse",
+              "responseLongType": ".txpull.v1.ast.AstResponse",
+              "responseFullType": "txpull.v1.ast.AstResponse",
+              "responseStreaming": false
+            },
+            {
+              "name": "GetAstFromSource",
+              "description": "",
+              "requestType": "AstRawRequest",
+              "requestLongType": ".txpull.v1.ast.AstRawRequest",
+              "requestFullType": "txpull.v1.ast.AstRawRequest",
+              "requestStreaming": false,
+              "responseType": "AstResponse",
+              "responseLongType": ".txpull.v1.ast.AstResponse",
+              "responseFullType": "txpull.v1.ast.AstResponse",
+              "responseStreaming": false
+            },
             {
               "name": "GetMetadata",
               "description": "",

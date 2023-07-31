@@ -20,6 +20,8 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
+var ast_ast_pb = require('../ast/ast_pb.js')
+
 var metadata_metadata_pb = require('../metadata/metadata_pb.js')
 
 var health_health_pb = require('../health/health_pb.js')
@@ -77,6 +79,128 @@ proto.txpull.v1.solgo.SolGoServicePromiseClient =
    */
   this.hostname_ = hostname.replace(/\/+$/, '');
 
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.txpull.v1.ast.AstRequest,
+ *   !proto.txpull.v1.ast.AstResponse>}
+ */
+const methodDescriptor_SolGoService_GetAst = new grpc.web.MethodDescriptor(
+  '/txpull.v1.solgo.SolGoService/GetAst',
+  grpc.web.MethodType.UNARY,
+  ast_ast_pb.AstRequest,
+  ast_ast_pb.AstResponse,
+  /**
+   * @param {!proto.txpull.v1.ast.AstRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ast_ast_pb.AstResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.txpull.v1.ast.AstRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.ast.AstResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.ast.AstResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.txpull.v1.solgo.SolGoServiceClient.prototype.getAst =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/txpull.v1.solgo.SolGoService/GetAst',
+      request,
+      metadata || {},
+      methodDescriptor_SolGoService_GetAst,
+      callback);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ast.AstRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.txpull.v1.ast.AstResponse>}
+ *     Promise that resolves to the response
+ */
+proto.txpull.v1.solgo.SolGoServicePromiseClient.prototype.getAst =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/txpull.v1.solgo.SolGoService/GetAst',
+      request,
+      metadata || {},
+      methodDescriptor_SolGoService_GetAst);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.txpull.v1.ast.AstRawRequest,
+ *   !proto.txpull.v1.ast.AstResponse>}
+ */
+const methodDescriptor_SolGoService_GetAstFromSource = new grpc.web.MethodDescriptor(
+  '/txpull.v1.solgo.SolGoService/GetAstFromSource',
+  grpc.web.MethodType.UNARY,
+  ast_ast_pb.AstRawRequest,
+  ast_ast_pb.AstResponse,
+  /**
+   * @param {!proto.txpull.v1.ast.AstRawRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  ast_ast_pb.AstResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.txpull.v1.ast.AstRawRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.ast.AstResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.ast.AstResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.txpull.v1.solgo.SolGoServiceClient.prototype.getAstFromSource =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/txpull.v1.solgo.SolGoService/GetAstFromSource',
+      request,
+      metadata || {},
+      methodDescriptor_SolGoService_GetAstFromSource,
+      callback);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ast.AstRawRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.txpull.v1.ast.AstResponse>}
+ *     Promise that resolves to the response
+ */
+proto.txpull.v1.solgo.SolGoServicePromiseClient.prototype.getAstFromSource =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/txpull.v1.solgo.SolGoService/GetAstFromSource',
+      request,
+      metadata || {},
+      methodDescriptor_SolGoService_GetAstFromSource);
 };
 
 
