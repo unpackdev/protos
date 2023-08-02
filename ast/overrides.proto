@@ -1,17 +1,13 @@
 syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
-
 import "ast/types.proto";
 import "ast/src.proto";
+import "ast/parameters.proto";
+package txpull.v1.ast;
 
-message Import {
+message OverrideSpecifier {
     int64 id = 1;
     txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.Src src = 3;
-    string absolute_path = 4;
-    string file = 5;
-    int64 scope = 6;
-    string unit_alias = 7;
-    int64 source_unit = 8;
+    txpull.v1.ast.ParameterList overrides = 3;
+    txpull.v1.ast.Src src = 4;
 }

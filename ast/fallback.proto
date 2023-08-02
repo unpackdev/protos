@@ -2,6 +2,21 @@ syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
-message Fallback {
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/parameters.proto";
+import "ast/body.proto";
 
+message Fallback {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    txpull.v1.ast.Src src = 4;
+    bool virtual = 5;
+    bool implemented = 6;
+    txpull.v1.ast.Visibility visibility = 7;
+    txpull.v1.ast.Mutability state_mutability = 8;
+    txpull.v1.ast.ParameterList parameters = 9;
+    txpull.v1.ast.ParameterList return_parameters = 10;
+    txpull.v1.ast.Body body = 11;
 }

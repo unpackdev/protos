@@ -2,4 +2,21 @@ syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
-message PrimaryExpression {}
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+
+message PrimaryExpression {
+    int64 id = 1;
+    string name = 7;
+    string value = 4;
+    string hex_value = 5;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    txpull.v1.ast.Src src = 6;
+    int64 referenced_declaration = 10;
+    bool is_pure = 11;
+    repeated int64 overloaded_declarations = 9;
+    repeated txpull.v1.ast.TypeDescription argument_types = 12;
+    txpull.v1.ast.TypeDescription type_description = 8; 
+}

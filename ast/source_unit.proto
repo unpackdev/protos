@@ -8,8 +8,11 @@ package txpull.v1.ast;
 
 
 message RootSourceUnit {
-    int64 entry_source_unit = 1;
-    repeated txpull.v1.ast.SourceUnit source_units = 2;
+    int64 id = 1;
+    int64 entry_source_unit = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    repeated txpull.v1.ast.SourceUnit source_units = 4;
+    repeated txpull.v1.ast.Comment comments = 5;
 }
 
 message SourceUnit {

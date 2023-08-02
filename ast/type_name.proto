@@ -4,9 +4,8 @@ option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
 import "ast/src.proto";
-import "ast/type_name.proto";
 
-message LibraryName {
+message PathNode {
     int64 id = 1;
     string name = 2;
     txpull.v1.ast.NodeType node_type = 3;
@@ -14,11 +13,20 @@ message LibraryName {
     txpull.v1.ast.Src src = 5;
 }
 
-message Using {
+message TypeName {
     int64 id = 1;
     string name = 2;
     txpull.v1.ast.NodeType node_type = 3;
     txpull.v1.ast.Src src = 4;
-    txpull.v1.ast.LibraryName library_name = 5;
-    txpull.v1.ast.TypeName type_name = 6;
-}
+    txpull.v1.ast.TypeDescription type_description = 5;
+    txpull.v1.ast.TypeName key_type = 6;
+    txpull.v1.ast.TypeName value_type = 7;
+    txpull.v1.ast.PathNode path_node = 8;
+    int64 referenced_declaration = 9;
+    txpull.v1.ast.Mutability state_mutability = 10;
+  }
+  
+  message TypeDescription {
+    string type_identifier = 1;
+    string type_string = 2;
+  }

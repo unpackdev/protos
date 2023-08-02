@@ -2,15 +2,9 @@ syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 import "ast/types.proto";
 import "ast/src.proto";
-import "ast/parameters.proto";
+import "ast/type_name.proto";
+import "ast/declaration.proto";
 package txpull.v1.ast;
-
-message Body {
-    int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.Src src = 3;
-    repeated txpull.v1.ast.Statement statements = 4;
-}
 
 message Statement {
     int64 id = 1;
@@ -28,12 +22,11 @@ message Statement {
     bool l_value_requested = 13;
     repeated string names = 14;
     bool try_call = 15;
-    txpull.v1.ast.TypeDescriptions type_descriptions = 16;
+    txpull.v1.ast.TypeDescription type_description = 16;
     repeated txpull.v1.ast.Expression arguments = 17;
     txpull.v1.ast.Expression condition = 18;
     txpull.v1.ast.Statement true_body = 19;
     repeated txpull.v1.ast.Statement statements = 20;
-    txpull.v1.ast.Body body = 21;
 }
 
 message Expression {
@@ -43,10 +36,10 @@ message Expression {
     txpull.v1.ast.Src src = 4;
     repeated int64 overloaded_declarations = 5;
     int64 referenced_declaration = 6;
-    txpull.v1.ast.TypeDescriptions type_descriptions = 7;
+    txpull.v1.ast.TypeDescription type_description = 7;
     txpull.v1.ast.Expression expression = 8;
-    txpull.v1.ast.TypeDescriptions common_type = 9;
-    repeated txpull.v1.ast.TypeDescriptions argument_types = 10;
+    txpull.v1.ast.TypeDescription common_type = 9;
+    repeated txpull.v1.ast.TypeDescription argument_types = 10;
     txpull.v1.ast.Operator operator = 11;
     txpull.v1.ast.Expression left_expression = 12;
     txpull.v1.ast.Expression right_expression = 13;
@@ -63,19 +56,4 @@ message Expression {
     int64 function_return_parameters = 24;
     txpull.v1.ast.Expression base_expression = 25;
     txpull.v1.ast.Expression index_expression = 26;
-}
-
-message Declaration {
-    bool is_constant = 1;
-    int64 id = 2;
-    txpull.v1.ast.Mutability mutability = 3;
-    string name = 4;
-    txpull.v1.ast.NodeType node_type = 5;
-    int64 scope = 6;
-    txpull.v1.ast.Src src = 7;
-    bool is_state_variable = 8;
-    txpull.v1.ast.StorageLocation storage_location = 9;
-    txpull.v1.ast.TypeName type_name = 11;
-    txpull.v1.ast.Visibility visibility = 12;
-    txpull.v1.ast.TypeDescriptions type_descriptions = 13;
 }

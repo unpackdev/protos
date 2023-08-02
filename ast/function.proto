@@ -1,5 +1,31 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
-message Function {}
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+import "ast/parameters.proto";
+import "ast/modifiers.proto";
+import "ast/overrides.proto";
+import "ast/body.proto";
+
+message Function {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    txpull.v1.ast.NodeType kind = 4;
+    txpull.v1.ast.Src src = 5;
+    bool implemented = 6;
+    int64 scope = 7;
+    int64 referenced_declaration = 8;
+    txpull.v1.ast.Visibility visibility = 9;
+    txpull.v1.ast.Mutability state_mutability = 10;
+    bool virtual = 11;
+    repeated txpull.v1.ast.ModifierInvocation modifiers = 12;
+    repeated txpull.v1.ast.OverrideSpecifier overrides = 13;
+    txpull.v1.ast.ParameterList parameters = 14;
+    txpull.v1.ast.ParameterList return_parameters = 15;
+    txpull.v1.ast.Body body = 16;
+    txpull.v1.ast.TypeDescription type_description = 17;
+}

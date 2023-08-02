@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+package txpull.v1.ast;
+
+
+message Declaration {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    txpull.v1.ast.Src src = 4;
+    int64 scope = 5;
+    bool is_constant = 6;
+    bool is_state_variable = 7;
+    txpull.v1.ast.StorageLocation storage_location = 8;
+    txpull.v1.ast.Mutability mutability = 9;
+    txpull.v1.ast.Visibility visibility = 10;
+    txpull.v1.ast.TypeName type_name = 11;
+    txpull.v1.ast.TypeDescription type_description = 12;
+}

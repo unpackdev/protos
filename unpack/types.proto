@@ -1,9 +1,9 @@
 syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/unpack;unpack_pb";
 
-import "google/api/annotations.proto";
-import "google/protobuf/timestamp.proto";
-import "common/status.proto";
+//import "google/api/annotations.proto";
+//import "google/protobuf/timestamp.proto";
+//import "common/status.proto";
 
 package txpull.v1.unpack;
 

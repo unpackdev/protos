@@ -4,7 +4,7 @@ option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
 import "ast/parameters.proto";
-import "ast/statement.proto";
+import "ast/body.proto";
 import "ast/src.proto";
 
 message Catch {
@@ -13,6 +13,6 @@ message Catch {
     txpull.v1.ast.NodeType node_type = 3;
     txpull.v1.ast.NodeType kind = 4;
     txpull.v1.ast.Src src = 5;
-    txpull.v1.ast.ParametersList parameters = 7;
+    txpull.v1.ast.ParameterList parameters = 7;
     txpull.v1.ast.Body body = 6;
 }

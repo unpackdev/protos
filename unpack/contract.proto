@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/unpack;unpack_pb";
-import "unpack/types.proto";
+//import "unpack/types.proto";
 package txpull.v1.unpack;
 
 enum ReceiptStatus {

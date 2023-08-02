@@ -3,40 +3,10 @@ package txpull.v1.ast;
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 import "ast/types.proto";
 import "ast/src.proto";
+import "ast/type_name.proto";
 import "ast/parameters.proto";
-import "ast/statement.proto";
 import "ast/modifiers.proto";
-import "google/protobuf/any.proto";
-
-message LibraryName {
-    int64 id = 1;
-    string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    int64 referenced_declaration = 4;
-    txpull.v1.ast.Src src = 5;
-}
-
-message BaseContractName {
-    int64 id = 1;
-    string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    int64 referenced_declaration = 4;
-    txpull.v1.ast.Src src = 5;
-}
-
-message BaseContract {
-    int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.BaseContractName base_name = 3;
-    txpull.v1.ast.Src src = 4;
-}
-
-message OverrideSpecifier {
-    int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.ParametersList overrides = 3;
-    txpull.v1.ast.Src src = 4;
-}
+import "xds/type/v3/typed_struct.proto";
 
 message EnumMember {
     int64 id = 1;
@@ -61,31 +31,26 @@ message Node {
     txpull.v1.ast.Visibility visibility = 12;
     txpull.v1.ast.Mutability state_mutability = 13;
     bool virtual = 14;
-    txpull.v1.ast.ParametersList parameters = 15;
-    txpull.v1.ast.ParametersList return_parameters = 16;
-    txpull.v1.ast.Body body = 17;
+    txpull.v1.ast.ParameterList parameters = 15;
+    txpull.v1.ast.ParameterList return_parameters = 16;
     string absolute_path = 18;
     string file = 19;
     int64 scope = 20;
     int64 source_unit = 21;
     repeated string symbol_aliases = 22;
     string unit_alias = 23;
-    txpull.v1.ast.LibraryName library_name = 24;
     txpull.v1.ast.TypeName type_name = 25;
     bool is_constant = 26;
     bool is_state_variable = 27;
-    txpull.v1.ast.TypeDescriptions type_descriptions = 28;
+    txpull.v1.ast.TypeDescription type_description = 28;
     txpull.v1.ast.StorageLocation storage_location = 29;
     bool anonymous = 30;
     repeated int64 contract_dependencies = 31;
-    repeated txpull.v1.ast.BaseContract base_contracts = 32;
-    txpull.v1.ast.OverrideSpecifier override_specifier = 33;
     string canonical_name = 34;
     repeated txpull.v1.ast.Parameter members = 35;
     repeated txpull.v1.ast.Modifier modifiers = 36;
 }
 
 message RootNode {
-    repeated txpull.v1.ast.Node nodes = 2;
-    repeated google.protobuf.Any nodes_new = 1;
+    repeated xds.type.v3.TypedStruct nodes = 1;
 }

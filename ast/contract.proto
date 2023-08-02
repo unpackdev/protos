@@ -1,5 +1,39 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
-message Contract {}
+import "ast/types.proto";
+import "ast/src.proto";
+import "xds/type/v3/typed_struct.proto";
+
+message BaseContractName {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    int64 referenced_declaration = 4;
+    txpull.v1.ast.Src src = 5;
+}
+
+message BaseContract {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.BaseContractName base_name = 3;
+    txpull.v1.ast.Src src = 4;
+}
+
+message Contract {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    txpull.v1.ast.NodeType kind = 4;
+    txpull.v1.ast.Src src = 5;
+    bool abstract = 6;
+    bool fully_implemented = 7;
+    repeated int64 linearized_base_contracts = 8;
+    repeated txpull.v1.ast.BaseContract base_contracts = 9;
+    repeated int64 contract_dependencies = 10;
+    repeated xds.type.v3.TypedStruct nodes = 11;
+    
+}
+
+// BaseContracts           []*BaseContract  `json:"base_contracts"`

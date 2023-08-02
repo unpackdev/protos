@@ -4,14 +4,14 @@ package txpull.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
+import "ast/declaration.proto";
+import "xds/type/v3/typed_struct.proto";
 
-message Import {
+message Variable {
     int64 id = 1;
     txpull.v1.ast.NodeType node_type = 2;
     txpull.v1.ast.Src src = 3;
-    string absolute_path = 4;
-    string file = 5;
-    int64 scope = 6;
-    string unit_alias = 7;
-    int64 source_unit = 8;
+    repeated int64 assignments = 4;
+    repeated txpull.v1.ast.Declaration declarations = 5;
+    xds.type.v3.TypedStruct initial_value = 6;
 }
