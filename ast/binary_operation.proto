@@ -7,7 +7,7 @@ import "ast/src.proto";
 import "ast/type_name.proto";
 import "xds/type/v3/typed_struct.proto";
 
-message BinaryOperationExpression {
+message BinaryOperation {
     int64 id = 1;
     bool is_constant = 2;
     bool is_pure = 3;
