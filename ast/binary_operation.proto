@@ -2,4 +2,19 @@ syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
-message BinaryOperationExpression {}
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
+
+message BinaryOperationExpression {
+    int64 id = 1;
+    bool is_constant = 2;
+    bool is_pure = 3;
+    txpull.v1.ast.NodeType node_type = 4;
+    txpull.v1.ast.Src src = 5;
+    txpull.v1.ast.Operator operator = 6;
+    xds.type.v3.TypedStruct left_expression = 7;
+    xds.type.v3.TypedStruct right_expression = 8;
+    txpull.v1.ast.TypeDescription type_description = 9;
+}

@@ -4,14 +4,13 @@ package txpull.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
-import "ast/type_name.proto";
+import "ast/body.proto";
 import "xds/type/v3/typed_struct.proto";
 
-message Return {
+message If {
     int64 id = 1;
     txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.Src src = 3;
-    int64 function_return_parameters = 4;
-    xds.type.v3.TypedStruct expression = 5;
-    txpull.v1.ast.TypeDescription type_description = 6;
+    txpull.v1.ast.Src src = 4;
+    xds.type.v3.TypedStruct condition = 5;
+    txpull.v1.ast.Body body = 6;
 }
