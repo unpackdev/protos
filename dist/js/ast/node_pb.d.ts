@@ -2,151 +2,11 @@ import * as jspb from 'google-protobuf'
 
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
+import * as ast_type_name_pb from '../ast/type_name_pb';
 import * as ast_parameters_pb from '../ast/parameters_pb';
-import * as ast_statement_pb from '../ast/statement_pb';
 import * as ast_modifiers_pb from '../ast/modifiers_pb';
-import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
+import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
-
-export class LibraryName extends jspb.Message {
-  getId(): number;
-  setId(value: number): LibraryName;
-
-  getName(): string;
-  setName(value: string): LibraryName;
-
-  getNodeType(): ast_types_pb.NodeType;
-  setNodeType(value: ast_types_pb.NodeType): LibraryName;
-
-  getReferencedDeclaration(): number;
-  setReferencedDeclaration(value: number): LibraryName;
-
-  getSrc(): ast_src_pb.Src | undefined;
-  setSrc(value?: ast_src_pb.Src): LibraryName;
-  hasSrc(): boolean;
-  clearSrc(): LibraryName;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): LibraryName.AsObject;
-  static toObject(includeInstance: boolean, msg: LibraryName): LibraryName.AsObject;
-  static serializeBinaryToWriter(message: LibraryName, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): LibraryName;
-  static deserializeBinaryFromReader(message: LibraryName, reader: jspb.BinaryReader): LibraryName;
-}
-
-export namespace LibraryName {
-  export type AsObject = {
-    id: number,
-    name: string,
-    nodeType: ast_types_pb.NodeType,
-    referencedDeclaration: number,
-    src?: ast_src_pb.Src.AsObject,
-  }
-}
-
-export class BaseContractName extends jspb.Message {
-  getId(): number;
-  setId(value: number): BaseContractName;
-
-  getName(): string;
-  setName(value: string): BaseContractName;
-
-  getNodeType(): ast_types_pb.NodeType;
-  setNodeType(value: ast_types_pb.NodeType): BaseContractName;
-
-  getReferencedDeclaration(): number;
-  setReferencedDeclaration(value: number): BaseContractName;
-
-  getSrc(): ast_src_pb.Src | undefined;
-  setSrc(value?: ast_src_pb.Src): BaseContractName;
-  hasSrc(): boolean;
-  clearSrc(): BaseContractName;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): BaseContractName.AsObject;
-  static toObject(includeInstance: boolean, msg: BaseContractName): BaseContractName.AsObject;
-  static serializeBinaryToWriter(message: BaseContractName, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): BaseContractName;
-  static deserializeBinaryFromReader(message: BaseContractName, reader: jspb.BinaryReader): BaseContractName;
-}
-
-export namespace BaseContractName {
-  export type AsObject = {
-    id: number,
-    name: string,
-    nodeType: ast_types_pb.NodeType,
-    referencedDeclaration: number,
-    src?: ast_src_pb.Src.AsObject,
-  }
-}
-
-export class BaseContract extends jspb.Message {
-  getId(): number;
-  setId(value: number): BaseContract;
-
-  getNodeType(): ast_types_pb.NodeType;
-  setNodeType(value: ast_types_pb.NodeType): BaseContract;
-
-  getBaseName(): BaseContractName | undefined;
-  setBaseName(value?: BaseContractName): BaseContract;
-  hasBaseName(): boolean;
-  clearBaseName(): BaseContract;
-
-  getSrc(): ast_src_pb.Src | undefined;
-  setSrc(value?: ast_src_pb.Src): BaseContract;
-  hasSrc(): boolean;
-  clearSrc(): BaseContract;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): BaseContract.AsObject;
-  static toObject(includeInstance: boolean, msg: BaseContract): BaseContract.AsObject;
-  static serializeBinaryToWriter(message: BaseContract, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): BaseContract;
-  static deserializeBinaryFromReader(message: BaseContract, reader: jspb.BinaryReader): BaseContract;
-}
-
-export namespace BaseContract {
-  export type AsObject = {
-    id: number,
-    nodeType: ast_types_pb.NodeType,
-    baseName?: BaseContractName.AsObject,
-    src?: ast_src_pb.Src.AsObject,
-  }
-}
-
-export class OverrideSpecifier extends jspb.Message {
-  getId(): number;
-  setId(value: number): OverrideSpecifier;
-
-  getNodeType(): ast_types_pb.NodeType;
-  setNodeType(value: ast_types_pb.NodeType): OverrideSpecifier;
-
-  getOverrides(): ast_parameters_pb.ParametersList | undefined;
-  setOverrides(value?: ast_parameters_pb.ParametersList): OverrideSpecifier;
-  hasOverrides(): boolean;
-  clearOverrides(): OverrideSpecifier;
-
-  getSrc(): ast_src_pb.Src | undefined;
-  setSrc(value?: ast_src_pb.Src): OverrideSpecifier;
-  hasSrc(): boolean;
-  clearSrc(): OverrideSpecifier;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): OverrideSpecifier.AsObject;
-  static toObject(includeInstance: boolean, msg: OverrideSpecifier): OverrideSpecifier.AsObject;
-  static serializeBinaryToWriter(message: OverrideSpecifier, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): OverrideSpecifier;
-  static deserializeBinaryFromReader(message: OverrideSpecifier, reader: jspb.BinaryReader): OverrideSpecifier;
-}
-
-export namespace OverrideSpecifier {
-  export type AsObject = {
-    id: number,
-    nodeType: ast_types_pb.NodeType,
-    overrides?: ast_parameters_pb.ParametersList.AsObject,
-    src?: ast_src_pb.Src.AsObject,
-  }
-}
 
 export class EnumMember extends jspb.Message {
   getId(): number;
@@ -235,20 +95,15 @@ export class Node extends jspb.Message {
   getVirtual(): boolean;
   setVirtual(value: boolean): Node;
 
-  getParameters(): ast_parameters_pb.ParametersList | undefined;
-  setParameters(value?: ast_parameters_pb.ParametersList): Node;
+  getParameters(): ast_parameters_pb.ParameterList | undefined;
+  setParameters(value?: ast_parameters_pb.ParameterList): Node;
   hasParameters(): boolean;
   clearParameters(): Node;
 
-  getReturnParameters(): ast_parameters_pb.ParametersList | undefined;
-  setReturnParameters(value?: ast_parameters_pb.ParametersList): Node;
+  getReturnParameters(): ast_parameters_pb.ParameterList | undefined;
+  setReturnParameters(value?: ast_parameters_pb.ParameterList): Node;
   hasReturnParameters(): boolean;
   clearReturnParameters(): Node;
-
-  getBody(): ast_statement_pb.Body | undefined;
-  setBody(value?: ast_statement_pb.Body): Node;
-  hasBody(): boolean;
-  clearBody(): Node;
 
   getAbsolutePath(): string;
   setAbsolutePath(value: string): Node;
@@ -270,13 +125,8 @@ export class Node extends jspb.Message {
   getUnitAlias(): string;
   setUnitAlias(value: string): Node;
 
-  getLibraryName(): LibraryName | undefined;
-  setLibraryName(value?: LibraryName): Node;
-  hasLibraryName(): boolean;
-  clearLibraryName(): Node;
-
-  getTypeName(): ast_parameters_pb.TypeName | undefined;
-  setTypeName(value?: ast_parameters_pb.TypeName): Node;
+  getTypeName(): ast_type_name_pb.TypeName | undefined;
+  setTypeName(value?: ast_type_name_pb.TypeName): Node;
   hasTypeName(): boolean;
   clearTypeName(): Node;
 
@@ -286,10 +136,10 @@ export class Node extends jspb.Message {
   getIsStateVariable(): boolean;
   setIsStateVariable(value: boolean): Node;
 
-  getTypeDescriptions(): ast_parameters_pb.TypeDescriptions | undefined;
-  setTypeDescriptions(value?: ast_parameters_pb.TypeDescriptions): Node;
-  hasTypeDescriptions(): boolean;
-  clearTypeDescriptions(): Node;
+  getTypeDescription(): ast_type_name_pb.TypeDescription | undefined;
+  setTypeDescription(value?: ast_type_name_pb.TypeDescription): Node;
+  hasTypeDescription(): boolean;
+  clearTypeDescription(): Node;
 
   getStorageLocation(): ast_types_pb.StorageLocation;
   setStorageLocation(value: ast_types_pb.StorageLocation): Node;
@@ -301,16 +151,6 @@ export class Node extends jspb.Message {
   setContractDependenciesList(value: Array<number>): Node;
   clearContractDependenciesList(): Node;
   addContractDependencies(value: number, index?: number): Node;
-
-  getBaseContractsList(): Array<BaseContract>;
-  setBaseContractsList(value: Array<BaseContract>): Node;
-  clearBaseContractsList(): Node;
-  addBaseContracts(value?: BaseContract, index?: number): BaseContract;
-
-  getOverrideSpecifier(): OverrideSpecifier | undefined;
-  setOverrideSpecifier(value?: OverrideSpecifier): Node;
-  hasOverrideSpecifier(): boolean;
-  clearOverrideSpecifier(): Node;
 
   getCanonicalName(): string;
   setCanonicalName(value: string): Node;
@@ -349,25 +189,21 @@ export namespace Node {
     visibility: ast_types_pb.Visibility,
     stateMutability: ast_types_pb.Mutability,
     virtual: boolean,
-    parameters?: ast_parameters_pb.ParametersList.AsObject,
-    returnParameters?: ast_parameters_pb.ParametersList.AsObject,
-    body?: ast_statement_pb.Body.AsObject,
+    parameters?: ast_parameters_pb.ParameterList.AsObject,
+    returnParameters?: ast_parameters_pb.ParameterList.AsObject,
     absolutePath: string,
     file: string,
     scope: number,
     sourceUnit: number,
     symbolAliasesList: Array<string>,
     unitAlias: string,
-    libraryName?: LibraryName.AsObject,
-    typeName?: ast_parameters_pb.TypeName.AsObject,
+    typeName?: ast_type_name_pb.TypeName.AsObject,
     isConstant: boolean,
     isStateVariable: boolean,
-    typeDescriptions?: ast_parameters_pb.TypeDescriptions.AsObject,
+    typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
     storageLocation: ast_types_pb.StorageLocation,
     anonymous: boolean,
     contractDependenciesList: Array<number>,
-    baseContractsList: Array<BaseContract.AsObject>,
-    overrideSpecifier?: OverrideSpecifier.AsObject,
     canonicalName: string,
     membersList: Array<ast_parameters_pb.Parameter.AsObject>,
     modifiersList: Array<ast_modifiers_pb.Modifier.AsObject>,
@@ -375,15 +211,10 @@ export namespace Node {
 }
 
 export class RootNode extends jspb.Message {
-  getNodesList(): Array<Node>;
-  setNodesList(value: Array<Node>): RootNode;
+  getNodesList(): Array<xds_type_v3_typed_struct_pb.TypedStruct>;
+  setNodesList(value: Array<xds_type_v3_typed_struct_pb.TypedStruct>): RootNode;
   clearNodesList(): RootNode;
-  addNodes(value?: Node, index?: number): Node;
-
-  getNodesNewList(): Array<google_protobuf_any_pb.Any>;
-  setNodesNewList(value: Array<google_protobuf_any_pb.Any>): RootNode;
-  clearNodesNewList(): RootNode;
-  addNodesNew(value?: google_protobuf_any_pb.Any, index?: number): google_protobuf_any_pb.Any;
+  addNodes(value?: xds_type_v3_typed_struct_pb.TypedStruct, index?: number): xds_type_v3_typed_struct_pb.TypedStruct;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RootNode.AsObject;
@@ -395,8 +226,7 @@ export class RootNode extends jspb.Message {
 
 export namespace RootNode {
   export type AsObject = {
-    nodesList: Array<Node.AsObject>,
-    nodesNewList: Array<google_protobuf_any_pb.Any.AsObject>,
+    nodesList: Array<xds_type_v3_typed_struct_pb.TypedStruct.AsObject>,
   }
 }
 

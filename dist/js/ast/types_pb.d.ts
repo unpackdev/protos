@@ -96,6 +96,7 @@ export enum NodeType {
   AST = 90,
   YUL_STATEMENT = 91,
   YUL_ASSIGNMENT = 92,
+  FUNCTION_CALL_OPTION = 93,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
@@ -154,4 +155,5 @@ export enum Operator {
   BIT_AND = 30,
   NOT = 31,
   SUBTRACT = 32,
+  OR = 33,
 }

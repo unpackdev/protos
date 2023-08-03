@@ -96,6 +96,9 @@ export class AstResponse extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): AstResponse;
 
+  getBytecode(): string;
+  setBytecode(value: string): AstResponse;
+
   getRoot(): ast_source_unit_pb.RootSourceUnit | undefined;
   setRoot(value?: ast_source_unit_pb.RootSourceUnit): AstResponse;
   hasRoot(): boolean;
@@ -114,6 +117,7 @@ export namespace AstResponse {
     status?: common_status_pb.Status.AsObject,
     chainId: number,
     address: string,
+    bytecode: string,
     root?: ast_source_unit_pb.RootSourceUnit.AsObject,
   }
 }

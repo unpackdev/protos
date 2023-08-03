@@ -16,8 +16,8 @@ export class Comment extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Comment;
 
-  getValue(): string;
-  setValue(value: string): Comment;
+  getText(): string;
+  setText(value: string): Comment;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Comment.AsObject;
@@ -32,7 +32,7 @@ export namespace Comment {
     id: number,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
-    value: string,
+    text: string,
   }
 }
 

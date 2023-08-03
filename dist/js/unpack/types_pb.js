@@ -12,12 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_api_annotations_pb = require('../google/api/annotations_pb.js');
-goog.object.extend(proto, google_api_annotations_pb);
-var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
-goog.object.extend(proto, google_protobuf_timestamp_pb);
-var common_status_pb = require('../common/status_pb.js');
-goog.object.extend(proto, common_status_pb);
 goog.exportSymbol('proto.txpull.v1.unpack.AbiRequest', null, global);
 goog.exportSymbol('proto.txpull.v1.unpack.AbiResponse', null, global);
 goog.exportSymbol('proto.txpull.v1.unpack.AnalysisRequest', null, global);

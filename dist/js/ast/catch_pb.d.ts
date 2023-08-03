@@ -2,7 +2,7 @@ import * as jspb from 'google-protobuf'
 
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_parameters_pb from '../ast/parameters_pb';
-import * as ast_statement_pb from '../ast/statement_pb';
+import * as ast_body_pb from '../ast/body_pb';
 import * as ast_src_pb from '../ast/src_pb';
 
 
@@ -24,13 +24,13 @@ export class Catch extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Catch;
 
-  getParameters(): ast_parameters_pb.ParametersList | undefined;
-  setParameters(value?: ast_parameters_pb.ParametersList): Catch;
+  getParameters(): ast_parameters_pb.ParameterList | undefined;
+  setParameters(value?: ast_parameters_pb.ParameterList): Catch;
   hasParameters(): boolean;
   clearParameters(): Catch;
 
-  getBody(): ast_statement_pb.Body | undefined;
-  setBody(value?: ast_statement_pb.Body): Catch;
+  getBody(): ast_body_pb.Body | undefined;
+  setBody(value?: ast_body_pb.Body): Catch;
   hasBody(): boolean;
   clearBody(): Catch;
 
@@ -49,8 +49,8 @@ export namespace Catch {
     nodeType: ast_types_pb.NodeType,
     kind: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
-    parameters?: ast_parameters_pb.ParametersList.AsObject,
-    body?: ast_statement_pb.Body.AsObject,
+    parameters?: ast_parameters_pb.ParameterList.AsObject,
+    body?: ast_body_pb.Body.AsObject,
   }
 }
 

@@ -12,8 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var unpack_types_pb = require('../unpack/types_pb.js');
-goog.object.extend(proto, unpack_types_pb);
 goog.exportSymbol('proto.txpull.v1.unpack.Company', null, global);
 goog.exportSymbol('proto.txpull.v1.unpack.Constructor', null, global);
 goog.exportSymbol('proto.txpull.v1.unpack.ConstructorArgument', null, global);

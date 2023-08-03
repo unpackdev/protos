@@ -92,7 +92,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ast.RootSourceUnit.repeatedFields_ = [2];
+proto.txpull.v1.ast.RootSourceUnit.repeatedFields_ = [4,5];
 
 
 
@@ -125,9 +125,13 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.toObject = function(opt_includeInst
  */
 proto.txpull.v1.ast.RootSourceUnit.toObject = function(includeInstance, msg) {
   var f, obj = {
-    entrySourceUnit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    entrySourceUnit: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    nodeType: jspb.Message.getFieldWithDefault(msg, 3, 0),
     sourceUnitsList: jspb.Message.toObjectList(msg.getSourceUnitsList(),
-    proto.txpull.v1.ast.SourceUnit.toObject, includeInstance)
+    proto.txpull.v1.ast.SourceUnit.toObject, includeInstance),
+    commentsList: jspb.Message.toObjectList(msg.getCommentsList(),
+    ast_comment_pb.Comment.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -166,12 +170,25 @@ proto.txpull.v1.ast.RootSourceUnit.deserializeBinaryFromReader = function(msg, r
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setEntrySourceUnit(value);
+      msg.setId(value);
       break;
     case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setEntrySourceUnit(value);
+      break;
+    case 3:
+      var value = /** @type {!proto.txpull.v1.ast.NodeType} */ (reader.readEnum());
+      msg.setNodeType(value);
+      break;
+    case 4:
       var value = new proto.txpull.v1.ast.SourceUnit;
       reader.readMessage(value,proto.txpull.v1.ast.SourceUnit.deserializeBinaryFromReader);
       msg.addSourceUnits(value);
+      break;
+    case 5:
+      var value = new ast_comment_pb.Comment;
+      reader.readMessage(value,ast_comment_pb.Comment.deserializeBinaryFromReader);
+      msg.addComments(value);
       break;
     default:
       reader.skipField();
@@ -202,29 +219,51 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.serializeBinary = function() {
  */
 proto.txpull.v1.ast.RootSourceUnit.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getEntrySourceUnit();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
+  f = message.getEntrySourceUnit();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getNodeType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      3,
+      f
+    );
+  }
   f = message.getSourceUnitsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      2,
+      4,
       f,
       proto.txpull.v1.ast.SourceUnit.serializeBinaryToWriter
+    );
+  }
+  f = message.getCommentsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
+      f,
+      ast_comment_pb.Comment.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional int64 entry_source_unit = 1;
+ * optional int64 id = 1;
  * @return {number}
  */
-proto.txpull.v1.ast.RootSourceUnit.prototype.getEntrySourceUnit = function() {
+proto.txpull.v1.ast.RootSourceUnit.prototype.getId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -233,18 +272,54 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.getEntrySourceUnit = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
  */
-proto.txpull.v1.ast.RootSourceUnit.prototype.setEntrySourceUnit = function(value) {
+proto.txpull.v1.ast.RootSourceUnit.prototype.setId = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * repeated SourceUnit source_units = 2;
+ * optional int64 entry_source_unit = 2;
+ * @return {number}
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.getEntrySourceUnit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.setEntrySourceUnit = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional NodeType node_type = 3;
+ * @return {!proto.txpull.v1.ast.NodeType}
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.getNodeType = function() {
+  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ast.NodeType} value
+ * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.setNodeType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 3, value);
+};
+
+
+/**
+ * repeated SourceUnit source_units = 4;
  * @return {!Array<!proto.txpull.v1.ast.SourceUnit>}
  */
 proto.txpull.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ast.SourceUnit>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.SourceUnit, 2));
+    jspb.Message.getRepeatedWrapperField(this, proto.txpull.v1.ast.SourceUnit, 4));
 };
 
 
@@ -253,7 +328,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
  * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
 */
 proto.txpull.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -263,7 +338,7 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value
  * @return {!proto.txpull.v1.ast.SourceUnit}
  */
 proto.txpull.v1.ast.RootSourceUnit.prototype.addSourceUnits = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.txpull.v1.ast.SourceUnit, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.txpull.v1.ast.SourceUnit, opt_index);
 };
 
 
@@ -273,6 +348,44 @@ proto.txpull.v1.ast.RootSourceUnit.prototype.addSourceUnits = function(opt_value
  */
 proto.txpull.v1.ast.RootSourceUnit.prototype.clearSourceUnitsList = function() {
   return this.setSourceUnitsList([]);
+};
+
+
+/**
+ * repeated Comment comments = 5;
+ * @return {!Array<!proto.txpull.v1.ast.Comment>}
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.getCommentsList = function() {
+  return /** @type{!Array<!proto.txpull.v1.ast.Comment>} */ (
+    jspb.Message.getRepeatedWrapperField(this, ast_comment_pb.Comment, 5));
+};
+
+
+/**
+ * @param {!Array<!proto.txpull.v1.ast.Comment>} value
+ * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
+*/
+proto.txpull.v1.ast.RootSourceUnit.prototype.setCommentsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ast.Comment=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.txpull.v1.ast.Comment}
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.addComments = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.txpull.v1.ast.Comment, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.txpull.v1.ast.RootSourceUnit} returns this
+ */
+proto.txpull.v1.ast.RootSourceUnit.prototype.clearCommentsList = function() {
+  return this.setCommentsList([]);
 };
 
 

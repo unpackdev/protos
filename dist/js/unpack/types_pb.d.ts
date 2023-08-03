@@ -1,8 +1,5 @@
 import * as jspb from 'google-protobuf'
 
-import * as google_api_annotations_pb from '../google/api/annotations_pb';
-import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
-import * as common_status_pb from '../common/status_pb';
 
 
 export class NetworkRequest extends jspb.Message {

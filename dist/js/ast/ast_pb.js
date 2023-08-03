@@ -739,6 +739,7 @@ proto.txpull.v1.ast.AstResponse.toObject = function(includeInstance, msg) {
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f),
     chainId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     address: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    bytecode: jspb.Message.getFieldWithDefault(msg, 4, ""),
     root: (f = msg.getRoot()) && ast_source_unit_pb.RootSourceUnit.toObject(includeInstance, f)
   };
 
@@ -790,6 +791,10 @@ proto.txpull.v1.ast.AstResponse.deserializeBinaryFromReader = function(msg, read
       msg.setAddress(value);
       break;
     case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setBytecode(value);
+      break;
+    case 5:
       var value = new ast_source_unit_pb.RootSourceUnit;
       reader.readMessage(value,ast_source_unit_pb.RootSourceUnit.deserializeBinaryFromReader);
       msg.setRoot(value);
@@ -845,10 +850,17 @@ proto.txpull.v1.ast.AstResponse.serializeBinaryToWriter = function(message, writ
       f
     );
   }
+  f = message.getBytecode();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
   f = message.getRoot();
   if (f != null) {
     writer.writeMessage(
-      4,
+      5,
       f,
       ast_source_unit_pb.RootSourceUnit.serializeBinaryToWriter
     );
@@ -930,12 +942,30 @@ proto.txpull.v1.ast.AstResponse.prototype.setAddress = function(value) {
 
 
 /**
- * optional RootSourceUnit root = 4;
+ * optional string bytecode = 4;
+ * @return {string}
+ */
+proto.txpull.v1.ast.AstResponse.prototype.getBytecode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.ast.AstResponse} returns this
+ */
+proto.txpull.v1.ast.AstResponse.prototype.setBytecode = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional RootSourceUnit root = 5;
  * @return {?proto.txpull.v1.ast.RootSourceUnit}
  */
 proto.txpull.v1.ast.AstResponse.prototype.getRoot = function() {
   return /** @type{?proto.txpull.v1.ast.RootSourceUnit} */ (
-    jspb.Message.getWrapperField(this, ast_source_unit_pb.RootSourceUnit, 4));
+    jspb.Message.getWrapperField(this, ast_source_unit_pb.RootSourceUnit, 5));
 };
 
 
@@ -944,7 +974,7 @@ proto.txpull.v1.ast.AstResponse.prototype.getRoot = function() {
  * @return {!proto.txpull.v1.ast.AstResponse} returns this
 */
 proto.txpull.v1.ast.AstResponse.prototype.setRoot = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -962,7 +992,7 @@ proto.txpull.v1.ast.AstResponse.prototype.clearRoot = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.AstResponse.prototype.hasRoot = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

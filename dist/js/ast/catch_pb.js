@@ -16,8 +16,8 @@ var ast_types_pb = require('../ast/types_pb.js');
 goog.object.extend(proto, ast_types_pb);
 var ast_parameters_pb = require('../ast/parameters_pb.js');
 goog.object.extend(proto, ast_parameters_pb);
-var ast_statement_pb = require('../ast/statement_pb.js');
-goog.object.extend(proto, ast_statement_pb);
+var ast_body_pb = require('../ast/body_pb.js');
+goog.object.extend(proto, ast_body_pb);
 var ast_src_pb = require('../ast/src_pb.js');
 goog.object.extend(proto, ast_src_pb);
 goog.exportSymbol('proto.txpull.v1.ast.Catch', null, global);
@@ -79,8 +79,8 @@ proto.txpull.v1.ast.Catch.toObject = function(includeInstance, msg) {
     nodeType: jspb.Message.getFieldWithDefault(msg, 3, 0),
     kind: jspb.Message.getFieldWithDefault(msg, 4, 0),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
-    parameters: (f = msg.getParameters()) && ast_parameters_pb.ParametersList.toObject(includeInstance, f),
-    body: (f = msg.getBody()) && ast_statement_pb.Body.toObject(includeInstance, f)
+    parameters: (f = msg.getParameters()) && ast_parameters_pb.ParameterList.toObject(includeInstance, f),
+    body: (f = msg.getBody()) && ast_body_pb.Body.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -139,13 +139,13 @@ proto.txpull.v1.ast.Catch.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSrc(value);
       break;
     case 7:
-      var value = new ast_parameters_pb.ParametersList;
-      reader.readMessage(value,ast_parameters_pb.ParametersList.deserializeBinaryFromReader);
+      var value = new ast_parameters_pb.ParameterList;
+      reader.readMessage(value,ast_parameters_pb.ParameterList.deserializeBinaryFromReader);
       msg.setParameters(value);
       break;
     case 6:
-      var value = new ast_statement_pb.Body;
-      reader.readMessage(value,ast_statement_pb.Body.deserializeBinaryFromReader);
+      var value = new ast_body_pb.Body;
+      reader.readMessage(value,ast_body_pb.Body.deserializeBinaryFromReader);
       msg.setBody(value);
       break;
     default:
@@ -218,7 +218,7 @@ proto.txpull.v1.ast.Catch.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       7,
       f,
-      ast_parameters_pb.ParametersList.serializeBinaryToWriter
+      ast_parameters_pb.ParameterList.serializeBinaryToWriter
     );
   }
   f = message.getBody();
@@ -226,7 +226,7 @@ proto.txpull.v1.ast.Catch.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       6,
       f,
-      ast_statement_pb.Body.serializeBinaryToWriter
+      ast_body_pb.Body.serializeBinaryToWriter
     );
   }
 };
@@ -342,17 +342,17 @@ proto.txpull.v1.ast.Catch.prototype.hasSrc = function() {
 
 
 /**
- * optional ParametersList parameters = 7;
- * @return {?proto.txpull.v1.ast.ParametersList}
+ * optional ParameterList parameters = 7;
+ * @return {?proto.txpull.v1.ast.ParameterList}
  */
 proto.txpull.v1.ast.Catch.prototype.getParameters = function() {
-  return /** @type{?proto.txpull.v1.ast.ParametersList} */ (
-    jspb.Message.getWrapperField(this, ast_parameters_pb.ParametersList, 7));
+  return /** @type{?proto.txpull.v1.ast.ParameterList} */ (
+    jspb.Message.getWrapperField(this, ast_parameters_pb.ParameterList, 7));
 };
 
 
 /**
- * @param {?proto.txpull.v1.ast.ParametersList|undefined} value
+ * @param {?proto.txpull.v1.ast.ParameterList|undefined} value
  * @return {!proto.txpull.v1.ast.Catch} returns this
 */
 proto.txpull.v1.ast.Catch.prototype.setParameters = function(value) {
@@ -384,7 +384,7 @@ proto.txpull.v1.ast.Catch.prototype.hasParameters = function() {
  */
 proto.txpull.v1.ast.Catch.prototype.getBody = function() {
   return /** @type{?proto.txpull.v1.ast.Body} */ (
-    jspb.Message.getWrapperField(this, ast_statement_pb.Body, 6));
+    jspb.Message.getWrapperField(this, ast_body_pb.Body, 6));
 };
 
 

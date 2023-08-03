@@ -2,8 +2,10 @@ import * as jspb from 'google-protobuf'
 
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
+import * as ast_type_name_pb from '../ast/type_name_pb';
 import * as ast_parameters_pb from '../ast/parameters_pb';
-import * as ast_statement_pb from '../ast/statement_pb';
+import * as ast_body_pb from '../ast/body_pb';
+import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
 
 export class ModifierName extends jspb.Message {
@@ -52,28 +54,26 @@ export class Modifier extends jspb.Message {
   getNodeType(): ast_types_pb.NodeType;
   setNodeType(value: ast_types_pb.NodeType): Modifier;
 
-  getReferencedDeclaration(): number;
-  setReferencedDeclaration(value: number): Modifier;
-
   getSrc(): ast_src_pb.Src | undefined;
   setSrc(value?: ast_src_pb.Src): Modifier;
   hasSrc(): boolean;
   clearSrc(): Modifier;
 
-  getArgumentsList(): Array<ast_statement_pb.Expression>;
-  setArgumentsList(value: Array<ast_statement_pb.Expression>): Modifier;
-  clearArgumentsList(): Modifier;
-  addArguments(value?: ast_statement_pb.Expression, index?: number): ast_statement_pb.Expression;
+  getVirtual(): boolean;
+  setVirtual(value: boolean): Modifier;
 
-  getArgumentTypesList(): Array<ast_parameters_pb.TypeDescriptions>;
-  setArgumentTypesList(value: Array<ast_parameters_pb.TypeDescriptions>): Modifier;
-  clearArgumentTypesList(): Modifier;
-  addArgumentTypes(value?: ast_parameters_pb.TypeDescriptions, index?: number): ast_parameters_pb.TypeDescriptions;
+  getVisibility(): ast_types_pb.Visibility;
+  setVisibility(value: ast_types_pb.Visibility): Modifier;
 
-  getModifierName(): ModifierName | undefined;
-  setModifierName(value?: ModifierName): Modifier;
-  hasModifierName(): boolean;
-  clearModifierName(): Modifier;
+  getParameters(): ast_parameters_pb.ParameterList | undefined;
+  setParameters(value?: ast_parameters_pb.ParameterList): Modifier;
+  hasParameters(): boolean;
+  clearParameters(): Modifier;
+
+  getBody(): ast_body_pb.Body | undefined;
+  setBody(value?: ast_body_pb.Body): Modifier;
+  hasBody(): boolean;
+  clearBody(): Modifier;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Modifier.AsObject;
@@ -88,10 +88,64 @@ export namespace Modifier {
     id: number,
     name: string,
     nodeType: ast_types_pb.NodeType,
-    referencedDeclaration: number,
     src?: ast_src_pb.Src.AsObject,
-    argumentsList: Array<ast_statement_pb.Expression.AsObject>,
-    argumentTypesList: Array<ast_parameters_pb.TypeDescriptions.AsObject>,
+    virtual: boolean,
+    visibility: ast_types_pb.Visibility,
+    parameters?: ast_parameters_pb.ParameterList.AsObject,
+    body?: ast_body_pb.Body.AsObject,
+  }
+}
+
+export class ModifierInvocation extends jspb.Message {
+  getId(): number;
+  setId(value: number): ModifierInvocation;
+
+  getName(): string;
+  setName(value: string): ModifierInvocation;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): ModifierInvocation;
+
+  getKind(): ast_types_pb.NodeType;
+  setKind(value: ast_types_pb.NodeType): ModifierInvocation;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): ModifierInvocation;
+  hasSrc(): boolean;
+  clearSrc(): ModifierInvocation;
+
+  getArgumentsList(): Array<xds_type_v3_typed_struct_pb.TypedStruct>;
+  setArgumentsList(value: Array<xds_type_v3_typed_struct_pb.TypedStruct>): ModifierInvocation;
+  clearArgumentsList(): ModifierInvocation;
+  addArguments(value?: xds_type_v3_typed_struct_pb.TypedStruct, index?: number): xds_type_v3_typed_struct_pb.TypedStruct;
+
+  getArgumentTypesList(): Array<ast_type_name_pb.TypeDescription>;
+  setArgumentTypesList(value: Array<ast_type_name_pb.TypeDescription>): ModifierInvocation;
+  clearArgumentTypesList(): ModifierInvocation;
+  addArgumentTypes(value?: ast_type_name_pb.TypeDescription, index?: number): ast_type_name_pb.TypeDescription;
+
+  getModifierName(): ModifierName | undefined;
+  setModifierName(value?: ModifierName): ModifierInvocation;
+  hasModifierName(): boolean;
+  clearModifierName(): ModifierInvocation;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ModifierInvocation.AsObject;
+  static toObject(includeInstance: boolean, msg: ModifierInvocation): ModifierInvocation.AsObject;
+  static serializeBinaryToWriter(message: ModifierInvocation, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ModifierInvocation;
+  static deserializeBinaryFromReader(message: ModifierInvocation, reader: jspb.BinaryReader): ModifierInvocation;
+}
+
+export namespace ModifierInvocation {
+  export type AsObject = {
+    id: number,
+    name: string,
+    nodeType: ast_types_pb.NodeType,
+    kind: ast_types_pb.NodeType,
+    src?: ast_src_pb.Src.AsObject,
+    argumentsList: Array<xds_type_v3_typed_struct_pb.TypedStruct.AsObject>,
+    argumentTypesList: Array<ast_type_name_pb.TypeDescription.AsObject>,
     modifierName?: ModifierName.AsObject,
   }
 }

@@ -3596,6 +3596,202 @@
       "services": []
     },
     {
+      "name": "ast/assembly.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Assembly",
+          "longName": "Assembly",
+          "fullName": "txpull.v1.ast.Assembly",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/assignment.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Assignment",
+          "longName": "Assignment",
+          "fullName": "txpull.v1.ast.Assignment",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "",
+              "label": "",
+              "type": "Operator",
+              "longType": "Operator",
+              "fullType": "txpull.v1.ast.Operator",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "left_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "right_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/ast.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -3761,6 +3957,18 @@
               "defaultValue": ""
             },
             {
+              "name": "bytecode",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "root",
               "description": "",
               "label": "",
@@ -3825,15 +4033,222 @@
       "extensions": [],
       "messages": [
         {
-          "name": "BinaryOperationExpression",
-          "longName": "BinaryOperationExpression",
-          "fullName": "txpull.v1.ast.BinaryOperationExpression",
+          "name": "BinaryOperation",
+          "longName": "BinaryOperation",
+          "fullName": "txpull.v1.ast.BinaryOperation",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "",
+              "label": "",
+              "type": "Operator",
+              "longType": "Operator",
+              "fullType": "txpull.v1.ast.Operator",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "left_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "right_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/body.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Body",
+          "longName": "Body",
+          "fullName": "txpull.v1.ast.Body",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "implemented",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "statements",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -3985,9 +4400,9 @@
               "name": "parameters",
               "description": "",
               "label": "",
-              "type": "ParametersList",
-              "longType": "ParametersList",
-              "fullType": "txpull.v1.ast.ParametersList",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -4068,7 +4483,7 @@
               "defaultValue": ""
             },
             {
-              "name": "value",
+              "name": "text",
               "description": "",
               "label": "",
               "type": "string",
@@ -4101,510 +4516,53 @@
           "fullName": "txpull.v1.ast.Continue",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
     },
     {
       "name": "ast/contract.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Contract",
-          "longName": "Contract",
-          "fullName": "txpull.v1.ast.Contract",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/emit.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Emit",
-          "longName": "Emit",
-          "fullName": "txpull.v1.ast.Emit",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/enum.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Enum",
-          "longName": "Enum",
-          "fullName": "txpull.v1.ast.Enum",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/error.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Error",
-          "longName": "Error",
-          "fullName": "txpull.v1.ast.Error",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/event.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Event",
-          "longName": "Event",
-          "fullName": "txpull.v1.ast.Event",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/fallback.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Fallback",
-          "longName": "Fallback",
-          "fullName": "txpull.v1.ast.Fallback",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/for.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "For",
-          "longName": "For",
-          "fullName": "txpull.v1.ast.For",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/function.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Function",
-          "longName": "Function",
-          "fullName": "txpull.v1.ast.Function",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/import.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Import",
-          "longName": "Import",
-          "fullName": "txpull.v1.ast.Import",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/index_access.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "IndexAccessExpression",
-          "longName": "IndexAccessExpression",
-          "fullName": "txpull.v1.ast.IndexAccessExpression",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/member_access.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "MemberAccessExpression",
-          "longName": "MemberAccessExpression",
-          "fullName": "txpull.v1.ast.MemberAccessExpression",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/meta_type.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "MetaTypeExpression",
-          "longName": "MetaTypeExpression",
-          "fullName": "txpull.v1.ast.MetaTypeExpression",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": false,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": []
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/modifiers.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Modifier",
-          "longName": "Modifier",
-          "fullName": "txpull.v1.ast.Modifier",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "referenced_declaration",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "arguments",
-              "description": "",
-              "label": "repeated",
-              "type": "Expression",
-              "longType": "Expression",
-              "fullType": "txpull.v1.ast.Expression",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "argument_types",
-              "description": "",
-              "label": "repeated",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "modifier_name",
-              "description": "",
-              "label": "",
-              "type": "ModifierName",
-              "longType": "ModifierName",
-              "fullType": "txpull.v1.ast.ModifierName",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "ModifierName",
-          "longName": "ModifierName",
-          "fullName": "txpull.v1.ast.ModifierName",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "referenced_declaration",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/node.proto",
       "description": "",
       "package": "txpull.v1.ast",
       "hasEnums": false,
@@ -4747,9 +4705,2273 @@
           ]
         },
         {
-          "name": "EnumMember",
-          "longName": "EnumMember",
-          "fullName": "txpull.v1.ast.EnumMember",
+          "name": "Contract",
+          "longName": "Contract",
+          "fullName": "txpull.v1.ast.Contract",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "abstract",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "fully_implemented",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "linearized_base_contracts",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "base_contracts",
+              "description": "",
+              "label": "repeated",
+              "type": "BaseContract",
+              "longType": "BaseContract",
+              "fullType": "txpull.v1.ast.BaseContract",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contract_dependencies",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "nodes",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/declaration.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Declaration",
+          "longName": "Declaration",
+          "fullName": "txpull.v1.ast.Declaration",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "scope",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_state_variable",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "storage_location",
+              "description": "",
+              "label": "",
+              "type": "StorageLocation",
+              "longType": "StorageLocation",
+              "fullType": "txpull.v1.ast.StorageLocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/do.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Do",
+          "longName": "Do",
+          "fullName": "txpull.v1.ast.Do",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/emit.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Emit",
+          "longName": "Emit",
+          "fullName": "txpull.v1.ast.Emit",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/enum.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Enum",
+          "longName": "Enum",
+          "fullName": "txpull.v1.ast.Enum",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "canonical_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "members",
+              "description": "",
+              "label": "repeated",
+              "type": "Parameter",
+              "longType": "Parameter",
+              "fullType": "txpull.v1.ast.Parameter",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/error.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Error",
+          "longName": "Error",
+          "fullName": "txpull.v1.ast.Error",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/event.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Event",
+          "longName": "Event",
+          "fullName": "txpull.v1.ast.Event",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "anonymous",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/fallback.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Fallback",
+          "longName": "Fallback",
+          "fullName": "txpull.v1.ast.Fallback",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "virtual",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "implemented",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "return_parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/for.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "For",
+          "longName": "For",
+          "fullName": "txpull.v1.ast.For",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "initialiser",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "closure",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/function.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Function",
+          "longName": "Function",
+          "fullName": "txpull.v1.ast.Function",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "implemented",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "scope",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "virtual",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "modifiers",
+              "description": "",
+              "label": "repeated",
+              "type": "ModifierInvocation",
+              "longType": "ModifierInvocation",
+              "fullType": "txpull.v1.ast.ModifierInvocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overrides",
+              "description": "",
+              "label": "repeated",
+              "type": "OverrideSpecifier",
+              "longType": "OverrideSpecifier",
+              "fullType": "txpull.v1.ast.OverrideSpecifier",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "return_parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/function_call.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "FunctionCall",
+          "longName": "FunctionCall",
+          "fullName": "txpull.v1.ast.FunctionCall",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/if.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "If",
+          "longName": "If",
+          "fullName": "txpull.v1.ast.If",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/import.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Import",
+          "longName": "Import",
+          "fullName": "txpull.v1.ast.Import",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "absolute_path",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "file",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "scope",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "unit_alias",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "source_unit",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/index_access.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "IndexAccess",
+          "longName": "IndexAccess",
+          "fullName": "txpull.v1.ast.IndexAccess",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "index_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "base_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_descriptions",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/member_access.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "MemberAccess",
+          "longName": "MemberAccess",
+          "fullName": "txpull.v1.ast.MemberAccess",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "member_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_l_value",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "l_value_requested",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/meta_type.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "MetaType",
+          "longName": "MetaType",
+          "fullName": "txpull.v1.ast.MetaType",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/modifiers.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Modifier",
+          "longName": "Modifier",
+          "fullName": "txpull.v1.ast.Modifier",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "virtual",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ModifierInvocation",
+          "longName": "ModifierInvocation",
+          "fullName": "txpull.v1.ast.ModifierInvocation",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "modifier_name",
+              "description": "",
+              "label": "",
+              "type": "ModifierName",
+              "longType": "ModifierName",
+              "fullType": "txpull.v1.ast.ModifierName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ModifierName",
+          "longName": "ModifierName",
+          "fullName": "txpull.v1.ast.ModifierName",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -4817,11 +7039,135 @@
               "defaultValue": ""
             }
           ]
-        },
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/new_expression.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
         {
-          "name": "LibraryName",
-          "longName": "LibraryName",
-          "fullName": "txpull.v1.ast.LibraryName",
+          "name": "NewExpression",
+          "longName": "NewExpression",
+          "fullName": "txpull.v1.ast.NewExpression",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/node.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "EnumMember",
+          "longName": "EnumMember",
+          "fullName": "txpull.v1.ast.EnumMember",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -5072,9 +7418,9 @@
               "name": "parameters",
               "description": "",
               "label": "",
-              "type": "ParametersList",
-              "longType": "ParametersList",
-              "fullType": "txpull.v1.ast.ParametersList",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5084,21 +7430,9 @@
               "name": "return_parameters",
               "description": "",
               "label": "",
-              "type": "ParametersList",
-              "longType": "ParametersList",
-              "fullType": "txpull.v1.ast.ParametersList",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "body",
-              "description": "",
-              "label": "",
-              "type": "Body",
-              "longType": "Body",
-              "fullType": "txpull.v1.ast.Body",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5177,18 +7511,6 @@
               "defaultValue": ""
             },
             {
-              "name": "library_name",
-              "description": "",
-              "label": "",
-              "type": "LibraryName",
-              "longType": "LibraryName",
-              "fullType": "txpull.v1.ast.LibraryName",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
               "name": "type_name",
               "description": "",
               "label": "",
@@ -5225,12 +7547,12 @@
               "defaultValue": ""
             },
             {
-              "name": "type_descriptions",
+              "name": "type_description",
               "description": "",
               "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5267,30 +7589,6 @@
               "type": "int64",
               "longType": "int64",
               "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "base_contracts",
-              "description": "",
-              "label": "repeated",
-              "type": "BaseContract",
-              "longType": "BaseContract",
-              "fullType": "txpull.v1.ast.BaseContract",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "override_specifier",
-              "description": "",
-              "label": "",
-              "type": "OverrideSpecifier",
-              "longType": "OverrideSpecifier",
-              "fullType": "txpull.v1.ast.OverrideSpecifier",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5335,6 +7633,44 @@
           ]
         },
         {
+          "name": "RootNode",
+          "longName": "RootNode",
+          "fullName": "txpull.v1.ast.RootNode",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "nodes",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/overrides.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
           "name": "OverrideSpecifier",
           "longName": "OverrideSpecifier",
           "fullName": "txpull.v1.ast.OverrideSpecifier",
@@ -5372,9 +7708,9 @@
               "name": "overrides",
               "description": "",
               "label": "",
-              "type": "ParametersList",
-              "longType": "ParametersList",
-              "fullType": "txpull.v1.ast.ParametersList",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5387,42 +7723,6 @@
               "type": "Src",
               "longType": "Src",
               "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "RootNode",
-          "longName": "RootNode",
-          "fullName": "txpull.v1.ast.RootNode",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "nodes",
-              "description": "",
-              "label": "repeated",
-              "type": "Node",
-              "longType": "Node",
-              "fullType": "txpull.v1.ast.Node",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "nodes_new",
-              "description": "",
-              "label": "repeated",
-              "type": "Any",
-              "longType": "google.protobuf.Any",
-              "fullType": "google.protobuf.Any",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5445,54 +7745,6 @@
       "extensions": [],
       "messages": [
         {
-          "name": "FunctionReturnParameters",
-          "longName": "FunctionReturnParameters",
-          "fullName": "txpull.v1.ast.FunctionReturnParameters",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "repeated google.protobuf.Any parameters = 3; // Use Any type for arbitrary data",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
           "name": "Parameter",
           "longName": "Parameter",
           "fullName": "txpull.v1.ast.Parameter",
@@ -5503,36 +7755,12 @@
           "extensions": [],
           "fields": [
             {
-              "name": "constant",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
               "name": "id",
               "description": "",
               "label": "",
               "type": "int64",
               "longType": "int64",
               "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "mutability",
-              "description": "",
-              "label": "",
-              "type": "Mutability",
-              "longType": "Mutability",
-              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5563,6 +7791,18 @@
               "defaultValue": ""
             },
             {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "scope",
               "description": "",
               "label": "",
@@ -5575,12 +7815,12 @@
               "defaultValue": ""
             },
             {
-              "name": "src",
+              "name": "constant",
               "description": "",
               "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5599,36 +7839,12 @@
               "defaultValue": ""
             },
             {
-              "name": "storage_location",
+              "name": "state_mutability",
               "description": "",
               "label": "",
-              "type": "StorageLocation",
-              "longType": "StorageLocation",
-              "fullType": "txpull.v1.ast.StorageLocation",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_descriptions",
-              "description": "",
-              "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_name",
-              "description": "",
-              "label": "",
-              "type": "TypeName",
-              "longType": "TypeName",
-              "fullType": "txpull.v1.ast.TypeName",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5647,12 +7863,36 @@
               "defaultValue": ""
             },
             {
-              "name": "indexed",
+              "name": "storage_location",
               "description": "",
               "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
+              "type": "StorageLocation",
+              "longType": "StorageLocation",
+              "fullType": "txpull.v1.ast.StorageLocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -5661,9 +7901,9 @@
           ]
         },
         {
-          "name": "ParametersList",
-          "longName": "ParametersList",
-          "fullName": "txpull.v1.ast.ParametersList",
+          "name": "ParameterList",
+          "longName": "ParameterList",
+          "fullName": "txpull.v1.ast.ParameterList",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -5719,234 +7959,6 @@
               "defaultValue": ""
             }
           ]
-        },
-        {
-          "name": "PathNode",
-          "longName": "PathNode",
-          "fullName": "txpull.v1.ast.PathNode",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "referenced_declaration",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "TypeDescriptions",
-          "longName": "TypeDescriptions",
-          "fullName": "txpull.v1.ast.TypeDescriptions",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "type_identifier",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_string",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "TypeName",
-          "longName": "TypeName",
-          "fullName": "txpull.v1.ast.TypeName",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_descriptions",
-              "description": "",
-              "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "key_type",
-              "description": "",
-              "label": "",
-              "type": "TypeName",
-              "longType": "TypeName",
-              "fullType": "txpull.v1.ast.TypeName",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "value_type",
-              "description": "",
-              "label": "",
-              "type": "TypeName",
-              "longType": "TypeName",
-              "fullType": "txpull.v1.ast.TypeName",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "path_node",
-              "description": "",
-              "label": "",
-              "type": "PathNode",
-              "longType": "PathNode",
-              "fullType": "txpull.v1.ast.PathNode",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "referenced_declaration",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
         }
       ],
       "services": []
@@ -5968,10 +7980,107 @@
           "fullName": "txpull.v1.ast.PayableConversion",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "payable",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -6067,10 +8176,155 @@
           "fullName": "txpull.v1.ast.PrimaryExpression",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "hex_value",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overloaded_declarations",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -6092,10 +8346,143 @@
           "fullName": "txpull.v1.ast.Receive",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "virtual",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "implemented",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "return_parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "txpull.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -6117,10 +8504,83 @@
           "fullName": "txpull.v1.ast.Return",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "function_return_parameters",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -6142,10 +8602,71 @@
           "fullName": "txpull.v1.ast.Revert",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -6220,6 +8741,18 @@
           "extensions": [],
           "fields": [
             {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "entry_source_unit",
               "description": "",
               "label": "",
@@ -6232,12 +8765,36 @@
               "defaultValue": ""
             },
             {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "source_units",
               "description": "",
               "label": "repeated",
               "type": "SourceUnit",
               "longType": "SourceUnit",
               "fullType": "txpull.v1.ast.SourceUnit",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "comments",
+              "description": "",
+              "label": "repeated",
+              "type": "Comment",
+              "longType": "Comment",
+              "fullType": "txpull.v1.ast.Comment",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6479,7 +9036,7 @@
       "services": []
     },
     {
-      "name": "ast/statement.proto",
+      "name": "ast/state_variable.proto",
       "description": "",
       "package": "txpull.v1.ast",
       "hasEnums": false,
@@ -6490,9 +9047,9 @@
       "extensions": [],
       "messages": [
         {
-          "name": "Body",
-          "longName": "Body",
-          "fullName": "txpull.v1.ast.Body",
+          "name": "StateVariable",
+          "longName": "StateVariable",
+          "fullName": "txpull.v1.ast.StateVariable",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -6506,90 +9063,6 @@
               "type": "int64",
               "longType": "int64",
               "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "txpull.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "statements",
-              "description": "",
-              "label": "repeated",
-              "type": "Statement",
-              "longType": "Statement",
-              "fullType": "txpull.v1.ast.Statement",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Declaration",
-          "longName": "Declaration",
-          "fullName": "txpull.v1.ast.Declaration",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "is_constant",
-              "description": "",
-              "label": "",
-              "type": "bool",
-              "longType": "bool",
-              "fullType": "bool",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "mutability",
-              "description": "",
-              "label": "",
-              "type": "Mutability",
-              "longType": "Mutability",
-              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6620,6 +9093,18 @@
               "defaultValue": ""
             },
             {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "scope",
               "description": "",
               "label": "",
@@ -6632,12 +9117,12 @@
               "defaultValue": ""
             },
             {
-              "name": "src",
+              "name": "is_constant",
               "description": "",
               "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "txpull.v1.ast.Src",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6656,12 +9141,36 @@
               "defaultValue": ""
             },
             {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "storage_location",
               "description": "",
               "label": "",
               "type": "StorageLocation",
               "longType": "StorageLocation",
               "fullType": "txpull.v1.ast.StorageLocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6680,31 +9189,33 @@
               "defaultValue": ""
             },
             {
-              "name": "visibility",
+              "name": "type_description",
               "description": "",
               "label": "",
-              "type": "Visibility",
-              "longType": "Visibility",
-              "fullType": "txpull.v1.ast.Visibility",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "type_descriptions",
-              "description": "",
-              "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
             }
           ]
-        },
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/statement.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
         {
           "name": "Expression",
           "longName": "Expression",
@@ -6788,12 +9299,12 @@
               "defaultValue": ""
             },
             {
-              "name": "type_descriptions",
+              "name": "type_description",
               "description": "",
               "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6815,9 +9326,9 @@
               "name": "common_type",
               "description": "",
               "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -6827,9 +9338,9 @@
               "name": "argument_types",
               "description": "",
               "label": "repeated",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7220,12 +9731,12 @@
               "defaultValue": ""
             },
             {
-              "name": "type_descriptions",
+              "name": "type_description",
               "description": "",
               "label": "",
-              "type": "TypeDescriptions",
-              "longType": "TypeDescriptions",
-              "fullType": "txpull.v1.ast.TypeDescriptions",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7278,18 +9789,6 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            },
-            {
-              "name": "body",
-              "description": "",
-              "label": "",
-              "type": "Body",
-              "longType": "Body",
-              "fullType": "txpull.v1.ast.Body",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
             }
           ]
         }
@@ -7313,10 +9812,143 @@
           "fullName": "txpull.v1.ast.Struct",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "canonical_name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "visibility",
+              "description": "",
+              "label": "",
+              "type": "Visibility",
+              "longType": "Visibility",
+              "fullType": "txpull.v1.ast.Visibility",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "storage_location",
+              "description": "",
+              "label": "",
+              "type": "StorageLocation",
+              "longType": "StorageLocation",
+              "fullType": "txpull.v1.ast.StorageLocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "members",
+              "description": "",
+              "label": "repeated",
+              "type": "Parameter",
+              "longType": "Parameter",
+              "fullType": "txpull.v1.ast.Parameter",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -7338,10 +9970,95 @@
           "fullName": "txpull.v1.ast.Try",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "clauses",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -7361,6 +10078,236 @@
           "name": "Tuple",
           "longName": "Tuple",
           "fullName": "txpull.v1.ast.Tuple",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "components",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/type_name.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "PathNode",
+          "longName": "PathNode",
+          "fullName": "txpull.v1.ast.PathNode",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "TypeDescription",
+          "longName": "TypeDescription",
+          "fullName": "txpull.v1.ast.TypeDescription",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "type_identifier",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_string",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "TypeName",
+          "longName": "TypeName",
+          "fullName": "txpull.v1.ast.TypeName",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -7410,6 +10357,78 @@
               "type": "Src",
               "longType": "Src",
               "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "key_type",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value_type",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "path_node",
+              "description": "",
+              "label": "",
+              "type": "PathNode",
+              "longType": "PathNode",
+              "fullType": "txpull.v1.ast.PathNode",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "state_mutability",
+              "description": "",
+              "label": "",
+              "type": "Mutability",
+              "longType": "Mutability",
+              "fullType": "txpull.v1.ast.Mutability",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7942,6 +10961,11 @@
               "name": "YUL_ASSIGNMENT",
               "number": "92",
               "description": ""
+            },
+            {
+              "name": "FUNCTION_CALL_OPTION",
+              "number": "93",
+              "description": ""
             }
           ]
         },
@@ -8115,6 +11139,11 @@
               "name": "SUBTRACT",
               "number": "32",
               "description": ""
+            },
+            {
+              "name": "OR",
+              "number": "33",
+              "description": ""
             }
           ]
         },
@@ -8201,15 +11230,160 @@
       "extensions": [],
       "messages": [
         {
-          "name": "UnaryPrefixOperator",
-          "longName": "UnaryPrefixOperator",
-          "fullName": "txpull.v1.ast.UnaryPrefixOperator",
+          "name": "UnaryPrefix",
+          "longName": "UnaryPrefix",
+          "fullName": "txpull.v1.ast.UnaryPrefix",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "",
+              "label": "",
+              "type": "Operator",
+              "longType": "Operator",
+              "fullType": "txpull.v1.ast.Operator",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "prefix",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_l_value",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "l_value_requested",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -8226,15 +11400,160 @@
       "extensions": [],
       "messages": [
         {
-          "name": "UnarySuffixOperator",
-          "longName": "UnarySuffixOperator",
-          "fullName": "txpull.v1.ast.UnarySuffixOperator",
+          "name": "UnarySuffix",
+          "longName": "UnarySuffix",
+          "fullName": "txpull.v1.ast.UnarySuffix",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "operator",
+              "description": "",
+              "label": "",
+              "type": "Operator",
+              "longType": "Operator",
+              "fullType": "txpull.v1.ast.Operator",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "prefix",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_constant",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_l_value",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_pure",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "l_value_requested",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -8251,21 +11570,166 @@
       "extensions": [],
       "messages": [
         {
-          "name": "UsingDirective",
-          "longName": "UsingDirective",
-          "fullName": "txpull.v1.ast.UsingDirective",
+          "name": "LibraryName",
+          "longName": "LibraryName",
+          "fullName": "txpull.v1.ast.LibraryName",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Using",
+          "longName": "Using",
+          "fullName": "txpull.v1.ast.Using",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "library_name",
+              "description": "",
+              "label": "",
+              "type": "LibraryName",
+              "longType": "LibraryName",
+              "fullType": "txpull.v1.ast.LibraryName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
     },
     {
-      "name": "ast/variable_declaration.proto",
+      "name": "ast/variable.proto",
       "description": "",
       "package": "txpull.v1.ast",
       "hasEnums": false,
@@ -8276,15 +11740,88 @@
       "extensions": [],
       "messages": [
         {
-          "name": "VariableDeclaration",
-          "longName": "VariableDeclaration",
-          "fullName": "txpull.v1.ast.VariableDeclaration",
+          "name": "Variable",
+          "longName": "Variable",
+          "fullName": "txpull.v1.ast.Variable",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "assignments",
+              "description": "",
+              "label": "repeated",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "declarations",
+              "description": "",
+              "label": "repeated",
+              "type": "Declaration",
+              "longType": "Declaration",
+              "fullType": "txpull.v1.ast.Declaration",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "initial_value",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []
@@ -8306,10 +11843,83 @@
           "fullName": "txpull.v1.ast.While",
           "description": "",
           "hasExtensions": false,
-          "hasFields": false,
+          "hasFields": true,
           "hasOneofs": false,
           "extensions": [],
-          "fields": []
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
         }
       ],
       "services": []

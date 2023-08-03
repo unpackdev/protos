@@ -7,13 +7,24 @@ import * as ast_comment_pb from '../ast/comment_pb';
 
 
 export class RootSourceUnit extends jspb.Message {
+  getId(): number;
+  setId(value: number): RootSourceUnit;
+
   getEntrySourceUnit(): number;
   setEntrySourceUnit(value: number): RootSourceUnit;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): RootSourceUnit;
 
   getSourceUnitsList(): Array<SourceUnit>;
   setSourceUnitsList(value: Array<SourceUnit>): RootSourceUnit;
   clearSourceUnitsList(): RootSourceUnit;
   addSourceUnits(value?: SourceUnit, index?: number): SourceUnit;
+
+  getCommentsList(): Array<ast_comment_pb.Comment>;
+  setCommentsList(value: Array<ast_comment_pb.Comment>): RootSourceUnit;
+  clearCommentsList(): RootSourceUnit;
+  addComments(value?: ast_comment_pb.Comment, index?: number): ast_comment_pb.Comment;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RootSourceUnit.AsObject;
@@ -25,8 +36,11 @@ export class RootSourceUnit extends jspb.Message {
 
 export namespace RootSourceUnit {
   export type AsObject = {
+    id: number,
     entrySourceUnit: number,
+    nodeType: ast_types_pb.NodeType,
     sourceUnitsList: Array<SourceUnit.AsObject>,
+    commentsList: Array<ast_comment_pb.Comment.AsObject>,
   }
 }
 

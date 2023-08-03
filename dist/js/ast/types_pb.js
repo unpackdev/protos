@@ -113,7 +113,8 @@ proto.txpull.v1.ast.NodeType = {
   ASSEMBLY_STATEMENT: 89,
   AST: 90,
   YUL_STATEMENT: 91,
-  YUL_ASSIGNMENT: 92
+  YUL_ASSIGNMENT: 92,
+  FUNCTION_CALL_OPTION: 93
 };
 
 /**
@@ -187,7 +188,8 @@ proto.txpull.v1.ast.Operator = {
   BIT_NOT: 29,
   BIT_AND: 30,
   NOT: 31,
-  SUBTRACT: 32
+  SUBTRACT: 32,
+  OR: 33
 };
 
 goog.object.extend(exports, proto.txpull.v1.ast);

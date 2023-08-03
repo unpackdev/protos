@@ -73,7 +73,7 @@ proto.txpull.v1.ast.Comment.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     nodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
-    value: jspb.Message.getFieldWithDefault(msg, 4, "")
+    text: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -125,7 +125,7 @@ proto.txpull.v1.ast.Comment.deserializeBinaryFromReader = function(msg, reader) 
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setValue(value);
+      msg.setText(value);
       break;
     default:
       reader.skipField();
@@ -178,7 +178,7 @@ proto.txpull.v1.ast.Comment.serializeBinaryToWriter = function(message, writer) 
       ast_src_pb.Src.serializeBinaryToWriter
     );
   }
-  f = message.getValue();
+  f = message.getText();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -262,10 +262,10 @@ proto.txpull.v1.ast.Comment.prototype.hasSrc = function() {
 
 
 /**
- * optional string value = 4;
+ * optional string text = 4;
  * @return {string}
  */
-proto.txpull.v1.ast.Comment.prototype.getValue = function() {
+proto.txpull.v1.ast.Comment.prototype.getText = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -274,7 +274,7 @@ proto.txpull.v1.ast.Comment.prototype.getValue = function() {
  * @param {string} value
  * @return {!proto.txpull.v1.ast.Comment} returns this
  */
-proto.txpull.v1.ast.Comment.prototype.setValue = function(value) {
+proto.txpull.v1.ast.Comment.prototype.setText = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
