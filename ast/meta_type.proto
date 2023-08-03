@@ -2,6 +2,15 @@ syntax = "proto3";
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
-message MetaTypeExpression{
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
 
+message MetaType {
+    int64 id = 1;
+    string name = 2;
+    txpull.v1.ast.NodeType node_type = 3;
+    txpull.v1.ast.Src src = 4;
+    int64 referenced_declaration = 5;
+    txpull.v1.ast.TypeDescription type_description = 6;
 }

@@ -7,12 +7,10 @@ import "ast/src.proto";
 import "ast/body.proto";
 import "xds/type/v3/typed_struct.proto";
 
-message For {
+message Do {
     int64 id = 1;
     txpull.v1.ast.NodeType node_type = 2;
     txpull.v1.ast.Src src = 3;
-    xds.type.v3.TypedStruct initialiser = 4;
-    xds.type.v3.TypedStruct condition = 5;
-    xds.type.v3.TypedStruct closure = 6;
-    txpull.v1.ast.Body body = 7;
+    xds.type.v3.TypedStruct condition = 4;
+    txpull.v1.ast.Body body = 5;
 }

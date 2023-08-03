@@ -2,5 +2,18 @@ syntax = "proto3";
 package txpull.v1.ast;
 option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
 
-message PayableConversion {}
+message PayableConversion {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.Src src = 3;
+    bool payable = 4;
+    int64 referenced_declaration = 5;
+    repeated txpull.v1.ast.TypeDescription argument_types = 6;
+    repeated xds.type.v3.TypedStruct arguments = 7;
+    txpull.v1.ast.TypeDescription type_description = 8;
+}

@@ -4,10 +4,16 @@ option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
 import "ast/src.proto";
+import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
 
 message Tuple {
     int64 id = 1;
-    string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    txpull.v1.ast.Src src = 4;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.Src src = 3;
+    bool is_constant = 4;
+    bool is_pure = 5;
+    repeated xds.type.v3.TypedStruct components = 6;
+    int64 referenced_declaration = 7;
+    txpull.v1.ast.TypeDescription type_description = 8;
 }

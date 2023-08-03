@@ -1,5 +1,23 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
-message UnaryPrefixOperator {}
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
+
+message UnaryPrefix {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.Src src = 3;
+    txpull.v1.ast.Operator operator = 4;
+    bool prefix = 5;
+    bool is_constant = 6;
+    bool is_l_value = 7;
+    bool is_pure = 8;
+    bool l_value_requested = 9;
+    xds.type.v3.TypedStruct expression = 10;
+    int64 referenced_declaration = 11;
+    txpull.v1.ast.TypeDescription type_description = 12;
+}

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.26.0
 // 	protoc        v4.23.4
-// source: ast/continue.proto
+// source: ast/assembly.proto
 
 package ast_pb
 
@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Continue struct {
+type Assembly struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -30,23 +30,23 @@ type Continue struct {
 	Src      *Src     `protobuf:"bytes,3,opt,name=src,proto3" json:"src,omitempty"`
 }
 
-func (x *Continue) Reset() {
-	*x = Continue{}
+func (x *Assembly) Reset() {
+	*x = Assembly{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ast_continue_proto_msgTypes[0]
+		mi := &file_ast_assembly_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *Continue) String() string {
+func (x *Assembly) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Continue) ProtoMessage() {}
+func (*Assembly) ProtoMessage() {}
 
-func (x *Continue) ProtoReflect() protoreflect.Message {
-	mi := &file_ast_continue_proto_msgTypes[0]
+func (x *Assembly) ProtoReflect() protoreflect.Message {
+	mi := &file_ast_assembly_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,40 +57,40 @@ func (x *Continue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Continue.ProtoReflect.Descriptor instead.
-func (*Continue) Descriptor() ([]byte, []int) {
-	return file_ast_continue_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use Assembly.ProtoReflect.Descriptor instead.
+func (*Assembly) Descriptor() ([]byte, []int) {
+	return file_ast_assembly_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Continue) GetId() int64 {
+func (x *Assembly) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Continue) GetNodeType() NodeType {
+func (x *Assembly) GetNodeType() NodeType {
 	if x != nil {
 		return x.NodeType
 	}
 	return NodeType_NT_DEFAULT
 }
 
-func (x *Continue) GetSrc() *Src {
+func (x *Assembly) GetSrc() *Src {
 	if x != nil {
 		return x.Src
 	}
 	return nil
 }
 
-var File_ast_continue_proto protoreflect.FileDescriptor
+var File_ast_assembly_proto protoreflect.FileDescriptor
 
-var file_ast_continue_proto_rawDesc = []byte{
-	0x0a, 0x12, 0x61, 0x73, 0x74, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x69, 0x6e, 0x75, 0x65, 0x2e, 0x70,
+var file_ast_assembly_proto_rawDesc = []byte{
+	0x0a, 0x12, 0x61, 0x73, 0x74, 0x2f, 0x61, 0x73, 0x73, 0x65, 0x6d, 0x62, 0x6c, 0x79, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0d, 0x74, 0x78, 0x70, 0x75, 0x6c, 0x6c, 0x2e, 0x76, 0x31, 0x2e,
 	0x61, 0x73, 0x74, 0x1a, 0x0f, 0x61, 0x73, 0x74, 0x2f, 0x74, 0x79, 0x70, 0x65, 0x73, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x0d, 0x61, 0x73, 0x74, 0x2f, 0x73, 0x72, 0x63, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x22, 0x76, 0x0a, 0x08, 0x43, 0x6f, 0x6e, 0x74, 0x69, 0x6e, 0x75, 0x65, 0x12,
+	0x6f, 0x74, 0x6f, 0x22, 0x76, 0x0a, 0x08, 0x41, 0x73, 0x73, 0x65, 0x6d, 0x62, 0x6c, 0x79, 0x12,
 	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12,
 	0x34, 0x0a, 0x09, 0x6e, 0x6f, 0x64, 0x65, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01,
 	0x28, 0x0e, 0x32, 0x17, 0x2e, 0x74, 0x78, 0x70, 0x75, 0x6c, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x61,
@@ -105,26 +105,26 @@ var file_ast_continue_proto_rawDesc = []byte{
 }
 
 var (
-	file_ast_continue_proto_rawDescOnce sync.Once
-	file_ast_continue_proto_rawDescData = file_ast_continue_proto_rawDesc
+	file_ast_assembly_proto_rawDescOnce sync.Once
+	file_ast_assembly_proto_rawDescData = file_ast_assembly_proto_rawDesc
 )
 
-func file_ast_continue_proto_rawDescGZIP() []byte {
-	file_ast_continue_proto_rawDescOnce.Do(func() {
-		file_ast_continue_proto_rawDescData = protoimpl.X.CompressGZIP(file_ast_continue_proto_rawDescData)
+func file_ast_assembly_proto_rawDescGZIP() []byte {
+	file_ast_assembly_proto_rawDescOnce.Do(func() {
+		file_ast_assembly_proto_rawDescData = protoimpl.X.CompressGZIP(file_ast_assembly_proto_rawDescData)
 	})
-	return file_ast_continue_proto_rawDescData
+	return file_ast_assembly_proto_rawDescData
 }
 
-var file_ast_continue_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_ast_continue_proto_goTypes = []interface{}{
-	(*Continue)(nil), // 0: txpull.v1.ast.Continue
+var file_ast_assembly_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_ast_assembly_proto_goTypes = []interface{}{
+	(*Assembly)(nil), // 0: txpull.v1.ast.Assembly
 	(NodeType)(0),    // 1: txpull.v1.ast.NodeType
 	(*Src)(nil),      // 2: txpull.v1.ast.Src
 }
-var file_ast_continue_proto_depIdxs = []int32{
-	1, // 0: txpull.v1.ast.Continue.node_type:type_name -> txpull.v1.ast.NodeType
-	2, // 1: txpull.v1.ast.Continue.src:type_name -> txpull.v1.ast.Src
+var file_ast_assembly_proto_depIdxs = []int32{
+	1, // 0: txpull.v1.ast.Assembly.node_type:type_name -> txpull.v1.ast.NodeType
+	2, // 1: txpull.v1.ast.Assembly.src:type_name -> txpull.v1.ast.Src
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -132,16 +132,16 @@ var file_ast_continue_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_ast_continue_proto_init() }
-func file_ast_continue_proto_init() {
-	if File_ast_continue_proto != nil {
+func init() { file_ast_assembly_proto_init() }
+func file_ast_assembly_proto_init() {
+	if File_ast_assembly_proto != nil {
 		return
 	}
 	file_ast_types_proto_init()
 	file_ast_src_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_ast_continue_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Continue); i {
+		file_ast_assembly_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Assembly); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -157,18 +157,18 @@ func file_ast_continue_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_ast_continue_proto_rawDesc,
+			RawDescriptor: file_ast_assembly_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_ast_continue_proto_goTypes,
-		DependencyIndexes: file_ast_continue_proto_depIdxs,
-		MessageInfos:      file_ast_continue_proto_msgTypes,
+		GoTypes:           file_ast_assembly_proto_goTypes,
+		DependencyIndexes: file_ast_assembly_proto_depIdxs,
+		MessageInfos:      file_ast_assembly_proto_msgTypes,
 	}.Build()
-	File_ast_continue_proto = out.File
-	file_ast_continue_proto_rawDesc = nil
-	file_ast_continue_proto_goTypes = nil
-	file_ast_continue_proto_depIdxs = nil
+	File_ast_assembly_proto = out.File
+	file_ast_assembly_proto_rawDesc = nil
+	file_ast_assembly_proto_goTypes = nil
+	file_ast_assembly_proto_depIdxs = nil
 }
