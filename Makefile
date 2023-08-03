@@ -35,8 +35,9 @@ build-go:
 	@if [ ! -d "$(PROTO_DOCS_OUT)" ]; then mkdir -p "$(PROTO_DOCS_OUT)"; fi
 	@$(PROTOC) $(PROTOC_PLUGIN_GO) \
 		-Ithird_party/googleapis \
-		--doc_out=$(PROTO_DOCS_OUT) --doc_opt=json,docs.json \
+		-Ithird_party/xds \
 		--descriptor_set_out=$(PROTO_PROTOSETS_OUT)/$(PROTO_PROTOSETS_OUT_FILENAME) \
+		--doc_out=$(PROTO_DOCS_OUT) --doc_opt=json,docs.json \
 		--include_source_info \
 		--include_imports \
 		--proto_path=$(PWD) $(PROTO_FILES)
@@ -48,6 +49,7 @@ build-js:
 	@if [ ! -d "$(PROTO_DOCS_OUT)" ]; then mkdir -p "$(PROTO_DOCS_OUT)"; fi
 	@$(PROTOC) $(PROTOC_PLUGIN_JS) \
 	-Ithird_party/googleapis \
+	-Ithird_party/xds \
 	-Inode_modules/.bin \
 	--proto_path=$(PWD) $(PROTO_FILES)
 	@echo $(GREEN) "JavaScript protobuf files generated successfully!" $(RESET)
@@ -59,7 +61,10 @@ clean:
 	@rm -rf $(PROTO_PROTOSETS_OUT)/*
 	@echo $(GREEN) "All protobuf files removed successfully!" $(RESET)
 
-deps:
+submodule:
+	git submodule update --init --recursive
+
+deps: submodule
 	@which protoc >/dev/null || (echo "protoc not found. Please install protobuf compiler" && exit 1)
 	@which protoc-gen-go >/dev/null || (echo "protoc-gen-go not found. Installing..." && go install google.golang.org/protobuf/cmd/protoc-gen-go@latest)
 	@which protoc-gen-go-grpc >/dev/null || (echo "protoc-gen-go-grpc not found. Installing..." && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest)
