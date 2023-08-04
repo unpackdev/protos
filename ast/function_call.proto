@@ -18,3 +18,13 @@ message FunctionCall {
     int64 referenced_declaration = 8;
     txpull.v1.ast.TypeDescription type_description = 9;
 }
+
+message FunctionCallOption {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    txpull.v1.ast.Src src = 4;
+    xds.type.v3.TypedStruct expression = 5;
+    int64 referenced_declaration = 6;
+    txpull.v1.ast.TypeDescription type_description = 7;
+}

@@ -66,3 +66,51 @@ export namespace FunctionCall {
   }
 }
 
+export class FunctionCallOption extends jspb.Message {
+  getId(): number;
+  setId(value: number): FunctionCallOption;
+
+  getNodeType(): ast_types_pb.NodeType;
+  setNodeType(value: ast_types_pb.NodeType): FunctionCallOption;
+
+  getKind(): ast_types_pb.NodeType;
+  setKind(value: ast_types_pb.NodeType): FunctionCallOption;
+
+  getSrc(): ast_src_pb.Src | undefined;
+  setSrc(value?: ast_src_pb.Src): FunctionCallOption;
+  hasSrc(): boolean;
+  clearSrc(): FunctionCallOption;
+
+  getExpression(): xds_type_v3_typed_struct_pb.TypedStruct | undefined;
+  setExpression(value?: xds_type_v3_typed_struct_pb.TypedStruct): FunctionCallOption;
+  hasExpression(): boolean;
+  clearExpression(): FunctionCallOption;
+
+  getReferencedDeclaration(): number;
+  setReferencedDeclaration(value: number): FunctionCallOption;
+
+  getTypeDescription(): ast_type_name_pb.TypeDescription | undefined;
+  setTypeDescription(value?: ast_type_name_pb.TypeDescription): FunctionCallOption;
+  hasTypeDescription(): boolean;
+  clearTypeDescription(): FunctionCallOption;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FunctionCallOption.AsObject;
+  static toObject(includeInstance: boolean, msg: FunctionCallOption): FunctionCallOption.AsObject;
+  static serializeBinaryToWriter(message: FunctionCallOption, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FunctionCallOption;
+  static deserializeBinaryFromReader(message: FunctionCallOption, reader: jspb.BinaryReader): FunctionCallOption;
+}
+
+export namespace FunctionCallOption {
+  export type AsObject = {
+    id: number,
+    nodeType: ast_types_pb.NodeType,
+    kind: ast_types_pb.NodeType,
+    src?: ast_src_pb.Src.AsObject,
+    expression?: xds_type_v3_typed_struct_pb.TypedStruct.AsObject,
+    referencedDeclaration: number,
+    typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
+  }
+}
+
