@@ -1,0 +1,20 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+import "ir/parameter.proto";
+import "ir/modifier.proto";
+
+message Receive {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    string name = 4;
+    bool implemented = 5;
+    txpull.v1.ast.Visibility visibility = 6;
+    txpull.v1.ast.Mutability state_mutability = 7;
+    bool virtual = 8;
+    repeated txpull.v1.ir.Modifier modifiers = 9;
+    repeated txpull.v1.ir.Parameter parameters = 10;
+}

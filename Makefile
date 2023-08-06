@@ -22,6 +22,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/metadata/*.proto \
 	 $(PWD)/unpack/*.proto \
 	 $(PWD)/ast/*.proto \
+	 $(PWD)/ir/*.proto \
 	 $(PWD)/solgo/*.proto \
 )
 

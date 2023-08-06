@@ -1,0 +1,15 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+import "ir/contract.proto";
+
+message Root {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    int64 entry_contract_id = 3;
+    string entry_contract_name = 4;
+    int32 contracts_count = 5;
+    repeated txpull.v1.ir.Contract contracts = 6;
+}

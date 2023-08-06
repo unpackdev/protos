@@ -1,0 +1,15 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+import "ast/type_name.proto";
+import "ir/parameter.proto";
+
+message Error {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    string name = 3;
+    repeated txpull.v1.ir.Parameter parameters = 4;
+    txpull.v1.ast.TypeDescription type_description = 5;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+import "ast/type_name.proto";
+import "ir/parameter.proto";
+
+message Struct {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    string name = 4;
+    string canonical_name = 5;
+    int64 referenced_declaration_id = 6;
+    txpull.v1.ast.Visibility visibility = 7;
+    txpull.v1.ast.StorageLocation storage_location = 8;
+    repeated txpull.v1.ir.Parameter members = 9;
+    string type = 10;
+    txpull.v1.ast.TypeDescription type_description = 11;
+}

@@ -1,0 +1,40 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+import "ir/symbol.proto";
+import "ir/import.proto";
+import "ir/pragma.proto";
+import "ir/variable.proto";
+import "ir/struct.proto";
+import "ir/enum.proto";
+import "ir/event.proto";
+import "ir/error.proto";
+import "ir/constructor.proto";
+import "ir/function.proto";
+import "ir/fallback.proto";
+import "ir/receive.proto";
+
+message Contract {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    txpull.v1.ast.NodeType kind = 3;
+    int64 source_unit_id = 4;
+    string name = 5;
+    string license = 6;
+    string language = 7;
+    string absolute_path = 8;
+    repeated txpull.v1.ir.Symbol symbols = 9;
+    repeated txpull.v1.ir.Import imports = 10;
+    repeated txpull.v1.ir.Pragma pragmas = 11;
+    repeated txpull.v1.ir.StateVariable state_variables = 12;
+    repeated txpull.v1.ir.Struct structs = 13;
+    repeated txpull.v1.ir.Enum enums = 14;
+    repeated txpull.v1.ir.Event events = 15;
+    repeated txpull.v1.ir.Error errors = 16;
+    txpull.v1.ir.Constructor constructor = 17;
+    repeated txpull.v1.ir.Function functions = 18;
+    txpull.v1.ir.Fallback fallback = 19;
+    txpull.v1.ir.Receive receive = 20;
+}

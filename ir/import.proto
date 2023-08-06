@@ -1,0 +1,15 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+
+message Import {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    int64 source_unit_id = 3;
+    int64 contract_id = 4;
+    string absolute_path = 5;
+    string file = 6;
+    string unit_alias = 7;
+}

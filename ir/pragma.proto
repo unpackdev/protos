@@ -1,0 +1,12 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "ast/types.proto";
+
+message Pragma {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 2;
+    repeated string literals = 3;
+    string text = 4;
+}

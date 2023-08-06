@@ -1,0 +1,9 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+message Symbol {
+    int64 id = 1;
+    string name = 2;
+    string absolute_path = 3;
+}
