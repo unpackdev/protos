@@ -1,0 +1,23 @@
+syntax = "proto3";
+package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";                     // Import for AST types.
+import "xds/type/v3/typed_struct.proto";      // Import for xDS TypedStruct.
+
+// Represents a body (sequence of statements) in the intermediate representation (IR).
+message Body {
+    int64 id = 1;   // Unique identifier for the body.
+    
+    // Node type of the body. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType node_type = 2;
+    
+    // Kind of the body. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType kind = 3;
+    
+    // List of statements in the body. Each statement is defined using the "xds.type.v3.TypedStruct" message.
+    repeated xds.type.v3.TypedStruct statements = 4;
+}

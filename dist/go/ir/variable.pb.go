@@ -21,20 +21,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a state variable declaration in the intermediate representation (IR).
 type StateVariable struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id              int64                `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	NodeType        ast.NodeType         `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Name            string               `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	ContractId      int64                `protobuf:"varint,4,opt,name=contract_id,json=contractId,proto3" json:"contract_id,omitempty"`
-	Visibility      ast.Visibility       `protobuf:"varint,5,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
-	IsConstant      bool                 `protobuf:"varint,6,opt,name=is_constant,json=isConstant,proto3" json:"is_constant,omitempty"`
-	StorageLocation ast.StorageLocation  `protobuf:"varint,7,opt,name=storage_location,json=storageLocation,proto3,enum=txpull.v1.ast.StorageLocation" json:"storage_location,omitempty"`
-	StateMutability ast.Mutability       `protobuf:"varint,8,opt,name=state_mutability,json=stateMutability,proto3,enum=txpull.v1.ast.Mutability" json:"state_mutability,omitempty"`
-	Type            string               `protobuf:"bytes,9,opt,name=type,proto3" json:"type,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the state variable.
+	// Node type of the state variable. Refers to the AST node type enumeration in "ast/types.proto".
+	NodeType   ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	Name       string       `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`                                // Name of the state variable.
+	ContractId int64        `protobuf:"varint,4,opt,name=contract_id,json=contractId,proto3" json:"contract_id,omitempty"` // Identifier of the contract associated with the state variable.
+	// Visibility of the state variable. Refers to the visibility enumeration in "ast/types.proto".
+	Visibility ast.Visibility `protobuf:"varint,5,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
+	IsConstant bool           `protobuf:"varint,6,opt,name=is_constant,json=isConstant,proto3" json:"is_constant,omitempty"` // Indicates if the state variable is constant.
+	// Storage location of the state variable. Refers to the storage location enumeration in "ast/types.proto".
+	StorageLocation ast.StorageLocation `protobuf:"varint,7,opt,name=storage_location,json=storageLocation,proto3,enum=txpull.v1.ast.StorageLocation" json:"storage_location,omitempty"`
+	// State mutability of the state variable. Refers to the mutability enumeration in "ast/types.proto".
+	StateMutability ast.Mutability `protobuf:"varint,8,opt,name=state_mutability,json=stateMutability,proto3,enum=txpull.v1.ast.Mutability" json:"state_mutability,omitempty"`
+	Type            string         `protobuf:"bytes,9,opt,name=type,proto3" json:"type,omitempty"` // Deprecated field. Should not be used.
+	// Type description of the state variable. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
 	TypeDescription *ast.TypeDescription `protobuf:"bytes,10,opt,name=type_description,json=typeDescription,proto3" json:"type_description,omitempty"`
 }
 

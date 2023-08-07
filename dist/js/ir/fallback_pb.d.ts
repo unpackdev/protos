@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf'
 import * as ast_types_pb from '../ast/types_pb';
 import * as ir_parameter_pb from '../ir/parameter_pb';
 import * as ir_modifier_pb from '../ir/modifier_pb';
+import * as ir_override_pb from '../ir/override_pb';
 
 
 export class Fallback extends jspb.Message {
@@ -35,6 +36,11 @@ export class Fallback extends jspb.Message {
   clearModifiersList(): Fallback;
   addModifiers(value?: ir_modifier_pb.Modifier, index?: number): ir_modifier_pb.Modifier;
 
+  getOverridesList(): Array<ir_override_pb.Override>;
+  setOverridesList(value: Array<ir_override_pb.Override>): Fallback;
+  clearOverridesList(): Fallback;
+  addOverrides(value?: ir_override_pb.Override, index?: number): ir_override_pb.Override;
+
   getParametersList(): Array<ir_parameter_pb.Parameter>;
   setParametersList(value: Array<ir_parameter_pb.Parameter>): Fallback;
   clearParametersList(): Fallback;
@@ -64,6 +70,7 @@ export namespace Fallback {
     stateMutability: ast_types_pb.Mutability,
     virtual: boolean,
     modifiersList: Array<ir_modifier_pb.Modifier.AsObject>,
+    overridesList: Array<ir_override_pb.Override.AsObject>,
     parametersList: Array<ir_parameter_pb.Parameter.AsObject>,
     returnList: Array<ir_parameter_pb.Parameter.AsObject>,
   }

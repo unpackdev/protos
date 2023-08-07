@@ -21,22 +21,29 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a struct declaration in the intermediate representation (IR).
 type Struct struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                      int64                `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	NodeType                ast.NodeType         `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Kind                    ast.NodeType         `protobuf:"varint,3,opt,name=kind,proto3,enum=txpull.v1.ast.NodeType" json:"kind,omitempty"`
-	Name                    string               `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	CanonicalName           string               `protobuf:"bytes,5,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"`
-	ReferencedDeclarationId int64                `protobuf:"varint,6,opt,name=referenced_declaration_id,json=referencedDeclarationId,proto3" json:"referenced_declaration_id,omitempty"`
-	Visibility              ast.Visibility       `protobuf:"varint,7,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
-	StorageLocation         ast.StorageLocation  `protobuf:"varint,8,opt,name=storage_location,json=storageLocation,proto3,enum=txpull.v1.ast.StorageLocation" json:"storage_location,omitempty"`
-	Members                 []*Parameter         `protobuf:"bytes,9,rep,name=members,proto3" json:"members,omitempty"`
-	Type                    string               `protobuf:"bytes,10,opt,name=type,proto3" json:"type,omitempty"`
-	TypeDescription         *ast.TypeDescription `protobuf:"bytes,11,opt,name=type_description,json=typeDescription,proto3" json:"type_description,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the struct.
+	// Node type of the struct. Refers to the AST node type enumeration in "ast/types.proto".
+	NodeType ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	// Kind of the struct. Refers to the AST node type enumeration in "ast/types.proto".
+	Kind                    ast.NodeType `protobuf:"varint,3,opt,name=kind,proto3,enum=txpull.v1.ast.NodeType" json:"kind,omitempty"`
+	Name                    string       `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`                                                                         // Name of the struct.
+	CanonicalName           string       `protobuf:"bytes,5,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"`                                  // Canonical name of the struct.
+	ReferencedDeclarationId int64        `protobuf:"varint,6,opt,name=referenced_declaration_id,json=referencedDeclarationId,proto3" json:"referenced_declaration_id,omitempty"` // Identifier of the referenced declaration.
+	// Visibility of the struct. Refers to the visibility enumeration in "ast/types.proto".
+	Visibility ast.Visibility `protobuf:"varint,7,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
+	// Storage location of the struct. Refers to the storage location enumeration in "ast/types.proto".
+	StorageLocation ast.StorageLocation `protobuf:"varint,8,opt,name=storage_location,json=storageLocation,proto3,enum=txpull.v1.ast.StorageLocation" json:"storage_location,omitempty"`
+	// List of members (fields) associated with the struct. Each member is defined using the "txpull.v1.ir.Parameter" message.
+	Members []*Parameter `protobuf:"bytes,9,rep,name=members,proto3" json:"members,omitempty"`
+	Type    string       `protobuf:"bytes,10,opt,name=type,proto3" json:"type,omitempty"` // Deprecated field. Should not be used.
+	// Type description of the struct. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
+	TypeDescription *ast.TypeDescription `protobuf:"bytes,11,opt,name=type_description,json=typeDescription,proto3" json:"type_description,omitempty"`
 }
 
 func (x *Struct) Reset() {

@@ -46,7 +46,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ast.PrimaryExpression.repeatedFields_ = [9,12];
+proto.txpull.v1.ast.PrimaryExpression.repeatedFields_ = [10,12];
 
 
 
@@ -80,15 +80,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.toObject = function(opt_includeI
 proto.txpull.v1.ast.PrimaryExpression.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    name: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    value: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    hexValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    nodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    kind: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    value: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    hexValue: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    nodeType: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    kind: jspb.Message.getFieldWithDefault(msg, 6, 0),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
-    referencedDeclaration: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    isPure: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
-    overloadedDeclarationsList: (f = jspb.Message.getRepeatedField(msg, 9)) == null ? undefined : f,
+    referencedDeclaration: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    isPure: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
+    overloadedDeclarationsList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
+    typeName: (f = msg.getTypeName()) && ast_type_name_pb.TypeName.toObject(includeInstance, f),
     argumentTypesList: jspb.Message.toObjectList(msg.getArgumentTypesList(),
     ast_type_name_pb.TypeDescription.toObject, includeInstance),
     typeDescription: (f = msg.getTypeDescription()) && ast_type_name_pb.TypeDescription.toObject(includeInstance, f)
@@ -132,49 +133,54 @@ proto.txpull.v1.ast.PrimaryExpression.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readInt64());
       msg.setId(value);
       break;
-    case 7:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 4:
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setValue(value);
       break;
-    case 5:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setHexValue(value);
       break;
-    case 2:
+    case 5:
       var value = /** @type {!proto.txpull.v1.ast.NodeType} */ (reader.readEnum());
       msg.setNodeType(value);
       break;
-    case 3:
+    case 6:
       var value = /** @type {!proto.txpull.v1.ast.NodeType} */ (reader.readEnum());
       msg.setKind(value);
       break;
-    case 6:
+    case 7:
       var value = new ast_src_pb.Src;
       reader.readMessage(value,ast_src_pb.Src.deserializeBinaryFromReader);
       msg.setSrc(value);
       break;
-    case 10:
+    case 8:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setReferencedDeclaration(value);
       break;
-    case 11:
+    case 9:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsPure(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {!Array<number>} */ (reader.readPackedInt64());
       msg.setOverloadedDeclarationsList(value);
+      break;
+    case 11:
+      var value = new ast_type_name_pb.TypeName;
+      reader.readMessage(value,ast_type_name_pb.TypeName.deserializeBinaryFromReader);
+      msg.setTypeName(value);
       break;
     case 12:
       var value = new ast_type_name_pb.TypeDescription;
       reader.readMessage(value,ast_type_name_pb.TypeDescription.deserializeBinaryFromReader);
       msg.addArgumentTypes(value);
       break;
-    case 8:
+    case 13:
       var value = new ast_type_name_pb.TypeDescription;
       reader.readMessage(value,ast_type_name_pb.TypeDescription.deserializeBinaryFromReader);
       msg.setTypeDescription(value);
@@ -218,42 +224,42 @@ proto.txpull.v1.ast.PrimaryExpression.serializeBinaryToWriter = function(message
   f = message.getName();
   if (f.length > 0) {
     writer.writeString(
-      7,
+      2,
       f
     );
   }
   f = message.getValue();
   if (f.length > 0) {
     writer.writeString(
-      4,
+      3,
       f
     );
   }
   f = message.getHexValue();
   if (f.length > 0) {
     writer.writeString(
-      5,
+      4,
       f
     );
   }
   f = message.getNodeType();
   if (f !== 0.0) {
     writer.writeEnum(
-      2,
+      5,
       f
     );
   }
   f = message.getKind();
   if (f !== 0.0) {
     writer.writeEnum(
-      3,
+      6,
       f
     );
   }
   f = message.getSrc();
   if (f != null) {
     writer.writeMessage(
-      6,
+      7,
       f,
       ast_src_pb.Src.serializeBinaryToWriter
     );
@@ -261,22 +267,30 @@ proto.txpull.v1.ast.PrimaryExpression.serializeBinaryToWriter = function(message
   f = message.getReferencedDeclaration();
   if (f !== 0) {
     writer.writeInt64(
-      10,
+      8,
       f
     );
   }
   f = message.getIsPure();
   if (f) {
     writer.writeBool(
-      11,
+      9,
       f
     );
   }
   f = message.getOverloadedDeclarationsList();
   if (f.length > 0) {
     writer.writePackedInt64(
-      9,
+      10,
       f
+    );
+  }
+  f = message.getTypeName();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      ast_type_name_pb.TypeName.serializeBinaryToWriter
     );
   }
   f = message.getArgumentTypesList();
@@ -290,7 +304,7 @@ proto.txpull.v1.ast.PrimaryExpression.serializeBinaryToWriter = function(message
   f = message.getTypeDescription();
   if (f != null) {
     writer.writeMessage(
-      8,
+      13,
       f,
       ast_type_name_pb.TypeDescription.serializeBinaryToWriter
     );
@@ -317,11 +331,11 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.setId = function(value) {
 
 
 /**
- * optional string name = 7;
+ * optional string name = 2;
  * @return {string}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -330,16 +344,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getName = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setName = function(value) {
-  return jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string value = 4;
+ * optional string value = 3;
  * @return {string}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getValue = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -348,16 +362,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getValue = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setValue = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string hex_value = 5;
+ * optional string hex_value = 4;
  * @return {string}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getHexValue = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -366,16 +380,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getHexValue = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setHexValue = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional NodeType node_type = 2;
+ * optional NodeType node_type = 5;
  * @return {!proto.txpull.v1.ast.NodeType}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getNodeType = function() {
-  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -384,16 +398,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getNodeType = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setNodeType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 2, value);
+  return jspb.Message.setProto3EnumField(this, 5, value);
 };
 
 
 /**
- * optional NodeType kind = 3;
+ * optional NodeType kind = 6;
  * @return {!proto.txpull.v1.ast.NodeType}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getKind = function() {
-  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -402,17 +416,17 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getKind = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setKind = function(value) {
-  return jspb.Message.setProto3EnumField(this, 3, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 
 /**
- * optional Src src = 6;
+ * optional Src src = 7;
  * @return {?proto.txpull.v1.ast.Src}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getSrc = function() {
   return /** @type{?proto.txpull.v1.ast.Src} */ (
-    jspb.Message.getWrapperField(this, ast_src_pb.Src, 6));
+    jspb.Message.getWrapperField(this, ast_src_pb.Src, 7));
 };
 
 
@@ -421,7 +435,7 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getSrc = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
 */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setSrc = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -439,16 +453,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.clearSrc = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.hasSrc = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
 /**
- * optional int64 referenced_declaration = 10;
+ * optional int64 referenced_declaration = 8;
  * @return {number}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getReferencedDeclaration = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
@@ -457,16 +471,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getReferencedDeclaration = funct
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setReferencedDeclaration = function(value) {
-  return jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
 /**
- * optional bool is_pure = 11;
+ * optional bool is_pure = 9;
  * @return {boolean}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getIsPure = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
 };
 
 
@@ -475,16 +489,16 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getIsPure = function() {
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setIsPure = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
 /**
- * repeated int64 overloaded_declarations = 9;
+ * repeated int64 overloaded_declarations = 10;
  * @return {!Array<number>}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getOverloadedDeclarationsList = function() {
-  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 9));
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 10));
 };
 
 
@@ -493,7 +507,7 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getOverloadedDeclarationsList = 
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setOverloadedDeclarationsList = function(value) {
-  return jspb.Message.setField(this, 9, value || []);
+  return jspb.Message.setField(this, 10, value || []);
 };
 
 
@@ -503,7 +517,7 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.setOverloadedDeclarationsList = 
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.addOverloadedDeclarations = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 9, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 10, value, opt_index);
 };
 
 
@@ -513,6 +527,43 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.addOverloadedDeclarations = func
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.clearOverloadedDeclarationsList = function() {
   return this.setOverloadedDeclarationsList([]);
+};
+
+
+/**
+ * optional TypeName type_name = 11;
+ * @return {?proto.txpull.v1.ast.TypeName}
+ */
+proto.txpull.v1.ast.PrimaryExpression.prototype.getTypeName = function() {
+  return /** @type{?proto.txpull.v1.ast.TypeName} */ (
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeName, 11));
+};
+
+
+/**
+ * @param {?proto.txpull.v1.ast.TypeName|undefined} value
+ * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
+*/
+proto.txpull.v1.ast.PrimaryExpression.prototype.setTypeName = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
+ */
+proto.txpull.v1.ast.PrimaryExpression.prototype.clearTypeName = function() {
+  return this.setTypeName(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.PrimaryExpression.prototype.hasTypeName = function() {
+  return jspb.Message.getField(this, 11) != null;
 };
 
 
@@ -555,12 +606,12 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.clearArgumentTypesList = functio
 
 
 /**
- * optional TypeDescription type_description = 8;
+ * optional TypeDescription type_description = 13;
  * @return {?proto.txpull.v1.ast.TypeDescription}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.getTypeDescription = function() {
   return /** @type{?proto.txpull.v1.ast.TypeDescription} */ (
-    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 8));
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 13));
 };
 
 
@@ -569,7 +620,7 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.getTypeDescription = function() 
  * @return {!proto.txpull.v1.ast.PrimaryExpression} returns this
 */
 proto.txpull.v1.ast.PrimaryExpression.prototype.setTypeDescription = function(value) {
-  return jspb.Message.setWrapperField(this, 8, value);
+  return jspb.Message.setWrapperField(this, 13, value);
 };
 
 
@@ -587,7 +638,7 @@ proto.txpull.v1.ast.PrimaryExpression.prototype.clearTypeDescription = function(
  * @return {boolean}
  */
 proto.txpull.v1.ast.PrimaryExpression.prototype.hasTypeDescription = function() {
-  return jspb.Message.getField(this, 8) != null;
+  return jspb.Message.getField(this, 13) != null;
 };
 
 

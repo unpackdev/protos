@@ -21,15 +21,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a pragma declaration in the intermediate representation (IR).
 type Pragma struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id       int64        `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the pragma.
+	// Node type of the pragma. Refers to the AST node type enumeration in "ast/types.proto".
 	NodeType ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Literals []string     `protobuf:"bytes,3,rep,name=literals,proto3" json:"literals,omitempty"`
-	Text     string       `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
+	// List of string literals associated with the pragma.
+	Literals []string `protobuf:"bytes,3,rep,name=literals,proto3" json:"literals,omitempty"`
+	Text     string   `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"` // Textual representation of the pragma.
 }
 
 func (x *Pragma) Reset() {

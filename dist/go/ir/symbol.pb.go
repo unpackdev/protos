@@ -20,14 +20,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a symbol in the intermediate representation (IR).
 type Symbol struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id           int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name         string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	AbsolutePath string `protobuf:"bytes,3,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"`
+	Id           int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`                                        // Unique identifier for the symbol.
+	Name         string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`                                     // Name of the symbol.
+	AbsolutePath string `protobuf:"bytes,3,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"` // Absolute path of the symbol.
 }
 
 func (x *Symbol) Reset() {

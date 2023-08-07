@@ -40,6 +40,11 @@ export class PrimaryExpression extends jspb.Message {
   clearOverloadedDeclarationsList(): PrimaryExpression;
   addOverloadedDeclarations(value: number, index?: number): PrimaryExpression;
 
+  getTypeName(): ast_type_name_pb.TypeName | undefined;
+  setTypeName(value?: ast_type_name_pb.TypeName): PrimaryExpression;
+  hasTypeName(): boolean;
+  clearTypeName(): PrimaryExpression;
+
   getArgumentTypesList(): Array<ast_type_name_pb.TypeDescription>;
   setArgumentTypesList(value: Array<ast_type_name_pb.TypeDescription>): PrimaryExpression;
   clearArgumentTypesList(): PrimaryExpression;
@@ -70,6 +75,7 @@ export namespace PrimaryExpression {
     referencedDeclaration: number,
     isPure: boolean,
     overloadedDeclarationsList: Array<number>,
+    typeName?: ast_type_name_pb.TypeName.AsObject,
     argumentTypesList: Array<ast_type_name_pb.TypeDescription.AsObject>,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }

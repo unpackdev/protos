@@ -98,6 +98,7 @@ export enum NodeType {
   YUL_ASSIGNMENT = 92,
   FUNCTION_CALL_OPTION = 93,
   INDEX_RANGE_ACCESS = 94,
+  EXPRESSION_OPERATION = 95,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

@@ -21,15 +21,19 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents an error declaration in the intermediate representation (IR).
 type Error struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id              int64                `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	NodeType        ast.NodeType         `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Name            string               `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	Parameters      []*Parameter         `protobuf:"bytes,4,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the error.
+	// Node type of the error. Refers to the AST node type enumeration in "ast/types.proto".
+	NodeType ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	Name     string       `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"` // Name of the error.
+	// List of parameters associated with the error. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
+	Parameters []*Parameter `protobuf:"bytes,4,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	// Type description of the error. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
 	TypeDescription *ast.TypeDescription `protobuf:"bytes,5,opt,name=type_description,json=typeDescription,proto3" json:"type_description,omitempty"`
 }
 

@@ -21,22 +21,29 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a constructor declaration in the intermediate representation (IR).
 type Constructor struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id              int64          `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	NodeType        ast.NodeType   `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Kind            ast.NodeType   `protobuf:"varint,3,opt,name=kind,proto3,enum=txpull.v1.ast.NodeType" json:"kind,omitempty"`
-	Name            string         `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	Implemented     bool           `protobuf:"varint,5,opt,name=implemented,proto3" json:"implemented,omitempty"`
-	Visibility      ast.Visibility `protobuf:"varint,6,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the constructor.
+	// Node type of the constructor. Refers to the AST node type enumeration in "ast/types.proto".
+	NodeType ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	// Kind of the constructor. Refers to the AST node type enumeration in "ast/types.proto".
+	Kind        ast.NodeType `protobuf:"varint,3,opt,name=kind,proto3,enum=txpull.v1.ast.NodeType" json:"kind,omitempty"`
+	Name        string       `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`                // Name of the constructor.
+	Implemented bool         `protobuf:"varint,5,opt,name=implemented,proto3" json:"implemented,omitempty"` // Indicates if the constructor is implemented or not.
+	// Visibility of the constructor. Refers to the visibility enumeration in "ast/types.proto".
+	Visibility ast.Visibility `protobuf:"varint,6,opt,name=visibility,proto3,enum=txpull.v1.ast.Visibility" json:"visibility,omitempty"`
+	// State mutability of the constructor. Refers to the mutability enumeration in "ast/types.proto".
 	StateMutability ast.Mutability `protobuf:"varint,7,opt,name=state_mutability,json=stateMutability,proto3,enum=txpull.v1.ast.Mutability" json:"state_mutability,omitempty"`
-	Virtual         bool           `protobuf:"varint,8,opt,name=virtual,proto3" json:"virtual,omitempty"`
-	Modifiers       []*Modifier    `protobuf:"bytes,9,rep,name=modifiers,proto3" json:"modifiers,omitempty"`
-	Parameters      []*Parameter   `protobuf:"bytes,10,rep,name=parameters,proto3" json:"parameters,omitempty"`
-	Return          []*Parameter   `protobuf:"bytes,11,rep,name=return,proto3" json:"return,omitempty"`
+	Virtual         bool           `protobuf:"varint,8,opt,name=virtual,proto3" json:"virtual,omitempty"`    // Indicates if the constructor is virtual.
+	Modifiers       []*Modifier    `protobuf:"bytes,9,rep,name=modifiers,proto3" json:"modifiers,omitempty"` // List of constructor modifiers.
+	// List of parameters of the constructor. Each parameter is defined in "ir/parameter.proto".
+	Parameters []*Parameter `protobuf:"bytes,10,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	// List of return parameters of the constructor. Each return parameter is defined in "ir/parameter.proto".
+	Return []*Parameter `protobuf:"bytes,11,rep,name=return,proto3" json:"return,omitempty"`
 }
 
 func (x *Constructor) Reset() {

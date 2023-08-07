@@ -21,16 +21,19 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents an enum declaration in the intermediate representation (IR).
 type Enum struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id            int64        `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the enum.
+	// Node type of the enum. Refers to the AST node type enumeration in "ast/types.proto".
 	NodeType      ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	Name          string       `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	CanonicalName string       `protobuf:"bytes,4,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"`
-	Members       []*Parameter `protobuf:"bytes,5,rep,name=members,proto3" json:"members,omitempty"`
+	Name          string       `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`                                        // Name of the enum.
+	CanonicalName string       `protobuf:"bytes,4,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"` // Canonical name of the enum.
+	// List of enum members (parameters). Each member is defined using the "txpull.v1.ir.Parameter" message.
+	Members []*Parameter `protobuf:"bytes,5,rep,name=members,proto3" json:"members,omitempty"`
 }
 
 func (x *Enum) Reset() {

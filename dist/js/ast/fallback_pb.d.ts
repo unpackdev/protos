@@ -4,6 +4,8 @@ import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
 import * as ast_parameters_pb from '../ast/parameters_pb';
 import * as ast_body_pb from '../ast/body_pb';
+import * as ast_modifiers_pb from '../ast/modifiers_pb';
+import * as ast_overrides_pb from '../ast/overrides_pb';
 
 
 export class Fallback extends jspb.Message {
@@ -32,6 +34,16 @@ export class Fallback extends jspb.Message {
 
   getStateMutability(): ast_types_pb.Mutability;
   setStateMutability(value: ast_types_pb.Mutability): Fallback;
+
+  getModifiersList(): Array<ast_modifiers_pb.ModifierInvocation>;
+  setModifiersList(value: Array<ast_modifiers_pb.ModifierInvocation>): Fallback;
+  clearModifiersList(): Fallback;
+  addModifiers(value?: ast_modifiers_pb.ModifierInvocation, index?: number): ast_modifiers_pb.ModifierInvocation;
+
+  getOverridesList(): Array<ast_overrides_pb.OverrideSpecifier>;
+  setOverridesList(value: Array<ast_overrides_pb.OverrideSpecifier>): Fallback;
+  clearOverridesList(): Fallback;
+  addOverrides(value?: ast_overrides_pb.OverrideSpecifier, index?: number): ast_overrides_pb.OverrideSpecifier;
 
   getParameters(): ast_parameters_pb.ParameterList | undefined;
   setParameters(value?: ast_parameters_pb.ParameterList): Fallback;
@@ -66,6 +78,8 @@ export namespace Fallback {
     implemented: boolean,
     visibility: ast_types_pb.Visibility,
     stateMutability: ast_types_pb.Mutability,
+    modifiersList: Array<ast_modifiers_pb.ModifierInvocation.AsObject>,
+    overridesList: Array<ast_overrides_pb.OverrideSpecifier.AsObject>,
     parameters?: ast_parameters_pb.ParameterList.AsObject,
     returnParameters?: ast_parameters_pb.ParameterList.AsObject,
     body?: ast_body_pb.Body.AsObject,

@@ -1,20 +1,43 @@
 syntax = "proto3";
 package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
 
-import "ast/types.proto";
-import "ir/parameter.proto";
-import "ir/modifier.proto";
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";        // Import for AST types.
+import "ir/parameter.proto";     // Import for IR parameters.
+import "ir/modifier.proto";      // Import for IR modifiers.
+import "ir/override.proto";      // Import for IR overrides.
 
+// Represents a receive function declaration in the intermediate representation (IR).
 message Receive {
-    int64 id = 1;
+    int64 id = 1;   // Unique identifier for the receive function.
+
+    // Node type of the receive function. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType node_type = 2;
+
+    // Kind of the receive function. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType kind = 3;
-    string name = 4;
-    bool implemented = 5;
+
+    string name = 4;    // Name of the receive function.
+
+    bool implemented = 5;   // Indicates if the receive function is implemented or not.
+
+    // Visibility of the receive function. Refers to the visibility enumeration in "ast/types.proto".
     txpull.v1.ast.Visibility visibility = 6;
+
+    // State mutability of the receive function. Refers to the mutability enumeration in "ast/types.proto".
     txpull.v1.ast.Mutability state_mutability = 7;
-    bool virtual = 8;
+
+    bool virtual = 8;   // Indicates if the receive function is virtual.
+
+    // List of modifiers associated with the receive function. Each modifier is defined using the "txpull.v1.ir.Modifier" message.
     repeated txpull.v1.ir.Modifier modifiers = 9;
-    repeated txpull.v1.ir.Parameter parameters = 10;
+
+    // List of overrides associated with the receive function. Each override is defined using the "txpull.v1.ir.Override" message.
+    repeated txpull.v1.ir.Override overrides = 10;
+
+    // List of parameters of the receive function. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
+    repeated txpull.v1.ir.Parameter parameters = 11;
 }

@@ -3,6 +3,8 @@ import * as jspb from 'google-protobuf'
 import * as ast_types_pb from '../ast/types_pb';
 import * as ir_parameter_pb from '../ir/parameter_pb';
 import * as ir_modifier_pb from '../ir/modifier_pb';
+import * as ir_override_pb from '../ir/override_pb';
+import * as ir_body_pb from '../ir/body_pb';
 
 
 export class Function extends jspb.Message {
@@ -38,10 +40,20 @@ export class Function extends jspb.Message {
   clearModifiersList(): Function;
   addModifiers(value?: ir_modifier_pb.Modifier, index?: number): ir_modifier_pb.Modifier;
 
+  getOverridesList(): Array<ir_override_pb.Override>;
+  setOverridesList(value: Array<ir_override_pb.Override>): Function;
+  clearOverridesList(): Function;
+  addOverrides(value?: ir_override_pb.Override, index?: number): ir_override_pb.Override;
+
   getParametersList(): Array<ir_parameter_pb.Parameter>;
   setParametersList(value: Array<ir_parameter_pb.Parameter>): Function;
   clearParametersList(): Function;
   addParameters(value?: ir_parameter_pb.Parameter, index?: number): ir_parameter_pb.Parameter;
+
+  getBody(): ir_body_pb.Body | undefined;
+  setBody(value?: ir_body_pb.Body): Function;
+  hasBody(): boolean;
+  clearBody(): Function;
 
   getReturnList(): Array<ir_parameter_pb.Parameter>;
   setReturnList(value: Array<ir_parameter_pb.Parameter>): Function;
@@ -68,7 +80,9 @@ export namespace Function {
     virtual: boolean,
     referencedDeclarationId: number,
     modifiersList: Array<ir_modifier_pb.Modifier.AsObject>,
+    overridesList: Array<ir_override_pb.Override.AsObject>,
     parametersList: Array<ir_parameter_pb.Parameter.AsObject>,
+    body?: ir_body_pb.Body.AsObject,
     returnList: Array<ir_parameter_pb.Parameter.AsObject>,
   }
 }

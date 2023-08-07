@@ -21,31 +21,34 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents a contract declaration in the intermediate representation (IR).
 type Contract struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id             int64            `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	NodeType       ast.NodeType     `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the contract.
+	// Node type of the contract. Refers to the AST node type enumeration in "ast/types.proto".
+	NodeType ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
+	// Kind of the contract. Refers to the AST node type enumeration in "ast/types.proto".
 	Kind           ast.NodeType     `protobuf:"varint,3,opt,name=kind,proto3,enum=txpull.v1.ast.NodeType" json:"kind,omitempty"`
-	SourceUnitId   int64            `protobuf:"varint,4,opt,name=source_unit_id,json=sourceUnitId,proto3" json:"source_unit_id,omitempty"`
-	Name           string           `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
-	License        string           `protobuf:"bytes,6,opt,name=license,proto3" json:"license,omitempty"`
-	Language       string           `protobuf:"bytes,7,opt,name=language,proto3" json:"language,omitempty"`
-	AbsolutePath   string           `protobuf:"bytes,8,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"`
-	Symbols        []*Symbol        `protobuf:"bytes,9,rep,name=symbols,proto3" json:"symbols,omitempty"`
-	Imports        []*Import        `protobuf:"bytes,10,rep,name=imports,proto3" json:"imports,omitempty"`
-	Pragmas        []*Pragma        `protobuf:"bytes,11,rep,name=pragmas,proto3" json:"pragmas,omitempty"`
-	StateVariables []*StateVariable `protobuf:"bytes,12,rep,name=state_variables,json=stateVariables,proto3" json:"state_variables,omitempty"`
-	Structs        []*Struct        `protobuf:"bytes,13,rep,name=structs,proto3" json:"structs,omitempty"`
-	Enums          []*Enum          `protobuf:"bytes,14,rep,name=enums,proto3" json:"enums,omitempty"`
-	Events         []*Event         `protobuf:"bytes,15,rep,name=events,proto3" json:"events,omitempty"`
-	Errors         []*Error         `protobuf:"bytes,16,rep,name=errors,proto3" json:"errors,omitempty"`
-	Constructor    *Constructor     `protobuf:"bytes,17,opt,name=constructor,proto3" json:"constructor,omitempty"`
-	Functions      []*Function      `protobuf:"bytes,18,rep,name=functions,proto3" json:"functions,omitempty"`
-	Fallback       *Fallback        `protobuf:"bytes,19,opt,name=fallback,proto3" json:"fallback,omitempty"`
-	Receive        *Receive         `protobuf:"bytes,20,opt,name=receive,proto3" json:"receive,omitempty"`
+	SourceUnitId   int64            `protobuf:"varint,4,opt,name=source_unit_id,json=sourceUnitId,proto3" json:"source_unit_id,omitempty"`     // Identifier of the source unit for the contract.
+	Name           string           `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`                                            // Name of the contract.
+	License        string           `protobuf:"bytes,6,opt,name=license,proto3" json:"license,omitempty"`                                      // License information for the contract.
+	Language       string           `protobuf:"bytes,7,opt,name=language,proto3" json:"language,omitempty"`                                    // Language used for the contract.
+	AbsolutePath   string           `protobuf:"bytes,8,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"`        // Absolute path of the contract.
+	Symbols        []*Symbol        `protobuf:"bytes,9,rep,name=symbols,proto3" json:"symbols,omitempty"`                                      // List of symbols in the contract.
+	Imports        []*Import        `protobuf:"bytes,10,rep,name=imports,proto3" json:"imports,omitempty"`                                     // List of import statements in the contract.
+	Pragmas        []*Pragma        `protobuf:"bytes,11,rep,name=pragmas,proto3" json:"pragmas,omitempty"`                                     // List of pragmas in the contract.
+	StateVariables []*StateVariable `protobuf:"bytes,12,rep,name=state_variables,json=stateVariables,proto3" json:"state_variables,omitempty"` // List of state variables in the contract.
+	Structs        []*Struct        `protobuf:"bytes,13,rep,name=structs,proto3" json:"structs,omitempty"`                                     // List of struct declarations in the contract.
+	Enums          []*Enum          `protobuf:"bytes,14,rep,name=enums,proto3" json:"enums,omitempty"`                                         // List of enum declarations in the contract.
+	Events         []*Event         `protobuf:"bytes,15,rep,name=events,proto3" json:"events,omitempty"`                                       // List of event declarations in the contract.
+	Errors         []*Error         `protobuf:"bytes,16,rep,name=errors,proto3" json:"errors,omitempty"`                                       // List of error declarations in the contract.
+	Constructor    *Constructor     `protobuf:"bytes,17,opt,name=constructor,proto3" json:"constructor,omitempty"`                             // Constructor declaration for the contract.
+	Functions      []*Function      `protobuf:"bytes,18,rep,name=functions,proto3" json:"functions,omitempty"`                                 // List of function declarations in the contract.
+	Fallback       *Fallback        `protobuf:"bytes,19,opt,name=fallback,proto3" json:"fallback,omitempty"`                                   // Fallback function declaration for the contract.
+	Receive        *Receive         `protobuf:"bytes,20,opt,name=receive,proto3" json:"receive,omitempty"`                                     // Receive function declaration for the contract.
 }
 
 func (x *Contract) Reset() {

@@ -1,22 +1,52 @@
 syntax = "proto3";
 package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
 
+// Import statements for the Protocol Buffer files used in this file.
 import "ast/types.proto";
 import "ir/parameter.proto";
 import "ir/modifier.proto";
+import "ir/override.proto";
+import "ir/body.proto";
 
+// Represents a function declaration in the intermediate representation (IR).
 message Function {
-    int64 id = 1;
+    int64 id = 1;   // Unique identifier for the function.
+
+    // Node type of the function. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType node_type = 2;
+
+    // Kind of the function. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType kind = 3;
-    string name = 4;
-    bool implemented = 5;
+
+    string name = 4;    // Name of the function.
+
+    bool implemented = 5;   // Indicates if the function is implemented or not.
+
+    // Visibility of the function. Refers to the visibility enumeration in "ast/types.proto".
     txpull.v1.ast.Visibility visibility = 6;
+
+    // State mutability of the function. Refers to the mutability enumeration in "ast/types.proto".
     txpull.v1.ast.Mutability state_mutability = 7;
-    bool virtual = 8;
-    int64 referenced_declaration_id = 9;
+
+    bool virtual = 8;   // Indicates if the function is virtual.
+
+    int64 referenced_declaration_id = 9; // Identifier of the referenced function declaration.
+
+    // List of modifiers associated with the function. Each modifier is defined using the "txpull.v1.ir.Modifier" message.
     repeated txpull.v1.ir.Modifier modifiers = 10;
-    repeated txpull.v1.ir.Parameter parameters = 11;
-    repeated txpull.v1.ir.Parameter return = 12;
+
+    // List of overrides associated with the function. Each override is defined using the "txpull.v1.ir.Override" message.
+    repeated txpull.v1.ir.Override overrides = 11;
+
+    // List of parameters of the function. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
+    repeated txpull.v1.ir.Parameter parameters = 12;
+
+    // Body of the function. Defined using the "txpull.v1.ir.Body" message.
+    txpull.v1.ir.Body body = 14;
+
+    // List of return parameters of the function. Each return parameter is defined using the "txpull.v1.ir.Parameter" message.
+    repeated txpull.v1.ir.Parameter return = 13;
 }

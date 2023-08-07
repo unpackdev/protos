@@ -21,18 +21,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents an import declaration in the intermediate representation (IR).
 type Import struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id           int64        `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the import.
+	// Node type of the import. Refers to the AST node type enumeration in "ast/types.proto".
 	NodeType     ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	SourceUnitId int64        `protobuf:"varint,3,opt,name=source_unit_id,json=sourceUnitId,proto3" json:"source_unit_id,omitempty"`
-	ContractId   int64        `protobuf:"varint,4,opt,name=contract_id,json=contractId,proto3" json:"contract_id,omitempty"`
-	AbsolutePath string       `protobuf:"bytes,5,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"`
-	File         string       `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`
-	UnitAlias    string       `protobuf:"bytes,7,opt,name=unit_alias,json=unitAlias,proto3" json:"unit_alias,omitempty"`
+	SourceUnitId int64        `protobuf:"varint,3,opt,name=source_unit_id,json=sourceUnitId,proto3" json:"source_unit_id,omitempty"` // Identifier of the source unit for the import.
+	ContractId   int64        `protobuf:"varint,4,opt,name=contract_id,json=contractId,proto3" json:"contract_id,omitempty"`         // Identifier of the contract for the import.
+	AbsolutePath string       `protobuf:"bytes,5,opt,name=absolute_path,json=absolutePath,proto3" json:"absolute_path,omitempty"`    // Absolute path of the imported file.
+	File         string       `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`                                        // File name of the imported file.
+	UnitAlias    string       `protobuf:"bytes,7,opt,name=unit_alias,json=unitAlias,proto3" json:"unit_alias,omitempty"`             // Alias for the imported unit (optional).
 }
 
 func (x *Import) Reset() {

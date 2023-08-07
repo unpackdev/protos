@@ -1,0 +1,41 @@
+syntax = "proto3";
+package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";            // Import for AST types.
+import "ast/type_name.proto";        // Import for type names in AST.
+import "ir/argument.proto";          // Import for IR arguments.
+
+// Represents a function call in the intermediate representation (IR).
+message FunctionCall {
+    int64 id = 1;   // Unique identifier for the function call.
+    string name = 2;    // Name of the function call.
+
+    // Node type of the function call. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType node_type = 3;
+
+    // Kind of the function call. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType kind = 4;
+
+    // List of argument types associated with the function call. Each argument type is defined using the "txpull.v1.ast.TypeDescription" message.
+    repeated txpull.v1.ast.TypeDescription argument_types = 5;
+
+    // List of arguments associated with the function call. Each argument is defined using the "txpull.v1.ir.Argument" message.
+    repeated txpull.v1.ir.Argument arguments = 6;
+
+    bool is_external = 7;   // Indicates if the function call is external.
+
+    int64 external_contract_id = 8; // Identifier of the external contract, if the function call is external.
+
+    string external_contract_name = 9; // Name of the external contract, if the function call is external.
+
+    int64 reference_statement_id = 10; // Identifier of the reference statement, if applicable.
+
+    int64 referenced_declaration_id = 11; // Identifier of the referenced declaration, if applicable.
+
+    // Type description of the function call. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
+    txpull.v1.ast.TypeDescription type_description = 12;
+}

@@ -5512,6 +5512,104 @@
       "services": []
     },
     {
+      "name": "ast/expr_operation.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "ExprOperation",
+          "longName": "ExprOperation",
+          "fullName": "txpull.v1.ast.ExprOperation",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "left_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "right_expression",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ast/fallback.proto",
       "description": "",
       "package": "txpull.v1.ast",
@@ -5623,6 +5721,30 @@
               "type": "Mutability",
               "longType": "Mutability",
               "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "modifiers",
+              "description": "",
+              "label": "repeated",
+              "type": "ModifierInvocation",
+              "longType": "ModifierInvocation",
+              "fullType": "txpull.v1.ast.ModifierInvocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overrides",
+              "description": "",
+              "label": "repeated",
+              "type": "OverrideSpecifier",
+              "longType": "OverrideSpecifier",
+              "fullType": "txpull.v1.ast.OverrideSpecifier",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -7887,6 +8009,18 @@
               "defaultValue": ""
             },
             {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "node_type",
               "description": "",
               "label": "",
@@ -7917,6 +8051,30 @@
               "type": "Src",
               "longType": "Src",
               "fullType": "txpull.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -8495,6 +8653,18 @@
               "defaultValue": ""
             },
             {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "txpull.v1.ast.TypeName",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "argument_types",
               "description": "",
               "label": "repeated",
@@ -8635,6 +8805,30 @@
               "type": "Mutability",
               "longType": "Mutability",
               "fullType": "txpull.v1.ast.Mutability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "modifiers",
+              "description": "",
+              "label": "repeated",
+              "type": "ModifierInvocation",
+              "longType": "ModifierInvocation",
+              "fullType": "txpull.v1.ast.ModifierInvocation",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overrides",
+              "description": "",
+              "label": "repeated",
+              "type": "OverrideSpecifier",
+              "longType": "OverrideSpecifier",
+              "fullType": "txpull.v1.ast.OverrideSpecifier",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -11165,6 +11359,11 @@
               "name": "INDEX_RANGE_ACCESS",
               "number": "94",
               "description": ""
+            },
+            {
+              "name": "EXPRESSION_OPERATION",
+              "number": "95",
+              "description": ""
             }
           ]
         },
@@ -12124,6 +12323,178 @@
       "services": []
     },
     {
+      "name": "ir/argument.proto",
+      "description": "",
+      "package": "txpull.v1.ir",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Argument",
+          "longName": "Argument",
+          "fullName": "txpull.v1.ir.Argument",
+          "description": "Represents an argument in the intermediate representation (IR).",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the argument.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "Name of the argument.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "Node type of the argument. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "Kind of the argument. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "Identifier of the referenced declaration.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "Type description of the argument. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "txpull.v1.ast.TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ir/body.proto",
+      "description": "",
+      "package": "txpull.v1.ir",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Body",
+          "longName": "Body",
+          "fullName": "txpull.v1.ir.Body",
+          "description": "Represents a body (sequence of statements) in the intermediate representation (IR).",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the body.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "Node type of the body. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "Kind of the body. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "statements",
+              "description": "List of statements in the body. Each statement is defined using the \"xds.type.v3.TypedStruct\" message.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ir/constructor.proto",
       "description": "",
       "package": "txpull.v1.ir",
@@ -12138,7 +12509,7 @@
           "name": "Constructor",
           "longName": "Constructor",
           "fullName": "txpull.v1.ir.Constructor",
-          "description": "",
+          "description": "Represents a constructor declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12146,7 +12517,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the constructor.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12158,7 +12529,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the constructor. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12170,7 +12541,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the constructor. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12182,7 +12553,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the constructor.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12194,7 +12565,7 @@
             },
             {
               "name": "implemented",
-              "description": "",
+              "description": "Indicates if the constructor is implemented or not.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -12206,7 +12577,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the constructor. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -12218,7 +12589,7 @@
             },
             {
               "name": "state_mutability",
-              "description": "",
+              "description": "State mutability of the constructor. Refers to the mutability enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Mutability",
               "longType": "txpull.v1.ast.Mutability",
@@ -12230,7 +12601,7 @@
             },
             {
               "name": "virtual",
-              "description": "",
+              "description": "Indicates if the constructor is virtual.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -12242,7 +12613,7 @@
             },
             {
               "name": "modifiers",
-              "description": "",
+              "description": "List of constructor modifiers.",
               "label": "repeated",
               "type": "Modifier",
               "longType": "Modifier",
@@ -12254,7 +12625,7 @@
             },
             {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters of the constructor. Each parameter is defined in \"ir/parameter.proto\".",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12266,7 +12637,7 @@
             },
             {
               "name": "return",
-              "description": "",
+              "description": "List of return parameters of the constructor. Each return parameter is defined in \"ir/parameter.proto\".",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12296,7 +12667,7 @@
           "name": "Contract",
           "longName": "Contract",
           "fullName": "txpull.v1.ir.Contract",
-          "description": "",
+          "description": "Represents a contract declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12304,7 +12675,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the contract.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12316,7 +12687,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the contract. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12328,7 +12699,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the contract. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12340,7 +12711,7 @@
             },
             {
               "name": "source_unit_id",
-              "description": "",
+              "description": "Identifier of the source unit for the contract.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12352,7 +12723,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12364,7 +12735,7 @@
             },
             {
               "name": "license",
-              "description": "",
+              "description": "License information for the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12376,7 +12747,7 @@
             },
             {
               "name": "language",
-              "description": "",
+              "description": "Language used for the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12388,7 +12759,7 @@
             },
             {
               "name": "absolute_path",
-              "description": "",
+              "description": "Absolute path of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12400,7 +12771,7 @@
             },
             {
               "name": "symbols",
-              "description": "",
+              "description": "List of symbols in the contract.",
               "label": "repeated",
               "type": "Symbol",
               "longType": "Symbol",
@@ -12412,7 +12783,7 @@
             },
             {
               "name": "imports",
-              "description": "",
+              "description": "List of import statements in the contract.",
               "label": "repeated",
               "type": "Import",
               "longType": "Import",
@@ -12424,7 +12795,7 @@
             },
             {
               "name": "pragmas",
-              "description": "",
+              "description": "List of pragmas in the contract.",
               "label": "repeated",
               "type": "Pragma",
               "longType": "Pragma",
@@ -12436,7 +12807,7 @@
             },
             {
               "name": "state_variables",
-              "description": "",
+              "description": "List of state variables in the contract.",
               "label": "repeated",
               "type": "StateVariable",
               "longType": "StateVariable",
@@ -12448,7 +12819,7 @@
             },
             {
               "name": "structs",
-              "description": "",
+              "description": "List of struct declarations in the contract.",
               "label": "repeated",
               "type": "Struct",
               "longType": "Struct",
@@ -12460,7 +12831,7 @@
             },
             {
               "name": "enums",
-              "description": "",
+              "description": "List of enum declarations in the contract.",
               "label": "repeated",
               "type": "Enum",
               "longType": "Enum",
@@ -12472,7 +12843,7 @@
             },
             {
               "name": "events",
-              "description": "",
+              "description": "List of event declarations in the contract.",
               "label": "repeated",
               "type": "Event",
               "longType": "Event",
@@ -12484,7 +12855,7 @@
             },
             {
               "name": "errors",
-              "description": "",
+              "description": "List of error declarations in the contract.",
               "label": "repeated",
               "type": "Error",
               "longType": "Error",
@@ -12496,7 +12867,7 @@
             },
             {
               "name": "constructor",
-              "description": "",
+              "description": "Constructor declaration for the contract.",
               "label": "",
               "type": "Constructor",
               "longType": "Constructor",
@@ -12508,7 +12879,7 @@
             },
             {
               "name": "functions",
-              "description": "",
+              "description": "List of function declarations in the contract.",
               "label": "repeated",
               "type": "Function",
               "longType": "Function",
@@ -12520,7 +12891,7 @@
             },
             {
               "name": "fallback",
-              "description": "",
+              "description": "Fallback function declaration for the contract.",
               "label": "",
               "type": "Fallback",
               "longType": "Fallback",
@@ -12532,7 +12903,7 @@
             },
             {
               "name": "receive",
-              "description": "",
+              "description": "Receive function declaration for the contract.",
               "label": "",
               "type": "Receive",
               "longType": "Receive",
@@ -12562,7 +12933,7 @@
           "name": "Enum",
           "longName": "Enum",
           "fullName": "txpull.v1.ir.Enum",
-          "description": "",
+          "description": "Represents an enum declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12570,7 +12941,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the enum.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12582,7 +12953,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the enum. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12594,7 +12965,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the enum.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12606,7 +12977,7 @@
             },
             {
               "name": "canonical_name",
-              "description": "",
+              "description": "Canonical name of the enum.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12618,7 +12989,7 @@
             },
             {
               "name": "members",
-              "description": "",
+              "description": "List of enum members (parameters). Each member is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12648,7 +13019,7 @@
           "name": "Error",
           "longName": "Error",
           "fullName": "txpull.v1.ir.Error",
-          "description": "",
+          "description": "Represents an error declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12656,7 +13027,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the error.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12668,7 +13039,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the error. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12680,7 +13051,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the error.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12692,7 +13063,7 @@
             },
             {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters associated with the error. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12704,7 +13075,7 @@
             },
             {
               "name": "type_description",
-              "description": "",
+              "description": "Type description of the error. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
               "label": "",
               "type": "TypeDescription",
               "longType": "txpull.v1.ast.TypeDescription",
@@ -12734,7 +13105,7 @@
           "name": "Event",
           "longName": "Event",
           "fullName": "txpull.v1.ir.Event",
-          "description": "",
+          "description": "Represents an event declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12742,7 +13113,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the event.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12754,7 +13125,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the event. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12766,7 +13137,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the event.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12778,7 +13149,7 @@
             },
             {
               "name": "anonymous",
-              "description": "",
+              "description": "Indicates if the event is anonymous (true) or named (false).",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -12790,7 +13161,7 @@
             },
             {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters associated with the event. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12820,7 +13191,7 @@
           "name": "Fallback",
           "longName": "Fallback",
           "fullName": "txpull.v1.ir.Fallback",
-          "description": "",
+          "description": "Represents a fallback function declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12828,7 +13199,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the fallback function.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12840,7 +13211,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the fallback function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12852,7 +13223,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the fallback function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -12864,7 +13235,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the fallback function.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -12876,7 +13247,7 @@
             },
             {
               "name": "implemented",
-              "description": "",
+              "description": "Indicates if the fallback function is implemented or not.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -12888,7 +13259,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the fallback function. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -12900,7 +13271,7 @@
             },
             {
               "name": "state_mutability",
-              "description": "",
+              "description": "State mutability of the fallback function. Refers to the mutability enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Mutability",
               "longType": "txpull.v1.ast.Mutability",
@@ -12912,7 +13283,7 @@
             },
             {
               "name": "virtual",
-              "description": "",
+              "description": "Indicates if the fallback function is virtual.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -12924,7 +13295,7 @@
             },
             {
               "name": "modifiers",
-              "description": "",
+              "description": "List of modifiers associated with the fallback function. Each modifier is defined using the \"txpull.v1.ir.Modifier\" message.",
               "label": "repeated",
               "type": "Modifier",
               "longType": "Modifier",
@@ -12935,8 +13306,20 @@
               "defaultValue": ""
             },
             {
+              "name": "overrides",
+              "description": "List of overrides associated with the fallback function. Each override is defined using the \"txpull.v1.ir.Override\" message.",
+              "label": "repeated",
+              "type": "Override",
+              "longType": "Override",
+              "fullType": "txpull.v1.ir.Override",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters of the fallback function. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12948,7 +13331,7 @@
             },
             {
               "name": "return",
-              "description": "",
+              "description": "List of return parameters of the fallback function. Each return parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -12978,7 +13361,7 @@
           "name": "Function",
           "longName": "Function",
           "fullName": "txpull.v1.ir.Function",
-          "description": "",
+          "description": "Represents a function declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -12986,7 +13369,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the function.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -12998,7 +13381,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13010,7 +13393,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13022,7 +13405,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the function.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13034,7 +13417,7 @@
             },
             {
               "name": "implemented",
-              "description": "",
+              "description": "Indicates if the function is implemented or not.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -13046,7 +13429,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the function. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -13058,7 +13441,7 @@
             },
             {
               "name": "state_mutability",
-              "description": "",
+              "description": "State mutability of the function. Refers to the mutability enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Mutability",
               "longType": "txpull.v1.ast.Mutability",
@@ -13070,7 +13453,7 @@
             },
             {
               "name": "virtual",
-              "description": "",
+              "description": "Indicates if the function is virtual.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -13082,7 +13465,7 @@
             },
             {
               "name": "referenced_declaration_id",
-              "description": "",
+              "description": "Identifier of the referenced function declaration.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13094,7 +13477,7 @@
             },
             {
               "name": "modifiers",
-              "description": "",
+              "description": "List of modifiers associated with the function. Each modifier is defined using the \"txpull.v1.ir.Modifier\" message.",
               "label": "repeated",
               "type": "Modifier",
               "longType": "Modifier",
@@ -13105,8 +13488,20 @@
               "defaultValue": ""
             },
             {
+              "name": "overrides",
+              "description": "List of overrides associated with the function. Each override is defined using the \"txpull.v1.ir.Override\" message.",
+              "label": "repeated",
+              "type": "Override",
+              "longType": "Override",
+              "fullType": "txpull.v1.ir.Override",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters of the function. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -13117,12 +13512,194 @@
               "defaultValue": ""
             },
             {
+              "name": "body",
+              "description": "Body of the function. Defined using the \"txpull.v1.ir.Body\" message.",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "txpull.v1.ir.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "return",
-              "description": "",
+              "description": "List of return parameters of the function. Each return parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
               "fullType": "txpull.v1.ir.Parameter",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ir/function_call.proto",
+      "description": "",
+      "package": "txpull.v1.ir",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "FunctionCall",
+          "longName": "FunctionCall",
+          "fullName": "txpull.v1.ir.FunctionCall",
+          "description": "Represents a function call in the intermediate representation (IR).",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the function call.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "Name of the function call.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "Node type of the function call. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "Kind of the function call. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "argument_types",
+              "description": "List of argument types associated with the function call. Each argument type is defined using the \"txpull.v1.ast.TypeDescription\" message.",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "txpull.v1.ast.TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "List of arguments associated with the function call. Each argument is defined using the \"txpull.v1.ir.Argument\" message.",
+              "label": "repeated",
+              "type": "Argument",
+              "longType": "Argument",
+              "fullType": "txpull.v1.ir.Argument",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_external",
+              "description": "Indicates if the function call is external.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "external_contract_id",
+              "description": "Identifier of the external contract, if the function call is external.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "external_contract_name",
+              "description": "Name of the external contract, if the function call is external.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "reference_statement_id",
+              "description": "Identifier of the reference statement, if applicable.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration_id",
+              "description": "Identifier of the referenced declaration, if applicable.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "Type description of the function call. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "txpull.v1.ast.TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -13148,7 +13725,7 @@
           "name": "Import",
           "longName": "Import",
           "fullName": "txpull.v1.ir.Import",
-          "description": "",
+          "description": "Represents an import declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13156,7 +13733,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the import.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13168,7 +13745,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the import. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13180,7 +13757,7 @@
             },
             {
               "name": "source_unit_id",
-              "description": "",
+              "description": "Identifier of the source unit for the import.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13192,7 +13769,7 @@
             },
             {
               "name": "contract_id",
-              "description": "",
+              "description": "Identifier of the contract for the import.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13204,7 +13781,7 @@
             },
             {
               "name": "absolute_path",
-              "description": "",
+              "description": "Absolute path of the imported file.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13216,7 +13793,7 @@
             },
             {
               "name": "file",
-              "description": "",
+              "description": "File name of the imported file.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13228,7 +13805,7 @@
             },
             {
               "name": "unit_alias",
-              "description": "",
+              "description": "Alias for the imported unit (optional).",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13258,7 +13835,7 @@
           "name": "Modifier",
           "longName": "Modifier",
           "fullName": "txpull.v1.ir.Modifier",
-          "description": "",
+          "description": "Represents a modifier declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13266,7 +13843,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the modifier.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13278,7 +13855,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the modifier. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13290,7 +13867,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the modifier.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13302,8 +13879,106 @@
             },
             {
               "name": "argument_types",
-              "description": "",
+              "description": "List of argument types associated with the modifier. Each argument type is defined using the \"txpull.v1.ast.TypeDescription\" message.",
               "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "txpull.v1.ast.TypeDescription",
+              "fullType": "txpull.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ir/override.proto",
+      "description": "",
+      "package": "txpull.v1.ir",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Override",
+          "longName": "Override",
+          "fullName": "txpull.v1.ir.Override",
+          "description": "Represents an override declaration in the intermediate representation (IR).",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the override.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "Node type of the override. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "label": "",
+              "type": "NodeType",
+              "longType": "txpull.v1.ast.NodeType",
+              "fullType": "txpull.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "Name of the override.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overrides",
+              "description": "List of parameters that the override is intended to override. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
+              "label": "repeated",
+              "type": "Parameter",
+              "longType": "Parameter",
+              "fullType": "txpull.v1.ir.Parameter",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration_id",
+              "description": "Identifier of the referenced declaration that this override is associated with.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "Type description of the override. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
+              "label": "",
               "type": "TypeDescription",
               "longType": "txpull.v1.ast.TypeDescription",
               "fullType": "txpull.v1.ast.TypeDescription",
@@ -13332,7 +14007,7 @@
           "name": "Parameter",
           "longName": "Parameter",
           "fullName": "txpull.v1.ir.Parameter",
-          "description": "",
+          "description": "Represents a parameter declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13340,7 +14015,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the parameter.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13352,7 +14027,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the parameter. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13364,7 +14039,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the parameter.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13376,7 +14051,7 @@
             },
             {
               "name": "type",
-              "description": "",
+              "description": "Type name of the parameter. (Note: This field is deprecated and should not be used.)",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13388,7 +14063,7 @@
             },
             {
               "name": "type_description",
-              "description": "",
+              "description": "Type description of the parameter. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
               "label": "",
               "type": "TypeDescription",
               "longType": "txpull.v1.ast.TypeDescription",
@@ -13418,7 +14093,7 @@
           "name": "Pragma",
           "longName": "Pragma",
           "fullName": "txpull.v1.ir.Pragma",
-          "description": "",
+          "description": "Represents a pragma declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13426,7 +14101,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the pragma.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13438,7 +14113,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the pragma. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13450,7 +14125,7 @@
             },
             {
               "name": "literals",
-              "description": "",
+              "description": "List of string literals associated with the pragma.",
               "label": "repeated",
               "type": "string",
               "longType": "string",
@@ -13462,7 +14137,7 @@
             },
             {
               "name": "text",
-              "description": "",
+              "description": "Textual representation of the pragma.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13492,7 +14167,7 @@
           "name": "Receive",
           "longName": "Receive",
           "fullName": "txpull.v1.ir.Receive",
-          "description": "",
+          "description": "Represents a receive function declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13500,7 +14175,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the receive function.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13512,7 +14187,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the receive function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13524,7 +14199,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the receive function. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13536,7 +14211,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the receive function.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13548,7 +14223,7 @@
             },
             {
               "name": "implemented",
-              "description": "",
+              "description": "Indicates if the receive function is implemented or not.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -13560,7 +14235,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the receive function. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -13572,7 +14247,7 @@
             },
             {
               "name": "state_mutability",
-              "description": "",
+              "description": "State mutability of the receive function. Refers to the mutability enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Mutability",
               "longType": "txpull.v1.ast.Mutability",
@@ -13584,7 +14259,7 @@
             },
             {
               "name": "virtual",
-              "description": "",
+              "description": "Indicates if the receive function is virtual.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -13596,7 +14271,7 @@
             },
             {
               "name": "modifiers",
-              "description": "",
+              "description": "List of modifiers associated with the receive function. Each modifier is defined using the \"txpull.v1.ir.Modifier\" message.",
               "label": "repeated",
               "type": "Modifier",
               "longType": "Modifier",
@@ -13607,8 +14282,20 @@
               "defaultValue": ""
             },
             {
+              "name": "overrides",
+              "description": "List of overrides associated with the receive function. Each override is defined using the \"txpull.v1.ir.Override\" message.",
+              "label": "repeated",
+              "type": "Override",
+              "longType": "Override",
+              "fullType": "txpull.v1.ir.Override",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "parameters",
-              "description": "",
+              "description": "List of parameters of the receive function. Each parameter is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -13638,7 +14325,7 @@
           "name": "Root",
           "longName": "Root",
           "fullName": "txpull.v1.ir.Root",
-          "description": "",
+          "description": "Represents the root of the intermediate representation (IR) for a collection of contracts.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13646,7 +14333,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the root.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13658,7 +14345,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the root. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13670,7 +14357,7 @@
             },
             {
               "name": "entry_contract_id",
-              "description": "",
+              "description": "Identifier of the entry contract.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13682,7 +14369,7 @@
             },
             {
               "name": "entry_contract_name",
-              "description": "",
+              "description": "Name of the entry contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13694,7 +14381,7 @@
             },
             {
               "name": "contracts_count",
-              "description": "",
+              "description": "Count of contracts in the IR.",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -13706,7 +14393,7 @@
             },
             {
               "name": "contracts",
-              "description": "",
+              "description": "List of contracts in the IR. Each contract is defined using the \"txpull.v1.ir.Contract\" message.",
               "label": "repeated",
               "type": "Contract",
               "longType": "Contract",
@@ -13736,7 +14423,7 @@
           "name": "Struct",
           "longName": "Struct",
           "fullName": "txpull.v1.ir.Struct",
-          "description": "",
+          "description": "Represents a struct declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13744,7 +14431,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the struct.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13756,7 +14443,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the struct. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13768,7 +14455,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "Kind of the struct. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13780,7 +14467,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the struct.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13792,7 +14479,7 @@
             },
             {
               "name": "canonical_name",
-              "description": "",
+              "description": "Canonical name of the struct.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13804,7 +14491,7 @@
             },
             {
               "name": "referenced_declaration_id",
-              "description": "",
+              "description": "Identifier of the referenced declaration.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13816,7 +14503,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the struct. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -13828,7 +14515,7 @@
             },
             {
               "name": "storage_location",
-              "description": "",
+              "description": "Storage location of the struct. Refers to the storage location enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "StorageLocation",
               "longType": "txpull.v1.ast.StorageLocation",
@@ -13840,7 +14527,7 @@
             },
             {
               "name": "members",
-              "description": "",
+              "description": "List of members (fields) associated with the struct. Each member is defined using the \"txpull.v1.ir.Parameter\" message.",
               "label": "repeated",
               "type": "Parameter",
               "longType": "Parameter",
@@ -13852,7 +14539,7 @@
             },
             {
               "name": "type",
-              "description": "",
+              "description": "Deprecated field. Should not be used.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13864,7 +14551,7 @@
             },
             {
               "name": "type_description",
-              "description": "",
+              "description": "Type description of the struct. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
               "label": "",
               "type": "TypeDescription",
               "longType": "txpull.v1.ast.TypeDescription",
@@ -13894,7 +14581,7 @@
           "name": "Symbol",
           "longName": "Symbol",
           "fullName": "txpull.v1.ir.Symbol",
-          "description": "",
+          "description": "Represents a symbol in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13902,7 +14589,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the symbol.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13914,7 +14601,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the symbol.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13926,7 +14613,7 @@
             },
             {
               "name": "absolute_path",
-              "description": "",
+              "description": "Absolute path of the symbol.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -13956,7 +14643,7 @@
           "name": "StateVariable",
           "longName": "StateVariable",
           "fullName": "txpull.v1.ir.StateVariable",
-          "description": "",
+          "description": "Represents a state variable declaration in the intermediate representation (IR).",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -13964,7 +14651,7 @@
           "fields": [
             {
               "name": "id",
-              "description": "",
+              "description": "Unique identifier for the state variable.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -13976,7 +14663,7 @@
             },
             {
               "name": "node_type",
-              "description": "",
+              "description": "Node type of the state variable. Refers to the AST node type enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -13988,7 +14675,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the state variable.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -14000,7 +14687,7 @@
             },
             {
               "name": "contract_id",
-              "description": "",
+              "description": "Identifier of the contract associated with the state variable.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -14012,7 +14699,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "Visibility of the state variable. Refers to the visibility enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Visibility",
               "longType": "txpull.v1.ast.Visibility",
@@ -14024,7 +14711,7 @@
             },
             {
               "name": "is_constant",
-              "description": "",
+              "description": "Indicates if the state variable is constant.",
               "label": "",
               "type": "bool",
               "longType": "bool",
@@ -14036,7 +14723,7 @@
             },
             {
               "name": "storage_location",
-              "description": "",
+              "description": "Storage location of the state variable. Refers to the storage location enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "StorageLocation",
               "longType": "txpull.v1.ast.StorageLocation",
@@ -14048,7 +14735,7 @@
             },
             {
               "name": "state_mutability",
-              "description": "",
+              "description": "State mutability of the state variable. Refers to the mutability enumeration in \"ast/types.proto\".",
               "label": "",
               "type": "Mutability",
               "longType": "txpull.v1.ast.Mutability",
@@ -14060,7 +14747,7 @@
             },
             {
               "name": "type",
-              "description": "",
+              "description": "Deprecated field. Should not be used.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -14072,7 +14759,7 @@
             },
             {
               "name": "type_description",
-              "description": "",
+              "description": "Type description of the state variable. Refers to the \"txpull.v1.ast.TypeDescription\" message in \"ast/types.proto\".",
               "label": "",
               "type": "TypeDescription",
               "longType": "txpull.v1.ast.TypeDescription",

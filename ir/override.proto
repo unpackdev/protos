@@ -1,0 +1,28 @@
+syntax = "proto3";
+package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";            // Import for AST types.
+import "ast/type_name.proto";        // Import for type names in AST.
+import "ir/parameter.proto";         // Import for IR parameters.
+
+// Represents an override declaration in the intermediate representation (IR).
+message Override {
+    int64 id = 1;   // Unique identifier for the override.
+
+    // Node type of the override. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType node_type = 2;
+
+    string name = 3;    // Name of the override.
+
+    // List of parameters that the override is intended to override. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
+    repeated txpull.v1.ir.Parameter overrides = 4;
+
+    int64 referenced_declaration_id = 5; // Identifier of the referenced declaration that this override is associated with.
+
+    // Type description of the override. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
+    txpull.v1.ast.TypeDescription type_description = 6;
+}

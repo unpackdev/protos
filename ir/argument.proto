@@ -1,0 +1,26 @@
+syntax = "proto3";
+package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";            // Import for AST types.
+import "ast/type_name.proto";        // Import for type names in AST.
+
+// Represents an argument in the intermediate representation (IR).
+message Argument {
+    int64 id = 1;   // Unique identifier for the argument.
+    string name = 2;    // Name of the argument.
+
+    // Node type of the argument. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType node_type = 3;
+
+    // Kind of the argument. Refers to the AST node type enumeration in "ast/types.proto".
+    txpull.v1.ast.NodeType kind = 4;
+
+    int64 referenced_declaration = 7; // Identifier of the referenced declaration.
+
+    // Type description of the argument. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
+    txpull.v1.ast.TypeDescription type_description = 8;
+}

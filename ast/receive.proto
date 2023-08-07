@@ -6,6 +6,8 @@ import "ast/types.proto";
 import "ast/src.proto";
 import "ast/parameters.proto";
 import "ast/body.proto";
+import "ast/modifiers.proto";
+import "ast/overrides.proto";
 
 message Receive {
     int64 id = 1;
@@ -16,7 +18,9 @@ message Receive {
     bool implemented = 6;
     txpull.v1.ast.Visibility visibility = 7;
     txpull.v1.ast.Mutability state_mutability = 8;
-    txpull.v1.ast.ParameterList parameters = 9;
-    txpull.v1.ast.ParameterList return_parameters = 10;
-    txpull.v1.ast.Body body = 11;
+    repeated txpull.v1.ast.ModifierInvocation modifiers = 9;
+    repeated txpull.v1.ast.OverrideSpecifier overrides = 10;
+    txpull.v1.ast.ParameterList parameters = 11;
+    txpull.v1.ast.ParameterList return_parameters = 12;
+    txpull.v1.ast.Body body = 13;
 }

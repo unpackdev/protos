@@ -1,14 +1,24 @@
 syntax = "proto3";
 package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
 
-import "ast/types.proto";
-import "ir/parameter.proto";
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";        // Import for AST types.
+import "ir/parameter.proto";     // Import for IR parameters.
 
+// Represents an event declaration in the intermediate representation (IR).
 message Event {
-    int64 id = 1;
+    int64 id = 1;   // Unique identifier for the event.
+
+    // Node type of the event. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType node_type = 2;
-    string name = 3;
-    bool anonymous = 4;
+
+    string name = 3;    // Name of the event.
+
+    bool anonymous = 4; // Indicates if the event is anonymous (true) or named (false).
+
+    // List of parameters associated with the event. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
     repeated txpull.v1.ir.Parameter parameters = 5;
 }

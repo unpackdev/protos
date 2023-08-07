@@ -14,6 +14,8 @@ var global = Function('return this')();
 
 var ast_types_pb = require('../ast/types_pb.js');
 goog.object.extend(proto, ast_types_pb);
+var ast_type_name_pb = require('../ast/type_name_pb.js');
+goog.object.extend(proto, ast_type_name_pb);
 var ast_src_pb = require('../ast/src_pb.js');
 goog.object.extend(proto, ast_src_pb);
 var ast_parameters_pb = require('../ast/parameters_pb.js');
@@ -73,9 +75,12 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.toObject = function(opt_includeI
 proto.txpull.v1.ast.OverrideSpecifier.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    nodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    nodeType: jspb.Message.getFieldWithDefault(msg, 3, 0),
     overrides: (f = msg.getOverrides()) && ast_parameters_pb.ParameterList.toObject(includeInstance, f),
-    src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f)
+    src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
+    referencedDeclaration: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    typeDescription: (f = msg.getTypeDescription()) && ast_type_name_pb.TypeDescription.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -117,18 +122,31 @@ proto.txpull.v1.ast.OverrideSpecifier.deserializeBinaryFromReader = function(msg
       msg.setId(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 3:
       var value = /** @type {!proto.txpull.v1.ast.NodeType} */ (reader.readEnum());
       msg.setNodeType(value);
       break;
-    case 3:
+    case 4:
       var value = new ast_parameters_pb.ParameterList;
       reader.readMessage(value,ast_parameters_pb.ParameterList.deserializeBinaryFromReader);
       msg.setOverrides(value);
       break;
-    case 4:
+    case 5:
       var value = new ast_src_pb.Src;
       reader.readMessage(value,ast_src_pb.Src.deserializeBinaryFromReader);
       msg.setSrc(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setReferencedDeclaration(value);
+      break;
+    case 7:
+      var value = new ast_type_name_pb.TypeDescription;
+      reader.readMessage(value,ast_type_name_pb.TypeDescription.deserializeBinaryFromReader);
+      msg.setTypeDescription(value);
       break;
     default:
       reader.skipField();
@@ -166,17 +184,24 @@ proto.txpull.v1.ast.OverrideSpecifier.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getNodeType();
   if (f !== 0.0) {
     writer.writeEnum(
-      2,
+      3,
       f
     );
   }
   f = message.getOverrides();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       ast_parameters_pb.ParameterList.serializeBinaryToWriter
     );
@@ -184,9 +209,24 @@ proto.txpull.v1.ast.OverrideSpecifier.serializeBinaryToWriter = function(message
   f = message.getSrc();
   if (f != null) {
     writer.writeMessage(
-      4,
+      5,
       f,
       ast_src_pb.Src.serializeBinaryToWriter
+    );
+  }
+  f = message.getReferencedDeclaration();
+  if (f !== 0) {
+    writer.writeInt64(
+      6,
+      f
+    );
+  }
+  f = message.getTypeDescription();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      ast_type_name_pb.TypeDescription.serializeBinaryToWriter
     );
   }
 };
@@ -211,11 +251,29 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.setId = function(value) {
 
 
 /**
- * optional NodeType node_type = 2;
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional NodeType node_type = 3;
  * @return {!proto.txpull.v1.ast.NodeType}
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.getNodeType = function() {
-  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {!proto.txpull.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
@@ -224,17 +282,17 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.getNodeType = function() {
  * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.setNodeType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 2, value);
+  return jspb.Message.setProto3EnumField(this, 3, value);
 };
 
 
 /**
- * optional ParameterList overrides = 3;
+ * optional ParameterList overrides = 4;
  * @return {?proto.txpull.v1.ast.ParameterList}
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.getOverrides = function() {
   return /** @type{?proto.txpull.v1.ast.ParameterList} */ (
-    jspb.Message.getWrapperField(this, ast_parameters_pb.ParameterList, 3));
+    jspb.Message.getWrapperField(this, ast_parameters_pb.ParameterList, 4));
 };
 
 
@@ -243,7 +301,7 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.getOverrides = function() {
  * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
 */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.setOverrides = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -261,17 +319,17 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.clearOverrides = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.hasOverrides = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * optional Src src = 4;
+ * optional Src src = 5;
  * @return {?proto.txpull.v1.ast.Src}
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.getSrc = function() {
   return /** @type{?proto.txpull.v1.ast.Src} */ (
-    jspb.Message.getWrapperField(this, ast_src_pb.Src, 4));
+    jspb.Message.getWrapperField(this, ast_src_pb.Src, 5));
 };
 
 
@@ -280,7 +338,7 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.getSrc = function() {
  * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
 */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.setSrc = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -298,7 +356,62 @@ proto.txpull.v1.ast.OverrideSpecifier.prototype.clearSrc = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.OverrideSpecifier.prototype.hasSrc = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional int64 referenced_declaration = 6;
+ * @return {number}
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.getReferencedDeclaration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.setReferencedDeclaration = function(value) {
+  return jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional TypeDescription type_description = 7;
+ * @return {?proto.txpull.v1.ast.TypeDescription}
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.getTypeDescription = function() {
+  return /** @type{?proto.txpull.v1.ast.TypeDescription} */ (
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 7));
+};
+
+
+/**
+ * @param {?proto.txpull.v1.ast.TypeDescription|undefined} value
+ * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
+*/
+proto.txpull.v1.ast.OverrideSpecifier.prototype.setTypeDescription = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.txpull.v1.ast.OverrideSpecifier} returns this
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.clearTypeDescription = function() {
+  return this.setTypeDescription(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.OverrideSpecifier.prototype.hasTypeDescription = function() {
+  return jspb.Message.getField(this, 7) != null;
 };
 
 

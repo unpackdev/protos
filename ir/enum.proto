@@ -1,14 +1,24 @@
 syntax = "proto3";
 package txpull.v1.ir;
+
+// This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
 
-import "ast/types.proto";
-import "ir/parameter.proto";
+// Import statements for the Protocol Buffer files used in this file.
+import "ast/types.proto";        // Import for AST types.
+import "ir/parameter.proto";     // Import for IR parameters.
 
+// Represents an enum declaration in the intermediate representation (IR).
 message Enum {
-    int64 id = 1;
+    int64 id = 1;   // Unique identifier for the enum.
+
+    // Node type of the enum. Refers to the AST node type enumeration in "ast/types.proto".
     txpull.v1.ast.NodeType node_type = 2;
-    string name = 3;
-    string canonical_name = 4;
+
+    string name = 3;    // Name of the enum.
+
+    string canonical_name = 4; // Canonical name of the enum.
+
+    // List of enum members (parameters). Each member is defined using the "txpull.v1.ir.Parameter" message.
     repeated txpull.v1.ir.Parameter members = 5;
 }

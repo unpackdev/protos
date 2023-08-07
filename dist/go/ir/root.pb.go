@@ -21,17 +21,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Represents the root of the intermediate representation (IR) for a collection of contracts.
 type Root struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                int64        `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"` // Unique identifier for the root.
+	// Node type of the root. Refers to the AST node type enumeration in "ast/types.proto".
 	NodeType          ast.NodeType `protobuf:"varint,2,opt,name=node_type,json=nodeType,proto3,enum=txpull.v1.ast.NodeType" json:"node_type,omitempty"`
-	EntryContractId   int64        `protobuf:"varint,3,opt,name=entry_contract_id,json=entryContractId,proto3" json:"entry_contract_id,omitempty"`
-	EntryContractName string       `protobuf:"bytes,4,opt,name=entry_contract_name,json=entryContractName,proto3" json:"entry_contract_name,omitempty"`
-	ContractsCount    int32        `protobuf:"varint,5,opt,name=contracts_count,json=contractsCount,proto3" json:"contracts_count,omitempty"`
-	Contracts         []*Contract  `protobuf:"bytes,6,rep,name=contracts,proto3" json:"contracts,omitempty"`
+	EntryContractId   int64        `protobuf:"varint,3,opt,name=entry_contract_id,json=entryContractId,proto3" json:"entry_contract_id,omitempty"`      // Identifier of the entry contract.
+	EntryContractName string       `protobuf:"bytes,4,opt,name=entry_contract_name,json=entryContractName,proto3" json:"entry_contract_name,omitempty"` // Name of the entry contract.
+	ContractsCount    int32        `protobuf:"varint,5,opt,name=contracts_count,json=contractsCount,proto3" json:"contracts_count,omitempty"`           // Count of contracts in the IR.
+	// List of contracts in the IR. Each contract is defined using the "txpull.v1.ir.Contract" message.
+	Contracts []*Contract `protobuf:"bytes,6,rep,name=contracts,proto3" json:"contracts,omitempty"`
 }
 
 func (x *Root) Reset() {
