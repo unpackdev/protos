@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/abi;abi_pb";
+package txpull.v1.abi;
+
+import "abi/method.proto";
+
+// Contract represents a Solidity contract's ABI (Application Binary Interface) details.
+// In the Ethereum ecosystem, a contract's ABI is essential for encoding and decoding data 
+// to and from the contract. This Contract message encapsulates the methods that are part 
+// of the contract, allowing for a structured representation of the contract's functionalities.
+message Contract {
+    // A repeated field containing all the methods associated with the contract.
+    // Each method is represented by the Method message, which details the method's name, 
+    // input parameters, output parameters, and other relevant attributes.
+    repeated Method methods = 1;
+}

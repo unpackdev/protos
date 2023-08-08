@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/abi;abi_pb";
+package txpull.v1.abi;
+
+import "abi/contract.proto";
+
+// Root represents the root of a Solidity contract's ABI (Application Binary Interface).
+// The ABI is a critical component for interacting with contracts in Ethereum.
+// It is a representation of the contract's functions, the input and output parameters of these functions,
+// and details about the data types of these parameters.
+// The Root message encapsulates the main details of the ABI, including the entry contract's ID and name,
+// the total number of contracts, and a map of contract names to their corresponding Contract details.
+message Root {
+    // The unique identifier for the entry contract.
+    // This ID is used as a reference to the main or primary contract within the ABI.
+    int64 entryContractId = 1;
+
+    // The name of the entry contract.
+    // This provides a human-readable identifier for the primary contract within the ABI.
+    string entryContractName = 2;
+
+    // The total number of contracts present in the ABI.
+    // This count includes the entry contract and any other contracts that are part of the ABI.
+    int32 contractsCount = 3;
+
+    // A map that associates contract names with their corresponding Contract details.
+    // The key is the name of the contract, and the value is the Contract message containing details about the contract's methods and other attributes.
+    map<string, Contract> contracts = 4;
+}

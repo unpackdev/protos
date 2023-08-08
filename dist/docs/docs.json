@@ -14775,6 +14775,360 @@
       "services": []
     },
     {
+      "name": "abi/contract.proto",
+      "description": "",
+      "package": "txpull.v1.abi",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Contract",
+          "longName": "Contract",
+          "fullName": "txpull.v1.abi.Contract",
+          "description": "Contract represents a Solidity contract's ABI (Application Binary Interface) details.\nIn the Ethereum ecosystem, a contract's ABI is essential for encoding and decoding data \nto and from the contract. This Contract message encapsulates the methods that are part \nof the contract, allowing for a structured representation of the contract's functionalities.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "methods",
+              "description": "A repeated field containing all the methods associated with the contract.\nEach method is represented by the Method message, which details the method's name, \ninput parameters, output parameters, and other relevant attributes.",
+              "label": "repeated",
+              "type": "Method",
+              "longType": "Method",
+              "fullType": "txpull.v1.abi.Method",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "abi/method.proto",
+      "description": "",
+      "package": "txpull.v1.abi",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Method",
+          "longName": "Method",
+          "fullName": "txpull.v1.abi.Method",
+          "description": "Method represents a contract function in the ABI.\nIt provides a structured representation of the function's attributes, \nsuch as its name, type, input parameters, and output parameters.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "components",
+              "description": "If the function has parameters of type 'struct' or 'tuple', this field contains its components.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "inputs",
+              "description": "The input parameters of the function.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "outputs",
+              "description": "The output parameters of the function.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "The name of the function.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "The type of the method (always \"function\" for functions).",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "stateMutability",
+              "description": "The state mutability of the function (e.g., pure, view, nonpayable, payable).",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "MethodIO",
+          "longName": "MethodIO",
+          "fullName": "txpull.v1.abi.MethodIO",
+          "description": "MethodIO represents an input or output parameter of a contract method or event.\nIt provides a structured representation of the parameter's attributes, \nsuch as its name, type, and whether it's indexed (for events).",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "indexed",
+              "description": "Indicates if the parameter is indexed. This is primarily used for event parameters.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "internalType",
+              "description": "Represents the internal Solidity type of the parameter.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "The name of the parameter.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "The type of the parameter, as represented in the ABI.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "components",
+              "description": "If the parameter is of type 'struct' or 'tuple', this field contains its components.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "stateMutability",
+              "description": "The state mutability of the function (e.g., pure, view, nonpayable, payable).",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "inputs",
+              "description": "The input parameters of the function.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "outputs",
+              "description": "The output parameters of the function.",
+              "label": "repeated",
+              "type": "MethodIO",
+              "longType": "MethodIO",
+              "fullType": "txpull.v1.abi.MethodIO",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "abi/root.proto",
+      "description": "",
+      "package": "txpull.v1.abi",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Root",
+          "longName": "Root",
+          "fullName": "txpull.v1.abi.Root",
+          "description": "Root represents the root of a Solidity contract's ABI (Application Binary Interface).\nThe ABI is a critical component for interacting with contracts in Ethereum.\nIt is a representation of the contract's functions, the input and output parameters of these functions,\nand details about the data types of these parameters.\nThe Root message encapsulates the main details of the ABI, including the entry contract's ID and name,\nthe total number of contracts, and a map of contract names to their corresponding Contract details.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "entryContractId",
+              "description": "The unique identifier for the entry contract.\nThis ID is used as a reference to the main or primary contract within the ABI.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "entryContractName",
+              "description": "The name of the entry contract.\nThis provides a human-readable identifier for the primary contract within the ABI.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contractsCount",
+              "description": "The total number of contracts present in the ABI.\nThis count includes the entry contract and any other contracts that are part of the ABI.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contracts",
+              "description": "A map that associates contract names with their corresponding Contract details.\nThe key is the name of the contract, and the value is the Contract message containing details about the contract's methods and other attributes.",
+              "label": "repeated",
+              "type": "ContractsEntry",
+              "longType": "Root.ContractsEntry",
+              "fullType": "txpull.v1.abi.Root.ContractsEntry",
+              "ismap": true,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractsEntry",
+          "longName": "Root.ContractsEntry",
+          "fullName": "txpull.v1.abi.Root.ContractsEntry",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "key",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "Contract",
+              "longType": "Contract",
+              "fullType": "txpull.v1.abi.Contract",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "solgo/services.proto",
       "description": "",
       "package": "txpull.v1.solgo",

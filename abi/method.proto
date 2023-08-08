@@ -1,0 +1,55 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/abi;abi_pb";
+package txpull.v1.abi;
+
+// MethodIO represents an input or output parameter of a contract method or event.
+// It provides a structured representation of the parameter's attributes, 
+// such as its name, type, and whether it's indexed (for events).
+message MethodIO {
+    // Indicates if the parameter is indexed. This is primarily used for event parameters.
+    bool indexed = 1;
+    
+    // Represents the internal Solidity type of the parameter.
+    string internalType = 2;
+    
+    // The name of the parameter.
+    string name = 3;
+    
+    // The type of the parameter, as represented in the ABI.
+    string type = 4;
+    
+    // If the parameter is of type 'struct' or 'tuple', this field contains its components.
+    repeated MethodIO components = 5;
+    
+    // The state mutability of the function (e.g., pure, view, nonpayable, payable).
+    string stateMutability = 6;
+    
+    // The input parameters of the function.
+    repeated MethodIO inputs = 7;
+    
+    // The output parameters of the function.
+    repeated MethodIO outputs = 8;
+}
+
+// Method represents a contract function in the ABI.
+// It provides a structured representation of the function's attributes, 
+// such as its name, type, input parameters, and output parameters.
+message Method {
+    // If the function has parameters of type 'struct' or 'tuple', this field contains its components.
+    repeated MethodIO components = 1;
+    
+    // The input parameters of the function.
+    repeated MethodIO inputs = 2;
+    
+    // The output parameters of the function.
+    repeated MethodIO outputs = 3;
+    
+    // The name of the function.
+    string name = 4;
+    
+    // The type of the method (always "function" for functions).
+    string type = 5;
+    
+    // The state mutability of the function (e.g., pure, view, nonpayable, payable).
+    string stateMutability = 6;
+}
