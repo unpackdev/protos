@@ -1,0 +1,28 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/eip;eip_pb";
+package txpull.v1.eip;
+
+// Represents the standard interface for Ethereum smart contracts.
+enum Standard {
+    UNKNOWN = 0;   // Default value for the enum.
+    ERC20 = 1;     // ERC-20 Token Standard.
+    ERC721 = 2;    // ERC-721 Non-Fungible Token Standard.
+    ERC223 = 3;    // ERC-223 Token Standard.
+    EIP1820 = 4;   // EIP-1820 Pseudo-introspection Registry.
+    EIP1822 = 5;   // EIP-1822 Proxies.
+    ERC777 = 6;    // ERC-777 Token Standard.
+    ERC1155 = 7;   // ERC-1155 Multi Token Standard.
+    ERC1337 = 8;   // ERC-1337 Subscription Standard.
+    ERC1400 = 9;   // ERC-1400 Security Token Standard.
+    ERC1410 = 10;  // ERC-1410 Partially Fungible Token Standard.
+    ERC165 = 11;   // ERC-165 Standard Interface Detection.
+    ERC820 = 12;   // ERC-820 Registry Standard.
+    ERC1014 = 13;  // ERC-1014 Create2 (related to proxy creation).
+    ERC1948 = 14;  // ERC-1948 Non-Fungible Data Token.
+    EIP1967 = 15;  // ERC-1967 Proxy Storage Slots.
+    ERC2309 = 16;  // ERC-2309 Consecutive Transfer Extension for NFTs.
+    ERC2535 = 17;  // ERC-2535 Diamond Standard (a form of upgradeable contract).
+    ERC2771 = 18;  // ERC-2771 Meta Transactions (can be related to token interactions).
+    ERC2917 = 19;  // ERC-2917 Delegatable Yield Standard (related to tokens).
+    ERC3156 = 20;  // ERC-3156 Flash Loans (related to tokens).
+}

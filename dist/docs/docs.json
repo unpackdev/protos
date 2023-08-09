@@ -15129,6 +15129,339 @@
       "services": []
     },
     {
+      "name": "eip/eip.proto",
+      "description": "",
+      "package": "txpull.v1.eip",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "ContractStandard",
+          "longName": "ContractStandard",
+          "fullName": "txpull.v1.eip.ContractStandard",
+          "description": "Represents a standard interface for Ethereum smart contracts.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the contract standard.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "Type of the contract standard.",
+              "label": "",
+              "type": "Standard",
+              "longType": "Standard",
+              "fullType": "txpull.v1.eip.Standard",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "functions",
+              "description": "Functions defined in the contract standard.",
+              "label": "repeated",
+              "type": "Function",
+              "longType": "Function",
+              "fullType": "txpull.v1.eip.Function",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "events",
+              "description": "Events defined in the contract standard.",
+              "label": "repeated",
+              "type": "Event",
+              "longType": "Event",
+              "fullType": "txpull.v1.eip.Event",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Event",
+          "longName": "Event",
+          "fullName": "txpull.v1.eip.Event",
+          "description": "Represents an Ethereum smart contract event.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the event.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "inputs",
+              "description": "Input parameters of the event.",
+              "label": "repeated",
+              "type": "Input",
+              "longType": "Input",
+              "fullType": "txpull.v1.eip.Input",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "outputs",
+              "description": "Data types of the event's return values.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Function",
+          "longName": "Function",
+          "fullName": "txpull.v1.eip.Function",
+          "description": "Represents an Ethereum smart contract function.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the function.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "inputs",
+              "description": "Input parameters of the function.",
+              "label": "repeated",
+              "type": "Input",
+              "longType": "Input",
+              "fullType": "txpull.v1.eip.Input",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "outputs",
+              "description": "Data types of the function's return values.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Input",
+          "longName": "Input",
+          "fullName": "txpull.v1.eip.Input",
+          "description": "Represents an input parameter for Ethereum functions and events.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "type",
+              "description": "Ethereum data type of the input.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "indexed",
+              "description": "Indicates if the input is indexed.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "eip/standards.proto",
+      "description": "",
+      "package": "txpull.v1.eip",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "Standard",
+          "longName": "Standard",
+          "fullName": "txpull.v1.eip.Standard",
+          "description": "Represents the standard interface for Ethereum smart contracts.",
+          "values": [
+            {
+              "name": "UNKNOWN",
+              "number": "0",
+              "description": "Default value for the enum."
+            },
+            {
+              "name": "ERC20",
+              "number": "1",
+              "description": "ERC-20 Token Standard."
+            },
+            {
+              "name": "ERC721",
+              "number": "2",
+              "description": "ERC-721 Non-Fungible Token Standard."
+            },
+            {
+              "name": "ERC223",
+              "number": "3",
+              "description": "ERC-223 Token Standard."
+            },
+            {
+              "name": "EIP1820",
+              "number": "4",
+              "description": "EIP-1820 Pseudo-introspection Registry."
+            },
+            {
+              "name": "EIP1822",
+              "number": "5",
+              "description": "EIP-1822 Proxies."
+            },
+            {
+              "name": "ERC777",
+              "number": "6",
+              "description": "ERC-777 Token Standard."
+            },
+            {
+              "name": "ERC1155",
+              "number": "7",
+              "description": "ERC-1155 Multi Token Standard."
+            },
+            {
+              "name": "ERC1337",
+              "number": "8",
+              "description": "ERC-1337 Subscription Standard."
+            },
+            {
+              "name": "ERC1400",
+              "number": "9",
+              "description": "ERC-1400 Security Token Standard."
+            },
+            {
+              "name": "ERC1410",
+              "number": "10",
+              "description": "ERC-1410 Partially Fungible Token Standard."
+            },
+            {
+              "name": "ERC165",
+              "number": "11",
+              "description": "ERC-165 Standard Interface Detection."
+            },
+            {
+              "name": "ERC820",
+              "number": "12",
+              "description": "ERC-820 Registry Standard."
+            },
+            {
+              "name": "ERC1014",
+              "number": "13",
+              "description": "ERC-1014 Create2 (related to proxy creation)."
+            },
+            {
+              "name": "ERC1948",
+              "number": "14",
+              "description": "ERC-1948 Non-Fungible Data Token."
+            },
+            {
+              "name": "EIP1967",
+              "number": "15",
+              "description": "ERC-1967 Proxy Storage Slots."
+            },
+            {
+              "name": "ERC2309",
+              "number": "16",
+              "description": "ERC-2309 Consecutive Transfer Extension for NFTs."
+            },
+            {
+              "name": "ERC2535",
+              "number": "17",
+              "description": "ERC-2535 Diamond Standard (a form of upgradeable contract)."
+            },
+            {
+              "name": "ERC2771",
+              "number": "18",
+              "description": "ERC-2771 Meta Transactions (can be related to token interactions)."
+            },
+            {
+              "name": "ERC2917",
+              "number": "19",
+              "description": "ERC-2917 Delegatable Yield Standard (related to tokens)."
+            },
+            {
+              "name": "ERC3156",
+              "number": "20",
+              "description": "ERC-3156 Flash Loans (related to tokens)."
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [],
+      "services": []
+    },
+    {
       "name": "solgo/services.proto",
       "description": "",
       "package": "txpull.v1.solgo",
