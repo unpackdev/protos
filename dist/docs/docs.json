@@ -8227,6 +8227,18 @@
               "defaultValue": ""
             },
             {
+              "name": "indexed",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "type_name",
               "description": "",
               "label": "",
@@ -12919,6 +12931,80 @@
       "services": []
     },
     {
+      "name": "ir/eip.proto",
+      "description": "",
+      "package": "txpull.v1.ir",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "EIP",
+          "longName": "EIP",
+          "fullName": "txpull.v1.ir.EIP",
+          "description": "EIP represents a specific Ethereum Improvement Proposal standard that a contract may adhere to.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "contract_id",
+              "description": "Unique identifier for the contract.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contract_name",
+              "description": "Name of the contract.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "confidence",
+              "description": "Represents the confidence level of the contract adhering to a specific EIP standard.",
+              "label": "",
+              "type": "Discovery",
+              "longType": "txpull.v1.eip.Discovery",
+              "fullType": "txpull.v1.eip.Discovery",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "standard",
+              "description": "Provides details about the specific EIP standard.",
+              "label": "",
+              "type": "ContractStandard",
+              "longType": "txpull.v1.eip.ContractStandard",
+              "fullType": "txpull.v1.eip.ContractStandard",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "ir/enum.proto",
       "description": "",
       "package": "txpull.v1.ir",
@@ -14325,7 +14411,7 @@
           "name": "Root",
           "longName": "Root",
           "fullName": "txpull.v1.ir.Root",
-          "description": "Represents the root of the intermediate representation (IR) for a collection of contracts.",
+          "description": "`Root` represents the top-level structure of the intermediate representation (IR) for a collection of contracts.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -14345,7 +14431,7 @@
             },
             {
               "name": "node_type",
-              "description": "Node type of the root. Refers to the AST node type enumeration in \"ast/types.proto\".",
+              "description": "Specifies the AST node type of the root.",
               "label": "",
               "type": "NodeType",
               "longType": "txpull.v1.ast.NodeType",
@@ -14357,7 +14443,7 @@
             },
             {
               "name": "entry_contract_id",
-              "description": "Identifier of the entry contract.",
+              "description": "Identifier of the primary or main contract within the collection.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -14369,7 +14455,7 @@
             },
             {
               "name": "entry_contract_name",
-              "description": "Name of the entry contract.",
+              "description": "Name of the primary or main contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -14380,8 +14466,20 @@
               "defaultValue": ""
             },
             {
+              "name": "contract_types",
+              "description": "List of contract types associated with this IR.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "contracts_count",
-              "description": "Count of contracts in the IR.",
+              "description": "Total number of contracts represented in this IR.",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -14392,8 +14490,20 @@
               "defaultValue": ""
             },
             {
+              "name": "eips",
+              "description": "List of Ethereum Improvement Proposals (EIPs) associated with this IR.",
+              "label": "repeated",
+              "type": "EIP",
+              "longType": "EIP",
+              "fullType": "txpull.v1.ir.EIP",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "contracts",
-              "description": "List of contracts in the IR. Each contract is defined using the \"txpull.v1.ir.Contract\" message.",
+              "description": "Collection of contracts represented in this IR.",
               "label": "repeated",
               "type": "Contract",
               "longType": "Contract",

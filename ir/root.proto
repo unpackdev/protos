@@ -1,26 +1,34 @@
 syntax = "proto3";
 package txpull.v1.ir;
-
-// This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
 
-// Import statements for the Protocol Buffer files used in this file.
-import "ast/types.proto";        // Import for AST types.
-import "ir/contract.proto";      // Import for IR contracts.
+import "ast/types.proto";
+import "ir/eip.proto";
+import "ir/contract.proto";
 
-// Represents the root of the intermediate representation (IR) for a collection of contracts.
+// `Root` represents the top-level structure of the intermediate representation (IR) for a collection of contracts.
 message Root {
-    int64 id = 1;   // Unique identifier for the root.
+    // Unique identifier for the root.
+    int64 id = 1;
 
-    // Node type of the root. Refers to the AST node type enumeration in "ast/types.proto".
+    // Specifies the AST node type of the root.
     txpull.v1.ast.NodeType node_type = 2;
 
-    int64 entry_contract_id = 3;    // Identifier of the entry contract.
+    // Identifier of the primary or main contract within the collection.
+    int64 entry_contract_id = 3;
 
-    string entry_contract_name = 4; // Name of the entry contract.
+    // Name of the primary or main contract.
+    string entry_contract_name = 4;
 
-    int32 contracts_count = 5;      // Count of contracts in the IR.
+    // List of contract types associated with this IR.
+    repeated string contract_types = 5;
 
-    // List of contracts in the IR. Each contract is defined using the "txpull.v1.ir.Contract" message.
-    repeated txpull.v1.ir.Contract contracts = 6;
+    // Total number of contracts represented in this IR.
+    int32 contracts_count = 6;
+
+    // List of Ethereum Improvement Proposals (EIPs) associated with this IR.
+    repeated txpull.v1.ir.EIP eips = 7;
+
+    // Collection of contracts represented in this IR.
+    repeated txpull.v1.ir.Contract contracts = 8;
 }

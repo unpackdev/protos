@@ -72,6 +72,9 @@ export class Parameter extends jspb.Message {
   getStorageLocation(): ast_types_pb.StorageLocation;
   setStorageLocation(value: ast_types_pb.StorageLocation): Parameter;
 
+  getIndexed(): boolean;
+  setIndexed(value: boolean): Parameter;
+
   getTypeName(): ast_type_name_pb.TypeName | undefined;
   setTypeName(value?: ast_type_name_pb.TypeName): Parameter;
   hasTypeName(): boolean;
@@ -102,6 +105,7 @@ export namespace Parameter {
     stateMutability: ast_types_pb.Mutability,
     visibility: ast_types_pb.Visibility,
     storageLocation: ast_types_pb.StorageLocation,
+    indexed: boolean,
     typeName?: ast_type_name_pb.TypeName.AsObject,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }

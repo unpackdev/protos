@@ -25,6 +25,7 @@ message Parameter {
     txpull.v1.ast.Mutability state_mutability = 8;
     txpull.v1.ast.Visibility visibility = 9;
     txpull.v1.ast.StorageLocation storage_location = 10;
-    txpull.v1.ast.TypeName type_name = 11;
-    txpull.v1.ast.TypeDescription type_description = 12;    
+    bool indexed = 11;
+    txpull.v1.ast.TypeName type_name = 12;
+    txpull.v1.ast.TypeDescription type_description = 13;
 }

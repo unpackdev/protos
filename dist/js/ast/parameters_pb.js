@@ -375,6 +375,7 @@ proto.txpull.v1.ast.Parameter.toObject = function(includeInstance, msg) {
     stateMutability: jspb.Message.getFieldWithDefault(msg, 8, 0),
     visibility: jspb.Message.getFieldWithDefault(msg, 9, 0),
     storageLocation: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    indexed: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
     typeName: (f = msg.getTypeName()) && ast_type_name_pb.TypeName.toObject(includeInstance, f),
     typeDescription: (f = msg.getTypeDescription()) && ast_type_name_pb.TypeDescription.toObject(includeInstance, f)
   };
@@ -455,11 +456,15 @@ proto.txpull.v1.ast.Parameter.deserializeBinaryFromReader = function(msg, reader
       msg.setStorageLocation(value);
       break;
     case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIndexed(value);
+      break;
+    case 12:
       var value = new ast_type_name_pb.TypeName;
       reader.readMessage(value,ast_type_name_pb.TypeName.deserializeBinaryFromReader);
       msg.setTypeName(value);
       break;
-    case 12:
+    case 13:
       var value = new ast_type_name_pb.TypeDescription;
       reader.readMessage(value,ast_type_name_pb.TypeDescription.deserializeBinaryFromReader);
       msg.setTypeDescription(value);
@@ -564,10 +569,17 @@ proto.txpull.v1.ast.Parameter.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+  f = message.getIndexed();
+  if (f) {
+    writer.writeBool(
+      11,
+      f
+    );
+  }
   f = message.getTypeName();
   if (f != null) {
     writer.writeMessage(
-      11,
+      12,
       f,
       ast_type_name_pb.TypeName.serializeBinaryToWriter
     );
@@ -575,7 +587,7 @@ proto.txpull.v1.ast.Parameter.serializeBinaryToWriter = function(message, writer
   f = message.getTypeDescription();
   if (f != null) {
     writer.writeMessage(
-      12,
+      13,
       f,
       ast_type_name_pb.TypeDescription.serializeBinaryToWriter
     );
@@ -783,12 +795,30 @@ proto.txpull.v1.ast.Parameter.prototype.setStorageLocation = function(value) {
 
 
 /**
- * optional TypeName type_name = 11;
+ * optional bool indexed = 11;
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.Parameter.prototype.getIndexed = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.txpull.v1.ast.Parameter} returns this
+ */
+proto.txpull.v1.ast.Parameter.prototype.setIndexed = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 11, value);
+};
+
+
+/**
+ * optional TypeName type_name = 12;
  * @return {?proto.txpull.v1.ast.TypeName}
  */
 proto.txpull.v1.ast.Parameter.prototype.getTypeName = function() {
   return /** @type{?proto.txpull.v1.ast.TypeName} */ (
-    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeName, 11));
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeName, 12));
 };
 
 
@@ -797,7 +827,7 @@ proto.txpull.v1.ast.Parameter.prototype.getTypeName = function() {
  * @return {!proto.txpull.v1.ast.Parameter} returns this
 */
 proto.txpull.v1.ast.Parameter.prototype.setTypeName = function(value) {
-  return jspb.Message.setWrapperField(this, 11, value);
+  return jspb.Message.setWrapperField(this, 12, value);
 };
 
 
@@ -815,17 +845,17 @@ proto.txpull.v1.ast.Parameter.prototype.clearTypeName = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.Parameter.prototype.hasTypeName = function() {
-  return jspb.Message.getField(this, 11) != null;
+  return jspb.Message.getField(this, 12) != null;
 };
 
 
 /**
- * optional TypeDescription type_description = 12;
+ * optional TypeDescription type_description = 13;
  * @return {?proto.txpull.v1.ast.TypeDescription}
  */
 proto.txpull.v1.ast.Parameter.prototype.getTypeDescription = function() {
   return /** @type{?proto.txpull.v1.ast.TypeDescription} */ (
-    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 12));
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 13));
 };
 
 
@@ -834,7 +864,7 @@ proto.txpull.v1.ast.Parameter.prototype.getTypeDescription = function() {
  * @return {!proto.txpull.v1.ast.Parameter} returns this
 */
 proto.txpull.v1.ast.Parameter.prototype.setTypeDescription = function(value) {
-  return jspb.Message.setWrapperField(this, 12, value);
+  return jspb.Message.setWrapperField(this, 13, value);
 };
 
 
@@ -852,7 +882,7 @@ proto.txpull.v1.ast.Parameter.prototype.clearTypeDescription = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.Parameter.prototype.hasTypeDescription = function() {
-  return jspb.Message.getField(this, 12) != null;
+  return jspb.Message.getField(this, 13) != null;
 };
 
 

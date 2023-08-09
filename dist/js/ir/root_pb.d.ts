@@ -1,6 +1,7 @@
 import * as jspb from 'google-protobuf'
 
 import * as ast_types_pb from '../ast/types_pb';
+import * as ir_eip_pb from '../ir/eip_pb';
 import * as ir_contract_pb from '../ir/contract_pb';
 
 
@@ -17,8 +18,18 @@ export class Root extends jspb.Message {
   getEntryContractName(): string;
   setEntryContractName(value: string): Root;
 
+  getContractTypesList(): Array<string>;
+  setContractTypesList(value: Array<string>): Root;
+  clearContractTypesList(): Root;
+  addContractTypes(value: string, index?: number): Root;
+
   getContractsCount(): number;
   setContractsCount(value: number): Root;
+
+  getEipsList(): Array<ir_eip_pb.EIP>;
+  setEipsList(value: Array<ir_eip_pb.EIP>): Root;
+  clearEipsList(): Root;
+  addEips(value?: ir_eip_pb.EIP, index?: number): ir_eip_pb.EIP;
 
   getContractsList(): Array<ir_contract_pb.Contract>;
   setContractsList(value: Array<ir_contract_pb.Contract>): Root;
@@ -39,7 +50,9 @@ export namespace Root {
     nodeType: ast_types_pb.NodeType,
     entryContractId: number,
     entryContractName: string,
+    contractTypesList: Array<string>,
     contractsCount: number,
+    eipsList: Array<ir_eip_pb.EIP.AsObject>,
     contractsList: Array<ir_contract_pb.Contract.AsObject>,
   }
 }

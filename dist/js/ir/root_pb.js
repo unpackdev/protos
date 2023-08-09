@@ -14,6 +14,8 @@ var global = Function('return this')();
 
 var ast_types_pb = require('../ast/types_pb.js');
 goog.object.extend(proto, ast_types_pb);
+var ir_eip_pb = require('../ir/eip_pb.js');
+goog.object.extend(proto, ir_eip_pb);
 var ir_contract_pb = require('../ir/contract_pb.js');
 goog.object.extend(proto, ir_contract_pb);
 goog.exportSymbol('proto.txpull.v1.ir.Root', null, global);
@@ -44,7 +46,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.ir.Root.repeatedFields_ = [6];
+proto.txpull.v1.ir.Root.repeatedFields_ = [5,7,8];
 
 
 
@@ -81,7 +83,10 @@ proto.txpull.v1.ir.Root.toObject = function(includeInstance, msg) {
     nodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
     entryContractId: jspb.Message.getFieldWithDefault(msg, 3, 0),
     entryContractName: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    contractsCount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    contractTypesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+    contractsCount: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    eipsList: jspb.Message.toObjectList(msg.getEipsList(),
+    ir_eip_pb.EIP.toObject, includeInstance),
     contractsList: jspb.Message.toObjectList(msg.getContractsList(),
     ir_contract_pb.Contract.toObject, includeInstance)
   };
@@ -137,10 +142,19 @@ proto.txpull.v1.ir.Root.deserializeBinaryFromReader = function(msg, reader) {
       msg.setEntryContractName(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addContractTypes(value);
+      break;
+    case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setContractsCount(value);
       break;
-    case 6:
+    case 7:
+      var value = new ir_eip_pb.EIP;
+      reader.readMessage(value,ir_eip_pb.EIP.deserializeBinaryFromReader);
+      msg.addEips(value);
+      break;
+    case 8:
       var value = new ir_contract_pb.Contract;
       reader.readMessage(value,ir_contract_pb.Contract.deserializeBinaryFromReader);
       msg.addContracts(value);
@@ -202,17 +216,32 @@ proto.txpull.v1.ir.Root.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getContractTypesList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      5,
+      f
+    );
+  }
   f = message.getContractsCount();
   if (f !== 0) {
     writer.writeInt32(
-      5,
+      6,
       f
+    );
+  }
+  f = message.getEipsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      7,
+      f,
+      ir_eip_pb.EIP.serializeBinaryToWriter
     );
   }
   f = message.getContractsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      6,
+      8,
       f,
       ir_contract_pb.Contract.serializeBinaryToWriter
     );
@@ -293,11 +322,48 @@ proto.txpull.v1.ir.Root.prototype.setEntryContractName = function(value) {
 
 
 /**
- * optional int32 contracts_count = 5;
+ * repeated string contract_types = 5;
+ * @return {!Array<string>}
+ */
+proto.txpull.v1.ir.Root.prototype.getContractTypesList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.txpull.v1.ir.Root} returns this
+ */
+proto.txpull.v1.ir.Root.prototype.setContractTypesList = function(value) {
+  return jspb.Message.setField(this, 5, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.txpull.v1.ir.Root} returns this
+ */
+proto.txpull.v1.ir.Root.prototype.addContractTypes = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.txpull.v1.ir.Root} returns this
+ */
+proto.txpull.v1.ir.Root.prototype.clearContractTypesList = function() {
+  return this.setContractTypesList([]);
+};
+
+
+/**
+ * optional int32 contracts_count = 6;
  * @return {number}
  */
 proto.txpull.v1.ir.Root.prototype.getContractsCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -306,17 +372,55 @@ proto.txpull.v1.ir.Root.prototype.getContractsCount = function() {
  * @return {!proto.txpull.v1.ir.Root} returns this
  */
 proto.txpull.v1.ir.Root.prototype.setContractsCount = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
 /**
- * repeated Contract contracts = 6;
+ * repeated EIP eips = 7;
+ * @return {!Array<!proto.txpull.v1.ir.EIP>}
+ */
+proto.txpull.v1.ir.Root.prototype.getEipsList = function() {
+  return /** @type{!Array<!proto.txpull.v1.ir.EIP>} */ (
+    jspb.Message.getRepeatedWrapperField(this, ir_eip_pb.EIP, 7));
+};
+
+
+/**
+ * @param {!Array<!proto.txpull.v1.ir.EIP>} value
+ * @return {!proto.txpull.v1.ir.Root} returns this
+*/
+proto.txpull.v1.ir.Root.prototype.setEipsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 7, value);
+};
+
+
+/**
+ * @param {!proto.txpull.v1.ir.EIP=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.txpull.v1.ir.EIP}
+ */
+proto.txpull.v1.ir.Root.prototype.addEips = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.txpull.v1.ir.EIP, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.txpull.v1.ir.Root} returns this
+ */
+proto.txpull.v1.ir.Root.prototype.clearEipsList = function() {
+  return this.setEipsList([]);
+};
+
+
+/**
+ * repeated Contract contracts = 8;
  * @return {!Array<!proto.txpull.v1.ir.Contract>}
  */
 proto.txpull.v1.ir.Root.prototype.getContractsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ir.Contract>} */ (
-    jspb.Message.getRepeatedWrapperField(this, ir_contract_pb.Contract, 6));
+    jspb.Message.getRepeatedWrapperField(this, ir_contract_pb.Contract, 8));
 };
 
 
@@ -325,7 +429,7 @@ proto.txpull.v1.ir.Root.prototype.getContractsList = function() {
  * @return {!proto.txpull.v1.ir.Root} returns this
 */
 proto.txpull.v1.ir.Root.prototype.setContractsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 6, value);
+  return jspb.Message.setRepeatedWrapperField(this, 8, value);
 };
 
 
@@ -335,7 +439,7 @@ proto.txpull.v1.ir.Root.prototype.setContractsList = function(value) {
  * @return {!proto.txpull.v1.ir.Contract}
  */
 proto.txpull.v1.ir.Root.prototype.addContracts = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.txpull.v1.ir.Contract, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.txpull.v1.ir.Contract, opt_index);
 };
 
 

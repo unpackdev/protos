@@ -1,0 +1,21 @@
+syntax = "proto3";
+package txpull.v1.ir;
+option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+
+import "eip/discovery.proto";
+import "eip/eip.proto";
+
+// EIP represents a specific Ethereum Improvement Proposal standard that a contract may adhere to.
+message EIP {
+    // Unique identifier for the contract.
+    int64 contract_id = 1;
+
+    // Name of the contract.
+    string contract_name = 2;
+
+    // Represents the confidence level of the contract adhering to a specific EIP standard.
+    txpull.v1.eip.Discovery confidence = 3;
+
+    // Provides details about the specific EIP standard.
+    txpull.v1.eip.ContractStandard standard = 4;
+}
