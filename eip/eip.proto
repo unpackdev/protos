@@ -8,26 +8,49 @@ import "eip/standards.proto";
 message Input {
     string type = 1; // Ethereum data type of the input.
     bool indexed = 2; // Indicates if the input is indexed.
+    bool matched = 3; // Indicates if the input is matched.
+}
+
+// Represents an output parameter for Ethereum functions and events.
+message Output {
+    string type = 1; // Ethereum data type of the input.
+    bool matched = 2; // Indicates if the output is matched.
 }
 
 // Represents an Ethereum smart contract function.
 message Function {
     string name = 1; // Name of the function.
     repeated Input inputs = 2; // Input parameters of the function.
-    repeated string outputs = 3; // Data types of the function's return values.
+    repeated Output outputs = 3; // Data types of the function's return values.
+    bool matched = 4; // Indicates if the function is matched.
 }
 
 // Represents an Ethereum smart contract event.
 message Event {
     string name = 1; // Name of the event.
     repeated Input inputs = 2; // Input parameters of the event.
-    repeated string outputs = 3; // Data types of the event's return values.
+    repeated Output outputs = 3; // Data types of the event's return values.
+    bool matched = 4; // Indicates if the event is matched.
+}
+
+// Represents an compliance discovery contract response
+message Contract {
+    string name = 1; // Name of the contract.
+    repeated Function functions = 2; // Functions defined in the contract.
+    repeated Event events = 3; // Events defined in the contract.
 }
 
 // Represents a standard interface for Ethereum smart contracts.
 message ContractStandard {
-    string name = 1; // Name of the contract standard.
-    txpull.v1.eip.Standard type = 2; // Type of the contract standard.
-    repeated Function functions = 3; // Functions defined in the contract standard.
-    repeated Event events = 4; // Events defined in the contract standard.
+    string name = 1; // Name of the EIP standard.
+    string url = 2; // URL of the EIP standard.
+    txpull.v1.eip.Standard type = 3; // Type of the contract standard.
+    bool stagnant = 4; // Indicates if the contract standard is stagnant.
+    repeated Function functions = 5; // Functions defined in the contract standard.
+    repeated Event events = 6; // Events defined in the contract standard.
+}
+
+// Represents a list of contract standards supported by network.
+message Standards {
+    repeated ContractStandard standards = 1; // Contract standards.
 }

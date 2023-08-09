@@ -1,0 +1,49 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/eip;eip_pb";
+package txpull.v1.eip;
+
+import "eip/standards.proto";
+import "eip/eip.proto";
+
+
+// ConfidenceLevel enum
+enum ConfidenceLevel {
+    NO_CONFIDENCE = 0;
+    HIGH_CONFIDENCE = 3;
+    MEDIUM_CONFIDENCE = 2;
+    LOW_CONFIDENCE = 1;
+}
+
+// ConfidenceThreshold enum
+enum ConfidenceThreshold {
+    NO_CONFIDENCE_THRESHOLD = 0;       // 0.0 scaled to 0
+    HIGH_CONFIDENCE_THRESHOLD = 900;   // 0.9 scaled to 900
+    MEDIUM_CONFIDENCE_THRESHOLD = 500; // 0.5 scaled to 500
+    LOW_CONFIDENCE_THRESHOLD = 100;    // 0.1 scaled to 100
+}
+
+// Contract Discovery result message
+message Discovery {
+    // standard represents the EIP standard that was discovered.
+    txpull.v1.eip.Standard standard = 1;
+
+    // confidence represents the confidence level of the discovery.
+    txpull.v1.eip.ConfidenceLevel confidence = 2;
+    
+    // confidence_points represents the confidence points of the discovery.
+    int32 confidence_points = 3;
+    
+    // threshold represents the threshold level of the discovery.
+    txpull.v1.eip.ConfidenceThreshold threshold = 4;
+    
+    // maximum_tokens represents the maximum number of tokens in the standard.
+    // This is basically a standard TokenCount() function response value.
+    int32 maximum_tokens = 5;
+    
+    // discovered_tokens represents the number of tokens discovered in the standard.
+    // The more tokens discovered, the higher the confidence level.
+    int32 discovered_tokens = 6;
+    
+    // contract represents the contract being scanned, including matched functions and events.
+    txpull.v1.eip.Contract contract = 7;
+}

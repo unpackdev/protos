@@ -15129,6 +15129,173 @@
       "services": []
     },
     {
+      "name": "eip/discovery.proto",
+      "description": "",
+      "package": "txpull.v1.eip",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "ConfidenceLevel",
+          "longName": "ConfidenceLevel",
+          "fullName": "txpull.v1.eip.ConfidenceLevel",
+          "description": "ConfidenceLevel enum",
+          "values": [
+            {
+              "name": "NO_CONFIDENCE",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "HIGH_CONFIDENCE",
+              "number": "3",
+              "description": ""
+            },
+            {
+              "name": "MEDIUM_CONFIDENCE",
+              "number": "2",
+              "description": ""
+            },
+            {
+              "name": "LOW_CONFIDENCE",
+              "number": "1",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "ConfidenceThreshold",
+          "longName": "ConfidenceThreshold",
+          "fullName": "txpull.v1.eip.ConfidenceThreshold",
+          "description": "ConfidenceThreshold enum",
+          "values": [
+            {
+              "name": "NO_CONFIDENCE_THRESHOLD",
+              "number": "0",
+              "description": "0.0 scaled to 0"
+            },
+            {
+              "name": "HIGH_CONFIDENCE_THRESHOLD",
+              "number": "900",
+              "description": "0.9 scaled to 900"
+            },
+            {
+              "name": "MEDIUM_CONFIDENCE_THRESHOLD",
+              "number": "500",
+              "description": "0.5 scaled to 500"
+            },
+            {
+              "name": "LOW_CONFIDENCE_THRESHOLD",
+              "number": "100",
+              "description": "0.1 scaled to 100"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Discovery",
+          "longName": "Discovery",
+          "fullName": "txpull.v1.eip.Discovery",
+          "description": "Contract Discovery result message",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "standard",
+              "description": "standard represents the EIP standard that was discovered.",
+              "label": "",
+              "type": "Standard",
+              "longType": "Standard",
+              "fullType": "txpull.v1.eip.Standard",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "confidence",
+              "description": "confidence represents the confidence level of the discovery.",
+              "label": "",
+              "type": "ConfidenceLevel",
+              "longType": "ConfidenceLevel",
+              "fullType": "txpull.v1.eip.ConfidenceLevel",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "confidence_points",
+              "description": "confidence_points represents the confidence points of the discovery.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "threshold",
+              "description": "threshold represents the threshold level of the discovery.",
+              "label": "",
+              "type": "ConfidenceThreshold",
+              "longType": "ConfidenceThreshold",
+              "fullType": "txpull.v1.eip.ConfidenceThreshold",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "maximum_tokens",
+              "description": "maximum_tokens represents the maximum number of tokens in the standard.\nThis is basically a standard TokenCount() function response value.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "discovered_tokens",
+              "description": "discovered_tokens represents the number of tokens discovered in the standard.\nThe more tokens discovered, the higher the confidence level.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contract",
+              "description": "contract represents the contract being scanned, including matched functions and events.",
+              "label": "",
+              "type": "Contract",
+              "longType": "Contract",
+              "fullType": "txpull.v1.eip.Contract",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "eip/eip.proto",
       "description": "",
       "package": "txpull.v1.eip",
@@ -15139,6 +15306,54 @@
       "enums": [],
       "extensions": [],
       "messages": [
+        {
+          "name": "Contract",
+          "longName": "Contract",
+          "fullName": "txpull.v1.eip.Contract",
+          "description": "Represents an compliance discovery contract response",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the contract.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "functions",
+              "description": "Functions defined in the contract.",
+              "label": "repeated",
+              "type": "Function",
+              "longType": "Function",
+              "fullType": "txpull.v1.eip.Function",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "events",
+              "description": "Events defined in the contract.",
+              "label": "repeated",
+              "type": "Event",
+              "longType": "Event",
+              "fullType": "txpull.v1.eip.Event",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
         {
           "name": "ContractStandard",
           "longName": "ContractStandard",
@@ -15151,7 +15366,19 @@
           "fields": [
             {
               "name": "name",
-              "description": "Name of the contract standard.",
+              "description": "Name of the EIP standard.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "url",
+              "description": "URL of the EIP standard.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -15168,6 +15395,18 @@
               "type": "Standard",
               "longType": "Standard",
               "fullType": "txpull.v1.eip.Standard",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "stagnant",
+              "description": "Indicates if the contract standard is stagnant.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -15237,9 +15476,21 @@
               "name": "outputs",
               "description": "Data types of the event's return values.",
               "label": "repeated",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Output",
+              "longType": "Output",
+              "fullType": "txpull.v1.eip.Output",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "matched",
+              "description": "Indicates if the event is matched.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -15285,9 +15536,21 @@
               "name": "outputs",
               "description": "Data types of the function's return values.",
               "label": "repeated",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "Output",
+              "longType": "Output",
+              "fullType": "txpull.v1.eip.Output",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "matched",
+              "description": "Indicates if the function is matched.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -15328,6 +15591,78 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "matched",
+              "description": "Indicates if the input is matched.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Output",
+          "longName": "Output",
+          "fullName": "txpull.v1.eip.Output",
+          "description": "Represents an output parameter for Ethereum functions and events.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "type",
+              "description": "Ethereum data type of the input.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "matched",
+              "description": "Indicates if the output is matched.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Standards",
+          "longName": "Standards",
+          "fullName": "txpull.v1.eip.Standards",
+          "description": "Represents a list of contract standards supported by network.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "standards",
+              "description": "Contract standards.",
+              "label": "repeated",
+              "type": "ContractStandard",
+              "longType": "ContractStandard",
+              "fullType": "txpull.v1.eip.ContractStandard",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         }
@@ -15355,17 +15690,17 @@
               "description": "Default value for the enum."
             },
             {
-              "name": "ERC20",
+              "name": "EIP20",
               "number": "1",
               "description": "ERC-20 Token Standard."
             },
             {
-              "name": "ERC721",
+              "name": "EIP721",
               "number": "2",
               "description": "ERC-721 Non-Fungible Token Standard."
             },
             {
-              "name": "ERC223",
+              "name": "EIP223",
               "number": "3",
               "description": "ERC-223 Token Standard."
             },
@@ -15380,47 +15715,47 @@
               "description": "EIP-1822 Proxies."
             },
             {
-              "name": "ERC777",
+              "name": "EIP777",
               "number": "6",
               "description": "ERC-777 Token Standard."
             },
             {
-              "name": "ERC1155",
+              "name": "EIP1155",
               "number": "7",
               "description": "ERC-1155 Multi Token Standard."
             },
             {
-              "name": "ERC1337",
+              "name": "EIP1337",
               "number": "8",
               "description": "ERC-1337 Subscription Standard."
             },
             {
-              "name": "ERC1400",
+              "name": "EIP1400",
               "number": "9",
               "description": "ERC-1400 Security Token Standard."
             },
             {
-              "name": "ERC1410",
+              "name": "EIP1410",
               "number": "10",
               "description": "ERC-1410 Partially Fungible Token Standard."
             },
             {
-              "name": "ERC165",
+              "name": "EIP165",
               "number": "11",
               "description": "ERC-165 Standard Interface Detection."
             },
             {
-              "name": "ERC820",
+              "name": "EIP820",
               "number": "12",
               "description": "ERC-820 Registry Standard."
             },
             {
-              "name": "ERC1014",
+              "name": "EIP1014",
               "number": "13",
               "description": "ERC-1014 Create2 (related to proxy creation)."
             },
             {
-              "name": "ERC1948",
+              "name": "EIP1948",
               "number": "14",
               "description": "ERC-1948 Non-Fungible Data Token."
             },
@@ -15430,27 +15765,27 @@
               "description": "ERC-1967 Proxy Storage Slots."
             },
             {
-              "name": "ERC2309",
+              "name": "EIP2309",
               "number": "16",
               "description": "ERC-2309 Consecutive Transfer Extension for NFTs."
             },
             {
-              "name": "ERC2535",
+              "name": "EIP2535",
               "number": "17",
               "description": "ERC-2535 Diamond Standard (a form of upgradeable contract)."
             },
             {
-              "name": "ERC2771",
+              "name": "EIP2771",
               "number": "18",
               "description": "ERC-2771 Meta Transactions (can be related to token interactions)."
             },
             {
-              "name": "ERC2917",
+              "name": "EIP2917",
               "number": "19",
               "description": "ERC-2917 Delegatable Yield Standard (related to tokens)."
             },
             {
-              "name": "ERC3156",
+              "name": "EIP3156",
               "number": "20",
               "description": "ERC-3156 Flash Loans (related to tokens)."
             }
