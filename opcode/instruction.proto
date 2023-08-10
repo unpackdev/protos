@@ -1,0 +1,24 @@
+syntax = "proto3";
+package txpull.v1.opcode;
+option go_package = "github.com/txpull/protos/dist/go/opcode;opcode_pb";
+
+import "opcode/codes.proto";
+
+// Define the "Instruction" message, which represents an Ethereum Virtual Machine (EVM) instruction.
+message Instruction {
+    // The offset field indicates the position of the instruction in the bytecode.
+    // It's an integer representing the position in the compiled smart contract.
+    int32 offset = 1;
+
+    // The op_code field is an instance of the OpCode enum.
+    // It represents the specific operation that the instruction will execute.
+    txpull.v1.opcode.OpCode op_code = 2;
+
+    // The args field is used to store any arguments or data associated with the instruction.
+    // This field may hold immediate values or additional data required for certain operations.
+    bytes args = 3;
+
+    // The description field is a human-readable string that provides a description of the instruction.
+    // It helps developers understand the purpose of the instruction.
+    string description = 4;
+}

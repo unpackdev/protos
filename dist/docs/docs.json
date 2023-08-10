@@ -15907,6 +15907,875 @@
       "services": []
     },
     {
+      "name": "opcode/codes.proto",
+      "description": "",
+      "package": "txpull.v1.opcode",
+      "hasEnums": true,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "OpCode",
+          "longName": "OpCode",
+          "fullName": "txpull.v1.opcode.OpCode",
+          "description": "OpCode represents the set of operation codes (opcodes) used in the Ethereum Virtual Machine (EVM).\nThese opcodes are fundamental instructions that the EVM executes.",
+          "values": [
+            {
+              "name": "STOP",
+              "number": "0",
+              "description": "STOP halts execution."
+            },
+            {
+              "name": "ADD",
+              "number": "1",
+              "description": "ADD performs addition operation."
+            },
+            {
+              "name": "MUL",
+              "number": "2",
+              "description": "MUL performs multiplication operation."
+            },
+            {
+              "name": "SUB",
+              "number": "3",
+              "description": "SUB performs subtraction operation."
+            },
+            {
+              "name": "DIV",
+              "number": "4",
+              "description": "DIV performs division operation."
+            },
+            {
+              "name": "SDIV",
+              "number": "5",
+              "description": "SDIV performs signed division operation."
+            },
+            {
+              "name": "MOD",
+              "number": "6",
+              "description": "MOD returns the remainder after division."
+            },
+            {
+              "name": "SMOD",
+              "number": "7",
+              "description": "SMOD returns the remainder after signed division."
+            },
+            {
+              "name": "ADDMOD",
+              "number": "8",
+              "description": "ADDMOD performs the modulo addition of two numbers."
+            },
+            {
+              "name": "MULMOD",
+              "number": "9",
+              "description": "MULMOD performs the modulo multiplication of two numbers."
+            },
+            {
+              "name": "EXP",
+              "number": "10",
+              "description": "EXP performs exponential operation."
+            },
+            {
+              "name": "SIGNEXTEND",
+              "number": "11",
+              "description": "SIGNEXTEND extends the sign bit to the left for a signed number."
+            },
+            {
+              "name": "LT",
+              "number": "16",
+              "description": "LT performs a less-than comparison."
+            },
+            {
+              "name": "GT",
+              "number": "17",
+              "description": "GT performs a greater-than comparison."
+            },
+            {
+              "name": "SLT",
+              "number": "18",
+              "description": "SLT performs a signed less-than comparison."
+            },
+            {
+              "name": "SGT",
+              "number": "19",
+              "description": "SGT performs a signed greater-than comparison."
+            },
+            {
+              "name": "EQ",
+              "number": "20",
+              "description": "EQ checks for equality between two values."
+            },
+            {
+              "name": "ISZERO",
+              "number": "21",
+              "description": "ISZERO checks if a given value is zero."
+            },
+            {
+              "name": "AND",
+              "number": "22",
+              "description": "AND performs a bitwise AND operation."
+            },
+            {
+              "name": "OR",
+              "number": "23",
+              "description": "OR performs a bitwise OR operation."
+            },
+            {
+              "name": "XOR",
+              "number": "24",
+              "description": "XOR performs a bitwise XOR operation."
+            },
+            {
+              "name": "NOT",
+              "number": "25",
+              "description": "NOT performs a bitwise NOT operation."
+            },
+            {
+              "name": "BYTE",
+              "number": "26",
+              "description": "BYTE returns the Nth byte of the input data."
+            },
+            {
+              "name": "SHL",
+              "number": "27",
+              "description": "SHL and SHR perform bitwise shift left and shift right operations, respectively."
+            },
+            {
+              "name": "SHR",
+              "number": "28",
+              "description": ""
+            },
+            {
+              "name": "SAR",
+              "number": "29",
+              "description": ""
+            },
+            {
+              "name": "KECCAK256",
+              "number": "32",
+              "description": "KECCAK256 computes the Keccak-256 hash of input data."
+            },
+            {
+              "name": "ADDRESS",
+              "number": "48",
+              "description": "ADDRESS returns the address of the current account."
+            },
+            {
+              "name": "BALANCE",
+              "number": "49",
+              "description": "BALANCE returns the balance of the given address."
+            },
+            {
+              "name": "ORIGIN",
+              "number": "50",
+              "description": "ORIGIN returns the address of the original sender of the transaction."
+            },
+            {
+              "name": "CALLER",
+              "number": "51",
+              "description": "CALLER returns the address of the account that initiated the call."
+            },
+            {
+              "name": "CALLVALUE",
+              "number": "52",
+              "description": "CALLVALUE returns the value passed with the call."
+            },
+            {
+              "name": "CALLDATALOAD",
+              "number": "53",
+              "description": "CALLDATALOAD loads a word of data from the call data."
+            },
+            {
+              "name": "CALLDATASIZE",
+              "number": "54",
+              "description": "CALLDATASIZE returns the size of the call data."
+            },
+            {
+              "name": "CALLDATACOPY",
+              "number": "55",
+              "description": "CALLDATACOPY copies a portion of the call data to memory."
+            },
+            {
+              "name": "CODESIZE",
+              "number": "56",
+              "description": "CODESIZE returns the size of the contract's code."
+            },
+            {
+              "name": "CODECOPY",
+              "number": "57",
+              "description": "CODECOPY copies a portion of the contract's code to memory."
+            },
+            {
+              "name": "GASPRICE",
+              "number": "58",
+              "description": "GASPRICE returns the gas price of the transaction."
+            },
+            {
+              "name": "EXTCODESIZE",
+              "number": "59",
+              "description": "EXTCODESIZE returns the size of the code at the given address."
+            },
+            {
+              "name": "EXTCODECOPY",
+              "number": "60",
+              "description": "EXTCODECOPY copies a portion of the code at the given address to memory."
+            },
+            {
+              "name": "RETURNDATASIZE",
+              "number": "61",
+              "description": "RETURNDATASIZE returns the size of the return data buffer."
+            },
+            {
+              "name": "RETURNDATACOPY",
+              "number": "62",
+              "description": "RETURNDATACOPY copies a portion of the return data buffer to memory."
+            },
+            {
+              "name": "EXTCODEHASH",
+              "number": "63",
+              "description": "EXTCODEHASH returns the hash of the code at the given address."
+            },
+            {
+              "name": "BLOCKHASH",
+              "number": "64",
+              "description": "BLOCKHASH returns the hash of a specific block."
+            },
+            {
+              "name": "COINBASE",
+              "number": "65",
+              "description": "COINBASE returns the address of the block's beneficiary."
+            },
+            {
+              "name": "TIMESTAMP",
+              "number": "66",
+              "description": "TIMESTAMP returns the timestamp of the current block."
+            },
+            {
+              "name": "NUMBER",
+              "number": "67",
+              "description": "NUMBER returns the block number of the current block."
+            },
+            {
+              "name": "DIFFICULTY",
+              "number": "68",
+              "description": "DIFFICULTY returns the difficulty of the current block."
+            },
+            {
+              "name": "GASLIMIT",
+              "number": "69",
+              "description": "GASLIMIT returns the gas limit of the current block."
+            },
+            {
+              "name": "CHAINID",
+              "number": "70",
+              "description": "CHAINID returns the chain ID of the current chain."
+            },
+            {
+              "name": "SELFBALANCE",
+              "number": "71",
+              "description": "SELFBALANCE returns the balance of the current contract."
+            },
+            {
+              "name": "BASEFEE",
+              "number": "72",
+              "description": "BASEFEE returns the base fee of the current block."
+            },
+            {
+              "name": "BLOBHASH",
+              "number": "73",
+              "description": "BLOBHASH returns the hash of the provided data."
+            },
+            {
+              "name": "POP",
+              "number": "80",
+              "description": "POP removes the top item from the stack."
+            },
+            {
+              "name": "MLOAD",
+              "number": "81",
+              "description": "MLOAD loads a word from memory."
+            },
+            {
+              "name": "MSTORE",
+              "number": "82",
+              "description": "MSTORE stores a word in memory."
+            },
+            {
+              "name": "MSTORE8",
+              "number": "83",
+              "description": "MSTORE8 stores a byte in memory."
+            },
+            {
+              "name": "SLOAD",
+              "number": "84",
+              "description": "SLOAD loads a word from storage."
+            },
+            {
+              "name": "SSTORE",
+              "number": "85",
+              "description": "SSTORE stores a word to storage."
+            },
+            {
+              "name": "JUMP",
+              "number": "86",
+              "description": "JUMP transfers control to a different part of the code."
+            },
+            {
+              "name": "JUMPI",
+              "number": "87",
+              "description": "JUMPI conditionally transfers control to a different part of the code."
+            },
+            {
+              "name": "PC",
+              "number": "88",
+              "description": "PC returns the program counter."
+            },
+            {
+              "name": "MSIZE",
+              "number": "89",
+              "description": "MSIZE returns the size of the active memory in bytes."
+            },
+            {
+              "name": "GAS",
+              "number": "90",
+              "description": "GAS returns the available gas."
+            },
+            {
+              "name": "JUMPDEST",
+              "number": "91",
+              "description": "JUMPDEST marks a destination for jumps within the code."
+            },
+            {
+              "name": "PUSH0",
+              "number": "95",
+              "description": "PUSH1-PUSH32 place the given number of bytes onto the stack."
+            },
+            {
+              "name": "PUSH1",
+              "number": "96",
+              "description": ""
+            },
+            {
+              "name": "PUSH2",
+              "number": "97",
+              "description": ""
+            },
+            {
+              "name": "PUSH3",
+              "number": "98",
+              "description": ""
+            },
+            {
+              "name": "PUSH4",
+              "number": "99",
+              "description": ""
+            },
+            {
+              "name": "PUSH5",
+              "number": "100",
+              "description": ""
+            },
+            {
+              "name": "PUSH6",
+              "number": "101",
+              "description": ""
+            },
+            {
+              "name": "PUSH7",
+              "number": "102",
+              "description": ""
+            },
+            {
+              "name": "PUSH8",
+              "number": "103",
+              "description": ""
+            },
+            {
+              "name": "PUSH9",
+              "number": "104",
+              "description": ""
+            },
+            {
+              "name": "PUSH10",
+              "number": "105",
+              "description": ""
+            },
+            {
+              "name": "PUSH11",
+              "number": "106",
+              "description": ""
+            },
+            {
+              "name": "PUSH12",
+              "number": "107",
+              "description": ""
+            },
+            {
+              "name": "PUSH13",
+              "number": "108",
+              "description": ""
+            },
+            {
+              "name": "PUSH14",
+              "number": "109",
+              "description": ""
+            },
+            {
+              "name": "PUSH15",
+              "number": "110",
+              "description": ""
+            },
+            {
+              "name": "PUSH16",
+              "number": "111",
+              "description": ""
+            },
+            {
+              "name": "PUSH17",
+              "number": "112",
+              "description": ""
+            },
+            {
+              "name": "PUSH18",
+              "number": "113",
+              "description": ""
+            },
+            {
+              "name": "PUSH19",
+              "number": "114",
+              "description": ""
+            },
+            {
+              "name": "PUSH20",
+              "number": "115",
+              "description": ""
+            },
+            {
+              "name": "PUSH21",
+              "number": "116",
+              "description": ""
+            },
+            {
+              "name": "PUSH22",
+              "number": "117",
+              "description": ""
+            },
+            {
+              "name": "PUSH23",
+              "number": "118",
+              "description": ""
+            },
+            {
+              "name": "PUSH24",
+              "number": "119",
+              "description": ""
+            },
+            {
+              "name": "PUSH25",
+              "number": "120",
+              "description": ""
+            },
+            {
+              "name": "PUSH26",
+              "number": "121",
+              "description": ""
+            },
+            {
+              "name": "PUSH27",
+              "number": "122",
+              "description": ""
+            },
+            {
+              "name": "PUSH28",
+              "number": "123",
+              "description": ""
+            },
+            {
+              "name": "PUSH29",
+              "number": "124",
+              "description": ""
+            },
+            {
+              "name": "PUSH30",
+              "number": "125",
+              "description": ""
+            },
+            {
+              "name": "PUSH31",
+              "number": "126",
+              "description": ""
+            },
+            {
+              "name": "PUSH32",
+              "number": "127",
+              "description": ""
+            },
+            {
+              "name": "DUP1",
+              "number": "128",
+              "description": "DUP1-DUP16 duplicate the Nth item from the stack."
+            },
+            {
+              "name": "DUP2",
+              "number": "129",
+              "description": ""
+            },
+            {
+              "name": "DUP3",
+              "number": "130",
+              "description": ""
+            },
+            {
+              "name": "DUP4",
+              "number": "131",
+              "description": ""
+            },
+            {
+              "name": "DUP5",
+              "number": "132",
+              "description": ""
+            },
+            {
+              "name": "DUP6",
+              "number": "133",
+              "description": ""
+            },
+            {
+              "name": "DUP7",
+              "number": "134",
+              "description": ""
+            },
+            {
+              "name": "DUP8",
+              "number": "135",
+              "description": ""
+            },
+            {
+              "name": "DUP9",
+              "number": "136",
+              "description": ""
+            },
+            {
+              "name": "DUP10",
+              "number": "137",
+              "description": ""
+            },
+            {
+              "name": "DUP11",
+              "number": "138",
+              "description": ""
+            },
+            {
+              "name": "DUP12",
+              "number": "139",
+              "description": ""
+            },
+            {
+              "name": "DUP13",
+              "number": "140",
+              "description": ""
+            },
+            {
+              "name": "DUP14",
+              "number": "141",
+              "description": ""
+            },
+            {
+              "name": "DUP15",
+              "number": "142",
+              "description": ""
+            },
+            {
+              "name": "DUP16",
+              "number": "143",
+              "description": ""
+            },
+            {
+              "name": "SWAP1",
+              "number": "144",
+              "description": "SWAP1-SWAP16 swaps the top stack item with the Nth item."
+            },
+            {
+              "name": "SWAP2",
+              "number": "145",
+              "description": ""
+            },
+            {
+              "name": "SWAP3",
+              "number": "146",
+              "description": ""
+            },
+            {
+              "name": "SWAP4",
+              "number": "147",
+              "description": ""
+            },
+            {
+              "name": "SWAP5",
+              "number": "148",
+              "description": ""
+            },
+            {
+              "name": "SWAP6",
+              "number": "149",
+              "description": ""
+            },
+            {
+              "name": "SWAP7",
+              "number": "150",
+              "description": ""
+            },
+            {
+              "name": "SWAP8",
+              "number": "151",
+              "description": ""
+            },
+            {
+              "name": "SWAP9",
+              "number": "152",
+              "description": ""
+            },
+            {
+              "name": "SWAP10",
+              "number": "153",
+              "description": ""
+            },
+            {
+              "name": "SWAP11",
+              "number": "154",
+              "description": ""
+            },
+            {
+              "name": "SWAP12",
+              "number": "155",
+              "description": ""
+            },
+            {
+              "name": "SWAP13",
+              "number": "156",
+              "description": ""
+            },
+            {
+              "name": "SWAP14",
+              "number": "157",
+              "description": ""
+            },
+            {
+              "name": "SWAP15",
+              "number": "158",
+              "description": ""
+            },
+            {
+              "name": "SWAP16",
+              "number": "159",
+              "description": ""
+            },
+            {
+              "name": "LOG0",
+              "number": "160",
+              "description": "LOG0-LOG4 record a log entry."
+            },
+            {
+              "name": "LOG1",
+              "number": "161",
+              "description": ""
+            },
+            {
+              "name": "LOG2",
+              "number": "162",
+              "description": ""
+            },
+            {
+              "name": "LOG3",
+              "number": "163",
+              "description": ""
+            },
+            {
+              "name": "LOG4",
+              "number": "164",
+              "description": ""
+            },
+            {
+              "name": "TLOAD",
+              "number": "179",
+              "description": "TLOAD and TSTORE provide access to transaction-specific data."
+            },
+            {
+              "name": "TSTORE",
+              "number": "180",
+              "description": ""
+            },
+            {
+              "name": "CREATE",
+              "number": "240",
+              "description": "CREATE creates a new contract."
+            },
+            {
+              "name": "CALL",
+              "number": "241",
+              "description": "CALL invokes a message call to another contract."
+            },
+            {
+              "name": "CALLCODE",
+              "number": "242",
+              "description": "CALLCODE invokes a message call to another contract using the current code's context."
+            },
+            {
+              "name": "RETURN",
+              "number": "243",
+              "description": "RETURN halts execution and returns data from a contract."
+            },
+            {
+              "name": "DELEGATECALL",
+              "number": "244",
+              "description": "DELEGATECALL performs a message call to another contract, preserving the caller's context."
+            },
+            {
+              "name": "CREATE2",
+              "number": "245",
+              "description": "CREATE2 creates a new contract with a specified salt."
+            },
+            {
+              "name": "STATICCALL",
+              "number": "250",
+              "description": "STATICCALL performs a static message call to another contract."
+            },
+            {
+              "name": "REVERT",
+              "number": "253",
+              "description": "REVERT stops execution and reverts state changes."
+            },
+            {
+              "name": "INVALID",
+              "number": "254",
+              "description": "INVALID is an invalid opcode."
+            },
+            {
+              "name": "SELFDESTRUCT",
+              "number": "255",
+              "description": "SELFDESTRUCT destroys the current contract and sends remaining funds to an address."
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [],
+      "services": []
+    },
+    {
+      "name": "opcode/instruction.proto",
+      "description": "",
+      "package": "txpull.v1.opcode",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Instruction",
+          "longName": "Instruction",
+          "fullName": "txpull.v1.opcode.Instruction",
+          "description": "Define the \"Instruction\" message, which represents an Ethereum Virtual Machine (EVM) instruction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "offset",
+              "description": "The offset field indicates the position of the instruction in the bytecode.\nIt's an integer representing the position in the compiled smart contract.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "op_code",
+              "description": "The op_code field is an instance of the OpCode enum.\nIt represents the specific operation that the instruction will execute.",
+              "label": "",
+              "type": "OpCode",
+              "longType": "OpCode",
+              "fullType": "txpull.v1.opcode.OpCode",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "args",
+              "description": "The args field is used to store any arguments or data associated with the instruction.\nThis field may hold immediate values or additional data required for certain operations.",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "description",
+              "description": "The description field is a human-readable string that provides a description of the instruction.\nIt helps developers understand the purpose of the instruction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "opcode/root.proto",
+      "description": "",
+      "package": "txpull.v1.opcode",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Root",
+          "longName": "Root",
+          "fullName": "txpull.v1.opcode.Root",
+          "description": "Define the \"Root\" message, which serves as a container for a list of instructions.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "instructions",
+              "description": "The instructions field is a repeated field that can contain multiple instances of the Instruction message.\nIt represents a collection of Ethereum Virtual Machine (EVM) instructions.",
+              "label": "repeated",
+              "type": "Instruction",
+              "longType": "Instruction",
+              "fullType": "txpull.v1.opcode.Instruction",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "solgo/services.proto",
       "description": "",
       "package": "txpull.v1.solgo",

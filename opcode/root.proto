@@ -1,0 +1,12 @@
+syntax = "proto3";
+package txpull.v1.opcode;
+option go_package = "github.com/txpull/protos/dist/go/opcode;opcode_pb";
+
+import "opcode/instruction.proto";
+
+// Define the "Root" message, which serves as a container for a list of instructions.
+message Root {
+    // The instructions field is a repeated field that can contain multiple instances of the Instruction message.
+    // It represents a collection of Ethereum Virtual Machine (EVM) instructions.
+    repeated txpull.v1.opcode.Instruction instructions = 1;
+}
