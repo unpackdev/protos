@@ -16776,9 +16776,9 @@
       "services": []
     },
     {
-      "name": "solgo/services.proto",
+      "name": "opcode/service.proto",
       "description": "",
-      "package": "txpull.v1.solgo",
+      "package": "txpull.v1.opcode",
       "hasEnums": false,
       "hasExtensions": false,
       "hasMessages": false,
@@ -16788,50 +16788,59 @@
       "messages": [],
       "services": [
         {
-          "name": "SolGoService",
-          "longName": "SolGoService",
-          "fullName": "txpull.v1.solgo.SolGoService",
-          "description": "",
+          "name": "Service",
+          "longName": "Service",
+          "fullName": "txpull.v1.opcode.Service",
+          "description": "Service definition for the opcode operations.",
           "methods": [
             {
-              "name": "GetAst",
-              "description": "",
-              "requestType": "AstRequest",
-              "requestLongType": ".txpull.v1.ast.AstRequest",
-              "requestFullType": "txpull.v1.ast.AstRequest",
+              "name": "Get",
+              "description": "Retrieves transaction details based on chain_id and address.\nThe HTTP GET method is used, and the chain_id and address are passed as path parameters.",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.opcode.Request",
               "requestStreaming": false,
-              "responseType": "AstResponse",
-              "responseLongType": ".txpull.v1.ast.AstResponse",
-              "responseFullType": "txpull.v1.ast.AstResponse",
-              "responseStreaming": false
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.opcode.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/opcode/{chain_id}/{address}"
+                    }
+                  ]
+                }
+              }
             },
             {
-              "name": "GetAstFromSource",
-              "description": "",
-              "requestType": "AstRawRequest",
-              "requestLongType": ".txpull.v1.ast.AstRawRequest",
-              "requestFullType": "txpull.v1.ast.AstRawRequest",
+              "name": "Decompile",
+              "description": "Decompiles the bytecode associated with a transaction.\nThe HTTP POST method is used, and the request body contains the transaction details.",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.opcode.Request",
               "requestStreaming": false,
-              "responseType": "AstResponse",
-              "responseLongType": ".txpull.v1.ast.AstResponse",
-              "responseFullType": "txpull.v1.ast.AstResponse",
-              "responseStreaming": false
-            },
-            {
-              "name": "GetMetadata",
-              "description": "",
-              "requestType": "MetadataRequest",
-              "requestLongType": ".txpull.v1.metadata.MetadataRequest",
-              "requestFullType": "txpull.v1.metadata.MetadataRequest",
-              "requestStreaming": false,
-              "responseType": "MetadataResponse",
-              "responseLongType": ".txpull.v1.metadata.MetadataResponse",
-              "responseFullType": "txpull.v1.metadata.MetadataResponse",
-              "responseStreaming": false
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.opcode.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/opcode/decompile",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
             },
             {
               "name": "GetHealth",
-              "description": "",
+              "description": "Checks the health status of the opcode service.\nThe HTTP GET method is used, and the response provides health status details.",
               "requestType": "HealthRequest",
               "requestLongType": ".txpull.v1.health.HealthRequest",
               "requestFullType": "txpull.v1.health.HealthRequest",
@@ -16839,11 +16848,155 @@
               "responseType": "HealthResponse",
               "responseLongType": ".txpull.v1.health.HealthResponse",
               "responseFullType": "txpull.v1.health.HealthResponse",
-              "responseStreaming": false
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/opcode/health"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
       ]
+    },
+    {
+      "name": "opcode/service_parameters.proto",
+      "description": "",
+      "package": "txpull.v1.opcode",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Request",
+          "longName": "Request",
+          "fullName": "txpull.v1.opcode.Request",
+          "description": "Represents a opcode request message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "Bytecode of the transaction.",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Response",
+          "longName": "Response",
+          "fullName": "txpull.v1.opcode.Response",
+          "description": "Represents a opcode response message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "Status of the transaction.",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "Bytecode of the transaction as a string.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "root",
+              "description": "Root information associated with the opcode.",
+              "label": "",
+              "type": "Root",
+              "longType": "Root",
+              "fullType": "txpull.v1.opcode.Root",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
     }
   ],
   "scalarValueTypes": [

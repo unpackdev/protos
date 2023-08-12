@@ -1,0 +1,36 @@
+syntax = "proto3";
+package txpull.v1.opcode;
+option go_package = "github.com/txpull/protos/dist/go/opcode;opcode_pb";
+
+import "opcode/service_parameters.proto";
+import "health/health.proto";
+import "google/api/annotations.proto";
+
+// Service definition for the opcode operations.
+service Service {
+    
+    // Retrieves transaction details based on chain_id and address.
+    // The HTTP GET method is used, and the chain_id and address are passed as path parameters.
+    rpc Get(txpull.v1.opcode.Request) returns (txpull.v1.opcode.Response) {
+        option (google.api.http) = {
+            get: "/v1/opcode/{chain_id}/{address}"  // Path with chain_id and address placeholders.
+        };
+    };
+
+    // Decompiles the bytecode associated with a transaction.
+    // The HTTP POST method is used, and the request body contains the transaction details.
+    rpc Decompile(txpull.v1.opcode.Request) returns (txpull.v1.opcode.Response) {
+        option (google.api.http) = {
+            post: "/v1/opcode/decompile"  // Endpoint for the decompile operation.
+            body: "*"  // The entire request object is used as the HTTP request body.
+        };
+    };
+
+    // Checks the health status of the opcode service.
+    // The HTTP GET method is used, and the response provides health status details.
+    rpc GetHealth(txpull.v1.health.HealthRequest) returns (txpull.v1.health.HealthResponse) {
+        option (google.api.http) = {
+            get: "/v1/opcode/health"  // Endpoint for the health check operation.
+        };
+    };
+}
