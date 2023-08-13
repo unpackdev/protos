@@ -94,7 +94,7 @@ proto.txpull.v1.ast.Request.prototype.toObject = function(opt_includeInstance) {
  */
 proto.txpull.v1.ast.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-    chainId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    networkId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     address: jspb.Message.getFieldWithDefault(msg, 2, ""),
     bytecode: msg.getBytecode_asB64(),
     sources: (f = msg.getSources()) && sources_source_pb.Sources.toObject(includeInstance, f)
@@ -136,7 +136,7 @@ proto.txpull.v1.ast.Request.deserializeBinaryFromReader = function(msg, reader) 
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setChainId(value);
+      msg.setNetworkId(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
@@ -180,7 +180,7 @@ proto.txpull.v1.ast.Request.prototype.serializeBinary = function() {
  */
 proto.txpull.v1.ast.Request.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getChainId();
+  f = message.getNetworkId();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -213,10 +213,10 @@ proto.txpull.v1.ast.Request.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional int64 chain_id = 1;
+ * optional int64 network_id = 1;
  * @return {number}
  */
-proto.txpull.v1.ast.Request.prototype.getChainId = function() {
+proto.txpull.v1.ast.Request.prototype.getNetworkId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -225,7 +225,7 @@ proto.txpull.v1.ast.Request.prototype.getChainId = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Request} returns this
  */
-proto.txpull.v1.ast.Request.prototype.setChainId = function(value) {
+proto.txpull.v1.ast.Request.prototype.setNetworkId = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
@@ -360,9 +360,10 @@ proto.txpull.v1.ast.Response.prototype.toObject = function(opt_includeInstance) 
 proto.txpull.v1.ast.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f),
-    chainId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    networkId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     address: jspb.Message.getFieldWithDefault(msg, 3, ""),
     bytecode: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    sources: (f = msg.getSources()) && sources_source_pb.Sources.toObject(includeInstance, f),
     root: (f = msg.getRoot()) && ast_source_unit_pb.RootSourceUnit.toObject(includeInstance, f)
   };
 
@@ -407,7 +408,7 @@ proto.txpull.v1.ast.Response.deserializeBinaryFromReader = function(msg, reader)
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setChainId(value);
+      msg.setNetworkId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -418,6 +419,11 @@ proto.txpull.v1.ast.Response.deserializeBinaryFromReader = function(msg, reader)
       msg.setBytecode(value);
       break;
     case 5:
+      var value = new sources_source_pb.Sources;
+      reader.readMessage(value,sources_source_pb.Sources.deserializeBinaryFromReader);
+      msg.setSources(value);
+      break;
+    case 6:
       var value = new ast_source_unit_pb.RootSourceUnit;
       reader.readMessage(value,ast_source_unit_pb.RootSourceUnit.deserializeBinaryFromReader);
       msg.setRoot(value);
@@ -459,7 +465,7 @@ proto.txpull.v1.ast.Response.serializeBinaryToWriter = function(message, writer)
       common_status_pb.Status.serializeBinaryToWriter
     );
   }
-  f = message.getChainId();
+  f = message.getNetworkId();
   if (f !== 0) {
     writer.writeInt64(
       2,
@@ -480,10 +486,18 @@ proto.txpull.v1.ast.Response.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
-  f = message.getRoot();
+  f = message.getSources();
   if (f != null) {
     writer.writeMessage(
       5,
+      f,
+      sources_source_pb.Sources.serializeBinaryToWriter
+    );
+  }
+  f = message.getRoot();
+  if (f != null) {
+    writer.writeMessage(
+      6,
       f,
       ast_source_unit_pb.RootSourceUnit.serializeBinaryToWriter
     );
@@ -529,10 +543,10 @@ proto.txpull.v1.ast.Response.prototype.hasStatus = function() {
 
 
 /**
- * optional int64 chain_id = 2;
+ * optional int64 network_id = 2;
  * @return {number}
  */
-proto.txpull.v1.ast.Response.prototype.getChainId = function() {
+proto.txpull.v1.ast.Response.prototype.getNetworkId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
@@ -541,7 +555,7 @@ proto.txpull.v1.ast.Response.prototype.getChainId = function() {
  * @param {number} value
  * @return {!proto.txpull.v1.ast.Response} returns this
  */
-proto.txpull.v1.ast.Response.prototype.setChainId = function(value) {
+proto.txpull.v1.ast.Response.prototype.setNetworkId = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 
@@ -583,12 +597,49 @@ proto.txpull.v1.ast.Response.prototype.setBytecode = function(value) {
 
 
 /**
- * optional RootSourceUnit root = 5;
+ * optional txpull.v1.sources.Sources sources = 5;
+ * @return {?proto.txpull.v1.sources.Sources}
+ */
+proto.txpull.v1.ast.Response.prototype.getSources = function() {
+  return /** @type{?proto.txpull.v1.sources.Sources} */ (
+    jspb.Message.getWrapperField(this, sources_source_pb.Sources, 5));
+};
+
+
+/**
+ * @param {?proto.txpull.v1.sources.Sources|undefined} value
+ * @return {!proto.txpull.v1.ast.Response} returns this
+*/
+proto.txpull.v1.ast.Response.prototype.setSources = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.txpull.v1.ast.Response} returns this
+ */
+proto.txpull.v1.ast.Response.prototype.clearSources = function() {
+  return this.setSources(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.txpull.v1.ast.Response.prototype.hasSources = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional RootSourceUnit root = 6;
  * @return {?proto.txpull.v1.ast.RootSourceUnit}
  */
 proto.txpull.v1.ast.Response.prototype.getRoot = function() {
   return /** @type{?proto.txpull.v1.ast.RootSourceUnit} */ (
-    jspb.Message.getWrapperField(this, ast_source_unit_pb.RootSourceUnit, 5));
+    jspb.Message.getWrapperField(this, ast_source_unit_pb.RootSourceUnit, 6));
 };
 
 
@@ -597,7 +648,7 @@ proto.txpull.v1.ast.Response.prototype.getRoot = function() {
  * @return {!proto.txpull.v1.ast.Response} returns this
 */
 proto.txpull.v1.ast.Response.prototype.setRoot = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -615,7 +666,7 @@ proto.txpull.v1.ast.Response.prototype.clearRoot = function() {
  * @return {boolean}
  */
 proto.txpull.v1.ast.Response.prototype.hasRoot = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 

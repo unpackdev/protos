@@ -9074,7 +9074,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "chain_id",
+              "name": "network_id",
               "description": "Identifier for the blockchain chain.",
               "label": "",
               "type": "int64",
@@ -9146,7 +9146,7 @@
               "defaultValue": ""
             },
             {
-              "name": "chain_id",
+              "name": "network_id",
               "description": "Identifier for the blockchain chain.",
               "label": "",
               "type": "int64",
@@ -9176,6 +9176,18 @@
               "type": "string",
               "longType": "string",
               "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "sources",
+              "description": "Raw source code definitions.",
+              "label": "",
+              "type": "Sources",
+              "longType": "txpull.v1.sources.Sources",
+              "fullType": "txpull.v1.sources.Sources",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -17115,6 +17127,351 @@
               "type": "Root",
               "longType": "Root",
               "fullType": "txpull.v1.opcode.Root",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "contracts/contract.proto",
+      "description": "",
+      "package": "txpull.v1.contracts",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Contract",
+          "longName": "Contract",
+          "fullName": "txpull.v1.contracts.Contract",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "uuid",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "license",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "execution_bytecode",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "deployed_bytecode",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "block_number",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "block_hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "transaction_hash",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "verified",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "contracts/service.proto",
+      "description": "",
+      "package": "txpull.v1.contracts",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [],
+      "services": [
+        {
+          "name": "Service",
+          "longName": "Service",
+          "fullName": "txpull.v1.contracts.Service",
+          "description": "Service definition for the contracts operations.",
+          "methods": [
+            {
+              "name": "Get",
+              "description": "",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.contracts.Request",
+              "requestStreaming": false,
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.contracts.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/contracts/{chain_id}/{address}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Unpack",
+              "description": "",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.contracts.Request",
+              "requestStreaming": false,
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.contracts.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/contracts/unpack",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GetHealth",
+              "description": "",
+              "requestType": "HealthRequest",
+              "requestLongType": ".txpull.v1.health.HealthRequest",
+              "requestFullType": "txpull.v1.health.HealthRequest",
+              "requestStreaming": false,
+              "responseType": "HealthResponse",
+              "responseLongType": ".txpull.v1.health.HealthResponse",
+              "responseFullType": "txpull.v1.health.HealthResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/contracts/health"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contracts/service_parameters.proto",
+      "description": "",
+      "package": "txpull.v1.contracts",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Request",
+          "longName": "Request",
+          "fullName": "txpull.v1.contracts.Request",
+          "description": "Represents a contract request message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "network_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Response",
+          "longName": "Response",
+          "fullName": "txpull.v1.contracts.Response",
+          "description": "Represents a contract response message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "Status of the transaction.",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "network_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contracts",
+              "description": "Contract details associated with the transaction.",
+              "label": "repeated",
+              "type": "Contract",
+              "longType": "Contract",
+              "fullType": "txpull.v1.contracts.Contract",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",

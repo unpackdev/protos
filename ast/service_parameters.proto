@@ -9,7 +9,7 @@ import "sources/source.proto";
 // Represents a ast request message with details about a transaction.
 message Request {
     // Identifier for the blockchain chain.
-    int64  chain_id = 1;
+    int64  network_id = 1;
     
     // Address associated with the transaction.
     string address = 2;
@@ -27,14 +27,17 @@ message Response {
     txpull.v1.common.Status status = 1;
     
     // Identifier for the blockchain chain.
-    int64 chain_id = 2;
+    int64 network_id = 2;
     
     // Address associated with the transaction.
     string address = 3;
     
     // Bytecode of the transaction as a string.
     string bytecode = 4;
+
+    // Raw source code definitions.
+    txpull.v1.sources.Sources sources = 5;
     
     // Root information associated with the ast.
-    txpull.v1.ast.RootSourceUnit root = 5;
+    txpull.v1.ast.RootSourceUnit root = 6;
 }

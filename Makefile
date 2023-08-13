@@ -27,7 +27,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/abi/*.proto \
 	 $(PWD)/eip/*.proto \
 	 $(PWD)/opcode/*.proto \
-	 $(PWD)/solgo/*.proto \
+	 $(PWD)/contracts/*.proto \
 )
 
 # Define the commands to generate protobuf files for Golang and JavaScript

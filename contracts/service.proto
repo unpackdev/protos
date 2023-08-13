@@ -1,0 +1,29 @@
+syntax = "proto3";
+package txpull.v1.contracts;
+option go_package = "github.com/txpull/protos/dist/go/contracts;contracts_pb";
+
+import "contracts/service_parameters.proto";
+import "health/health.proto";
+import "google/api/annotations.proto";
+
+// Service definition for the contracts operations.
+service Service {
+    rpc Get(txpull.v1.contracts.Request) returns (txpull.v1.contracts.Response) {
+        option (google.api.http) = {
+            get: "/v1/contracts/{chain_id}/{address}"  // Path with chain_id and address placeholders.
+        };
+    };
+
+    rpc Unpack(txpull.v1.contracts.Request) returns (txpull.v1.contracts.Response) {
+        option (google.api.http) = {
+            post: "/v1/contracts/unpack"  // Endpoint for the decompile operation.
+            body: "*"  // The entire request object is used as the HTTP request body.
+        };
+    };
+
+    rpc GetHealth(txpull.v1.health.HealthRequest) returns (txpull.v1.health.HealthResponse) {
+        option (google.api.http) = {
+            get: "/v1/contracts/health"  // Endpoint for the health check operation.
+        };
+    };
+}

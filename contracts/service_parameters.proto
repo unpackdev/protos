@@ -1,0 +1,30 @@
+syntax = "proto3";
+package txpull.v1.contracts;
+option go_package = "github.com/txpull/protos/dist/go/contracts;contracts_pb";
+
+import "common/status.proto";
+import "contracts/contract.proto";
+
+// Represents a contract request message with details about a transaction.
+message Request {
+    // Identifier for the blockchain chain.
+    int64  network_id = 1;
+    
+    // Address associated with the transaction.
+    repeated string address = 2;
+}
+
+// Represents a contract response message with details about a transaction.
+message Response {
+    // Status of the transaction.
+    txpull.v1.common.Status status = 1;
+    
+    // Identifier for the blockchain chain.
+    int64 network_id = 2;
+    
+    // Address associated with the transaction.
+    string address = 3;
+
+    // Contract details associated with the transaction.
+    repeated txpull.v1.contracts.Contract contracts = 4;
+}

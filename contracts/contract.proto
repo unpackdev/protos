@@ -1,0 +1,17 @@
+syntax = "proto3";
+package txpull.v1.contracts;
+option go_package = "github.com/txpull/protos/dist/go/contracts;contracts_pb";
+
+
+message Contract {
+    string uuid = 1;
+    string name = 2;
+    string address = 3;
+    string license = 4;
+    string execution_bytecode = 5;
+    string deployed_bytecode = 6;
+    int64  block_number = 7;
+    string block_hash = 8;
+    string transaction_hash = 9;
+    bool   verified = 10;
+}

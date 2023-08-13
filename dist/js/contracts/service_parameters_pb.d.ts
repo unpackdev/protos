@@ -1,26 +1,17 @@
 import * as jspb from 'google-protobuf'
 
 import * as common_status_pb from '../common/status_pb';
-import * as ast_source_unit_pb from '../ast/source_unit_pb';
-import * as sources_source_pb from '../sources/source_pb';
+import * as contracts_contract_pb from '../contracts/contract_pb';
 
 
 export class Request extends jspb.Message {
   getNetworkId(): number;
   setNetworkId(value: number): Request;
 
-  getAddress(): string;
-  setAddress(value: string): Request;
-
-  getBytecode(): Uint8Array | string;
-  getBytecode_asU8(): Uint8Array;
-  getBytecode_asB64(): string;
-  setBytecode(value: Uint8Array | string): Request;
-
-  getSources(): sources_source_pb.Sources | undefined;
-  setSources(value?: sources_source_pb.Sources): Request;
-  hasSources(): boolean;
-  clearSources(): Request;
+  getAddressList(): Array<string>;
+  setAddressList(value: Array<string>): Request;
+  clearAddressList(): Request;
+  addAddress(value: string, index?: number): Request;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request.AsObject;
@@ -33,9 +24,7 @@ export class Request extends jspb.Message {
 export namespace Request {
   export type AsObject = {
     networkId: number,
-    address: string,
-    bytecode: Uint8Array | string,
-    sources?: sources_source_pb.Sources.AsObject,
+    addressList: Array<string>,
   }
 }
 
@@ -51,18 +40,10 @@ export class Response extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): Response;
 
-  getBytecode(): string;
-  setBytecode(value: string): Response;
-
-  getSources(): sources_source_pb.Sources | undefined;
-  setSources(value?: sources_source_pb.Sources): Response;
-  hasSources(): boolean;
-  clearSources(): Response;
-
-  getRoot(): ast_source_unit_pb.RootSourceUnit | undefined;
-  setRoot(value?: ast_source_unit_pb.RootSourceUnit): Response;
-  hasRoot(): boolean;
-  clearRoot(): Response;
+  getContractsList(): Array<contracts_contract_pb.Contract>;
+  setContractsList(value: Array<contracts_contract_pb.Contract>): Response;
+  clearContractsList(): Response;
+  addContracts(value?: contracts_contract_pb.Contract, index?: number): contracts_contract_pb.Contract;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Response.AsObject;
@@ -77,9 +58,7 @@ export namespace Response {
     status?: common_status_pb.Status.AsObject,
     networkId: number,
     address: string,
-    bytecode: string,
-    sources?: sources_source_pb.Sources.AsObject,
-    root?: ast_source_unit_pb.RootSourceUnit.AsObject,
+    contractsList: Array<contracts_contract_pb.Contract.AsObject>,
   }
 }
 
