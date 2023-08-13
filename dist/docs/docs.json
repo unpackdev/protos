@@ -111,6 +111,128 @@
       "services": []
     },
     {
+      "name": "sources/source.proto",
+      "description": "",
+      "package": "txpull.v1.sources",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "SourceUnit",
+          "longName": "SourceUnit",
+          "fullName": "txpull.v1.sources.SourceUnit",
+          "description": "SourceUnit represents an individual source unit with its name, path, and content.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "The name of the source unit.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "path",
+              "description": "The path to the source unit.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "content",
+              "description": "The content of the source unit.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Sources",
+          "longName": "Sources",
+          "fullName": "txpull.v1.sources.Sources",
+          "description": "Sources represents a collection of source units with additional metadata.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "entry_source_unit_name",
+              "description": "The name of the entry source unit.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "mask_local_sources_path",
+              "description": "Flag to determine if local sources path should be masked.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "local_sources_path",
+              "description": "The path to the local sources.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "source_units",
+              "description": "A list of source units.",
+              "label": "repeated",
+              "type": "SourceUnit",
+              "longType": "SourceUnit",
+              "fullType": "txpull.v1.sources.SourceUnit",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "metadata/metadata.proto",
       "description": "",
       "package": "txpull.v1.metadata",
@@ -3781,236 +3903,6 @@
               "type": "TypeDescription",
               "longType": "TypeDescription",
               "fullType": "txpull.v1.ast.TypeDescription",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": []
-    },
-    {
-      "name": "ast/ast.proto",
-      "description": "",
-      "package": "txpull.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "AstRawRequest",
-          "longName": "AstRawRequest",
-          "fullName": "txpull.v1.ast.AstRawRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "entry_source_unit",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "sources",
-              "description": "",
-              "label": "repeated",
-              "type": "SourceUnits",
-              "longType": "SourceUnits",
-              "fullType": "txpull.v1.ast.SourceUnits",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "AstRequest",
-          "longName": "AstRequest",
-          "fullName": "txpull.v1.ast.AstRequest",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "bytecode",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "AstResponse",
-          "longName": "AstResponse",
-          "fullName": "txpull.v1.ast.AstResponse",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "",
-              "label": "",
-              "type": "Status",
-              "longType": "txpull.v1.common.Status",
-              "fullType": "txpull.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "chain_id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "bytecode",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "root",
-              "description": "",
-              "label": "",
-              "type": "RootSourceUnit",
-              "longType": "RootSourceUnit",
-              "fullType": "txpull.v1.ast.RootSourceUnit",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "SourceUnits",
-          "longName": "SourceUnits",
-          "fullName": "txpull.v1.ast.SourceUnits",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "name",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "source",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -9061,6 +8953,241 @@
               "type": "TypedStruct",
               "longType": "xds.type.v3.TypedStruct",
               "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/service.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [],
+      "services": [
+        {
+          "name": "Service",
+          "longName": "Service",
+          "fullName": "txpull.v1.ast.Service",
+          "description": "Service definition for the ast operations.",
+          "methods": [
+            {
+              "name": "Get",
+              "description": "Retrieves transaction details based on chain_id and address.\nThe HTTP GET method is used, and the chain_id and address are passed as path parameters.",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.ast.Request",
+              "requestStreaming": false,
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.ast.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/ast/{chain_id}/{address}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Decompile",
+              "description": "Decompiles the bytecode associated with a transaction.\nThe HTTP POST method is used, and the request body contains the transaction details.",
+              "requestType": "Request",
+              "requestLongType": "Request",
+              "requestFullType": "txpull.v1.ast.Request",
+              "requestStreaming": false,
+              "responseType": "Response",
+              "responseLongType": "Response",
+              "responseFullType": "txpull.v1.ast.Response",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/ast/decompile",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "GetHealth",
+              "description": "Checks the health status of the ast service.\nThe HTTP GET method is used, and the response provides health status details.",
+              "requestType": "HealthRequest",
+              "requestLongType": ".txpull.v1.health.HealthRequest",
+              "requestFullType": "txpull.v1.health.HealthRequest",
+              "requestStreaming": false,
+              "responseType": "HealthResponse",
+              "responseLongType": ".txpull.v1.health.HealthResponse",
+              "responseFullType": "txpull.v1.health.HealthResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "GET",
+                      "pattern": "/v1/ast/health"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ast/service_parameters.proto",
+      "description": "",
+      "package": "txpull.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Request",
+          "longName": "Request",
+          "fullName": "txpull.v1.ast.Request",
+          "description": "Represents a ast request message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "chain_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "Bytecode of the transaction.",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "sources",
+              "description": "Raw source code definitions.",
+              "label": "",
+              "type": "Sources",
+              "longType": "txpull.v1.sources.Sources",
+              "fullType": "txpull.v1.sources.Sources",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Response",
+          "longName": "Response",
+          "fullName": "txpull.v1.ast.Response",
+          "description": "Represents a ast response message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "Status of the transaction.",
+              "label": "",
+              "type": "Status",
+              "longType": "txpull.v1.common.Status",
+              "fullType": "txpull.v1.common.Status",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "chain_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "Address associated with the transaction.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "bytecode",
+              "description": "Bytecode of the transaction as a string.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "root",
+              "description": "Root information associated with the ast.",
+              "label": "",
+              "type": "RootSourceUnit",
+              "longType": "RootSourceUnit",
+              "fullType": "txpull.v1.ast.RootSourceUnit",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -16795,7 +16922,7 @@
           "methods": [
             {
               "name": "Get",
-              "description": "Retrieves transaction details based on chain_id and address.\nThe HTTP GET method is used, and the chain_id and address are passed as path parameters.",
+              "description": "Retrieves transaction details based on network_id and address.\nThe HTTP GET method is used, and the network_id and address are passed as path parameters.",
               "requestType": "Request",
               "requestLongType": "Request",
               "requestFullType": "txpull.v1.opcode.Request",
@@ -16809,7 +16936,7 @@
                   "rules": [
                     {
                       "method": "GET",
-                      "pattern": "/v1/opcode/{chain_id}/{address}"
+                      "pattern": "/v1/opcode/{network_id}/{address}"
                     }
                   ]
                 }
@@ -16886,7 +17013,7 @@
           "extensions": [],
           "fields": [
             {
-              "name": "chain_id",
+              "name": "network_id",
               "description": "Identifier for the blockchain chain.",
               "label": "",
               "type": "int64",
@@ -16946,7 +17073,7 @@
               "defaultValue": ""
             },
             {
-              "name": "chain_id",
+              "name": "network_id",
               "description": "Identifier for the blockchain chain.",
               "label": "",
               "type": "int64",

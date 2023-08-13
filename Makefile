@@ -19,6 +19,7 @@ RESET := "\033[0m"
 # Define the input files for your protobuf definitions
 PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/health/*.proto \
+	 $(PWD)/sources/*.proto \
 	 $(PWD)/metadata/*.proto \
 	 $(PWD)/unpack/*.proto \
 	 $(PWD)/ast/*.proto \

@@ -1,0 +1,30 @@
+syntax = "proto3";
+package txpull.v1.sources;
+option go_package = "github.com/txpull/protos/dist/go/sources;sources_pb";
+
+// SourceUnit represents an individual source unit with its name, path, and content.
+message SourceUnit {
+    // The name of the source unit.
+    string name = 1;
+
+    // The path to the source unit.
+    string path = 2;
+
+    // The content of the source unit.
+    string content = 3;
+}
+
+// Sources represents a collection of source units with additional metadata.
+message Sources {
+    // The name of the entry source unit.
+    string entry_source_unit_name = 1;
+
+    // Flag to determine if local sources path should be masked.
+    bool mask_local_sources_path = 2;
+
+    // The path to the local sources.
+    string local_sources_path = 3;
+
+    // A list of source units.
+    repeated txpull.v1.sources.SourceUnit source_units = 4;
+}

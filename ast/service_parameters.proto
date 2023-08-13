@@ -1,29 +1,33 @@
 syntax = "proto3";
-package txpull.v1.opcode;
-option go_package = "github.com/txpull/protos/dist/go/opcode;opcode_pb";
+package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
 
 import "common/status.proto";
-import "opcode/root.proto";
+import "ast/source_unit.proto";
+import "sources/source.proto";
 
-// Represents a opcode request message with details about a transaction.
+// Represents a ast request message with details about a transaction.
 message Request {
     // Identifier for the blockchain chain.
-    int64  network_id = 1;
+    int64  chain_id = 1;
     
     // Address associated with the transaction.
     string address = 2;
     
     // Bytecode of the transaction.
     bytes  bytecode = 3;
+
+    // Raw source code definitions.
+    txpull.v1.sources.Sources sources = 4;
 }
 
-// Represents a opcode response message with details about a transaction.
+// Represents a ast response message with details about a transaction.
 message Response {
     // Status of the transaction.
     txpull.v1.common.Status status = 1;
     
     // Identifier for the blockchain chain.
-    int64 network_id = 2;
+    int64 chain_id = 2;
     
     // Address associated with the transaction.
     string address = 3;
@@ -31,6 +35,6 @@ message Response {
     // Bytecode of the transaction as a string.
     string bytecode = 4;
     
-    // Root information associated with the opcode.
-    txpull.v1.opcode.Root root = 5;
+    // Root information associated with the ast.
+    txpull.v1.ast.RootSourceUnit root = 5;
 }

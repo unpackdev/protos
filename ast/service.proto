@@ -1,0 +1,36 @@
+syntax = "proto3";
+package txpull.v1.ast;
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+
+import "ast/service_parameters.proto";
+import "health/health.proto";
+import "google/api/annotations.proto";
+
+// Service definition for the ast operations.
+service Service {
+    
+    // Retrieves transaction details based on chain_id and address.
+    // The HTTP GET method is used, and the chain_id and address are passed as path parameters.
+    rpc Get(txpull.v1.ast.Request) returns (txpull.v1.ast.Response) {
+        option (google.api.http) = {
+            get: "/v1/ast/{chain_id}/{address}"  // Path with chain_id and address placeholders.
+        };
+    };
+
+    // Decompiles the bytecode associated with a transaction.
+    // The HTTP POST method is used, and the request body contains the transaction details.
+    rpc Decompile(txpull.v1.ast.Request) returns (txpull.v1.ast.Response) {
+        option (google.api.http) = {
+            post: "/v1/ast/decompile"  // Endpoint for the decompile operation.
+            body: "*"  // The entire request object is used as the HTTP request body.
+        };
+    };
+
+    // Checks the health status of the ast service.
+    // The HTTP GET method is used, and the response provides health status details.
+    rpc GetHealth(txpull.v1.health.HealthRequest) returns (txpull.v1.health.HealthResponse) {
+        option (google.api.http) = {
+            get: "/v1/ast/health"  // Endpoint for the health check operation.
+        };
+    };
+}
