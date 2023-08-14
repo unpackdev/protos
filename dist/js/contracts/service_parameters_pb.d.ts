@@ -8,10 +8,10 @@ export class Request extends jspb.Message {
   getNetworkId(): number;
   setNetworkId(value: number): Request;
 
-  getAddressList(): Array<string>;
-  setAddressList(value: Array<string>): Request;
-  clearAddressList(): Request;
-  addAddress(value: string, index?: number): Request;
+  getAddressesList(): Array<string>;
+  setAddressesList(value: Array<string>): Request;
+  clearAddressesList(): Request;
+  addAddresses(value: string, index?: number): Request;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Request.AsObject;
@@ -24,7 +24,7 @@ export class Request extends jspb.Message {
 export namespace Request {
   export type AsObject = {
     networkId: number,
-    addressList: Array<string>,
+    addressesList: Array<string>,
   }
 }
 
@@ -36,9 +36,6 @@ export class Response extends jspb.Message {
 
   getNetworkId(): number;
   setNetworkId(value: number): Response;
-
-  getAddress(): string;
-  setAddress(value: string): Response;
 
   getContractsList(): Array<contracts_contract_pb.Contract>;
   setContractsList(value: Array<contracts_contract_pb.Contract>): Response;
@@ -57,7 +54,6 @@ export namespace Response {
   export type AsObject = {
     status?: common_status_pb.Status.AsObject,
     networkId: number,
-    address: string,
     contractsList: Array<contracts_contract_pb.Contract.AsObject>,
   }
 }

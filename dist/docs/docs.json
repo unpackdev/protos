@@ -17406,7 +17406,7 @@
               "defaultValue": ""
             },
             {
-              "name": "address",
+              "name": "addresses",
               "description": "Address associated with the transaction.",
               "label": "repeated",
               "type": "string",
@@ -17448,18 +17448,6 @@
               "type": "int64",
               "longType": "int64",
               "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "address",
-              "description": "Address associated with the transaction.",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",

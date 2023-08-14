@@ -11,7 +11,7 @@ message Request {
     int64  network_id = 1;
     
     // Address associated with the transaction.
-    repeated string address = 2;
+    repeated string addresses = 2;
 }
 
 // Represents a contract response message with details about a transaction.
@@ -21,9 +21,6 @@ message Response {
     
     // Identifier for the blockchain chain.
     int64 network_id = 2;
-    
-    // Address associated with the transaction.
-    string address = 3;
 
     // Contract details associated with the transaction.
     repeated txpull.v1.contracts.Contract contracts = 4;

@@ -100,7 +100,7 @@ proto.txpull.v1.contracts.Request.prototype.toObject = function(opt_includeInsta
 proto.txpull.v1.contracts.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
     networkId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    addressList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
+    addressesList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -143,7 +143,7 @@ proto.txpull.v1.contracts.Request.deserializeBinaryFromReader = function(msg, re
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.addAddress(value);
+      msg.addAddresses(value);
       break;
     default:
       reader.skipField();
@@ -181,7 +181,7 @@ proto.txpull.v1.contracts.Request.serializeBinaryToWriter = function(message, wr
       f
     );
   }
-  f = message.getAddressList();
+  f = message.getAddressesList();
   if (f.length > 0) {
     writer.writeRepeatedString(
       2,
@@ -210,10 +210,10 @@ proto.txpull.v1.contracts.Request.prototype.setNetworkId = function(value) {
 
 
 /**
- * repeated string address = 2;
+ * repeated string addresses = 2;
  * @return {!Array<string>}
  */
-proto.txpull.v1.contracts.Request.prototype.getAddressList = function() {
+proto.txpull.v1.contracts.Request.prototype.getAddressesList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
@@ -222,7 +222,7 @@ proto.txpull.v1.contracts.Request.prototype.getAddressList = function() {
  * @param {!Array<string>} value
  * @return {!proto.txpull.v1.contracts.Request} returns this
  */
-proto.txpull.v1.contracts.Request.prototype.setAddressList = function(value) {
+proto.txpull.v1.contracts.Request.prototype.setAddressesList = function(value) {
   return jspb.Message.setField(this, 2, value || []);
 };
 
@@ -232,7 +232,7 @@ proto.txpull.v1.contracts.Request.prototype.setAddressList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.txpull.v1.contracts.Request} returns this
  */
-proto.txpull.v1.contracts.Request.prototype.addAddress = function(value, opt_index) {
+proto.txpull.v1.contracts.Request.prototype.addAddresses = function(value, opt_index) {
   return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
@@ -241,8 +241,8 @@ proto.txpull.v1.contracts.Request.prototype.addAddress = function(value, opt_ind
  * Clears the list making it empty but non-null.
  * @return {!proto.txpull.v1.contracts.Request} returns this
  */
-proto.txpull.v1.contracts.Request.prototype.clearAddressList = function() {
-  return this.setAddressList([]);
+proto.txpull.v1.contracts.Request.prototype.clearAddressesList = function() {
+  return this.setAddressesList([]);
 };
 
 
@@ -287,7 +287,6 @@ proto.txpull.v1.contracts.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f),
     networkId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    address: jspb.Message.getFieldWithDefault(msg, 3, ""),
     contractsList: jspb.Message.toObjectList(msg.getContractsList(),
     contracts_contract_pb.Contract.toObject, includeInstance)
   };
@@ -335,10 +334,6 @@ proto.txpull.v1.contracts.Response.deserializeBinaryFromReader = function(msg, r
       var value = /** @type {number} */ (reader.readInt64());
       msg.setNetworkId(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAddress(value);
-      break;
     case 4:
       var value = new contracts_contract_pb.Contract;
       reader.readMessage(value,contracts_contract_pb.Contract.deserializeBinaryFromReader);
@@ -385,13 +380,6 @@ proto.txpull.v1.contracts.Response.serializeBinaryToWriter = function(message, w
   if (f !== 0) {
     writer.writeInt64(
       2,
-      f
-    );
-  }
-  f = message.getAddress();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
       f
     );
   }
@@ -458,24 +446,6 @@ proto.txpull.v1.contracts.Response.prototype.getNetworkId = function() {
  */
 proto.txpull.v1.contracts.Response.prototype.setNetworkId = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * optional string address = 3;
- * @return {string}
- */
-proto.txpull.v1.contracts.Response.prototype.getAddress = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.txpull.v1.contracts.Response} returns this
- */
-proto.txpull.v1.contracts.Response.prototype.setAddress = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
