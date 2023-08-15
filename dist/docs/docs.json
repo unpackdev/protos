@@ -17138,6 +17138,586 @@
       "services": []
     },
     {
+      "name": "audit/audit.proto",
+      "description": "",
+      "package": "txpull.v1.audit",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "AdditionalFields",
+          "longName": "AdditionalFields",
+          "fullName": "txpull.v1.audit.AdditionalFields",
+          "description": "Represents additional fields of an element.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "underlying_type",
+              "description": "Underlying type of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "variable_name",
+              "description": "Variable name associated with the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Detector",
+          "longName": "Detector",
+          "fullName": "txpull.v1.audit.Detector",
+          "description": "Represents details of a detector used in the audit.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "elements",
+              "description": "Elements detected by the detector.",
+              "label": "repeated",
+              "type": "Element",
+              "longType": "Element",
+              "fullType": "txpull.v1.audit.Element",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "description",
+              "description": "Description of the detector.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "markdown",
+              "description": "Markdown representation of the detector's output.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "first_markdown_element",
+              "description": "First element in the markdown representation.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "id",
+              "description": "Unique identifier for the detector.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "check",
+              "description": "Check performed by the detector.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "impact",
+              "description": "Impact of the detector's findings.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "confidence",
+              "description": "Confidence level of the detector's findings.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Element",
+          "longName": "Element",
+          "fullName": "txpull.v1.audit.Element",
+          "description": "Represents an element detected during the audit.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "type",
+              "description": "Type of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "Name of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "source_mapping",
+              "description": "Source mapping of the element.",
+              "label": "",
+              "type": "SourceMapping",
+              "longType": "SourceMapping",
+              "fullType": "txpull.v1.audit.SourceMapping",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_specific_fields",
+              "description": "Type-specific fields of the element.",
+              "label": "",
+              "type": "TypeSpecificFields",
+              "longType": "TypeSpecificFields",
+              "fullType": "txpull.v1.audit.TypeSpecificFields",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "signature",
+              "description": "Signature of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "additional_fields",
+              "description": "Additional fields related to the element.",
+              "label": "",
+              "type": "AdditionalFields",
+              "longType": "AdditionalFields",
+              "fullType": "txpull.v1.audit.AdditionalFields",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Report",
+          "longName": "Report",
+          "fullName": "txpull.v1.audit.Report",
+          "description": "Represents an audit report.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "success",
+              "description": "Indicates if the audit was successful.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "error",
+              "description": "Error message, if any.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "results",
+              "description": "Results of the audit.",
+              "label": "",
+              "type": "Results",
+              "longType": "Results",
+              "fullType": "txpull.v1.audit.Results",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Results",
+          "longName": "Results",
+          "fullName": "txpull.v1.audit.Results",
+          "description": "Represents the results of an audit.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "detectors",
+              "description": "List of detectors used in the audit.",
+              "label": "repeated",
+              "type": "Detector",
+              "longType": "Detector",
+              "fullType": "txpull.v1.audit.Detector",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "SourceMapping",
+          "longName": "SourceMapping",
+          "fullName": "txpull.v1.audit.SourceMapping",
+          "description": "Represents the source mapping of an element.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "start",
+              "description": "Starting position of the source mapping.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "length",
+              "description": "Length of the source mapping.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "filename_relative",
+              "description": "Relative filename of the source mapping.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "filename_absolute",
+              "description": "Absolute filename of the source mapping.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "filename_short",
+              "description": "Shortened filename of the source mapping.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_dependency",
+              "description": "Indicates if the source mapping is a dependency.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "lines",
+              "description": "Lines associated with the source mapping.",
+              "label": "repeated",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "starting_column",
+              "description": "Starting column of the source mapping.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "ending_column",
+              "description": "Ending column of the source mapping.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "TypeSpecificFields",
+          "longName": "TypeSpecificFields",
+          "fullName": "txpull.v1.audit.TypeSpecificFields",
+          "description": "Represents type-specific fields of an element.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "parent",
+              "description": "Parent element, if any.",
+              "label": "",
+              "type": "Element",
+              "longType": "Element",
+              "fullType": "txpull.v1.audit.Element",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "directive",
+              "description": "Directives associated with the element.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "contracts/constructor.proto",
+      "description": "",
+      "package": "txpull.v1.contracts",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Constructor",
+          "longName": "Constructor",
+          "fullName": "txpull.v1.contracts.Constructor",
+          "description": "Represents a contract's constructor details.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "signature_raw",
+              "description": "Raw signature of the constructor.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "Arguments of the constructor.",
+              "label": "repeated",
+              "type": "ConstructorArgument",
+              "longType": "ConstructorArgument",
+              "fullType": "txpull.v1.contracts.ConstructorArgument",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ConstructorArgument",
+          "longName": "ConstructorArgument",
+          "fullName": "txpull.v1.contracts.ConstructorArgument",
+          "description": "Represents an argument of a contract's constructor.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the argument.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "Type of the argument.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "Value of the argument.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "indexed",
+              "description": "Indicates if the argument is indexed.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "contracts/contract.proto",
       "description": "",
       "package": "txpull.v1.contracts",
@@ -17152,7 +17732,7 @@
           "name": "Contract",
           "longName": "Contract",
           "fullName": "txpull.v1.contracts.Contract",
-          "description": "",
+          "description": "Represents details of a contract.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -17160,7 +17740,7 @@
           "fields": [
             {
               "name": "uuid",
-              "description": "",
+              "description": "Unique identifier for the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17171,8 +17751,20 @@
               "defaultValue": ""
             },
             {
+              "name": "network_id",
+              "description": "Network ID associated with the contract.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "name",
-              "description": "",
+              "description": "Name of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17184,7 +17776,7 @@
             },
             {
               "name": "address",
-              "description": "",
+              "description": "Address of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17196,7 +17788,19 @@
             },
             {
               "name": "license",
-              "description": "",
+              "description": "License associated with the contract.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "language",
+              "description": "Programming language used for the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17208,7 +17812,7 @@
             },
             {
               "name": "execution_bytecode",
-              "description": "",
+              "description": "Execution bytecode of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17220,7 +17824,7 @@
             },
             {
               "name": "deployed_bytecode",
-              "description": "",
+              "description": "Deployed bytecode of the contract.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17232,7 +17836,7 @@
             },
             {
               "name": "block_number",
-              "description": "",
+              "description": "Block number where the contract was deployed.",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -17244,7 +17848,7 @@
             },
             {
               "name": "block_hash",
-              "description": "",
+              "description": "Hash of the block where the contract was deployed.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17256,7 +17860,7 @@
             },
             {
               "name": "transaction_hash",
-              "description": "",
+              "description": "Transaction hash of the contract deployment.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -17268,11 +17872,167 @@
             },
             {
               "name": "verified",
-              "description": "",
+              "description": "Indicates if the contract is verified.",
               "label": "",
               "type": "bool",
               "longType": "bool",
               "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "compiler_version",
+              "description": "Version of the compiler used.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "optimized",
+              "description": "Indicates if the contract is optimized.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "optimization_runs",
+              "description": "Number of optimization runs.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "possible_contract_types",
+              "description": "List of possible contract types associated.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contracts_count",
+              "description": "Total number of contracts discovered in the IR.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "eips",
+              "description": "List of Ethereum Improvement Proposals (EIPs) associated with this IR.",
+              "label": "repeated",
+              "type": "EIP",
+              "longType": "txpull.v1.ir.EIP",
+              "fullType": "txpull.v1.ir.EIP",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "metadata_urls",
+              "description": "Metadata URLs associated with the contract.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "implements",
+              "description": "Implementations associated with the contract.",
+              "label": "repeated",
+              "type": "Implements",
+              "longType": "Implements",
+              "fullType": "txpull.v1.contracts.Implements",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "constructor",
+              "description": "Constructor details of the contract.",
+              "label": "",
+              "type": "Constructor",
+              "longType": "Constructor",
+              "fullType": "txpull.v1.contracts.Constructor",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "has_vulnerabilities",
+              "description": "Indicates if the contract has vulnerabilities.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "vulnerability_metrics",
+              "description": "Metrics of vulnerabilities associated with the contract.",
+              "label": "repeated",
+              "type": "VulnerabilityMetric",
+              "longType": "VulnerabilityMetric",
+              "fullType": "txpull.v1.contracts.VulnerabilityMetric",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "vulnerabilities",
+              "description": "Vulnerabilities associated with the contract.",
+              "label": "repeated",
+              "type": "Vulnerability",
+              "longType": "Vulnerability",
+              "fullType": "txpull.v1.contracts.Vulnerability",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "abi",
+              "description": "ABI of the contract in raw JSON format.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -17460,6 +18220,248 @@
               "type": "Contract",
               "longType": "Contract",
               "fullType": "txpull.v1.contracts.Contract",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "contracts/vulnerability.proto",
+      "description": "",
+      "package": "txpull.v1.contracts",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Element",
+          "longName": "Element",
+          "fullName": "txpull.v1.contracts.Element",
+          "description": "Represents an element associated with a vulnerability.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "name",
+              "description": "Name of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "Type of the element.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "start",
+              "description": "Starting position of the element.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "length",
+              "description": "Length of the element.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "starting_column",
+              "description": "Starting column of the element.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "ending_column",
+              "description": "Ending column of the element.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Implements",
+          "longName": "Implements",
+          "fullName": "txpull.v1.contracts.Implements",
+          "description": "Represents a contract's implementation details.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "uuid",
+              "description": "Unique identifier for the implementation.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "Name of the implementation.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "Vulnerability",
+          "longName": "Vulnerability",
+          "fullName": "txpull.v1.contracts.Vulnerability",
+          "description": "Represents details of a vulnerability.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "check",
+              "description": "Check associated with the vulnerability.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "impact",
+              "description": "Impact of the vulnerability.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "description",
+              "description": "Description of the vulnerability.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "confidence",
+              "description": "Confidence level of the vulnerability detection.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "elements",
+              "description": "Elements associated with the vulnerability.",
+              "label": "repeated",
+              "type": "Element",
+              "longType": "Element",
+              "fullType": "txpull.v1.contracts.Element",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "VulnerabilityMetric",
+          "longName": "VulnerabilityMetric",
+          "fullName": "txpull.v1.contracts.VulnerabilityMetric",
+          "description": "Represents a vulnerability metric.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "level",
+              "description": "Severity level of the vulnerability.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "count",
+              "description": "Count of vulnerabilities of this severity level.",
+              "label": "",
+              "type": "int32",
+              "longType": "int32",
+              "fullType": "int32",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",

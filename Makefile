@@ -27,6 +27,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/abi/*.proto \
 	 $(PWD)/eip/*.proto \
 	 $(PWD)/opcode/*.proto \
+	 $(PWD)/audit/*.proto \
 	 $(PWD)/contracts/*.proto \
 )
 

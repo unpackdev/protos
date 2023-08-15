@@ -2,16 +2,56 @@ syntax = "proto3";
 package txpull.v1.contracts;
 option go_package = "github.com/txpull/protos/dist/go/contracts;contracts_pb";
 
+import "ir/eip.proto";
+import "contracts/vulnerability.proto";
+import "contracts/constructor.proto";
 
+
+// Represents details of a contract.
 message Contract {
-    string uuid = 1;
-    string name = 2;
-    string address = 3;
-    string license = 4;
-    string execution_bytecode = 5;
-    string deployed_bytecode = 6;
-    int64  block_number = 7;
-    string block_hash = 8;
-    string transaction_hash = 9;
-    bool   verified = 10;
+    string uuid = 1;  // Unique identifier for the contract.
+    int64  network_id = 2;  // Network ID associated with the contract.
+    string name = 3;  // Name of the contract.
+    string address = 4;  // Address of the contract.
+    string license = 5;  // License associated with the contract.
+    string language = 6;  // Programming language used for the contract.
+    string execution_bytecode = 7;  // Execution bytecode of the contract.
+    string deployed_bytecode = 8;   // Deployed bytecode of the contract.
+    int64  block_number = 9;        // Block number where the contract was deployed.
+    string block_hash = 10;         // Hash of the block where the contract was deployed.
+    string transaction_hash = 11;   // Transaction hash of the contract deployment.
+    bool   verified = 12;           // Indicates if the contract is verified.
+    string compiler_version = 13;   // Version of the compiler used.
+    bool   optimized = 14;          // Indicates if the contract is optimized.
+    int32  optimization_runs = 15;  // Number of optimization runs.
+
+    // List of possible contract types associated.
+    repeated string possible_contract_types = 16;
+
+    // Total number of contracts discovered in the IR.
+    int32 contracts_count = 17;
+
+    // List of Ethereum Improvement Proposals (EIPs) associated with this IR.
+    repeated txpull.v1.ir.EIP eips = 18;
+
+    // Metadata URLs associated with the contract.
+    repeated string metadata_urls = 19;
+
+    // Implementations associated with the contract.
+    repeated txpull.v1.contracts.Implements implements = 20;
+    
+    // Constructor details of the contract.
+    txpull.v1.contracts.Constructor constructor = 21;
+
+    // Indicates if the contract has vulnerabilities.
+    bool has_vulnerabilities = 22;
+
+    // Metrics of vulnerabilities associated with the contract.
+    repeated txpull.v1.contracts.VulnerabilityMetric vulnerability_metrics = 23;
+
+    // Vulnerabilities associated with the contract.
+    repeated txpull.v1.contracts.Vulnerability vulnerabilities = 24;
+
+    // ABI of the contract in raw JSON format.
+    string abi = 25;
 }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package txpull.v1.contracts;
+option go_package = "github.com/txpull/protos/dist/go/contracts;contracts_pb";
+
+// Represents an argument of a contract's constructor.
+message ConstructorArgument {
+    string name = 1;     // Name of the argument.
+    string type = 2;     // Type of the argument.
+    string value = 3;    // Value of the argument.
+    bool indexed = 4;    // Indicates if the argument is indexed.
+}
+
+// Represents a contract's constructor details.
+message Constructor {
+    string signature_raw = 2;  // Raw signature of the constructor.
+    repeated txpull.v1.contracts.ConstructorArgument arguments = 3;  // Arguments of the constructor.
+}

@@ -1,0 +1,62 @@
+syntax = "proto3";
+package txpull.v1.audit;
+option go_package = "github.com/txpull/protos/dist/go/audit;audit_pb";
+
+// Represents an audit report.
+message Report {
+    bool success = 1;  // Indicates if the audit was successful.
+    string error = 2;  // Error message, if any.
+    txpull.v1.audit.Results results = 3;  // Results of the audit.
+}
+
+// Represents the results of an audit.
+message Results {
+    repeated txpull.v1.audit.Detector detectors = 1;  // List of detectors used in the audit.
+}
+
+// Represents details of a detector used in the audit.
+message Detector {
+    repeated txpull.v1.audit.Element elements = 1;  // Elements detected by the detector.
+    string description = 2;  // Description of the detector.
+    string markdown = 3;  // Markdown representation of the detector's output.
+    string first_markdown_element = 4;  // First element in the markdown representation.
+    string id = 5;  // Unique identifier for the detector.
+    string check = 6;  // Check performed by the detector.
+    string impact = 7;  // Impact of the detector's findings.
+    string confidence = 8;  // Confidence level of the detector's findings.
+}
+
+// Represents an element detected during the audit.
+message Element {
+    string type = 1;  // Type of the element.
+    string name = 2;  // Name of the element.
+    txpull.v1.audit.SourceMapping source_mapping = 3;  // Source mapping of the element.
+    txpull.v1.audit.TypeSpecificFields type_specific_fields = 4;  // Type-specific fields of the element.
+    string signature = 5;  // Signature of the element.
+    txpull.v1.audit.AdditionalFields additional_fields = 6;  // Additional fields related to the element.
+}
+
+// Represents the source mapping of an element.
+message SourceMapping {
+    int32 start = 1;  // Starting position of the source mapping.
+    int32 length = 2;  // Length of the source mapping.
+    string filename_relative = 3;  // Relative filename of the source mapping.
+    string filename_absolute = 4;  // Absolute filename of the source mapping.
+    string filename_short = 5;  // Shortened filename of the source mapping.
+    bool is_dependency = 6;  // Indicates if the source mapping is a dependency.
+    repeated int32 lines = 7;  // Lines associated with the source mapping.
+    int32 starting_column = 8;  // Starting column of the source mapping.
+    int32 ending_column = 9;  // Ending column of the source mapping.
+}
+
+// Represents type-specific fields of an element.
+message TypeSpecificFields {
+    txpull.v1.audit.Element parent = 1;  // Parent element, if any.
+    repeated string directive = 2;  // Directives associated with the element.
+}
+
+// Represents additional fields of an element.
+message AdditionalFields {
+    string underlying_type = 1;  // Underlying type of the element.
+    string variable_name = 2;  // Variable name associated with the element.
+}
