@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+package txpull.v1.ast;
+
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
+
+message Conditional {
+    int64 id = 1;
+    txpull.v1.ast.NodeType node_type = 4;
+    txpull.v1.ast.Src src = 5;
+    repeated xds.type.v3.TypedStruct expressions = 8;
+    repeated txpull.v1.ast.TypeDescription type_descriptions = 9;
+}

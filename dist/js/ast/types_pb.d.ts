@@ -99,6 +99,8 @@ export enum NodeType {
   FUNCTION_CALL_OPTION = 93,
   INDEX_RANGE_ACCESS = 94,
   EXPRESSION_OPERATION = 95,
+  AND_OPERATION = 96,
+  CONDITIONAL_EXPRESSION = 97,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
