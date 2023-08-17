@@ -17,4 +17,6 @@ message Pragma {
     // For example, for the pragma directive "pragma solidity ^0.5.0;", the literals would
     // be ["solidity", "^", "0", ".", "5", ".", "0"].
     repeated string literals = 4;
+    // text is the text of the pragma directive.
+    string text = 5;
 }

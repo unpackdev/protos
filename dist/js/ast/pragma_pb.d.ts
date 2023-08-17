@@ -21,6 +21,9 @@ export class Pragma extends jspb.Message {
   clearLiteralsList(): Pragma;
   addLiterals(value: string, index?: number): Pragma;
 
+  getText(): string;
+  setText(value: string): Pragma;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Pragma.AsObject;
   static toObject(includeInstance: boolean, msg: Pragma): Pragma.AsObject;
@@ -35,6 +38,7 @@ export namespace Pragma {
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
     literalsList: Array<string>,
+    text: string,
   }
 }
 
