@@ -1,0 +1,94 @@
+pragma solidity ^0.8.0;
+
+struct Version {
+    string url;
+    string assets_url;
+    string upload_url;
+    string html_url;
+    uint256 id;
+    Author author;
+    string node_id;
+    string tag_name;
+    string target_commitish;
+    string name;
+    bool draft;
+    bool prerelease;
+    string created_at;
+    string published_at;
+    Asset[] assets;
+    string tarball_url;
+    string zipball_url;
+    string body;
+    Reactions reactions;
+}
+
+struct Author {
+    string login;
+    uint256 id;
+    string node_id;
+    string avatar_url;
+    string gravatar_id;
+    string url;
+    string html_url;
+    string followers_url;
+    string following_url;
+    string gists_url;
+    string starred_url;
+    string subscriptions_url;
+    string organizations_url;
+    string repos_url;
+    string events_url;
+    string received_events_url;
+    string account_type; // "type" is a reserved keyword in Solidity
+    bool site_admin;
+}
+
+struct Asset {
+    string url;
+    uint256 id;
+    string node_id;
+    string name;
+    string label;
+    Uploader uploader;
+    string content_type;
+    string state;
+    uint256 size;
+    uint256 download_count;
+    string created_at;
+    string updated_at;
+    string browser_download_url;
+}
+
+struct Uploader {
+    string login;
+    uint256 id;
+    string node_id;
+    string avatar_url;
+    string gravatar_id;
+    string url;
+    string html_url;
+    string followers_url;
+    string following_url;
+    string gists_url;
+    string starred_url;
+    string subscriptions_url;
+    string organizations_url;
+    string repos_url;
+    string events_url;
+    string received_events_url;
+    string account_type; // "type" is a reserved keyword in Solidity
+    bool site_admin;
+}
+
+struct Reactions {
+    string url;
+    uint256 total_count;
+    uint256 plus_one; // "+1" is not a valid variable name
+    uint256 minus_one; // "-1" is not a valid variable name
+    uint256 laugh;
+    uint256 hooray;
+    uint256 confused;
+    uint256 heart;
+    uint256 rocket;
+    uint256 eyes;
+}

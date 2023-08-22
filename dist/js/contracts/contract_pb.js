@@ -46,7 +46,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.txpull.v1.contracts.Contract.repeatedFields_ = [16,18,19,20,23,24];
+proto.txpull.v1.contracts.Contract.repeatedFields_ = [17,19,20,21,24,25];
 
 
 
@@ -92,22 +92,23 @@ proto.txpull.v1.contracts.Contract.toObject = function(includeInstance, msg) {
     transactionHash: jspb.Message.getFieldWithDefault(msg, 11, ""),
     verified: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
     compilerVersion: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    optimized: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
-    optimizationRuns: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    possibleContractTypesList: (f = jspb.Message.getRepeatedField(msg, 16)) == null ? undefined : f,
-    contractsCount: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    eipsList: jspb.Message.toObjectList(msg.getEipsList(),
+    evmVersion: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    optimized: jspb.Message.getBooleanFieldWithDefault(msg, 15, false),
+    optimizationRuns: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    possibleContractTypesList: (f = jspb.Message.getRepeatedField(msg, 17)) == null ? undefined : f,
+    contractsCount: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    standardsList: jspb.Message.toObjectList(msg.getStandardsList(),
     ir_eip_pb.EIP.toObject, includeInstance),
-    metadataUrlsList: (f = jspb.Message.getRepeatedField(msg, 19)) == null ? undefined : f,
+    metadataUrlsList: (f = jspb.Message.getRepeatedField(msg, 20)) == null ? undefined : f,
     implementsList: jspb.Message.toObjectList(msg.getImplementsList(),
     contracts_vulnerability_pb.Implements.toObject, includeInstance),
     constructor: (f = msg.getConstructor()) && contracts_constructor_pb.Constructor.toObject(includeInstance, f),
-    hasVulnerabilities: jspb.Message.getBooleanFieldWithDefault(msg, 22, false),
+    hasVulnerabilities: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
     vulnerabilityMetricsList: jspb.Message.toObjectList(msg.getVulnerabilityMetricsList(),
     contracts_vulnerability_pb.VulnerabilityMetric.toObject, includeInstance),
     vulnerabilitiesList: jspb.Message.toObjectList(msg.getVulnerabilitiesList(),
     contracts_vulnerability_pb.Vulnerability.toObject, includeInstance),
-    abi: jspb.Message.getFieldWithDefault(msg, 25, "")
+    abi: jspb.Message.getFieldWithDefault(msg, 26, "")
   };
 
   if (includeInstance) {
@@ -197,55 +198,59 @@ proto.txpull.v1.contracts.Contract.deserializeBinaryFromReader = function(msg, r
       msg.setCompilerVersion(value);
       break;
     case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEvmVersion(value);
+      break;
+    case 15:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setOptimized(value);
       break;
-    case 15:
+    case 16:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOptimizationRuns(value);
       break;
-    case 16:
+    case 17:
       var value = /** @type {string} */ (reader.readString());
       msg.addPossibleContractTypes(value);
       break;
-    case 17:
+    case 18:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setContractsCount(value);
       break;
-    case 18:
+    case 19:
       var value = new ir_eip_pb.EIP;
       reader.readMessage(value,ir_eip_pb.EIP.deserializeBinaryFromReader);
-      msg.addEips(value);
+      msg.addStandards(value);
       break;
-    case 19:
+    case 20:
       var value = /** @type {string} */ (reader.readString());
       msg.addMetadataUrls(value);
       break;
-    case 20:
+    case 21:
       var value = new contracts_vulnerability_pb.Implements;
       reader.readMessage(value,contracts_vulnerability_pb.Implements.deserializeBinaryFromReader);
       msg.addImplements(value);
       break;
-    case 21:
+    case 22:
       var value = new contracts_constructor_pb.Constructor;
       reader.readMessage(value,contracts_constructor_pb.Constructor.deserializeBinaryFromReader);
       msg.setConstructor(value);
       break;
-    case 22:
+    case 23:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setHasVulnerabilities(value);
       break;
-    case 23:
+    case 24:
       var value = new contracts_vulnerability_pb.VulnerabilityMetric;
       reader.readMessage(value,contracts_vulnerability_pb.VulnerabilityMetric.deserializeBinaryFromReader);
       msg.addVulnerabilityMetrics(value);
       break;
-    case 24:
+    case 25:
       var value = new contracts_vulnerability_pb.Vulnerability;
       reader.readMessage(value,contracts_vulnerability_pb.Vulnerability.deserializeBinaryFromReader);
       msg.addVulnerabilities(value);
       break;
-    case 25:
+    case 26:
       var value = /** @type {string} */ (reader.readString());
       msg.setAbi(value);
       break;
@@ -369,38 +374,45 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
       f
     );
   }
+  f = message.getEvmVersion();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
+    );
+  }
   f = message.getOptimized();
   if (f) {
     writer.writeBool(
-      14,
+      15,
       f
     );
   }
   f = message.getOptimizationRuns();
   if (f !== 0) {
     writer.writeInt32(
-      15,
+      16,
       f
     );
   }
   f = message.getPossibleContractTypesList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      16,
+      17,
       f
     );
   }
   f = message.getContractsCount();
   if (f !== 0) {
     writer.writeInt32(
-      17,
+      18,
       f
     );
   }
-  f = message.getEipsList();
+  f = message.getStandardsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      18,
+      19,
       f,
       ir_eip_pb.EIP.serializeBinaryToWriter
     );
@@ -408,14 +420,14 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
   f = message.getMetadataUrlsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      19,
+      20,
       f
     );
   }
   f = message.getImplementsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      20,
+      21,
       f,
       contracts_vulnerability_pb.Implements.serializeBinaryToWriter
     );
@@ -423,7 +435,7 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
   f = message.getConstructor();
   if (f != null) {
     writer.writeMessage(
-      21,
+      22,
       f,
       contracts_constructor_pb.Constructor.serializeBinaryToWriter
     );
@@ -431,14 +443,14 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
   f = message.getHasVulnerabilities();
   if (f) {
     writer.writeBool(
-      22,
+      23,
       f
     );
   }
   f = message.getVulnerabilityMetricsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      23,
+      24,
       f,
       contracts_vulnerability_pb.VulnerabilityMetric.serializeBinaryToWriter
     );
@@ -446,7 +458,7 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
   f = message.getVulnerabilitiesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      24,
+      25,
       f,
       contracts_vulnerability_pb.Vulnerability.serializeBinaryToWriter
     );
@@ -454,7 +466,7 @@ proto.txpull.v1.contracts.Contract.serializeBinaryToWriter = function(message, w
   f = message.getAbi();
   if (f.length > 0) {
     writer.writeString(
-      25,
+      26,
       f
     );
   }
@@ -696,11 +708,29 @@ proto.txpull.v1.contracts.Contract.prototype.setCompilerVersion = function(value
 
 
 /**
- * optional bool optimized = 14;
+ * optional string evm_version = 14;
+ * @return {string}
+ */
+proto.txpull.v1.contracts.Contract.prototype.getEvmVersion = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.txpull.v1.contracts.Contract} returns this
+ */
+proto.txpull.v1.contracts.Contract.prototype.setEvmVersion = function(value) {
+  return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional bool optimized = 15;
  * @return {boolean}
  */
 proto.txpull.v1.contracts.Contract.prototype.getOptimized = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 15, false));
 };
 
 
@@ -709,16 +739,16 @@ proto.txpull.v1.contracts.Contract.prototype.getOptimized = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setOptimized = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 14, value);
+  return jspb.Message.setProto3BooleanField(this, 15, value);
 };
 
 
 /**
- * optional int32 optimization_runs = 15;
+ * optional int32 optimization_runs = 16;
  * @return {number}
  */
 proto.txpull.v1.contracts.Contract.prototype.getOptimizationRuns = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
 };
 
 
@@ -727,16 +757,16 @@ proto.txpull.v1.contracts.Contract.prototype.getOptimizationRuns = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setOptimizationRuns = function(value) {
-  return jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
 /**
- * repeated string possible_contract_types = 16;
+ * repeated string possible_contract_types = 17;
  * @return {!Array<string>}
  */
 proto.txpull.v1.contracts.Contract.prototype.getPossibleContractTypesList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 16));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 17));
 };
 
 
@@ -745,7 +775,7 @@ proto.txpull.v1.contracts.Contract.prototype.getPossibleContractTypesList = func
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setPossibleContractTypesList = function(value) {
-  return jspb.Message.setField(this, 16, value || []);
+  return jspb.Message.setField(this, 17, value || []);
 };
 
 
@@ -755,7 +785,7 @@ proto.txpull.v1.contracts.Contract.prototype.setPossibleContractTypesList = func
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.addPossibleContractTypes = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 16, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 17, value, opt_index);
 };
 
 
@@ -769,11 +799,11 @@ proto.txpull.v1.contracts.Contract.prototype.clearPossibleContractTypesList = fu
 
 
 /**
- * optional int32 contracts_count = 17;
+ * optional int32 contracts_count = 18;
  * @return {number}
  */
 proto.txpull.v1.contracts.Contract.prototype.getContractsCount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
 };
 
 
@@ -782,17 +812,17 @@ proto.txpull.v1.contracts.Contract.prototype.getContractsCount = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setContractsCount = function(value) {
-  return jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 18, value);
 };
 
 
 /**
- * repeated txpull.v1.ir.EIP eips = 18;
+ * repeated txpull.v1.ir.EIP standards = 19;
  * @return {!Array<!proto.txpull.v1.ir.EIP>}
  */
-proto.txpull.v1.contracts.Contract.prototype.getEipsList = function() {
+proto.txpull.v1.contracts.Contract.prototype.getStandardsList = function() {
   return /** @type{!Array<!proto.txpull.v1.ir.EIP>} */ (
-    jspb.Message.getRepeatedWrapperField(this, ir_eip_pb.EIP, 18));
+    jspb.Message.getRepeatedWrapperField(this, ir_eip_pb.EIP, 19));
 };
 
 
@@ -800,8 +830,8 @@ proto.txpull.v1.contracts.Contract.prototype.getEipsList = function() {
  * @param {!Array<!proto.txpull.v1.ir.EIP>} value
  * @return {!proto.txpull.v1.contracts.Contract} returns this
 */
-proto.txpull.v1.contracts.Contract.prototype.setEipsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 18, value);
+proto.txpull.v1.contracts.Contract.prototype.setStandardsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 19, value);
 };
 
 
@@ -810,8 +840,8 @@ proto.txpull.v1.contracts.Contract.prototype.setEipsList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.txpull.v1.ir.EIP}
  */
-proto.txpull.v1.contracts.Contract.prototype.addEips = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 18, opt_value, proto.txpull.v1.ir.EIP, opt_index);
+proto.txpull.v1.contracts.Contract.prototype.addStandards = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 19, opt_value, proto.txpull.v1.ir.EIP, opt_index);
 };
 
 
@@ -819,17 +849,17 @@ proto.txpull.v1.contracts.Contract.prototype.addEips = function(opt_value, opt_i
  * Clears the list making it empty but non-null.
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
-proto.txpull.v1.contracts.Contract.prototype.clearEipsList = function() {
-  return this.setEipsList([]);
+proto.txpull.v1.contracts.Contract.prototype.clearStandardsList = function() {
+  return this.setStandardsList([]);
 };
 
 
 /**
- * repeated string metadata_urls = 19;
+ * repeated string metadata_urls = 20;
  * @return {!Array<string>}
  */
 proto.txpull.v1.contracts.Contract.prototype.getMetadataUrlsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 19));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 20));
 };
 
 
@@ -838,7 +868,7 @@ proto.txpull.v1.contracts.Contract.prototype.getMetadataUrlsList = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setMetadataUrlsList = function(value) {
-  return jspb.Message.setField(this, 19, value || []);
+  return jspb.Message.setField(this, 20, value || []);
 };
 
 
@@ -848,7 +878,7 @@ proto.txpull.v1.contracts.Contract.prototype.setMetadataUrlsList = function(valu
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.addMetadataUrls = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 19, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 20, value, opt_index);
 };
 
 
@@ -862,12 +892,12 @@ proto.txpull.v1.contracts.Contract.prototype.clearMetadataUrlsList = function() 
 
 
 /**
- * repeated Implements implements = 20;
+ * repeated Implements implements = 21;
  * @return {!Array<!proto.txpull.v1.contracts.Implements>}
  */
 proto.txpull.v1.contracts.Contract.prototype.getImplementsList = function() {
   return /** @type{!Array<!proto.txpull.v1.contracts.Implements>} */ (
-    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.Implements, 20));
+    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.Implements, 21));
 };
 
 
@@ -876,7 +906,7 @@ proto.txpull.v1.contracts.Contract.prototype.getImplementsList = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
 */
 proto.txpull.v1.contracts.Contract.prototype.setImplementsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 20, value);
+  return jspb.Message.setRepeatedWrapperField(this, 21, value);
 };
 
 
@@ -886,7 +916,7 @@ proto.txpull.v1.contracts.Contract.prototype.setImplementsList = function(value)
  * @return {!proto.txpull.v1.contracts.Implements}
  */
 proto.txpull.v1.contracts.Contract.prototype.addImplements = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 20, opt_value, proto.txpull.v1.contracts.Implements, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 21, opt_value, proto.txpull.v1.contracts.Implements, opt_index);
 };
 
 
@@ -900,12 +930,12 @@ proto.txpull.v1.contracts.Contract.prototype.clearImplementsList = function() {
 
 
 /**
- * optional Constructor constructor = 21;
+ * optional Constructor constructor = 22;
  * @return {?proto.txpull.v1.contracts.Constructor}
  */
 proto.txpull.v1.contracts.Contract.prototype.getConstructor = function() {
   return /** @type{?proto.txpull.v1.contracts.Constructor} */ (
-    jspb.Message.getWrapperField(this, contracts_constructor_pb.Constructor, 21));
+    jspb.Message.getWrapperField(this, contracts_constructor_pb.Constructor, 22));
 };
 
 
@@ -914,7 +944,7 @@ proto.txpull.v1.contracts.Contract.prototype.getConstructor = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
 */
 proto.txpull.v1.contracts.Contract.prototype.setConstructor = function(value) {
-  return jspb.Message.setWrapperField(this, 21, value);
+  return jspb.Message.setWrapperField(this, 22, value);
 };
 
 
@@ -932,16 +962,16 @@ proto.txpull.v1.contracts.Contract.prototype.clearConstructor = function() {
  * @return {boolean}
  */
 proto.txpull.v1.contracts.Contract.prototype.hasConstructor = function() {
-  return jspb.Message.getField(this, 21) != null;
+  return jspb.Message.getField(this, 22) != null;
 };
 
 
 /**
- * optional bool has_vulnerabilities = 22;
+ * optional bool has_vulnerabilities = 23;
  * @return {boolean}
  */
 proto.txpull.v1.contracts.Contract.prototype.getHasVulnerabilities = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 22, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 23, false));
 };
 
 
@@ -950,17 +980,17 @@ proto.txpull.v1.contracts.Contract.prototype.getHasVulnerabilities = function() 
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setHasVulnerabilities = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 22, value);
+  return jspb.Message.setProto3BooleanField(this, 23, value);
 };
 
 
 /**
- * repeated VulnerabilityMetric vulnerability_metrics = 23;
+ * repeated VulnerabilityMetric vulnerability_metrics = 24;
  * @return {!Array<!proto.txpull.v1.contracts.VulnerabilityMetric>}
  */
 proto.txpull.v1.contracts.Contract.prototype.getVulnerabilityMetricsList = function() {
   return /** @type{!Array<!proto.txpull.v1.contracts.VulnerabilityMetric>} */ (
-    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.VulnerabilityMetric, 23));
+    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.VulnerabilityMetric, 24));
 };
 
 
@@ -969,7 +999,7 @@ proto.txpull.v1.contracts.Contract.prototype.getVulnerabilityMetricsList = funct
  * @return {!proto.txpull.v1.contracts.Contract} returns this
 */
 proto.txpull.v1.contracts.Contract.prototype.setVulnerabilityMetricsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 23, value);
+  return jspb.Message.setRepeatedWrapperField(this, 24, value);
 };
 
 
@@ -979,7 +1009,7 @@ proto.txpull.v1.contracts.Contract.prototype.setVulnerabilityMetricsList = funct
  * @return {!proto.txpull.v1.contracts.VulnerabilityMetric}
  */
 proto.txpull.v1.contracts.Contract.prototype.addVulnerabilityMetrics = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 23, opt_value, proto.txpull.v1.contracts.VulnerabilityMetric, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 24, opt_value, proto.txpull.v1.contracts.VulnerabilityMetric, opt_index);
 };
 
 
@@ -993,12 +1023,12 @@ proto.txpull.v1.contracts.Contract.prototype.clearVulnerabilityMetricsList = fun
 
 
 /**
- * repeated Vulnerability vulnerabilities = 24;
+ * repeated Vulnerability vulnerabilities = 25;
  * @return {!Array<!proto.txpull.v1.contracts.Vulnerability>}
  */
 proto.txpull.v1.contracts.Contract.prototype.getVulnerabilitiesList = function() {
   return /** @type{!Array<!proto.txpull.v1.contracts.Vulnerability>} */ (
-    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.Vulnerability, 24));
+    jspb.Message.getRepeatedWrapperField(this, contracts_vulnerability_pb.Vulnerability, 25));
 };
 
 
@@ -1007,7 +1037,7 @@ proto.txpull.v1.contracts.Contract.prototype.getVulnerabilitiesList = function()
  * @return {!proto.txpull.v1.contracts.Contract} returns this
 */
 proto.txpull.v1.contracts.Contract.prototype.setVulnerabilitiesList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 24, value);
+  return jspb.Message.setRepeatedWrapperField(this, 25, value);
 };
 
 
@@ -1017,7 +1047,7 @@ proto.txpull.v1.contracts.Contract.prototype.setVulnerabilitiesList = function(v
  * @return {!proto.txpull.v1.contracts.Vulnerability}
  */
 proto.txpull.v1.contracts.Contract.prototype.addVulnerabilities = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 24, opt_value, proto.txpull.v1.contracts.Vulnerability, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 25, opt_value, proto.txpull.v1.contracts.Vulnerability, opt_index);
 };
 
 
@@ -1031,11 +1061,11 @@ proto.txpull.v1.contracts.Contract.prototype.clearVulnerabilitiesList = function
 
 
 /**
- * optional string abi = 25;
+ * optional string abi = 26;
  * @return {string}
  */
 proto.txpull.v1.contracts.Contract.prototype.getAbi = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 25, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 26, ""));
 };
 
 
@@ -1044,7 +1074,7 @@ proto.txpull.v1.contracts.Contract.prototype.getAbi = function() {
  * @return {!proto.txpull.v1.contracts.Contract} returns this
  */
 proto.txpull.v1.contracts.Contract.prototype.setAbi = function(value) {
-  return jspb.Message.setProto3StringField(this, 25, value);
+  return jspb.Message.setProto3StringField(this, 26, value);
 };
 
 

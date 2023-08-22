@@ -18089,6 +18089,18 @@
               "defaultValue": ""
             },
             {
+              "name": "evm_version",
+              "description": "Version of the EVM used.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "optimized",
               "description": "Indicates if the contract is optimized.",
               "label": "",
@@ -18137,7 +18149,7 @@
               "defaultValue": ""
             },
             {
-              "name": "eips",
+              "name": "standards",
               "description": "List of Ethereum Improvement Proposals (EIPs) associated with this IR.",
               "label": "repeated",
               "type": "EIP",

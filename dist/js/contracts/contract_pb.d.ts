@@ -45,6 +45,9 @@ export class Contract extends jspb.Message {
   getCompilerVersion(): string;
   setCompilerVersion(value: string): Contract;
 
+  getEvmVersion(): string;
+  setEvmVersion(value: string): Contract;
+
   getOptimized(): boolean;
   setOptimized(value: boolean): Contract;
 
@@ -59,10 +62,10 @@ export class Contract extends jspb.Message {
   getContractsCount(): number;
   setContractsCount(value: number): Contract;
 
-  getEipsList(): Array<ir_eip_pb.EIP>;
-  setEipsList(value: Array<ir_eip_pb.EIP>): Contract;
-  clearEipsList(): Contract;
-  addEips(value?: ir_eip_pb.EIP, index?: number): ir_eip_pb.EIP;
+  getStandardsList(): Array<ir_eip_pb.EIP>;
+  setStandardsList(value: Array<ir_eip_pb.EIP>): Contract;
+  clearStandardsList(): Contract;
+  addStandards(value?: ir_eip_pb.EIP, index?: number): ir_eip_pb.EIP;
 
   getMetadataUrlsList(): Array<string>;
   setMetadataUrlsList(value: Array<string>): Contract;
@@ -118,11 +121,12 @@ export namespace Contract {
     transactionHash: string,
     verified: boolean,
     compilerVersion: string,
+    evmVersion: string,
     optimized: boolean,
     optimizationRuns: number,
     possibleContractTypesList: Array<string>,
     contractsCount: number,
-    eipsList: Array<ir_eip_pb.EIP.AsObject>,
+    standardsList: Array<ir_eip_pb.EIP.AsObject>,
     metadataUrlsList: Array<string>,
     implementsList: Array<contracts_vulnerability_pb.Implements.AsObject>,
     constructor?: contracts_constructor_pb.Constructor.AsObject,
