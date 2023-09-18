@@ -1,6 +1,6 @@
 syntax = "proto3";
 package txpull.v1.opcode;
-option go_package = "github.com/txpull/protos/dist/go/opcode;opcode_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/opcode;opcode_pb";
 
 // OpCode represents the set of operation codes (opcodes) used in the Ethereum Virtual Machine (EVM).
 // These opcodes are fundamental instructions that the EVM executes.

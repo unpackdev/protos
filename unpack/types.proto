@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/unpack;unpack_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/unpack;unpack_pb";
 
 //import "google/api/annotations.proto";
 //import "google/protobuf/timestamp.proto";

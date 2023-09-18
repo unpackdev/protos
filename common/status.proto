@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/common;common";
+option go_package = "github.com/unpackdev/protos/dist/go/common;common";
 
 import "google/protobuf/any.proto";
 

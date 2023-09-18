@@ -14,7 +14,5 @@ var global = Function('return this')();
 
 var contracts_service_parameters_pb = require('../contracts/service_parameters_pb.js');
 goog.object.extend(proto, contracts_service_parameters_pb);
-var health_health_pb = require('../health/health_pb.js');
-goog.object.extend(proto, health_health_pb);
 var google_api_annotations_pb = require('../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);

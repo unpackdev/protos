@@ -4,7 +4,6 @@ package ast_pb
 
 import (
 	context "context"
-	health "github.com/txpull/protos/dist/go/health"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -25,9 +24,6 @@ type ServiceClient interface {
 	// Decompiles the bytecode associated with a transaction.
 	// The HTTP POST method is used, and the request body contains the transaction details.
 	Decompile(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
-	// Checks the health status of the ast service.
-	// The HTTP GET method is used, and the response provides health status details.
-	GetHealth(ctx context.Context, in *health.HealthRequest, opts ...grpc.CallOption) (*health.HealthResponse, error)
 }
 
 type serviceClient struct {
@@ -56,15 +52,6 @@ func (c *serviceClient) Decompile(ctx context.Context, in *Request, opts ...grpc
 	return out, nil
 }
 
-func (c *serviceClient) GetHealth(ctx context.Context, in *health.HealthRequest, opts ...grpc.CallOption) (*health.HealthResponse, error) {
-	out := new(health.HealthResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.ast.Service/GetHealth", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -75,9 +62,6 @@ type ServiceServer interface {
 	// Decompiles the bytecode associated with a transaction.
 	// The HTTP POST method is used, and the request body contains the transaction details.
 	Decompile(context.Context, *Request) (*Response, error)
-	// Checks the health status of the ast service.
-	// The HTTP GET method is used, and the response provides health status details.
-	GetHealth(context.Context, *health.HealthRequest) (*health.HealthResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -90,9 +74,6 @@ func (UnimplementedServiceServer) Get(context.Context, *Request) (*Response, err
 }
 func (UnimplementedServiceServer) Decompile(context.Context, *Request) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Decompile not implemented")
-}
-func (UnimplementedServiceServer) GetHealth(context.Context, *health.HealthRequest) (*health.HealthResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetHealth not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -143,24 +124,6 @@ func _Service_Decompile_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_GetHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(health.HealthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).GetHealth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/txpull.v1.ast.Service/GetHealth",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GetHealth(ctx, req.(*health.HealthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -175,10 +138,6 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Decompile",
 			Handler:    _Service_Decompile_Handler,
-		},
-		{
-			MethodName: "GetHealth",
-			Handler:    _Service_GetHealth_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

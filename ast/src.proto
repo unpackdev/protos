@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
 // The Src message represents source information about an AST (Abstract Syntax Tree) node in a Solidity source file.

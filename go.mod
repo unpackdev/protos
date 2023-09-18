@@ -1,4 +1,4 @@
-module github.com/txpull/protos
+module github.com/unpackdev/protos
 
 go 1.19
 

@@ -2,7 +2,7 @@ syntax = "proto3";
 package txpull.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
-option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
 
 // Represents a symbol in the intermediate representation (IR).
 message Symbol {

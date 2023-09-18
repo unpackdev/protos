@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/txpull/protos.git"
+    "url": "git+https://github.com/unpackdev/protos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/txpull/protos/issues"
+    "url": "https://github.com/unpackdev/protos/issues"
   },
-  "homepage": "https://github.com/txpull/protos#readme",
+  "homepage": "https://github.com/unpackdev/protos#readme",
   "devDependencies": {
     "grpc-tools": "^1.12.4",
     "grpc-web": "^1.4.2",

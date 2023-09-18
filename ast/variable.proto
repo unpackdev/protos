@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 package txpull.v1.ast;
 
 import "ast/types.proto";

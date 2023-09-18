@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/txpull/protos/dist/go/abi;abi_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/abi;abi_pb";
 package txpull.v1.abi;
 
 import "abi/method.proto";

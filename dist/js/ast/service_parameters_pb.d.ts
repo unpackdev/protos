@@ -12,11 +12,6 @@ export class Request extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): Request;
 
-  getBytecode(): Uint8Array | string;
-  getBytecode_asU8(): Uint8Array;
-  getBytecode_asB64(): string;
-  setBytecode(value: Uint8Array | string): Request;
-
   getSources(): sources_source_pb.Sources | undefined;
   setSources(value?: sources_source_pb.Sources): Request;
   hasSources(): boolean;
@@ -34,7 +29,6 @@ export namespace Request {
   export type AsObject = {
     networkId: number,
     address: string,
-    bytecode: Uint8Array | string,
     sources?: sources_source_pb.Sources.AsObject,
   }
 }

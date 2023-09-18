@@ -22,8 +22,6 @@ grpc.web = require('grpc-web');
 
 var contracts_service_parameters_pb = require('../contracts/service_parameters_pb.js')
 
-var health_health_pb = require('../health/health_pb.js')
-
 var google_api_annotations_pb = require('../google/api/annotations_pb.js')
 const proto = {};
 proto.txpull = {};
@@ -201,67 +199,6 @@ proto.txpull.v1.contracts.ServicePromiseClient.prototype.unpack =
       request,
       metadata || {},
       methodDescriptor_Service_Unpack);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.txpull.v1.health.HealthRequest,
- *   !proto.txpull.v1.health.HealthResponse>}
- */
-const methodDescriptor_Service_GetHealth = new grpc.web.MethodDescriptor(
-  '/txpull.v1.contracts.Service/GetHealth',
-  grpc.web.MethodType.UNARY,
-  health_health_pb.HealthRequest,
-  health_health_pb.HealthResponse,
-  /**
-   * @param {!proto.txpull.v1.health.HealthRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  health_health_pb.HealthResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.txpull.v1.health.HealthRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.txpull.v1.health.HealthResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.txpull.v1.health.HealthResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.txpull.v1.contracts.ServiceClient.prototype.getHealth =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/txpull.v1.contracts.Service/GetHealth',
-      request,
-      metadata || {},
-      methodDescriptor_Service_GetHealth,
-      callback);
-};
-
-
-/**
- * @param {!proto.txpull.v1.health.HealthRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.txpull.v1.health.HealthResponse>}
- *     Promise that resolves to the response
- */
-proto.txpull.v1.contracts.ServicePromiseClient.prototype.getHealth =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/txpull.v1.contracts.Service/GetHealth',
-      request,
-      metadata || {},
-      methodDescriptor_Service_GetHealth);
 };
 
 

@@ -4,7 +4,7 @@ package opcode_pb
 
 import (
 	context "context"
-	health "github.com/txpull/protos/dist/go/health"
+	health "github.com/unpackdev/protos/dist/go/health"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

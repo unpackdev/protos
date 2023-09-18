@@ -1,6 +1,6 @@
 syntax = "proto3";
 package txpull.v1.ast;
-option go_package = "github.com/txpull/protos/dist/go/ast;ast_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 
 import "common/status.proto";
 import "ast/source_unit.proto";
@@ -13,9 +13,6 @@ message Request {
     
     // Address associated with the transaction.
     string address = 2;
-    
-    // Bytecode of the transaction.
-    bytes  bytecode = 3;
 
     // Raw source code definitions.
     txpull.v1.sources.Sources sources = 4;

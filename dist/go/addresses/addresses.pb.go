@@ -8,7 +8,7 @@ package addresses
 
 import (
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	common "github.com/txpull/protos/dist/go/common"
+	common "github.com/unpackdev/protos/dist/go/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"

@@ -96,7 +96,6 @@ proto.txpull.v1.ast.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
     networkId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     address: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    bytecode: msg.getBytecode_asB64(),
     sources: (f = msg.getSources()) && sources_source_pb.Sources.toObject(includeInstance, f)
   };
 
@@ -141,10 +140,6 @@ proto.txpull.v1.ast.Request.deserializeBinaryFromReader = function(msg, reader) 
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setAddress(value);
-      break;
-    case 3:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setBytecode(value);
       break;
     case 4:
       var value = new sources_source_pb.Sources;
@@ -194,13 +189,6 @@ proto.txpull.v1.ast.Request.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getBytecode_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      3,
-      f
-    );
-  }
   f = message.getSources();
   if (f != null) {
     writer.writeMessage(
@@ -245,48 +233,6 @@ proto.txpull.v1.ast.Request.prototype.getAddress = function() {
  */
 proto.txpull.v1.ast.Request.prototype.setAddress = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional bytes bytecode = 3;
- * @return {!(string|Uint8Array)}
- */
-proto.txpull.v1.ast.Request.prototype.getBytecode = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * optional bytes bytecode = 3;
- * This is a type-conversion wrapper around `getBytecode()`
- * @return {string}
- */
-proto.txpull.v1.ast.Request.prototype.getBytecode_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getBytecode()));
-};
-
-
-/**
- * optional bytes bytecode = 3;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getBytecode()`
- * @return {!Uint8Array}
- */
-proto.txpull.v1.ast.Request.prototype.getBytecode_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getBytecode()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.txpull.v1.ast.Request} returns this
- */
-proto.txpull.v1.ast.Request.prototype.setBytecode = function(value) {
-  return jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 

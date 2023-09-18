@@ -4,9 +4,9 @@ package solgo_pb
 
 import (
 	context "context"
-	ast "github.com/txpull/protos/dist/go/ast"
-	health "github.com/txpull/protos/dist/go/health"
-	metadata "github.com/txpull/protos/dist/go/metadata"
+	ast "github.com/unpackdev/protos/dist/go/ast"
+	health "github.com/unpackdev/protos/dist/go/health"
+	metadata "github.com/unpackdev/protos/dist/go/metadata"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

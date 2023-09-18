@@ -1,6 +1,6 @@
 syntax = "proto3";
 package txpull.v1.ir;
-option go_package = "github.com/txpull/protos/dist/go/ir;ir_pb";
+option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
 
 import "eip/discovery.proto";
 import "eip/eip.proto";

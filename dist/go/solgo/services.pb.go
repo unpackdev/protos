@@ -7,9 +7,9 @@
 package solgo_pb
 
 import (
-	ast "github.com/txpull/protos/dist/go/ast"
-	health "github.com/txpull/protos/dist/go/health"
-	metadata "github.com/txpull/protos/dist/go/metadata"
+	ast "github.com/unpackdev/protos/dist/go/ast"
+	health "github.com/unpackdev/protos/dist/go/health"
+	metadata "github.com/unpackdev/protos/dist/go/metadata"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

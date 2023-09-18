@@ -7,7 +7,7 @@
 package ast_pb
 
 import (
-	common "github.com/txpull/protos/dist/go/common"
+	common "github.com/unpackdev/protos/dist/go/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
