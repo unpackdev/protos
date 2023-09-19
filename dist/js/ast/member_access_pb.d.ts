@@ -21,6 +21,11 @@ export class MemberAccess extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): MemberAccess;
 
+  getMemberLocation(): ast_src_pb.Src | undefined;
+  setMemberLocation(value?: ast_src_pb.Src): MemberAccess;
+  hasMemberLocation(): boolean;
+  clearMemberLocation(): MemberAccess;
+
   getReferencedDeclaration(): number;
   setReferencedDeclaration(value: number): MemberAccess;
 
@@ -65,6 +70,7 @@ export namespace MemberAccess {
     memberName: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    memberLocation?: ast_src_pb.Src.AsObject,
     referencedDeclaration: number,
     isConstant: boolean,
     isLValue: boolean,

@@ -32,7 +32,7 @@ func NewTransactionsClient(cc grpc.ClientConnInterface) TransactionsClient {
 
 func (c *transactionsClient) Filter(ctx context.Context, in *FilterTransactionRequest, opts ...grpc.CallOption) (*FilterTransactionResponse, error) {
 	out := new(FilterTransactionResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.transactions.Transactions/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.transactions.Transactions/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *transactionsClient) Filter(ctx context.Context, in *FilterTransactionRe
 
 func (c *transactionsClient) Get(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*GetTransactionResponse, error) {
 	out := new(GetTransactionResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.transactions.Transactions/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.transactions.Transactions/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Transactions_Filter_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.transactions.Transactions/Filter",
+		FullMethod: "/unpack.v1.transactions.Transactions/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TransactionsServer).Filter(ctx, req.(*FilterTransactionRequest))
@@ -108,7 +108,7 @@ func _Transactions_Get_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.transactions.Transactions/Get",
+		FullMethod: "/unpack.v1.transactions.Transactions/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TransactionsServer).Get(ctx, req.(*GetTransactionRequest))
@@ -120,7 +120,7 @@ func _Transactions_Get_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Transactions_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.transactions.Transactions",
+	ServiceName: "unpack.v1.transactions.Transactions",
 	HandlerType: (*TransactionsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

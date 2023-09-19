@@ -54,6 +54,11 @@ export class Parameter extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Parameter;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Parameter;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Parameter;
+
   getScope(): number;
   setScope(value: number): Parameter;
 
@@ -99,6 +104,7 @@ export namespace Parameter {
     name: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     scope: number,
     constant: boolean,
     stateVariable: boolean,

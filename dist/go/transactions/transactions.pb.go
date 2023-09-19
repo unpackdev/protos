@@ -106,7 +106,7 @@ type Transaction struct {
 	Size               float64              `protobuf:"fixed64,21,opt,name=size,proto3" json:"size,omitempty"`
 	Protected          bool                 `protobuf:"varint,22,opt,name=protected,proto3" json:"protected,omitempty"`
 	LogsCount          uint32               `protobuf:"varint,23,opt,name=logs_count,json=logsCount,proto3" json:"logs_count,omitempty"`
-	Status             TransactionStatus    `protobuf:"varint,24,opt,name=status,proto3,enum=txpull.v1.transactions.TransactionStatus" json:"status,omitempty"`
+	Status             TransactionStatus    `protobuf:"varint,24,opt,name=status,proto3,enum=unpack.v1.transactions.TransactionStatus" json:"status,omitempty"`
 	QueuedTimestamp    *timestamp.Timestamp `protobuf:"bytes,25,opt,name=queued_timestamp,json=queuedTimestamp,proto3" json:"queued_timestamp,omitempty"`
 	ProcessedTimestamp *timestamp.Timestamp `protobuf:"bytes,26,opt,name=processed_timestamp,json=processedTimestamp,proto3" json:"processed_timestamp,omitempty"`
 }
@@ -678,28 +678,28 @@ func file_transactions_transactions_proto_rawDescGZIP() []byte {
 var file_transactions_transactions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_transactions_transactions_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_transactions_transactions_proto_goTypes = []interface{}{
-	(TransactionStatus)(0),            // 0: txpull.v1.transactions.TransactionStatus
-	(*Transaction)(nil),               // 1: txpull.v1.transactions.Transaction
-	(*FilterTransactionRequest)(nil),  // 2: txpull.v1.transactions.FilterTransactionRequest
-	(*FilterTransactionResponse)(nil), // 3: txpull.v1.transactions.FilterTransactionResponse
-	(*GetTransactionRequest)(nil),     // 4: txpull.v1.transactions.GetTransactionRequest
-	(*GetTransactionResponse)(nil),    // 5: txpull.v1.transactions.GetTransactionResponse
+	(TransactionStatus)(0),            // 0: unpack.v1.transactions.TransactionStatus
+	(*Transaction)(nil),               // 1: unpack.v1.transactions.Transaction
+	(*FilterTransactionRequest)(nil),  // 2: unpack.v1.transactions.FilterTransactionRequest
+	(*FilterTransactionResponse)(nil), // 3: unpack.v1.transactions.FilterTransactionResponse
+	(*GetTransactionRequest)(nil),     // 4: unpack.v1.transactions.GetTransactionRequest
+	(*GetTransactionResponse)(nil),    // 5: unpack.v1.transactions.GetTransactionResponse
 	(*timestamp.Timestamp)(nil),       // 6: google.protobuf.Timestamp
-	(*common.Status)(nil),             // 7: txpull.v1.common.Status
+	(*common.Status)(nil),             // 7: unpack.v1.common.Status
 }
 var file_transactions_transactions_proto_depIdxs = []int32{
-	0,  // 0: txpull.v1.transactions.Transaction.status:type_name -> txpull.v1.transactions.TransactionStatus
-	6,  // 1: txpull.v1.transactions.Transaction.queued_timestamp:type_name -> google.protobuf.Timestamp
-	6,  // 2: txpull.v1.transactions.Transaction.processed_timestamp:type_name -> google.protobuf.Timestamp
-	7,  // 3: txpull.v1.transactions.FilterTransactionRequest.status:type_name -> txpull.v1.common.Status
-	7,  // 4: txpull.v1.transactions.FilterTransactionResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 5: txpull.v1.transactions.FilterTransactionResponse.transaction:type_name -> txpull.v1.transactions.Transaction
-	7,  // 6: txpull.v1.transactions.GetTransactionResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 7: txpull.v1.transactions.GetTransactionResponse.transaction:type_name -> txpull.v1.transactions.Transaction
-	2,  // 8: txpull.v1.transactions.Transactions.Filter:input_type -> txpull.v1.transactions.FilterTransactionRequest
-	4,  // 9: txpull.v1.transactions.Transactions.Get:input_type -> txpull.v1.transactions.GetTransactionRequest
-	3,  // 10: txpull.v1.transactions.Transactions.Filter:output_type -> txpull.v1.transactions.FilterTransactionResponse
-	5,  // 11: txpull.v1.transactions.Transactions.Get:output_type -> txpull.v1.transactions.GetTransactionResponse
+	0,  // 0: unpack.v1.transactions.Transaction.status:type_name -> unpack.v1.transactions.TransactionStatus
+	6,  // 1: unpack.v1.transactions.Transaction.queued_timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 2: unpack.v1.transactions.Transaction.processed_timestamp:type_name -> google.protobuf.Timestamp
+	7,  // 3: unpack.v1.transactions.FilterTransactionRequest.status:type_name -> unpack.v1.common.Status
+	7,  // 4: unpack.v1.transactions.FilterTransactionResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 5: unpack.v1.transactions.FilterTransactionResponse.transaction:type_name -> unpack.v1.transactions.Transaction
+	7,  // 6: unpack.v1.transactions.GetTransactionResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 7: unpack.v1.transactions.GetTransactionResponse.transaction:type_name -> unpack.v1.transactions.Transaction
+	2,  // 8: unpack.v1.transactions.Transactions.Filter:input_type -> unpack.v1.transactions.FilterTransactionRequest
+	4,  // 9: unpack.v1.transactions.Transactions.Get:input_type -> unpack.v1.transactions.GetTransactionRequest
+	3,  // 10: unpack.v1.transactions.Transactions.Filter:output_type -> unpack.v1.transactions.FilterTransactionResponse
+	5,  // 11: unpack.v1.transactions.Transactions.Get:output_type -> unpack.v1.transactions.GetTransactionResponse
 	10, // [10:12] is the sub-list for method output_type
 	8,  // [8:10] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name

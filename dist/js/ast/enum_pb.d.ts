@@ -24,6 +24,11 @@ export class Enum extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Enum;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Enum;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Enum;
+
   getMembersList(): Array<ast_parameters_pb.Parameter>;
   setMembersList(value: Array<ast_parameters_pb.Parameter>): Enum;
   clearMembersList(): Enum;
@@ -49,6 +54,7 @@ export namespace Enum {
     canonicalName: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     membersList: Array<ast_parameters_pb.Parameter.AsObject>,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }

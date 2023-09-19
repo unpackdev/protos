@@ -105,7 +105,7 @@ type Block struct {
 	BaseFee                    uint64               `protobuf:"varint,20,opt,name=base_fee,json=baseFee,proto3" json:"base_fee,omitempty"`
 	TotalTransactionsCount     uint32               `protobuf:"varint,21,opt,name=total_transactions_count,json=totalTransactionsCount,proto3" json:"total_transactions_count,omitempty"`
 	ProcessedTransactionsCount uint32               `protobuf:"varint,22,opt,name=processed_transactions_count,json=processedTransactionsCount,proto3" json:"processed_transactions_count,omitempty"`
-	Status                     BlockStatus          `protobuf:"varint,23,opt,name=status,proto3,enum=txpull.v1.blocks.BlockStatus" json:"status,omitempty"`
+	Status                     BlockStatus          `protobuf:"varint,23,opt,name=status,proto3,enum=unpack.v1.blocks.BlockStatus" json:"status,omitempty"`
 	QueuedTimestamp            *timestamp.Timestamp `protobuf:"bytes,24,opt,name=queued_timestamp,json=queuedTimestamp,proto3" json:"queued_timestamp,omitempty"`
 	ProcessedTimestamp         *timestamp.Timestamp `protobuf:"bytes,25,opt,name=processed_timestamp,json=processedTimestamp,proto3" json:"processed_timestamp,omitempty"`
 }
@@ -662,29 +662,29 @@ func file_blocks_blocks_proto_rawDescGZIP() []byte {
 var file_blocks_blocks_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_blocks_blocks_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_blocks_blocks_proto_goTypes = []interface{}{
-	(BlockStatus)(0),            // 0: txpull.v1.blocks.BlockStatus
-	(*Block)(nil),               // 1: txpull.v1.blocks.Block
-	(*FilterBlockRequest)(nil),  // 2: txpull.v1.blocks.FilterBlockRequest
-	(*FilterBlockResponse)(nil), // 3: txpull.v1.blocks.FilterBlockResponse
-	(*GetBlockRequest)(nil),     // 4: txpull.v1.blocks.GetBlockRequest
-	(*GetBlockResponse)(nil),    // 5: txpull.v1.blocks.GetBlockResponse
+	(BlockStatus)(0),            // 0: unpack.v1.blocks.BlockStatus
+	(*Block)(nil),               // 1: unpack.v1.blocks.Block
+	(*FilterBlockRequest)(nil),  // 2: unpack.v1.blocks.FilterBlockRequest
+	(*FilterBlockResponse)(nil), // 3: unpack.v1.blocks.FilterBlockResponse
+	(*GetBlockRequest)(nil),     // 4: unpack.v1.blocks.GetBlockRequest
+	(*GetBlockResponse)(nil),    // 5: unpack.v1.blocks.GetBlockResponse
 	(*timestamp.Timestamp)(nil), // 6: google.protobuf.Timestamp
-	(*common.Status)(nil),       // 7: txpull.v1.common.Status
+	(*common.Status)(nil),       // 7: unpack.v1.common.Status
 }
 var file_blocks_blocks_proto_depIdxs = []int32{
-	6,  // 0: txpull.v1.blocks.Block.timestamp:type_name -> google.protobuf.Timestamp
-	0,  // 1: txpull.v1.blocks.Block.status:type_name -> txpull.v1.blocks.BlockStatus
-	6,  // 2: txpull.v1.blocks.Block.queued_timestamp:type_name -> google.protobuf.Timestamp
-	6,  // 3: txpull.v1.blocks.Block.processed_timestamp:type_name -> google.protobuf.Timestamp
-	7,  // 4: txpull.v1.blocks.FilterBlockRequest.status:type_name -> txpull.v1.common.Status
-	7,  // 5: txpull.v1.blocks.FilterBlockResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 6: txpull.v1.blocks.FilterBlockResponse.blocks:type_name -> txpull.v1.blocks.Block
-	7,  // 7: txpull.v1.blocks.GetBlockResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 8: txpull.v1.blocks.GetBlockResponse.block:type_name -> txpull.v1.blocks.Block
-	2,  // 9: txpull.v1.blocks.Blocks.Filter:input_type -> txpull.v1.blocks.FilterBlockRequest
-	4,  // 10: txpull.v1.blocks.Blocks.Get:input_type -> txpull.v1.blocks.GetBlockRequest
-	3,  // 11: txpull.v1.blocks.Blocks.Filter:output_type -> txpull.v1.blocks.FilterBlockResponse
-	5,  // 12: txpull.v1.blocks.Blocks.Get:output_type -> txpull.v1.blocks.GetBlockResponse
+	6,  // 0: unpack.v1.blocks.Block.timestamp:type_name -> google.protobuf.Timestamp
+	0,  // 1: unpack.v1.blocks.Block.status:type_name -> unpack.v1.blocks.BlockStatus
+	6,  // 2: unpack.v1.blocks.Block.queued_timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 3: unpack.v1.blocks.Block.processed_timestamp:type_name -> google.protobuf.Timestamp
+	7,  // 4: unpack.v1.blocks.FilterBlockRequest.status:type_name -> unpack.v1.common.Status
+	7,  // 5: unpack.v1.blocks.FilterBlockResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 6: unpack.v1.blocks.FilterBlockResponse.blocks:type_name -> unpack.v1.blocks.Block
+	7,  // 7: unpack.v1.blocks.GetBlockResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 8: unpack.v1.blocks.GetBlockResponse.block:type_name -> unpack.v1.blocks.Block
+	2,  // 9: unpack.v1.blocks.Blocks.Filter:input_type -> unpack.v1.blocks.FilterBlockRequest
+	4,  // 10: unpack.v1.blocks.Blocks.Get:input_type -> unpack.v1.blocks.GetBlockRequest
+	3,  // 11: unpack.v1.blocks.Blocks.Filter:output_type -> unpack.v1.blocks.FilterBlockResponse
+	5,  // 12: unpack.v1.blocks.Blocks.Get:output_type -> unpack.v1.blocks.GetBlockResponse
 	11, // [11:13] is the sub-list for method output_type
 	9,  // [9:11] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name

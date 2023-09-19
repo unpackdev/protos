@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
+package unpack.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
@@ -11,8 +11,9 @@ message Enum{
     int64 id = 1;
     string name = 2;
     string canonical_name = 3;
-    txpull.v1.ast.NodeType node_type = 4;
-    txpull.v1.ast.Src src = 5;
-    repeated txpull.v1.ast.Parameter members = 6;
-    txpull.v1.ast.TypeDescription type_description = 7;
+    unpack.v1.ast.NodeType node_type = 4;
+    unpack.v1.ast.Src src = 5;
+    unpack.v1.ast.Src name_location = 6;
+    repeated unpack.v1.ast.Parameter members = 7;
+    unpack.v1.ast.TypeDescription type_description = 8;
 }

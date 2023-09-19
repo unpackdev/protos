@@ -1,17 +1,18 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
+package unpack.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
 
 message Import {
     int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.Src src = 3;
-    string absolute_path = 4;
-    string file = 5;
-    int64 scope = 6;
-    string unit_alias = 7;
-    int64 source_unit = 8;
+    unpack.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.Src src = 3;
+    unpack.v1.ast.Src name_location = 4;
+    string absolute_path = 5;
+    string file = 6;
+    int64 scope = 7;
+    string unit_alias = 8;
+    int64 source_unit = 9;
 }

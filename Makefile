@@ -2,7 +2,7 @@
 PROTO_GO_OUT := $(PWD)/dist/go
 PROTO_JS_OUT := $(PWD)/dist/js
 PROTO_PROTOSETS_OUT := $(PWD)/dist/protosets
-PROTO_PROTOSETS_OUT_FILENAME := txpull.protoset
+PROTO_PROTOSETS_OUT_FILENAME := unpack.protoset
 PROTO_DOCS_OUT := $(PWD)/dist/docs
 
 # Define the path to the protoc binary

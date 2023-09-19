@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/eip;eip_pb";
-package txpull.v1.eip;
+package unpack.v1.eip;
 
 import "eip/standards.proto";
 import "eip/eip.proto";
@@ -25,16 +25,16 @@ enum ConfidenceThreshold {
 // Contract Discovery result message
 message Discovery {
     // standard represents the EIP standard that was discovered.
-    txpull.v1.eip.Standard standard = 1;
+    unpack.v1.eip.Standard standard = 1;
 
     // confidence represents the confidence level of the discovery.
-    txpull.v1.eip.ConfidenceLevel confidence = 2;
+    unpack.v1.eip.ConfidenceLevel confidence = 2;
     
     // confidence_points represents the confidence points of the discovery.
     int32 confidence_points = 3;
     
     // threshold represents the threshold level of the discovery.
-    txpull.v1.eip.ConfidenceThreshold threshold = 4;
+    unpack.v1.eip.ConfidenceThreshold threshold = 4;
     
     // maximum_tokens represents the maximum number of tokens in the standard.
     // This is basically a standard TokenCount() function response value.
@@ -45,5 +45,5 @@ message Discovery {
     int32 discovered_tokens = 6;
     
     // contract represents the contract being scanned, including matched functions and events.
-    txpull.v1.eip.Contract contract = 7;
+    unpack.v1.eip.Contract contract = 7;
 }

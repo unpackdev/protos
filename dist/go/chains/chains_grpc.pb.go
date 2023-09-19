@@ -32,7 +32,7 @@ func NewChainsClient(cc grpc.ClientConnInterface) ChainsClient {
 
 func (c *chainsClient) Filter(ctx context.Context, in *FilterChainRequest, opts ...grpc.CallOption) (*FilterChainResponse, error) {
 	out := new(FilterChainResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.chains.Chains/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.chains.Chains/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *chainsClient) Filter(ctx context.Context, in *FilterChainRequest, opts 
 
 func (c *chainsClient) Get(ctx context.Context, in *GetChainRequest, opts ...grpc.CallOption) (*GetChainResponse, error) {
 	out := new(GetChainResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.chains.Chains/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.chains.Chains/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Chains_Filter_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.chains.Chains/Filter",
+		FullMethod: "/unpack.v1.chains.Chains/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChainsServer).Filter(ctx, req.(*FilterChainRequest))
@@ -108,7 +108,7 @@ func _Chains_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.chains.Chains/Get",
+		FullMethod: "/unpack.v1.chains.Chains/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChainsServer).Get(ctx, req.(*GetChainRequest))
@@ -120,7 +120,7 @@ func _Chains_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Chains_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.chains.Chains",
+	ServiceName: "unpack.v1.chains.Chains",
 	HandlerType: (*ChainsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

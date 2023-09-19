@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ir;
+package unpack.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
@@ -15,29 +15,29 @@ message Receive {
     int64 id = 1;   // Unique identifier for the receive function.
 
     // Node type of the receive function. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType node_type = 2;
 
     // Kind of the receive function. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.NodeType kind = 3;
 
     string name = 4;    // Name of the receive function.
 
     bool implemented = 5;   // Indicates if the receive function is implemented or not.
 
     // Visibility of the receive function. Refers to the visibility enumeration in "ast/types.proto".
-    txpull.v1.ast.Visibility visibility = 6;
+    unpack.v1.ast.Visibility visibility = 6;
 
     // State mutability of the receive function. Refers to the mutability enumeration in "ast/types.proto".
-    txpull.v1.ast.Mutability state_mutability = 7;
+    unpack.v1.ast.Mutability state_mutability = 7;
 
     bool virtual = 8;   // Indicates if the receive function is virtual.
 
-    // List of modifiers associated with the receive function. Each modifier is defined using the "txpull.v1.ir.Modifier" message.
-    repeated txpull.v1.ir.Modifier modifiers = 9;
+    // List of modifiers associated with the receive function. Each modifier is defined using the "unpack.v1.ir.Modifier" message.
+    repeated unpack.v1.ir.Modifier modifiers = 9;
 
-    // List of overrides associated with the receive function. Each override is defined using the "txpull.v1.ir.Override" message.
-    repeated txpull.v1.ir.Override overrides = 10;
+    // List of overrides associated with the receive function. Each override is defined using the "unpack.v1.ir.Override" message.
+    repeated unpack.v1.ir.Override overrides = 10;
 
-    // List of parameters of the receive function. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
-    repeated txpull.v1.ir.Parameter parameters = 11;
+    // List of parameters of the receive function. Each parameter is defined using the "unpack.v1.ir.Parameter" message.
+    repeated unpack.v1.ir.Parameter parameters = 11;
 }

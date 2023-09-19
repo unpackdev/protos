@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.opcode;
+package unpack.v1.opcode;
 option go_package = "github.com/unpackdev/protos/dist/go/opcode;opcode_pb";
 
 import "opcode/instruction.proto";
@@ -8,5 +8,5 @@ import "opcode/instruction.proto";
 message Root {
     // The instructions field is a repeated field that can contain multiple instances of the Instruction message.
     // It represents a collection of Ethereum Virtual Machine (EVM) instructions.
-    repeated txpull.v1.opcode.Instruction instructions = 1;
+    repeated unpack.v1.opcode.Instruction instructions = 1;
 }

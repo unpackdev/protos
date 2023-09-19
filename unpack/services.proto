@@ -3,7 +3,7 @@ option go_package = "github.com/unpackdev/protos/dist/go/unpack;unpack_pb";
 
 import "unpack/types.proto";
 
-package txpull.v1.unpack;
+package unpack.v1.unpack;
 
 
 service AuthorizationService {}

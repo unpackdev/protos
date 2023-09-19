@@ -32,7 +32,7 @@ func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
 
 func (c *serviceClient) Get(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/txpull.v1.contracts.Service/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.contracts.Service/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *serviceClient) Get(ctx context.Context, in *Request, opts ...grpc.CallO
 
 func (c *serviceClient) Unpack(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/txpull.v1.contracts.Service/Unpack", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.contracts.Service/Unpack", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Service_Get_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.contracts.Service/Get",
+		FullMethod: "/unpack.v1.contracts.Service/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).Get(ctx, req.(*Request))
@@ -108,7 +108,7 @@ func _Service_Unpack_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.contracts.Service/Unpack",
+		FullMethod: "/unpack.v1.contracts.Service/Unpack",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).Unpack(ctx, req.(*Request))
@@ -120,7 +120,7 @@ func _Service_Unpack_Handler(srv interface{}, ctx context.Context, dec func(inte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.contracts.Service",
+	ServiceName: "unpack.v1.contracts.Service",
 	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

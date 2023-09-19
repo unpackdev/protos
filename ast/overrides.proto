@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ast;
+package unpack.v1.ast;
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
@@ -11,9 +11,9 @@ import "ast/parameters.proto";
 message OverrideSpecifier {
     int64 id = 1;
     string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    txpull.v1.ast.ParameterList overrides = 4;
-    txpull.v1.ast.Src src = 5;
+    unpack.v1.ast.NodeType node_type = 3;
+    unpack.v1.ast.ParameterList overrides = 4;
+    unpack.v1.ast.Src src = 5;
     int64 referenced_declaration = 6;
-    txpull.v1.ast.TypeDescription type_description = 7;
+    unpack.v1.ast.TypeDescription type_description = 7;
 }

@@ -43,6 +43,11 @@ export class Declaration extends jspb.Message {
   hasTypeName(): boolean;
   clearTypeName(): Declaration;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Declaration;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Declaration;
+
   getTypeDescription(): ast_type_name_pb.TypeDescription | undefined;
   setTypeDescription(value?: ast_type_name_pb.TypeDescription): Declaration;
   hasTypeDescription(): boolean;
@@ -69,6 +74,7 @@ export namespace Declaration {
     mutability: ast_types_pb.Mutability,
     visibility: ast_types_pb.Visibility,
     typeName?: ast_type_name_pb.TypeName.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }
 }

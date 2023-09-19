@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.contracts;
+package unpack.v1.contracts;
 option go_package = "github.com/unpackdev/protos/dist/go/contracts;contracts_pb";
 
 import "ir/eip.proto";
@@ -33,25 +33,25 @@ message Contract {
     int32 contracts_count = 18;
 
     // List of Ethereum Improvement Proposals (EIPs) associated with this IR.
-    repeated txpull.v1.ir.EIP standards = 19;
+    repeated unpack.v1.ir.EIP standards = 19;
 
     // Metadata URLs associated with the contract.
     repeated string metadata_urls = 20;
 
     // Implementations associated with the contract.
-    repeated txpull.v1.contracts.Implements implements = 21;
+    repeated unpack.v1.contracts.Implements implements = 21;
     
     // Constructor details of the contract.
-    txpull.v1.contracts.Constructor constructor = 22;
+    unpack.v1.contracts.Constructor constructor = 22;
 
     // Indicates if the contract has vulnerabilities.
     bool has_vulnerabilities = 23;
 
     // Metrics of vulnerabilities associated with the contract.
-    repeated txpull.v1.contracts.VulnerabilityMetric vulnerability_metrics = 24;
+    repeated unpack.v1.contracts.VulnerabilityMetric vulnerability_metrics = 24;
 
     // Vulnerabilities associated with the contract.
-    repeated txpull.v1.contracts.Vulnerability vulnerabilities = 25;
+    repeated unpack.v1.contracts.Vulnerability vulnerabilities = 25;
 
     // ABI of the contract in raw JSON format.
     string abi = 26;

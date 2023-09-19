@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ast;
+package unpack.v1.ast;
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
@@ -8,22 +8,25 @@ import "ast/src.proto";
 message PathNode {
     int64 id = 1;
     string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
+    unpack.v1.ast.NodeType node_type = 3;
     int64 referenced_declaration = 4;
-    txpull.v1.ast.Src src = 5;
+    unpack.v1.ast.Src src = 5;
+    unpack.v1.ast.Src name_location = 6;
 }
 
 message TypeName {
     int64 id = 1;
     string name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    txpull.v1.ast.Src src = 4;
-    txpull.v1.ast.TypeDescription type_description = 5;
-    txpull.v1.ast.TypeName key_type = 6;
-    txpull.v1.ast.TypeName value_type = 7;
-    txpull.v1.ast.PathNode path_node = 8;
-    int64 referenced_declaration = 9;
-    txpull.v1.ast.Mutability state_mutability = 10;
+    unpack.v1.ast.NodeType node_type = 3;
+    unpack.v1.ast.Src src = 4;
+    unpack.v1.ast.TypeDescription type_description = 5;
+    unpack.v1.ast.TypeName key_type = 6;
+    unpack.v1.ast.Src key_type_location = 7;
+    unpack.v1.ast.TypeName value_type = 8;
+    unpack.v1.ast.Src value_type_location = 9;
+    unpack.v1.ast.PathNode path_node = 10;
+    int64 referenced_declaration = 11;
+    unpack.v1.ast.Mutability state_mutability = 12;
   }
   
   message TypeDescription {

@@ -37,7 +37,7 @@ func NewSolGoServiceClient(cc grpc.ClientConnInterface) SolGoServiceClient {
 
 func (c *solGoServiceClient) GetAst(ctx context.Context, in *ast.AstRequest, opts ...grpc.CallOption) (*ast.AstResponse, error) {
 	out := new(ast.AstResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetAst", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.solgo.SolGoService/GetAst", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func (c *solGoServiceClient) GetAst(ctx context.Context, in *ast.AstRequest, opt
 
 func (c *solGoServiceClient) GetAstFromSource(ctx context.Context, in *ast.AstRawRequest, opts ...grpc.CallOption) (*ast.AstResponse, error) {
 	out := new(ast.AstResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetAstFromSource", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.solgo.SolGoService/GetAstFromSource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func (c *solGoServiceClient) GetAstFromSource(ctx context.Context, in *ast.AstRa
 
 func (c *solGoServiceClient) GetMetadata(ctx context.Context, in *metadata.MetadataRequest, opts ...grpc.CallOption) (*metadata.MetadataResponse, error) {
 	out := new(metadata.MetadataResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetMetadata", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.solgo.SolGoService/GetMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *solGoServiceClient) GetMetadata(ctx context.Context, in *metadata.Metad
 
 func (c *solGoServiceClient) GetHealth(ctx context.Context, in *health.HealthRequest, opts ...grpc.CallOption) (*health.HealthResponse, error) {
 	out := new(health.HealthResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.solgo.SolGoService/GetHealth", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.solgo.SolGoService/GetHealth", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func _SolGoService_GetAst_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.solgo.SolGoService/GetAst",
+		FullMethod: "/unpack.v1.solgo.SolGoService/GetAst",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SolGoServiceServer).GetAst(ctx, req.(*ast.AstRequest))
@@ -139,7 +139,7 @@ func _SolGoService_GetAstFromSource_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.solgo.SolGoService/GetAstFromSource",
+		FullMethod: "/unpack.v1.solgo.SolGoService/GetAstFromSource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SolGoServiceServer).GetAstFromSource(ctx, req.(*ast.AstRawRequest))
@@ -157,7 +157,7 @@ func _SolGoService_GetMetadata_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.solgo.SolGoService/GetMetadata",
+		FullMethod: "/unpack.v1.solgo.SolGoService/GetMetadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SolGoServiceServer).GetMetadata(ctx, req.(*metadata.MetadataRequest))
@@ -175,7 +175,7 @@ func _SolGoService_GetHealth_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.solgo.SolGoService/GetHealth",
+		FullMethod: "/unpack.v1.solgo.SolGoService/GetHealth",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SolGoServiceServer).GetHealth(ctx, req.(*health.HealthRequest))
@@ -187,7 +187,7 @@ func _SolGoService_GetHealth_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SolGoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.solgo.SolGoService",
+	ServiceName: "unpack.v1.solgo.SolGoService",
 	HandlerType: (*SolGoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

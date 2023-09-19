@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.contracts;
+package unpack.v1.contracts;
 option go_package = "github.com/unpackdev/protos/dist/go/contracts;contracts_pb";
 
 // Represents an argument of a contract's constructor.
@@ -13,5 +13,5 @@ message ConstructorArgument {
 // Represents a contract's constructor details.
 message Constructor {
     string signature_raw = 2;  // Raw signature of the constructor.
-    repeated txpull.v1.contracts.ConstructorArgument arguments = 3;  // Arguments of the constructor.
+    repeated unpack.v1.contracts.ConstructorArgument arguments = 3;  // Arguments of the constructor.
 }

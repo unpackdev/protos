@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ast;
+package unpack.v1.ast;
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 
 import "ast/types.proto";
@@ -8,9 +8,9 @@ import "xds/type/v3/typed_struct.proto";
 
 message Body {
     int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.NodeType kind = 3;
-    txpull.v1.ast.Src src = 4;
+    unpack.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.Src src = 4;
     bool implemented = 5;
     repeated xds.type.v3.TypedStruct statements = 6;
 }

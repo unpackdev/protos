@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ir;
+package unpack.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
@@ -16,37 +16,37 @@ message Function {
     int64 id = 1;   // Unique identifier for the function.
 
     // Node type of the function. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType node_type = 2;
 
     // Kind of the function. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.NodeType kind = 3;
 
     string name = 4;    // Name of the function.
 
     bool implemented = 5;   // Indicates if the function is implemented or not.
 
     // Visibility of the function. Refers to the visibility enumeration in "ast/types.proto".
-    txpull.v1.ast.Visibility visibility = 6;
+    unpack.v1.ast.Visibility visibility = 6;
 
     // State mutability of the function. Refers to the mutability enumeration in "ast/types.proto".
-    txpull.v1.ast.Mutability state_mutability = 7;
+    unpack.v1.ast.Mutability state_mutability = 7;
 
     bool virtual = 8;   // Indicates if the function is virtual.
 
     int64 referenced_declaration_id = 9; // Identifier of the referenced function declaration.
 
-    // List of modifiers associated with the function. Each modifier is defined using the "txpull.v1.ir.Modifier" message.
-    repeated txpull.v1.ir.Modifier modifiers = 10;
+    // List of modifiers associated with the function. Each modifier is defined using the "unpack.v1.ir.Modifier" message.
+    repeated unpack.v1.ir.Modifier modifiers = 10;
 
-    // List of overrides associated with the function. Each override is defined using the "txpull.v1.ir.Override" message.
-    repeated txpull.v1.ir.Override overrides = 11;
+    // List of overrides associated with the function. Each override is defined using the "unpack.v1.ir.Override" message.
+    repeated unpack.v1.ir.Override overrides = 11;
 
-    // List of parameters of the function. Each parameter is defined using the "txpull.v1.ir.Parameter" message.
-    repeated txpull.v1.ir.Parameter parameters = 12;
+    // List of parameters of the function. Each parameter is defined using the "unpack.v1.ir.Parameter" message.
+    repeated unpack.v1.ir.Parameter parameters = 12;
 
-    // Body of the function. Defined using the "txpull.v1.ir.Body" message.
-    txpull.v1.ir.Body body = 14;
+    // Body of the function. Defined using the "unpack.v1.ir.Body" message.
+    unpack.v1.ir.Body body = 14;
 
-    // List of return parameters of the function. Each return parameter is defined using the "txpull.v1.ir.Parameter" message.
-    repeated txpull.v1.ir.Parameter return = 13;
+    // List of return parameters of the function. Each return parameter is defined using the "unpack.v1.ir.Parameter" message.
+    repeated unpack.v1.ir.Parameter return = 13;
 }

@@ -24,6 +24,11 @@ export class Struct extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Struct;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Struct;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Struct;
+
   getKind(): ast_types_pb.NodeType;
   setKind(value: ast_types_pb.NodeType): Struct;
 
@@ -61,6 +66,7 @@ export namespace Struct {
     canonicalName: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     kind: ast_types_pb.NodeType,
     referencedDeclaration: number,
     visibility: ast_types_pb.Visibility,

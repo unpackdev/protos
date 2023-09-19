@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ir;
+package unpack.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
@@ -24,10 +24,10 @@ message Contract {
     int64 id = 1;   // Unique identifier for the contract.
 
     // Node type of the contract. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType node_type = 2;
 
     // Kind of the contract. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.NodeType kind = 3;
 
     int64 source_unit_id = 4;   // Identifier of the source unit for the contract.
     string name = 5;    // Name of the contract.
@@ -35,27 +35,27 @@ message Contract {
     string language = 7;    // Language used for the contract.
     string absolute_path = 8;   // Absolute path of the contract.
 
-    repeated txpull.v1.ir.Symbol symbols = 9; // List of symbols in the contract.
+    repeated unpack.v1.ir.Symbol symbols = 9; // List of symbols in the contract.
 
-    repeated txpull.v1.ir.Import imports = 10; // List of import statements in the contract.
+    repeated unpack.v1.ir.Import imports = 10; // List of import statements in the contract.
 
-    repeated txpull.v1.ir.Pragma pragmas = 11; // List of pragmas in the contract.
+    repeated unpack.v1.ir.Pragma pragmas = 11; // List of pragmas in the contract.
 
-    repeated txpull.v1.ir.StateVariable state_variables = 12; // List of state variables in the contract.
+    repeated unpack.v1.ir.StateVariable state_variables = 12; // List of state variables in the contract.
 
-    repeated txpull.v1.ir.Struct structs = 13; // List of struct declarations in the contract.
+    repeated unpack.v1.ir.Struct structs = 13; // List of struct declarations in the contract.
 
-    repeated txpull.v1.ir.Enum enums = 14; // List of enum declarations in the contract.
+    repeated unpack.v1.ir.Enum enums = 14; // List of enum declarations in the contract.
 
-    repeated txpull.v1.ir.Event events = 15; // List of event declarations in the contract.
+    repeated unpack.v1.ir.Event events = 15; // List of event declarations in the contract.
 
-    repeated txpull.v1.ir.Error errors = 16; // List of error declarations in the contract.
+    repeated unpack.v1.ir.Error errors = 16; // List of error declarations in the contract.
 
-    txpull.v1.ir.Constructor constructor = 17; // Constructor declaration for the contract.
+    unpack.v1.ir.Constructor constructor = 17; // Constructor declaration for the contract.
 
-    repeated txpull.v1.ir.Function functions = 18; // List of function declarations in the contract.
+    repeated unpack.v1.ir.Function functions = 18; // List of function declarations in the contract.
 
-    txpull.v1.ir.Fallback fallback = 19; // Fallback function declaration for the contract.
+    unpack.v1.ir.Fallback fallback = 19; // Fallback function declaration for the contract.
 
-    txpull.v1.ir.Receive receive = 20; // Receive function declaration for the contract.
+    unpack.v1.ir.Receive receive = 20; // Receive function declaration for the contract.
 }

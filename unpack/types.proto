@@ -5,7 +5,7 @@ option go_package = "github.com/unpackdev/protos/dist/go/unpack;unpack_pb";
 //import "google/protobuf/timestamp.proto";
 //import "common/status.proto";
 
-package txpull.v1.unpack;
+package unpack.v1.unpack;
 
 
 message NetworkRequest {

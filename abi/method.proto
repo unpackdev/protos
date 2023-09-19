@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/abi;abi_pb";
-package txpull.v1.abi;
+package unpack.v1.abi;
 
 // MethodIO represents an input or output parameter of a contract method or event.
 // It provides a structured representation of the parameter's attributes, 

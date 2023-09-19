@@ -16,6 +16,11 @@ export class Import extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Import;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Import;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Import;
+
   getAbsolutePath(): string;
   setAbsolutePath(value: string): Import;
 
@@ -44,6 +49,7 @@ export namespace Import {
     id: number,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     absolutePath: string,
     file: string,
     scope: number,

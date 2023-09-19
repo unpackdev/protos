@@ -237,15 +237,15 @@ func file_indexer_processor_proto_rawDescGZIP() []byte {
 var file_indexer_processor_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_indexer_processor_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_indexer_processor_proto_goTypes = []interface{}{
-	(ProcessorQueueStatus)(0),  // 0: txpull.v1.indexer.processor.ProcessorQueueStatus
-	(*QueueBlockRequest)(nil),  // 1: txpull.v1.indexer.processor.QueueBlockRequest
-	(*QueueBlockResponse)(nil), // 2: txpull.v1.indexer.processor.QueueBlockResponse
-	(*common.Status)(nil),      // 3: txpull.v1.common.Status
+	(ProcessorQueueStatus)(0),  // 0: unpack.v1.indexer.processor.ProcessorQueueStatus
+	(*QueueBlockRequest)(nil),  // 1: unpack.v1.indexer.processor.QueueBlockRequest
+	(*QueueBlockResponse)(nil), // 2: unpack.v1.indexer.processor.QueueBlockResponse
+	(*common.Status)(nil),      // 3: unpack.v1.common.Status
 }
 var file_indexer_processor_proto_depIdxs = []int32{
-	3, // 0: txpull.v1.indexer.processor.QueueBlockResponse.status:type_name -> txpull.v1.common.Status
-	1, // 1: txpull.v1.indexer.processor.Processor.QueueBlock:input_type -> txpull.v1.indexer.processor.QueueBlockRequest
-	2, // 2: txpull.v1.indexer.processor.Processor.QueueBlock:output_type -> txpull.v1.indexer.processor.QueueBlockResponse
+	3, // 0: unpack.v1.indexer.processor.QueueBlockResponse.status:type_name -> unpack.v1.common.Status
+	1, // 1: unpack.v1.indexer.processor.Processor.QueueBlock:input_type -> unpack.v1.indexer.processor.QueueBlockRequest
+	2, // 2: unpack.v1.indexer.processor.Processor.QueueBlock:output_type -> unpack.v1.indexer.processor.QueueBlockResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

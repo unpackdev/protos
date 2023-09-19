@@ -12,11 +12,11 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.txpull.v1.eip.Standard', null, global);
+goog.exportSymbol('proto.unpack.v1.eip.Standard', null, global);
 /**
  * @enum {number}
  */
-proto.txpull.v1.eip.Standard = {
+proto.unpack.v1.eip.Standard = {
   UNKNOWN: 0,
   EIP20: 1,
   EIP721: 2,
@@ -40,4 +40,4 @@ proto.txpull.v1.eip.Standard = {
   EIP3156: 20
 };
 
-goog.object.extend(exports, proto.txpull.v1.eip);
+goog.object.extend(exports, proto.unpack.v1.eip);

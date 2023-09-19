@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/eip;eip_pb";
-package txpull.v1.eip;
+package unpack.v1.eip;
 
 import "eip/standards.proto";
 
@@ -44,7 +44,7 @@ message Contract {
 message ContractStandard {
     string name = 1; // Name of the EIP standard.
     string url = 2; // URL of the EIP standard.
-    txpull.v1.eip.Standard type = 3; // Type of the contract standard.
+    unpack.v1.eip.Standard type = 3; // Type of the contract standard.
     bool stagnant = 4; // Indicates if the contract standard is stagnant.
     repeated Function functions = 5; // Functions defined in the contract standard.
     repeated Event events = 6; // Events defined in the contract standard.

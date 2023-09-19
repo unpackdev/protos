@@ -1,12 +1,12 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
+package unpack.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
 
 message Assembly {
     int64 id = 1;
-    txpull.v1.ast.NodeType node_type = 2;
-    txpull.v1.ast.Src src = 3;
+    unpack.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.Src src = 3;
 }

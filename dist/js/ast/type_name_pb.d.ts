@@ -22,6 +22,11 @@ export class PathNode extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): PathNode;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): PathNode;
+  hasNameLocation(): boolean;
+  clearNameLocation(): PathNode;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PathNode.AsObject;
   static toObject(includeInstance: boolean, msg: PathNode): PathNode.AsObject;
@@ -37,6 +42,7 @@ export namespace PathNode {
     nodeType: ast_types_pb.NodeType,
     referencedDeclaration: number,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
   }
 }
 
@@ -65,10 +71,20 @@ export class TypeName extends jspb.Message {
   hasKeyType(): boolean;
   clearKeyType(): TypeName;
 
+  getKeyTypeLocation(): ast_src_pb.Src | undefined;
+  setKeyTypeLocation(value?: ast_src_pb.Src): TypeName;
+  hasKeyTypeLocation(): boolean;
+  clearKeyTypeLocation(): TypeName;
+
   getValueType(): TypeName | undefined;
   setValueType(value?: TypeName): TypeName;
   hasValueType(): boolean;
   clearValueType(): TypeName;
+
+  getValueTypeLocation(): ast_src_pb.Src | undefined;
+  setValueTypeLocation(value?: ast_src_pb.Src): TypeName;
+  hasValueTypeLocation(): boolean;
+  clearValueTypeLocation(): TypeName;
 
   getPathNode(): PathNode | undefined;
   setPathNode(value?: PathNode): TypeName;
@@ -97,7 +113,9 @@ export namespace TypeName {
     src?: ast_src_pb.Src.AsObject,
     typeDescription?: TypeDescription.AsObject,
     keyType?: TypeName.AsObject,
+    keyTypeLocation?: ast_src_pb.Src.AsObject,
     valueType?: TypeName.AsObject,
+    valueTypeLocation?: ast_src_pb.Src.AsObject,
     pathNode?: PathNode.AsObject,
     referencedDeclaration: number,
     stateMutability: ast_types_pb.Mutability,

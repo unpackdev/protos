@@ -32,7 +32,7 @@ func NewAddressesClient(cc grpc.ClientConnInterface) AddressesClient {
 
 func (c *addressesClient) Filter(ctx context.Context, in *FilterAddressRequest, opts ...grpc.CallOption) (*FilterAddressResponse, error) {
 	out := new(FilterAddressResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.addresses.Addresses/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.addresses.Addresses/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *addressesClient) Filter(ctx context.Context, in *FilterAddressRequest, 
 
 func (c *addressesClient) Get(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error) {
 	out := new(GetAddressResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.addresses.Addresses/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.addresses.Addresses/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Addresses_Filter_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.addresses.Addresses/Filter",
+		FullMethod: "/unpack.v1.addresses.Addresses/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AddressesServer).Filter(ctx, req.(*FilterAddressRequest))
@@ -108,7 +108,7 @@ func _Addresses_Get_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.addresses.Addresses/Get",
+		FullMethod: "/unpack.v1.addresses.Addresses/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AddressesServer).Get(ctx, req.(*GetAddressRequest))
@@ -120,7 +120,7 @@ func _Addresses_Get_Handler(srv interface{}, ctx context.Context, dec func(inter
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Addresses_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.addresses.Addresses",
+	ServiceName: "unpack.v1.addresses.Addresses",
 	HandlerType: (*AddressesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.opcode;
+package unpack.v1.opcode;
 option go_package = "github.com/unpackdev/protos/dist/go/opcode;opcode_pb";
 
 import "common/status.proto";
@@ -20,7 +20,7 @@ message Request {
 // Represents a opcode response message with details about a transaction.
 message Response {
     // Status of the transaction.
-    txpull.v1.common.Status status = 1;
+    unpack.v1.common.Status status = 1;
     
     // Identifier for the blockchain chain.
     int64 network_id = 2;
@@ -32,5 +32,5 @@ message Response {
     string bytecode = 4;
     
     // Root information associated with the opcode.
-    txpull.v1.opcode.Root root = 5;
+    unpack.v1.opcode.Root root = 5;
 }

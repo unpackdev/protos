@@ -12,15 +12,15 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.txpull.v1.ast.Mutability', null, global);
-goog.exportSymbol('proto.txpull.v1.ast.NodeType', null, global);
-goog.exportSymbol('proto.txpull.v1.ast.Operator', null, global);
-goog.exportSymbol('proto.txpull.v1.ast.StorageLocation', null, global);
-goog.exportSymbol('proto.txpull.v1.ast.Visibility', null, global);
+goog.exportSymbol('proto.unpack.v1.ast.Mutability', null, global);
+goog.exportSymbol('proto.unpack.v1.ast.NodeType', null, global);
+goog.exportSymbol('proto.unpack.v1.ast.Operator', null, global);
+goog.exportSymbol('proto.unpack.v1.ast.StorageLocation', null, global);
+goog.exportSymbol('proto.unpack.v1.ast.Visibility', null, global);
 /**
  * @enum {number}
  */
-proto.txpull.v1.ast.NodeType = {
+proto.unpack.v1.ast.NodeType = {
   NT_DEFAULT: 0,
   SOURCE_UNIT: 1,
   CONTRACT: 2,
@@ -124,7 +124,7 @@ proto.txpull.v1.ast.NodeType = {
 /**
  * @enum {number}
  */
-proto.txpull.v1.ast.Mutability = {
+proto.unpack.v1.ast.Mutability = {
   M_DEFAULT: 0,
   MUTABLE: 1,
   IMMUTABLE: 2,
@@ -137,7 +137,7 @@ proto.txpull.v1.ast.Mutability = {
 /**
  * @enum {number}
  */
-proto.txpull.v1.ast.StorageLocation = {
+proto.unpack.v1.ast.StorageLocation = {
   ST_UNKNOWN: 0,
   DEFAULT: 1,
   MEMORY: 2,
@@ -148,7 +148,7 @@ proto.txpull.v1.ast.StorageLocation = {
 /**
  * @enum {number}
  */
-proto.txpull.v1.ast.Visibility = {
+proto.unpack.v1.ast.Visibility = {
   V_DEFAULT: 0,
   INTERNAL: 1,
   PRIVATE: 2,
@@ -159,7 +159,7 @@ proto.txpull.v1.ast.Visibility = {
 /**
  * @enum {number}
  */
-proto.txpull.v1.ast.Operator = {
+proto.unpack.v1.ast.Operator = {
   O_DEFAULT: 0,
   ADDITION: 1,
   SUBTRACTION: 2,
@@ -196,4 +196,4 @@ proto.txpull.v1.ast.Operator = {
   OR: 33
 };
 
-goog.object.extend(exports, proto.txpull.v1.ast);
+goog.object.extend(exports, proto.unpack.v1.ast);

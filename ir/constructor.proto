@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ir;
+package unpack.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
@@ -14,26 +14,26 @@ message Constructor {
     int64 id = 1;   // Unique identifier for the constructor.
 
     // Node type of the constructor. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType node_type = 2;
 
     // Kind of the constructor. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.NodeType kind = 3;
 
     string name = 4;    // Name of the constructor.
     bool implemented = 5;   // Indicates if the constructor is implemented or not.
     
     // Visibility of the constructor. Refers to the visibility enumeration in "ast/types.proto".
-    txpull.v1.ast.Visibility visibility = 6;
+    unpack.v1.ast.Visibility visibility = 6;
 
     // State mutability of the constructor. Refers to the mutability enumeration in "ast/types.proto".
-    txpull.v1.ast.Mutability state_mutability = 7;
+    unpack.v1.ast.Mutability state_mutability = 7;
     bool virtual = 8;   // Indicates if the constructor is virtual.
 
-    repeated txpull.v1.ir.Modifier modifiers = 9;    // List of constructor modifiers.
+    repeated unpack.v1.ir.Modifier modifiers = 9;    // List of constructor modifiers.
 
     // List of parameters of the constructor. Each parameter is defined in "ir/parameter.proto".
-    repeated txpull.v1.ir.Parameter parameters = 10;
+    repeated unpack.v1.ir.Parameter parameters = 10;
 
     // List of return parameters of the constructor. Each return parameter is defined in "ir/parameter.proto".
-    repeated txpull.v1.ir.Parameter return = 11;
+    repeated unpack.v1.ir.Parameter return = 11;
 }

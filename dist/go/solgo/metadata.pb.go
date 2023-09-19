@@ -135,8 +135,8 @@ func file_solgo_metadata_proto_rawDescGZIP() []byte {
 
 var file_solgo_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_solgo_metadata_proto_goTypes = []interface{}{
-	(*MetadataRequest)(nil),  // 0: txpull.v1.solgo.MetadataRequest
-	(*MetadataResponse)(nil), // 1: txpull.v1.solgo.MetadataResponse
+	(*MetadataRequest)(nil),  // 0: unpack.v1.solgo.MetadataRequest
+	(*MetadataResponse)(nil), // 1: unpack.v1.solgo.MetadataResponse
 }
 var file_solgo_metadata_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

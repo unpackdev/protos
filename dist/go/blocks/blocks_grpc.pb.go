@@ -32,7 +32,7 @@ func NewBlocksClient(cc grpc.ClientConnInterface) BlocksClient {
 
 func (c *blocksClient) Filter(ctx context.Context, in *FilterBlockRequest, opts ...grpc.CallOption) (*FilterBlockResponse, error) {
 	out := new(FilterBlockResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.blocks.Blocks/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.blocks.Blocks/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *blocksClient) Filter(ctx context.Context, in *FilterBlockRequest, opts 
 
 func (c *blocksClient) Get(ctx context.Context, in *GetBlockRequest, opts ...grpc.CallOption) (*GetBlockResponse, error) {
 	out := new(GetBlockResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.blocks.Blocks/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.blocks.Blocks/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Blocks_Filter_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.blocks.Blocks/Filter",
+		FullMethod: "/unpack.v1.blocks.Blocks/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(BlocksServer).Filter(ctx, req.(*FilterBlockRequest))
@@ -108,7 +108,7 @@ func _Blocks_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.blocks.Blocks/Get",
+		FullMethod: "/unpack.v1.blocks.Blocks/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(BlocksServer).Get(ctx, req.(*GetBlockRequest))
@@ -120,7 +120,7 @@ func _Blocks_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Blocks_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.blocks.Blocks",
+	ServiceName: "unpack.v1.blocks.Blocks",
 	HandlerType: (*BlocksServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

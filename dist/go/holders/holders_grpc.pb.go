@@ -32,7 +32,7 @@ func NewHoldersClient(cc grpc.ClientConnInterface) HoldersClient {
 
 func (c *holdersClient) Filter(ctx context.Context, in *FilterHolderRequest, opts ...grpc.CallOption) (*FilterHolderResponse, error) {
 	out := new(FilterHolderResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.holders.Holders/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.holders.Holders/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *holdersClient) Filter(ctx context.Context, in *FilterHolderRequest, opt
 
 func (c *holdersClient) Get(ctx context.Context, in *GetHolderRequest, opts ...grpc.CallOption) (*GetHolderResponse, error) {
 	out := new(GetHolderResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.holders.Holders/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.holders.Holders/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Holders_Filter_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.holders.Holders/Filter",
+		FullMethod: "/unpack.v1.holders.Holders/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HoldersServer).Filter(ctx, req.(*FilterHolderRequest))
@@ -108,7 +108,7 @@ func _Holders_Get_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.holders.Holders/Get",
+		FullMethod: "/unpack.v1.holders.Holders/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HoldersServer).Get(ctx, req.(*GetHolderRequest))
@@ -120,7 +120,7 @@ func _Holders_Get_Handler(srv interface{}, ctx context.Context, dec func(interfa
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Holders_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.holders.Holders",
+	ServiceName: "unpack.v1.holders.Holders",
 	HandlerType: (*HoldersServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

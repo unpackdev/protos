@@ -93,6 +93,11 @@ export class Contract extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Contract;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Contract;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Contract;
+
   getAbstract(): boolean;
   setAbstract(value: boolean): Contract;
 
@@ -134,6 +139,7 @@ export namespace Contract {
     nodeType: ast_types_pb.NodeType,
     kind: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     pb_abstract: boolean,
     fullyImplemented: boolean,
     linearizedBaseContractsList: Array<number>,

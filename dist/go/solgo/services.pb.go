@@ -60,23 +60,23 @@ var file_solgo_services_proto_rawDesc = []byte{
 }
 
 var file_solgo_services_proto_goTypes = []interface{}{
-	(*ast.AstRequest)(nil),            // 0: txpull.v1.ast.AstRequest
-	(*ast.AstRawRequest)(nil),         // 1: txpull.v1.ast.AstRawRequest
-	(*metadata.MetadataRequest)(nil),  // 2: txpull.v1.metadata.MetadataRequest
-	(*health.HealthRequest)(nil),      // 3: txpull.v1.health.HealthRequest
-	(*ast.AstResponse)(nil),           // 4: txpull.v1.ast.AstResponse
-	(*metadata.MetadataResponse)(nil), // 5: txpull.v1.metadata.MetadataResponse
-	(*health.HealthResponse)(nil),     // 6: txpull.v1.health.HealthResponse
+	(*ast.AstRequest)(nil),            // 0: unpack.v1.ast.AstRequest
+	(*ast.AstRawRequest)(nil),         // 1: unpack.v1.ast.AstRawRequest
+	(*metadata.MetadataRequest)(nil),  // 2: unpack.v1.metadata.MetadataRequest
+	(*health.HealthRequest)(nil),      // 3: unpack.v1.health.HealthRequest
+	(*ast.AstResponse)(nil),           // 4: unpack.v1.ast.AstResponse
+	(*metadata.MetadataResponse)(nil), // 5: unpack.v1.metadata.MetadataResponse
+	(*health.HealthResponse)(nil),     // 6: unpack.v1.health.HealthResponse
 }
 var file_solgo_services_proto_depIdxs = []int32{
-	0, // 0: txpull.v1.solgo.SolGoService.GetAst:input_type -> txpull.v1.ast.AstRequest
-	1, // 1: txpull.v1.solgo.SolGoService.GetAstFromSource:input_type -> txpull.v1.ast.AstRawRequest
-	2, // 2: txpull.v1.solgo.SolGoService.GetMetadata:input_type -> txpull.v1.metadata.MetadataRequest
-	3, // 3: txpull.v1.solgo.SolGoService.GetHealth:input_type -> txpull.v1.health.HealthRequest
-	4, // 4: txpull.v1.solgo.SolGoService.GetAst:output_type -> txpull.v1.ast.AstResponse
-	4, // 5: txpull.v1.solgo.SolGoService.GetAstFromSource:output_type -> txpull.v1.ast.AstResponse
-	5, // 6: txpull.v1.solgo.SolGoService.GetMetadata:output_type -> txpull.v1.metadata.MetadataResponse
-	6, // 7: txpull.v1.solgo.SolGoService.GetHealth:output_type -> txpull.v1.health.HealthResponse
+	0, // 0: unpack.v1.solgo.SolGoService.GetAst:input_type -> unpack.v1.ast.AstRequest
+	1, // 1: unpack.v1.solgo.SolGoService.GetAstFromSource:input_type -> unpack.v1.ast.AstRawRequest
+	2, // 2: unpack.v1.solgo.SolGoService.GetMetadata:input_type -> unpack.v1.metadata.MetadataRequest
+	3, // 3: unpack.v1.solgo.SolGoService.GetHealth:input_type -> unpack.v1.health.HealthRequest
+	4, // 4: unpack.v1.solgo.SolGoService.GetAst:output_type -> unpack.v1.ast.AstResponse
+	4, // 5: unpack.v1.solgo.SolGoService.GetAstFromSource:output_type -> unpack.v1.ast.AstResponse
+	5, // 6: unpack.v1.solgo.SolGoService.GetMetadata:output_type -> unpack.v1.metadata.MetadataResponse
+	6, // 7: unpack.v1.solgo.SolGoService.GetHealth:output_type -> unpack.v1.health.HealthResponse
 	4, // [4:8] is the sub-list for method output_type
 	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

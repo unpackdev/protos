@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ast;
+package unpack.v1.ast;
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
 
 import "common/status.proto";
@@ -15,13 +15,13 @@ message Request {
     string address = 2;
 
     // Raw source code definitions.
-    txpull.v1.sources.Sources sources = 4;
+    unpack.v1.sources.Sources sources = 4;
 }
 
 // Represents a ast response message with details about a transaction.
 message Response {
     // Status of the transaction.
-    txpull.v1.common.Status status = 1;
+    unpack.v1.common.Status status = 1;
     
     // Identifier for the blockchain chain.
     int64 network_id = 2;
@@ -33,8 +33,8 @@ message Response {
     string bytecode = 4;
 
     // Raw source code definitions.
-    txpull.v1.sources.Sources sources = 5;
+    unpack.v1.sources.Sources sources = 5;
     
     // Root information associated with the ast.
-    txpull.v1.ast.RootSourceUnit root = 6;
+    unpack.v1.ast.RootSourceUnit root = 6;
 }

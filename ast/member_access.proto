@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
+package unpack.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
@@ -10,14 +10,15 @@ import "xds/type/v3/typed_struct.proto";
 message MemberAccess {
     int64 id = 1;
     string member_name = 2;
-    txpull.v1.ast.NodeType node_type = 3;
-    txpull.v1.ast.Src src = 4;
-    int64 referenced_declaration = 5;
-    bool is_constant = 6;
-    bool is_l_value = 7;
-    bool is_pure = 8;
-    bool l_value_requested = 9;
-    xds.type.v3.TypedStruct expression = 10;
-    repeated txpull.v1.ast.TypeDescription argument_types = 11;
-    txpull.v1.ast.TypeDescription type_description = 12;
+    unpack.v1.ast.NodeType node_type = 3;
+    unpack.v1.ast.Src src = 4;
+    unpack.v1.ast.Src member_location = 5;
+    int64 referenced_declaration = 6;
+    bool is_constant = 7;
+    bool is_l_value = 8;
+    bool is_pure = 9;
+    bool l_value_requested = 10;
+    xds.type.v3.TypedStruct expression = 11;
+    repeated unpack.v1.ast.TypeDescription argument_types = 12;
+    unpack.v1.ast.TypeDescription type_description = 13;
 }

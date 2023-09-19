@@ -12,11 +12,11 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.txpull.v1.opcode.OpCode', null, global);
+goog.exportSymbol('proto.unpack.v1.opcode.OpCode', null, global);
 /**
  * @enum {number}
  */
-proto.txpull.v1.opcode.OpCode = {
+proto.unpack.v1.opcode.OpCode = {
   STOP: 0,
   ADD: 1,
   MUL: 2,
@@ -166,4 +166,4 @@ proto.txpull.v1.opcode.OpCode = {
   SELFDESTRUCT: 255
 };
 
-goog.object.extend(exports, proto.txpull.v1.opcode);
+goog.object.extend(exports, proto.unpack.v1.opcode);

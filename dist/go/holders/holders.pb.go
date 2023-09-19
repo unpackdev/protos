@@ -77,7 +77,7 @@ type Holder struct {
 	AddressId            uint64               `protobuf:"varint,4,opt,name=address_id,json=addressId,proto3" json:"address_id,omitempty"`
 	Amount               string               `protobuf:"bytes,5,opt,name=amount,proto3" json:"amount,omitempty"`
 	PercentageOwned      uint32               `protobuf:"varint,6,opt,name=percentage_owned,json=percentageOwned,proto3" json:"percentage_owned,omitempty"`
-	Status               HolderStatus         `protobuf:"varint,8,opt,name=status,proto3,enum=txpull.v1.holders.HolderStatus" json:"status,omitempty"`
+	Status               HolderStatus         `protobuf:"varint,8,opt,name=status,proto3,enum=unpack.v1.holders.HolderStatus" json:"status,omitempty"`
 	HolderSinceTimestamp *timestamp.Timestamp `protobuf:"bytes,9,opt,name=holder_since_timestamp,json=holderSinceTimestamp,proto3" json:"holder_since_timestamp,omitempty"`
 	QueuedTimestamp      *timestamp.Timestamp `protobuf:"bytes,10,opt,name=queued_timestamp,json=queuedTimestamp,proto3" json:"queued_timestamp,omitempty"`
 	ProcessedTimestamp   *timestamp.Timestamp `protobuf:"bytes,11,opt,name=processed_timestamp,json=processedTimestamp,proto3" json:"processed_timestamp,omitempty"`
@@ -192,7 +192,7 @@ type FilterHolderRequest struct {
 
 	PercentageOwned uint32       `protobuf:"varint,1,opt,name=percentage_owned,json=percentageOwned,proto3" json:"percentage_owned,omitempty"`
 	TokenId         uint32       `protobuf:"varint,2,opt,name=token_id,json=tokenId,proto3" json:"token_id,omitempty"`
-	Status          HolderStatus `protobuf:"varint,3,opt,name=status,proto3,enum=txpull.v1.holders.HolderStatus" json:"status,omitempty"`
+	Status          HolderStatus `protobuf:"varint,3,opt,name=status,proto3,enum=unpack.v1.holders.HolderStatus" json:"status,omitempty"`
 }
 
 func (x *FilterHolderRequest) Reset() {
@@ -529,29 +529,29 @@ func file_holders_holders_proto_rawDescGZIP() []byte {
 var file_holders_holders_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_holders_holders_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_holders_holders_proto_goTypes = []interface{}{
-	(HolderStatus)(0),            // 0: txpull.v1.holders.HolderStatus
-	(*Holder)(nil),               // 1: txpull.v1.holders.Holder
-	(*FilterHolderRequest)(nil),  // 2: txpull.v1.holders.FilterHolderRequest
-	(*FilterHolderResponse)(nil), // 3: txpull.v1.holders.FilterHolderResponse
-	(*GetHolderRequest)(nil),     // 4: txpull.v1.holders.GetHolderRequest
-	(*GetHolderResponse)(nil),    // 5: txpull.v1.holders.GetHolderResponse
+	(HolderStatus)(0),            // 0: unpack.v1.holders.HolderStatus
+	(*Holder)(nil),               // 1: unpack.v1.holders.Holder
+	(*FilterHolderRequest)(nil),  // 2: unpack.v1.holders.FilterHolderRequest
+	(*FilterHolderResponse)(nil), // 3: unpack.v1.holders.FilterHolderResponse
+	(*GetHolderRequest)(nil),     // 4: unpack.v1.holders.GetHolderRequest
+	(*GetHolderResponse)(nil),    // 5: unpack.v1.holders.GetHolderResponse
 	(*timestamp.Timestamp)(nil),  // 6: google.protobuf.Timestamp
-	(*common.Status)(nil),        // 7: txpull.v1.common.Status
+	(*common.Status)(nil),        // 7: unpack.v1.common.Status
 }
 var file_holders_holders_proto_depIdxs = []int32{
-	0,  // 0: txpull.v1.holders.Holder.status:type_name -> txpull.v1.holders.HolderStatus
-	6,  // 1: txpull.v1.holders.Holder.holder_since_timestamp:type_name -> google.protobuf.Timestamp
-	6,  // 2: txpull.v1.holders.Holder.queued_timestamp:type_name -> google.protobuf.Timestamp
-	6,  // 3: txpull.v1.holders.Holder.processed_timestamp:type_name -> google.protobuf.Timestamp
-	0,  // 4: txpull.v1.holders.FilterHolderRequest.status:type_name -> txpull.v1.holders.HolderStatus
-	7,  // 5: txpull.v1.holders.FilterHolderResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 6: txpull.v1.holders.FilterHolderResponse.holders:type_name -> txpull.v1.holders.Holder
-	7,  // 7: txpull.v1.holders.GetHolderResponse.status:type_name -> txpull.v1.common.Status
-	1,  // 8: txpull.v1.holders.GetHolderResponse.holder:type_name -> txpull.v1.holders.Holder
-	2,  // 9: txpull.v1.holders.Holders.Filter:input_type -> txpull.v1.holders.FilterHolderRequest
-	4,  // 10: txpull.v1.holders.Holders.Get:input_type -> txpull.v1.holders.GetHolderRequest
-	3,  // 11: txpull.v1.holders.Holders.Filter:output_type -> txpull.v1.holders.FilterHolderResponse
-	5,  // 12: txpull.v1.holders.Holders.Get:output_type -> txpull.v1.holders.GetHolderResponse
+	0,  // 0: unpack.v1.holders.Holder.status:type_name -> unpack.v1.holders.HolderStatus
+	6,  // 1: unpack.v1.holders.Holder.holder_since_timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 2: unpack.v1.holders.Holder.queued_timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 3: unpack.v1.holders.Holder.processed_timestamp:type_name -> google.protobuf.Timestamp
+	0,  // 4: unpack.v1.holders.FilterHolderRequest.status:type_name -> unpack.v1.holders.HolderStatus
+	7,  // 5: unpack.v1.holders.FilterHolderResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 6: unpack.v1.holders.FilterHolderResponse.holders:type_name -> unpack.v1.holders.Holder
+	7,  // 7: unpack.v1.holders.GetHolderResponse.status:type_name -> unpack.v1.common.Status
+	1,  // 8: unpack.v1.holders.GetHolderResponse.holder:type_name -> unpack.v1.holders.Holder
+	2,  // 9: unpack.v1.holders.Holders.Filter:input_type -> unpack.v1.holders.FilterHolderRequest
+	4,  // 10: unpack.v1.holders.Holders.Get:input_type -> unpack.v1.holders.GetHolderRequest
+	3,  // 11: unpack.v1.holders.Holders.Filter:output_type -> unpack.v1.holders.FilterHolderResponse
+	5,  // 12: unpack.v1.holders.Holders.Get:output_type -> unpack.v1.holders.GetHolderResponse
 	11, // [11:13] is the sub-list for method output_type
 	9,  // [9:11] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name

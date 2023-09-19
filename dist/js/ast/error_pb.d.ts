@@ -21,6 +21,11 @@ export class Error extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Error;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Error;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Error;
+
   getParameters(): ast_parameters_pb.ParameterList | undefined;
   setParameters(value?: ast_parameters_pb.ParameterList): Error;
   hasParameters(): boolean;
@@ -45,6 +50,7 @@ export namespace Error {
     name: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     parameters?: ast_parameters_pb.ParameterList.AsObject,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }

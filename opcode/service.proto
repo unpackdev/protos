@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.opcode;
+package unpack.v1.opcode;
 option go_package = "github.com/unpackdev/protos/dist/go/opcode;opcode_pb";
 
 import "opcode/service_parameters.proto";
@@ -11,7 +11,7 @@ service Service {
     
     // Retrieves transaction details based on network_id and address.
     // The HTTP GET method is used, and the network_id and address are passed as path parameters.
-    rpc Get(txpull.v1.opcode.Request) returns (txpull.v1.opcode.Response) {
+    rpc Get(unpack.v1.opcode.Request) returns (unpack.v1.opcode.Response) {
         option (google.api.http) = {
             get: "/v1/opcode/{network_id}/{address}"  // Path with network_id and address placeholders.
         };
@@ -19,7 +19,7 @@ service Service {
 
     // Decompiles the bytecode associated with a transaction.
     // The HTTP POST method is used, and the request body contains the transaction details.
-    rpc Decompile(txpull.v1.opcode.Request) returns (txpull.v1.opcode.Response) {
+    rpc Decompile(unpack.v1.opcode.Request) returns (unpack.v1.opcode.Response) {
         option (google.api.http) = {
             post: "/v1/opcode/decompile"  // Endpoint for the decompile operation.
             body: "*"  // The entire request object is used as the HTTP request body.
@@ -28,7 +28,7 @@ service Service {
 
     // Checks the health status of the opcode service.
     // The HTTP GET method is used, and the response provides health status details.
-    rpc GetHealth(txpull.v1.health.HealthRequest) returns (txpull.v1.health.HealthResponse) {
+    rpc GetHealth(unpack.v1.health.HealthRequest) returns (unpack.v1.health.HealthResponse) {
         option (google.api.http) = {
             get: "/v1/opcode/health"  // Endpoint for the health check operation.
         };

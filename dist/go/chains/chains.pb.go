@@ -96,7 +96,7 @@ type Chain struct {
 	LatestIndexedBlock uint64               `protobuf:"varint,6,opt,name=latest_indexed_block,json=latestIndexedBlock,proto3" json:"latest_indexed_block,omitempty"`
 	TotalIndexedBlocks uint64               `protobuf:"varint,7,opt,name=total_indexed_blocks,json=totalIndexedBlocks,proto3" json:"total_indexed_blocks,omitempty"`
 	AverageIndexTimeMs uint64               `protobuf:"varint,8,opt,name=average_index_time_ms,json=averageIndexTimeMs,proto3" json:"average_index_time_ms,omitempty"`
-	Status             ChainStatus          `protobuf:"varint,9,opt,name=status,proto3,enum=txpull.v1.chains.ChainStatus" json:"status,omitempty"`
+	Status             ChainStatus          `protobuf:"varint,9,opt,name=status,proto3,enum=unpack.v1.chains.ChainStatus" json:"status,omitempty"`
 	CreationTimestamp  *timestamp.Timestamp `protobuf:"bytes,10,opt,name=creation_timestamp,json=creationTimestamp,proto3" json:"creation_timestamp,omitempty"`
 }
 
@@ -514,27 +514,27 @@ func file_chains_chains_proto_rawDescGZIP() []byte {
 var file_chains_chains_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_chains_chains_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_chains_chains_proto_goTypes = []interface{}{
-	(ChainStatus)(0),            // 0: txpull.v1.chains.ChainStatus
-	(*Chain)(nil),               // 1: txpull.v1.chains.Chain
-	(*FilterChainRequest)(nil),  // 2: txpull.v1.chains.FilterChainRequest
-	(*FilterChainResponse)(nil), // 3: txpull.v1.chains.FilterChainResponse
-	(*GetChainRequest)(nil),     // 4: txpull.v1.chains.GetChainRequest
-	(*GetChainResponse)(nil),    // 5: txpull.v1.chains.GetChainResponse
+	(ChainStatus)(0),            // 0: unpack.v1.chains.ChainStatus
+	(*Chain)(nil),               // 1: unpack.v1.chains.Chain
+	(*FilterChainRequest)(nil),  // 2: unpack.v1.chains.FilterChainRequest
+	(*FilterChainResponse)(nil), // 3: unpack.v1.chains.FilterChainResponse
+	(*GetChainRequest)(nil),     // 4: unpack.v1.chains.GetChainRequest
+	(*GetChainResponse)(nil),    // 5: unpack.v1.chains.GetChainResponse
 	(*timestamp.Timestamp)(nil), // 6: google.protobuf.Timestamp
-	(*common.Status)(nil),       // 7: txpull.v1.common.Status
+	(*common.Status)(nil),       // 7: unpack.v1.common.Status
 }
 var file_chains_chains_proto_depIdxs = []int32{
-	0, // 0: txpull.v1.chains.Chain.status:type_name -> txpull.v1.chains.ChainStatus
-	6, // 1: txpull.v1.chains.Chain.creation_timestamp:type_name -> google.protobuf.Timestamp
-	7, // 2: txpull.v1.chains.FilterChainRequest.status:type_name -> txpull.v1.common.Status
-	7, // 3: txpull.v1.chains.FilterChainResponse.status:type_name -> txpull.v1.common.Status
-	1, // 4: txpull.v1.chains.FilterChainResponse.chains:type_name -> txpull.v1.chains.Chain
-	7, // 5: txpull.v1.chains.GetChainResponse.status:type_name -> txpull.v1.common.Status
-	1, // 6: txpull.v1.chains.GetChainResponse.chain:type_name -> txpull.v1.chains.Chain
-	2, // 7: txpull.v1.chains.Chains.Filter:input_type -> txpull.v1.chains.FilterChainRequest
-	4, // 8: txpull.v1.chains.Chains.Get:input_type -> txpull.v1.chains.GetChainRequest
-	3, // 9: txpull.v1.chains.Chains.Filter:output_type -> txpull.v1.chains.FilterChainResponse
-	5, // 10: txpull.v1.chains.Chains.Get:output_type -> txpull.v1.chains.GetChainResponse
+	0, // 0: unpack.v1.chains.Chain.status:type_name -> unpack.v1.chains.ChainStatus
+	6, // 1: unpack.v1.chains.Chain.creation_timestamp:type_name -> google.protobuf.Timestamp
+	7, // 2: unpack.v1.chains.FilterChainRequest.status:type_name -> unpack.v1.common.Status
+	7, // 3: unpack.v1.chains.FilterChainResponse.status:type_name -> unpack.v1.common.Status
+	1, // 4: unpack.v1.chains.FilterChainResponse.chains:type_name -> unpack.v1.chains.Chain
+	7, // 5: unpack.v1.chains.GetChainResponse.status:type_name -> unpack.v1.common.Status
+	1, // 6: unpack.v1.chains.GetChainResponse.chain:type_name -> unpack.v1.chains.Chain
+	2, // 7: unpack.v1.chains.Chains.Filter:input_type -> unpack.v1.chains.FilterChainRequest
+	4, // 8: unpack.v1.chains.Chains.Get:input_type -> unpack.v1.chains.GetChainRequest
+	3, // 9: unpack.v1.chains.Chains.Filter:output_type -> unpack.v1.chains.FilterChainResponse
+	5, // 10: unpack.v1.chains.Chains.Get:output_type -> unpack.v1.chains.GetChainResponse
 	9, // [9:11] is the sub-list for method output_type
 	7, // [7:9] is the sub-list for method input_type
 	7, // [7:7] is the sub-list for extension type_name

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package txpull.v1.ir;
+package unpack.v1.ir;
 
 // This option specifies the Go package where the generated Go code will be placed.
 option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
@@ -14,10 +14,10 @@ message Struct {
     int64 id = 1;   // Unique identifier for the struct.
 
     // Node type of the struct. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType node_type = 2;
 
     // Kind of the struct. Refers to the AST node type enumeration in "ast/types.proto".
-    txpull.v1.ast.NodeType kind = 3;
+    unpack.v1.ast.NodeType kind = 3;
 
     string name = 4;    // Name of the struct.
 
@@ -26,16 +26,16 @@ message Struct {
     int64 referenced_declaration_id = 6; // Identifier of the referenced declaration.
 
     // Visibility of the struct. Refers to the visibility enumeration in "ast/types.proto".
-    txpull.v1.ast.Visibility visibility = 7;
+    unpack.v1.ast.Visibility visibility = 7;
 
     // Storage location of the struct. Refers to the storage location enumeration in "ast/types.proto".
-    txpull.v1.ast.StorageLocation storage_location = 8;
+    unpack.v1.ast.StorageLocation storage_location = 8;
 
-    // List of members (fields) associated with the struct. Each member is defined using the "txpull.v1.ir.Parameter" message.
-    repeated txpull.v1.ir.Parameter members = 9;
+    // List of members (fields) associated with the struct. Each member is defined using the "unpack.v1.ir.Parameter" message.
+    repeated unpack.v1.ir.Parameter members = 9;
 
     string type = 10; // Deprecated field. Should not be used.
 
-    // Type description of the struct. Refers to the "txpull.v1.ast.TypeDescription" message in "ast/types.proto".
-    txpull.v1.ast.TypeDescription type_description = 11;
+    // Type description of the struct. Refers to the "unpack.v1.ast.TypeDescription" message in "ast/types.proto".
+    unpack.v1.ast.TypeDescription type_description = 11;
 }

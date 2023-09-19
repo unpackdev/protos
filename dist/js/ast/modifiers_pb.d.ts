@@ -59,6 +59,11 @@ export class Modifier extends jspb.Message {
   hasSrc(): boolean;
   clearSrc(): Modifier;
 
+  getNameLocation(): ast_src_pb.Src | undefined;
+  setNameLocation(value?: ast_src_pb.Src): Modifier;
+  hasNameLocation(): boolean;
+  clearNameLocation(): Modifier;
+
   getVirtual(): boolean;
   setVirtual(value: boolean): Modifier;
 
@@ -89,6 +94,7 @@ export namespace Modifier {
     name: string,
     nodeType: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
+    nameLocation?: ast_src_pb.Src.AsObject,
     virtual: boolean,
     visibility: ast_types_pb.Visibility,
     parameters?: ast_parameters_pb.ParameterList.AsObject,

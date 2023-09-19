@@ -38,7 +38,7 @@ func NewTokensClient(cc grpc.ClientConnInterface) TokensClient {
 
 func (c *tokensClient) Filter(ctx context.Context, in *FilterTokensRequest, opts ...grpc.CallOption) (*FilterTokensResponse, error) {
 	out := new(FilterTokensResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Filter", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.tokens.Tokens/Filter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *tokensClient) Filter(ctx context.Context, in *FilterTokensRequest, opts
 
 func (c *tokensClient) Get(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
 	out := new(GetTokenResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.tokens.Tokens/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *tokensClient) Get(ctx context.Context, in *GetTokenRequest, opts ...grp
 
 func (c *tokensClient) Queue(ctx context.Context, in *QueueTokenRequest, opts ...grpc.CallOption) (*QueueTokenResponse, error) {
 	out := new(QueueTokenResponse)
-	err := c.cc.Invoke(ctx, "/txpull.v1.tokens.Tokens/Queue", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/unpack.v1.tokens.Tokens/Queue", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *tokensClient) Queue(ctx context.Context, in *QueueTokenRequest, opts ..
 }
 
 func (c *tokensClient) QueueAndWait(ctx context.Context, opts ...grpc.CallOption) (Tokens_QueueAndWaitClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[0], "/txpull.v1.tokens.Tokens/QueueAndWait", opts...)
+	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[0], "/unpack.v1.tokens.Tokens/QueueAndWait", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +95,7 @@ func (x *tokensQueueAndWaitClient) Recv() (*SubscriptionTokenResponse, error) {
 }
 
 func (c *tokensClient) Subscribe(ctx context.Context, in *SubscribeTokensRequest, opts ...grpc.CallOption) (Tokens_SubscribeClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[1], "/txpull.v1.tokens.Tokens/Subscribe", opts...)
+	stream, err := c.cc.NewStream(ctx, &Tokens_ServiceDesc.Streams[1], "/unpack.v1.tokens.Tokens/Subscribe", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -183,7 +183,7 @@ func _Tokens_Filter_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.tokens.Tokens/Filter",
+		FullMethod: "/unpack.v1.tokens.Tokens/Filter",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServer).Filter(ctx, req.(*FilterTokensRequest))
@@ -201,7 +201,7 @@ func _Tokens_Get_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.tokens.Tokens/Get",
+		FullMethod: "/unpack.v1.tokens.Tokens/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServer).Get(ctx, req.(*GetTokenRequest))
@@ -219,7 +219,7 @@ func _Tokens_Queue_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/txpull.v1.tokens.Tokens/Queue",
+		FullMethod: "/unpack.v1.tokens.Tokens/Queue",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TokensServer).Queue(ctx, req.(*QueueTokenRequest))
@@ -278,7 +278,7 @@ func (x *tokensSubscribeServer) Send(m *SubscriptionTokenResponse) error {
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Tokens_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "txpull.v1.tokens.Tokens",
+	ServiceName: "unpack.v1.tokens.Tokens",
 	HandlerType: (*TokensServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

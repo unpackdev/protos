@@ -1,6 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
-package txpull.v1.ast;
+package unpack.v1.ast;
 
 import "ast/types.proto";
 import "ast/src.proto";
@@ -11,12 +11,13 @@ message Struct{
     int64 id = 1;
     string name = 2;
     string canonical_name = 3;
-    txpull.v1.ast.NodeType node_type = 4;
-    txpull.v1.ast.Src src = 5;
-    txpull.v1.ast.NodeType kind = 6;
-    int64 referenced_declaration = 7;
-    txpull.v1.ast.Visibility visibility = 8;
-    txpull.v1.ast.StorageLocation storage_location = 9;
-    repeated txpull.v1.ast.Parameter members = 10;
-    txpull.v1.ast.TypeDescription type_description = 11;
+    unpack.v1.ast.NodeType node_type = 4;
+    unpack.v1.ast.Src src = 5;
+    unpack.v1.ast.Src name_location = 6;
+    unpack.v1.ast.NodeType kind = 7;
+    int64 referenced_declaration = 8;
+    unpack.v1.ast.Visibility visibility = 9;
+    unpack.v1.ast.StorageLocation storage_location = 10;
+    repeated unpack.v1.ast.Parameter members = 11;
+    unpack.v1.ast.TypeDescription type_description = 12;
 }
