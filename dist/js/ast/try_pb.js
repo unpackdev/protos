@@ -18,6 +18,8 @@ var ast_src_pb = require('../ast/src_pb.js');
 goog.object.extend(proto, ast_src_pb);
 var ast_body_pb = require('../ast/body_pb.js');
 goog.object.extend(proto, ast_body_pb);
+var ast_parameters_pb = require('../ast/parameters_pb.js');
+goog.object.extend(proto, ast_parameters_pb);
 var xds_type_v3_typed_struct_pb = require('../xds/type/v3/typed_struct_pb.js');
 goog.object.extend(proto, xds_type_v3_typed_struct_pb);
 goog.exportSymbol('proto.unpack.v1.ast.Try', null, global);
@@ -88,6 +90,8 @@ proto.unpack.v1.ast.Try.toObject = function(includeInstance, msg) {
     expression: (f = msg.getExpression()) && xds_type_v3_typed_struct_pb.TypedStruct.toObject(includeInstance, f),
     clausesList: jspb.Message.toObjectList(msg.getClausesList(),
     xds_type_v3_typed_struct_pb.TypedStruct.toObject, includeInstance),
+    returns: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
+    returnParameters: (f = msg.getReturnParameters()) && ast_parameters_pb.ParameterList.toObject(includeInstance, f),
     body: (f = msg.getBody()) && ast_body_pb.Body.toObject(includeInstance, f)
   };
 
@@ -153,6 +157,15 @@ proto.unpack.v1.ast.Try.deserializeBinaryFromReader = function(msg, reader) {
       msg.addClauses(value);
       break;
     case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setReturns(value);
+      break;
+    case 8:
+      var value = new ast_parameters_pb.ParameterList;
+      reader.readMessage(value,ast_parameters_pb.ParameterList.deserializeBinaryFromReader);
+      msg.setReturnParameters(value);
+      break;
+    case 9:
       var value = new ast_body_pb.Body;
       reader.readMessage(value,ast_body_pb.Body.deserializeBinaryFromReader);
       msg.setBody(value);
@@ -231,10 +244,25 @@ proto.unpack.v1.ast.Try.serializeBinaryToWriter = function(message, writer) {
       xds_type_v3_typed_struct_pb.TypedStruct.serializeBinaryToWriter
     );
   }
+  f = message.getReturns();
+  if (f) {
+    writer.writeBool(
+      7,
+      f
+    );
+  }
+  f = message.getReturnParameters();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      ast_parameters_pb.ParameterList.serializeBinaryToWriter
+    );
+  }
   f = message.getBody();
   if (f != null) {
     writer.writeMessage(
-      7,
+      9,
       f,
       ast_body_pb.Body.serializeBinaryToWriter
     );
@@ -409,12 +437,67 @@ proto.unpack.v1.ast.Try.prototype.clearClausesList = function() {
 
 
 /**
- * optional Body body = 7;
+ * optional bool returns = 7;
+ * @return {boolean}
+ */
+proto.unpack.v1.ast.Try.prototype.getReturns = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.unpack.v1.ast.Try} returns this
+ */
+proto.unpack.v1.ast.Try.prototype.setReturns = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
+};
+
+
+/**
+ * optional ParameterList return_parameters = 8;
+ * @return {?proto.unpack.v1.ast.ParameterList}
+ */
+proto.unpack.v1.ast.Try.prototype.getReturnParameters = function() {
+  return /** @type{?proto.unpack.v1.ast.ParameterList} */ (
+    jspb.Message.getWrapperField(this, ast_parameters_pb.ParameterList, 8));
+};
+
+
+/**
+ * @param {?proto.unpack.v1.ast.ParameterList|undefined} value
+ * @return {!proto.unpack.v1.ast.Try} returns this
+*/
+proto.unpack.v1.ast.Try.prototype.setReturnParameters = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.unpack.v1.ast.Try} returns this
+ */
+proto.unpack.v1.ast.Try.prototype.clearReturnParameters = function() {
+  return this.setReturnParameters(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.unpack.v1.ast.Try.prototype.hasReturnParameters = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional Body body = 9;
  * @return {?proto.unpack.v1.ast.Body}
  */
 proto.unpack.v1.ast.Try.prototype.getBody = function() {
   return /** @type{?proto.unpack.v1.ast.Body} */ (
-    jspb.Message.getWrapperField(this, ast_body_pb.Body, 7));
+    jspb.Message.getWrapperField(this, ast_body_pb.Body, 9));
 };
 
 
@@ -423,7 +506,7 @@ proto.unpack.v1.ast.Try.prototype.getBody = function() {
  * @return {!proto.unpack.v1.ast.Try} returns this
 */
 proto.unpack.v1.ast.Try.prototype.setBody = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 9, value);
 };
 
 
@@ -441,7 +524,7 @@ proto.unpack.v1.ast.Try.prototype.clearBody = function() {
  * @return {boolean}
  */
 proto.unpack.v1.ast.Try.prototype.hasBody = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 9) != null;
 };
 
 

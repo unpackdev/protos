@@ -10954,6 +10954,30 @@
               "defaultValue": ""
             },
             {
+              "name": "returns",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "return_parameters",
+              "description": "",
+              "label": "",
+              "type": "ParameterList",
+              "longType": "ParameterList",
+              "fullType": "unpack.v1.ast.ParameterList",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "body",
               "description": "",
               "label": "",

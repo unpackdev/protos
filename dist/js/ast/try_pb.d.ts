@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf'
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
 import * as ast_body_pb from '../ast/body_pb';
+import * as ast_parameters_pb from '../ast/parameters_pb';
 import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
 
@@ -31,6 +32,14 @@ export class Try extends jspb.Message {
   clearClausesList(): Try;
   addClauses(value?: xds_type_v3_typed_struct_pb.TypedStruct, index?: number): xds_type_v3_typed_struct_pb.TypedStruct;
 
+  getReturns(): boolean;
+  setReturns(value: boolean): Try;
+
+  getReturnParameters(): ast_parameters_pb.ParameterList | undefined;
+  setReturnParameters(value?: ast_parameters_pb.ParameterList): Try;
+  hasReturnParameters(): boolean;
+  clearReturnParameters(): Try;
+
   getBody(): ast_body_pb.Body | undefined;
   setBody(value?: ast_body_pb.Body): Try;
   hasBody(): boolean;
@@ -52,6 +61,8 @@ export namespace Try {
     src?: ast_src_pb.Src.AsObject,
     expression?: xds_type_v3_typed_struct_pb.TypedStruct.AsObject,
     clausesList: Array<xds_type_v3_typed_struct_pb.TypedStruct.AsObject>,
+    returns: boolean,
+    returnParameters?: ast_parameters_pb.ParameterList.AsObject,
     body?: ast_body_pb.Body.AsObject,
   }
 }
