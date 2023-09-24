@@ -104,6 +104,9 @@ export enum NodeType {
   BIT_AND_OPERATION = 98,
   OVERRIDE_PATH = 99,
   UNICODE_STRING_LITERAL = 100,
+  BIT_OR_OPERATION = 101,
+  BIT_XOR_OPERATION = 102,
+  SHIFT_OPERATION = 103,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
