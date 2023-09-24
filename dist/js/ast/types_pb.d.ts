@@ -101,6 +101,7 @@ export enum NodeType {
   EXPRESSION_OPERATION = 95,
   AND_OPERATION = 96,
   CONDITIONAL_EXPRESSION = 97,
+  BIT_AND_OPERATION = 98,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
