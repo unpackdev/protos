@@ -8233,9 +8233,9 @@
       "extensions": [],
       "messages": [
         {
-          "name": "OverrideSpecifier",
-          "longName": "OverrideSpecifier",
-          "fullName": "unpack.v1.ast.OverrideSpecifier",
+          "name": "OverridePath",
+          "longName": "OverridePath",
+          "fullName": "unpack.v1.ast.OverridePath",
           "description": "",
           "hasExtensions": false,
           "hasFields": true,
@@ -8279,12 +8279,84 @@
               "defaultValue": ""
             },
             {
-              "name": "overrides",
+              "name": "src",
               "description": "",
               "label": "",
-              "type": "ParameterList",
-              "longType": "ParameterList",
-              "fullType": "unpack.v1.ast.ParameterList",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "unpack.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "OverrideSpecifier",
+          "longName": "OverrideSpecifier",
+          "fullName": "unpack.v1.ast.OverrideSpecifier",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "overrides",
+              "description": "",
+              "label": "repeated",
+              "type": "OverridePath",
+              "longType": "OverridePath",
+              "fullType": "unpack.v1.ast.OverridePath",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -11958,6 +12030,11 @@
               "name": "BIT_AND_OPERATION",
               "number": "98",
               "description": ""
+            },
+            {
+              "name": "OVERRIDE_PATH",
+              "number": "99",
+              "description": ""
             }
           ]
         },
@@ -14614,18 +14691,6 @@
               "type": "string",
               "longType": "string",
               "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "overrides",
-              "description": "List of parameters that the override is intended to override. Each parameter is defined using the \"unpack.v1.ir.Parameter\" message.",
-              "label": "repeated",
-              "type": "Parameter",
-              "longType": "Parameter",
-              "fullType": "unpack.v1.ir.Parameter",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",

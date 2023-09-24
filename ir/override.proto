@@ -7,7 +7,6 @@ option go_package = "github.com/unpackdev/protos/dist/go/ir;ir_pb";
 // Import statements for the Protocol Buffer files used in this file.
 import "ast/types.proto";            // Import for AST types.
 import "ast/type_name.proto";        // Import for type names in AST.
-import "ir/parameter.proto";         // Import for IR parameters.
 
 // Represents an override declaration in the intermediate representation (IR).
 message Override {
@@ -17,9 +16,6 @@ message Override {
     unpack.v1.ast.NodeType node_type = 2;
 
     string name = 3;    // Name of the override.
-
-    // List of parameters that the override is intended to override. Each parameter is defined using the "unpack.v1.ir.Parameter" message.
-    repeated unpack.v1.ir.Parameter overrides = 4;
 
     int64 referenced_declaration_id = 5; // Identifier of the referenced declaration that this override is associated with.
 
