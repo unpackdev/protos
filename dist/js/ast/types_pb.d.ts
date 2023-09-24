@@ -103,6 +103,7 @@ export enum NodeType {
   CONDITIONAL_EXPRESSION = 97,
   BIT_AND_OPERATION = 98,
   OVERRIDE_PATH = 99,
+  UNICODE_STRING_LITERAL = 100,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
