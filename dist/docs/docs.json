@@ -9660,6 +9660,18 @@
               "defaultValue": ""
             },
             {
+              "name": "global_nodes",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "source_units",
               "description": "",
               "label": "repeated",

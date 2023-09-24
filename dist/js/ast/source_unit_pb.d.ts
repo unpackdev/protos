@@ -4,6 +4,7 @@ import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
 import * as ast_node_pb from '../ast/node_pb';
 import * as ast_comment_pb from '../ast/comment_pb';
+import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
 
 export class RootSourceUnit extends jspb.Message {
@@ -15,6 +16,11 @@ export class RootSourceUnit extends jspb.Message {
 
   getNodeType(): ast_types_pb.NodeType;
   setNodeType(value: ast_types_pb.NodeType): RootSourceUnit;
+
+  getGlobalNodesList(): Array<xds_type_v3_typed_struct_pb.TypedStruct>;
+  setGlobalNodesList(value: Array<xds_type_v3_typed_struct_pb.TypedStruct>): RootSourceUnit;
+  clearGlobalNodesList(): RootSourceUnit;
+  addGlobalNodes(value?: xds_type_v3_typed_struct_pb.TypedStruct, index?: number): xds_type_v3_typed_struct_pb.TypedStruct;
 
   getSourceUnitsList(): Array<SourceUnit>;
   setSourceUnitsList(value: Array<SourceUnit>): RootSourceUnit;
@@ -39,6 +45,7 @@ export namespace RootSourceUnit {
     id: number,
     entrySourceUnit: number,
     nodeType: ast_types_pb.NodeType,
+    globalNodesList: Array<xds_type_v3_typed_struct_pb.TypedStruct.AsObject>,
     sourceUnitsList: Array<SourceUnit.AsObject>,
     commentsList: Array<ast_comment_pb.Comment.AsObject>,
   }

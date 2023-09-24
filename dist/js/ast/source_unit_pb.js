@@ -20,6 +20,8 @@ var ast_node_pb = require('../ast/node_pb.js');
 goog.object.extend(proto, ast_node_pb);
 var ast_comment_pb = require('../ast/comment_pb.js');
 goog.object.extend(proto, ast_comment_pb);
+var xds_type_v3_typed_struct_pb = require('../xds/type/v3/typed_struct_pb.js');
+goog.object.extend(proto, xds_type_v3_typed_struct_pb);
 goog.exportSymbol('proto.unpack.v1.ast.ExportedSymbol', null, global);
 goog.exportSymbol('proto.unpack.v1.ast.RootSourceUnit', null, global);
 goog.exportSymbol('proto.unpack.v1.ast.SourceUnit', null, global);
@@ -92,7 +94,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.unpack.v1.ast.RootSourceUnit.repeatedFields_ = [4,5];
+proto.unpack.v1.ast.RootSourceUnit.repeatedFields_ = [4,5,6];
 
 
 
@@ -128,6 +130,8 @@ proto.unpack.v1.ast.RootSourceUnit.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     entrySourceUnit: jspb.Message.getFieldWithDefault(msg, 2, 0),
     nodeType: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    globalNodesList: jspb.Message.toObjectList(msg.getGlobalNodesList(),
+    xds_type_v3_typed_struct_pb.TypedStruct.toObject, includeInstance),
     sourceUnitsList: jspb.Message.toObjectList(msg.getSourceUnitsList(),
     proto.unpack.v1.ast.SourceUnit.toObject, includeInstance),
     commentsList: jspb.Message.toObjectList(msg.getCommentsList(),
@@ -181,11 +185,16 @@ proto.unpack.v1.ast.RootSourceUnit.deserializeBinaryFromReader = function(msg, r
       msg.setNodeType(value);
       break;
     case 4:
+      var value = new xds_type_v3_typed_struct_pb.TypedStruct;
+      reader.readMessage(value,xds_type_v3_typed_struct_pb.TypedStruct.deserializeBinaryFromReader);
+      msg.addGlobalNodes(value);
+      break;
+    case 5:
       var value = new proto.unpack.v1.ast.SourceUnit;
       reader.readMessage(value,proto.unpack.v1.ast.SourceUnit.deserializeBinaryFromReader);
       msg.addSourceUnits(value);
       break;
-    case 5:
+    case 6:
       var value = new ast_comment_pb.Comment;
       reader.readMessage(value,ast_comment_pb.Comment.deserializeBinaryFromReader);
       msg.addComments(value);
@@ -240,10 +249,18 @@ proto.unpack.v1.ast.RootSourceUnit.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getSourceUnitsList();
+  f = message.getGlobalNodesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       4,
+      f,
+      xds_type_v3_typed_struct_pb.TypedStruct.serializeBinaryToWriter
+    );
+  }
+  f = message.getSourceUnitsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
       f,
       proto.unpack.v1.ast.SourceUnit.serializeBinaryToWriter
     );
@@ -251,7 +268,7 @@ proto.unpack.v1.ast.RootSourceUnit.serializeBinaryToWriter = function(message, w
   f = message.getCommentsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      5,
+      6,
       f,
       ast_comment_pb.Comment.serializeBinaryToWriter
     );
@@ -314,12 +331,50 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.setNodeType = function(value) {
 
 
 /**
- * repeated SourceUnit source_units = 4;
+ * repeated xds.type.v3.TypedStruct global_nodes = 4;
+ * @return {!Array<!proto.xds.type.v3.TypedStruct>}
+ */
+proto.unpack.v1.ast.RootSourceUnit.prototype.getGlobalNodesList = function() {
+  return /** @type{!Array<!proto.xds.type.v3.TypedStruct>} */ (
+    jspb.Message.getRepeatedWrapperField(this, xds_type_v3_typed_struct_pb.TypedStruct, 4));
+};
+
+
+/**
+ * @param {!Array<!proto.xds.type.v3.TypedStruct>} value
+ * @return {!proto.unpack.v1.ast.RootSourceUnit} returns this
+*/
+proto.unpack.v1.ast.RootSourceUnit.prototype.setGlobalNodesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 4, value);
+};
+
+
+/**
+ * @param {!proto.xds.type.v3.TypedStruct=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.xds.type.v3.TypedStruct}
+ */
+proto.unpack.v1.ast.RootSourceUnit.prototype.addGlobalNodes = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.xds.type.v3.TypedStruct, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.unpack.v1.ast.RootSourceUnit} returns this
+ */
+proto.unpack.v1.ast.RootSourceUnit.prototype.clearGlobalNodesList = function() {
+  return this.setGlobalNodesList([]);
+};
+
+
+/**
+ * repeated SourceUnit source_units = 5;
  * @return {!Array<!proto.unpack.v1.ast.SourceUnit>}
  */
 proto.unpack.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
   return /** @type{!Array<!proto.unpack.v1.ast.SourceUnit>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.unpack.v1.ast.SourceUnit, 4));
+    jspb.Message.getRepeatedWrapperField(this, proto.unpack.v1.ast.SourceUnit, 5));
 };
 
 
@@ -328,7 +383,7 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.getSourceUnitsList = function() {
  * @return {!proto.unpack.v1.ast.RootSourceUnit} returns this
 */
 proto.unpack.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 4, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -338,7 +393,7 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.setSourceUnitsList = function(value
  * @return {!proto.unpack.v1.ast.SourceUnit}
  */
 proto.unpack.v1.ast.RootSourceUnit.prototype.addSourceUnits = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.unpack.v1.ast.SourceUnit, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.unpack.v1.ast.SourceUnit, opt_index);
 };
 
 
@@ -352,12 +407,12 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.clearSourceUnitsList = function() {
 
 
 /**
- * repeated Comment comments = 5;
+ * repeated Comment comments = 6;
  * @return {!Array<!proto.unpack.v1.ast.Comment>}
  */
 proto.unpack.v1.ast.RootSourceUnit.prototype.getCommentsList = function() {
   return /** @type{!Array<!proto.unpack.v1.ast.Comment>} */ (
-    jspb.Message.getRepeatedWrapperField(this, ast_comment_pb.Comment, 5));
+    jspb.Message.getRepeatedWrapperField(this, ast_comment_pb.Comment, 6));
 };
 
 
@@ -366,7 +421,7 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.getCommentsList = function() {
  * @return {!proto.unpack.v1.ast.RootSourceUnit} returns this
 */
 proto.unpack.v1.ast.RootSourceUnit.prototype.setCommentsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 5, value);
+  return jspb.Message.setRepeatedWrapperField(this, 6, value);
 };
 
 
@@ -376,7 +431,7 @@ proto.unpack.v1.ast.RootSourceUnit.prototype.setCommentsList = function(value) {
  * @return {!proto.unpack.v1.ast.Comment}
  */
 proto.unpack.v1.ast.RootSourceUnit.prototype.addComments = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.unpack.v1.ast.Comment, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.unpack.v1.ast.Comment, opt_index);
 };
 
 

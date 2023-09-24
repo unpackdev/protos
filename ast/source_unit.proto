@@ -4,6 +4,7 @@ import "ast/types.proto";
 import "ast/src.proto";
 import "ast/node.proto";
 import "ast/comment.proto";
+import "xds/type/v3/typed_struct.proto";
 package unpack.v1.ast;
 
 
@@ -11,8 +12,9 @@ message RootSourceUnit {
     int64 id = 1;
     int64 entry_source_unit = 2;
     unpack.v1.ast.NodeType node_type = 3;
-    repeated unpack.v1.ast.SourceUnit source_units = 4;
-    repeated unpack.v1.ast.Comment comments = 5;
+    repeated xds.type.v3.TypedStruct global_nodes = 4;
+    repeated unpack.v1.ast.SourceUnit source_units = 5;
+    repeated unpack.v1.ast.Comment comments = 6;
 }
 
 message SourceUnit {
