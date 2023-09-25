@@ -2,6 +2,7 @@ import * as jspb from 'google-protobuf'
 
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
+import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
 
 export class PathNode extends jspb.Message {
@@ -97,6 +98,11 @@ export class TypeName extends jspb.Message {
   getStateMutability(): ast_types_pb.Mutability;
   setStateMutability(value: ast_types_pb.Mutability): TypeName;
 
+  getExpression(): xds_type_v3_typed_struct_pb.TypedStruct | undefined;
+  setExpression(value?: xds_type_v3_typed_struct_pb.TypedStruct): TypeName;
+  hasExpression(): boolean;
+  clearExpression(): TypeName;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TypeName.AsObject;
   static toObject(includeInstance: boolean, msg: TypeName): TypeName.AsObject;
@@ -119,6 +125,7 @@ export namespace TypeName {
     pathNode?: PathNode.AsObject,
     referencedDeclaration: number,
     stateMutability: ast_types_pb.Mutability,
+    expression?: xds_type_v3_typed_struct_pb.TypedStruct.AsObject,
   }
 }
 

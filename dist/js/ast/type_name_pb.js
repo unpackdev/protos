@@ -16,6 +16,8 @@ var ast_types_pb = require('../ast/types_pb.js');
 goog.object.extend(proto, ast_types_pb);
 var ast_src_pb = require('../ast/src_pb.js');
 goog.object.extend(proto, ast_src_pb);
+var xds_type_v3_typed_struct_pb = require('../xds/type/v3/typed_struct_pb.js');
+goog.object.extend(proto, xds_type_v3_typed_struct_pb);
 goog.exportSymbol('proto.unpack.v1.ast.PathNode', null, global);
 goog.exportSymbol('proto.unpack.v1.ast.TypeDescription', null, global);
 goog.exportSymbol('proto.unpack.v1.ast.TypeName', null, global);
@@ -447,7 +449,8 @@ proto.unpack.v1.ast.TypeName.toObject = function(includeInstance, msg) {
     valueTypeLocation: (f = msg.getValueTypeLocation()) && ast_src_pb.Src.toObject(includeInstance, f),
     pathNode: (f = msg.getPathNode()) && proto.unpack.v1.ast.PathNode.toObject(includeInstance, f),
     referencedDeclaration: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    stateMutability: jspb.Message.getFieldWithDefault(msg, 12, 0)
+    stateMutability: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    expression: (f = msg.getExpression()) && xds_type_v3_typed_struct_pb.TypedStruct.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -538,6 +541,11 @@ proto.unpack.v1.ast.TypeName.deserializeBinaryFromReader = function(msg, reader)
     case 12:
       var value = /** @type {!proto.unpack.v1.ast.Mutability} */ (reader.readEnum());
       msg.setStateMutability(value);
+      break;
+    case 13:
+      var value = new xds_type_v3_typed_struct_pb.TypedStruct;
+      reader.readMessage(value,xds_type_v3_typed_struct_pb.TypedStruct.deserializeBinaryFromReader);
+      msg.setExpression(value);
       break;
     default:
       reader.skipField();
@@ -657,6 +665,14 @@ proto.unpack.v1.ast.TypeName.serializeBinaryToWriter = function(message, writer)
     writer.writeEnum(
       12,
       f
+    );
+  }
+  f = message.getExpression();
+  if (f != null) {
+    writer.writeMessage(
+      13,
+      f,
+      xds_type_v3_typed_struct_pb.TypedStruct.serializeBinaryToWriter
     );
   }
 };
@@ -1008,6 +1024,43 @@ proto.unpack.v1.ast.TypeName.prototype.getStateMutability = function() {
  */
 proto.unpack.v1.ast.TypeName.prototype.setStateMutability = function(value) {
   return jspb.Message.setProto3EnumField(this, 12, value);
+};
+
+
+/**
+ * optional xds.type.v3.TypedStruct expression = 13;
+ * @return {?proto.xds.type.v3.TypedStruct}
+ */
+proto.unpack.v1.ast.TypeName.prototype.getExpression = function() {
+  return /** @type{?proto.xds.type.v3.TypedStruct} */ (
+    jspb.Message.getWrapperField(this, xds_type_v3_typed_struct_pb.TypedStruct, 13));
+};
+
+
+/**
+ * @param {?proto.xds.type.v3.TypedStruct|undefined} value
+ * @return {!proto.unpack.v1.ast.TypeName} returns this
+*/
+proto.unpack.v1.ast.TypeName.prototype.setExpression = function(value) {
+  return jspb.Message.setWrapperField(this, 13, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.unpack.v1.ast.TypeName} returns this
+ */
+proto.unpack.v1.ast.TypeName.prototype.clearExpression = function() {
+  return this.setExpression(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.unpack.v1.ast.TypeName.prototype.hasExpression = function() {
+  return jspb.Message.getField(this, 13) != null;
 };
 
 
