@@ -99,6 +99,7 @@ proto.unpack.v1.ir.Function.toObject = function(includeInstance, msg) {
     parametersList: jspb.Message.toObjectList(msg.getParametersList(),
     ir_parameter_pb.Parameter.toObject, includeInstance),
     body: (f = msg.getBody()) && ir_body_pb.Body.toObject(includeInstance, f),
+    signature: jspb.Message.getFieldWithDefault(msg, 15, ""),
     returnList: jspb.Message.toObjectList(msg.getReturnList(),
     ir_parameter_pb.Parameter.toObject, includeInstance)
   };
@@ -192,6 +193,10 @@ proto.unpack.v1.ir.Function.deserializeBinaryFromReader = function(msg, reader) 
       var value = new ir_body_pb.Body;
       reader.readMessage(value,ir_body_pb.Body.deserializeBinaryFromReader);
       msg.setBody(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSignature(value);
       break;
     case 13:
       var value = new ir_parameter_pb.Parameter;
@@ -320,6 +325,13 @@ proto.unpack.v1.ir.Function.serializeBinaryToWriter = function(message, writer) 
       14,
       f,
       ir_body_pb.Body.serializeBinaryToWriter
+    );
+  }
+  f = message.getSignature();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
+      f
     );
   }
   f = message.getReturnList();
@@ -643,6 +655,24 @@ proto.unpack.v1.ir.Function.prototype.clearBody = function() {
  */
 proto.unpack.v1.ir.Function.prototype.hasBody = function() {
   return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * optional string signature = 15;
+ * @return {string}
+ */
+proto.unpack.v1.ir.Function.prototype.getSignature = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.unpack.v1.ir.Function} returns this
+ */
+proto.unpack.v1.ir.Function.prototype.setSignature = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

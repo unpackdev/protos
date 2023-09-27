@@ -14571,6 +14571,18 @@
               "defaultValue": ""
             },
             {
+              "name": "signature",
+              "description": "Signature of the function.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "return",
               "description": "List of return parameters of the function. Each return parameter is defined using the \"unpack.v1.ir.Parameter\" message.",
               "label": "repeated",

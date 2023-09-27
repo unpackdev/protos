@@ -55,6 +55,9 @@ export class Function extends jspb.Message {
   hasBody(): boolean;
   clearBody(): Function;
 
+  getSignature(): string;
+  setSignature(value: string): Function;
+
   getReturnList(): Array<ir_parameter_pb.Parameter>;
   setReturnList(value: Array<ir_parameter_pb.Parameter>): Function;
   clearReturnList(): Function;
@@ -83,6 +86,7 @@ export namespace Function {
     overridesList: Array<ir_override_pb.Override.AsObject>,
     parametersList: Array<ir_parameter_pb.Parameter.AsObject>,
     body?: ir_body_pb.Body.AsObject,
+    signature: string,
     returnList: Array<ir_parameter_pb.Parameter.AsObject>,
   }
 }

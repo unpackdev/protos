@@ -47,6 +47,8 @@ message Function {
     // Body of the function. Defined using the "unpack.v1.ir.Body" message.
     unpack.v1.ir.Body body = 14;
 
+    string signature = 15;  // Signature of the function.
+
     // List of return parameters of the function. Each return parameter is defined using the "unpack.v1.ir.Parameter" message.
     repeated unpack.v1.ir.Parameter return = 13;
 }
