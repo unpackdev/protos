@@ -6497,6 +6497,18 @@
               "defaultValue": ""
             },
             {
+              "name": "signature",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
               "name": "type_description",
               "description": "",
               "label": "",

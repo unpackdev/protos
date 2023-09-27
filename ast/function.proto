@@ -28,5 +28,6 @@ message Function {
     unpack.v1.ast.ParameterList parameters = 15;
     unpack.v1.ast.ParameterList return_parameters = 16;
     unpack.v1.ast.Body body = 17;
-    unpack.v1.ast.TypeDescription type_description = 18;
+    string signature = 18;
+    unpack.v1.ast.TypeDescription type_description = 19;
 }

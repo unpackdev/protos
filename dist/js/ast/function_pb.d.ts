@@ -75,6 +75,9 @@ export class Function extends jspb.Message {
   hasBody(): boolean;
   clearBody(): Function;
 
+  getSignature(): string;
+  setSignature(value: string): Function;
+
   getTypeDescription(): ast_type_name_pb.TypeDescription | undefined;
   setTypeDescription(value?: ast_type_name_pb.TypeDescription): Function;
   hasTypeDescription(): boolean;
@@ -107,6 +110,7 @@ export namespace Function {
     parameters?: ast_parameters_pb.ParameterList.AsObject,
     returnParameters?: ast_parameters_pb.ParameterList.AsObject,
     body?: ast_body_pb.Body.AsObject,
+    signature: string,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
   }
 }

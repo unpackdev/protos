@@ -106,6 +106,7 @@ proto.unpack.v1.ast.Function.toObject = function(includeInstance, msg) {
     parameters: (f = msg.getParameters()) && ast_parameters_pb.ParameterList.toObject(includeInstance, f),
     returnParameters: (f = msg.getReturnParameters()) && ast_parameters_pb.ParameterList.toObject(includeInstance, f),
     body: (f = msg.getBody()) && ast_body_pb.Body.toObject(includeInstance, f),
+    signature: jspb.Message.getFieldWithDefault(msg, 18, ""),
     typeDescription: (f = msg.getTypeDescription()) && ast_type_name_pb.TypeDescription.toObject(includeInstance, f)
   };
 
@@ -219,6 +220,10 @@ proto.unpack.v1.ast.Function.deserializeBinaryFromReader = function(msg, reader)
       msg.setBody(value);
       break;
     case 18:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSignature(value);
+      break;
+    case 19:
       var value = new ast_type_name_pb.TypeDescription;
       reader.readMessage(value,ast_type_name_pb.TypeDescription.deserializeBinaryFromReader);
       msg.setTypeDescription(value);
@@ -378,10 +383,17 @@ proto.unpack.v1.ast.Function.serializeBinaryToWriter = function(message, writer)
       ast_body_pb.Body.serializeBinaryToWriter
     );
   }
+  f = message.getSignature();
+  if (f.length > 0) {
+    writer.writeString(
+      18,
+      f
+    );
+  }
   f = message.getTypeDescription();
   if (f != null) {
     writer.writeMessage(
-      18,
+      19,
       f,
       ast_type_name_pb.TypeDescription.serializeBinaryToWriter
     );
@@ -831,12 +843,30 @@ proto.unpack.v1.ast.Function.prototype.hasBody = function() {
 
 
 /**
- * optional TypeDescription type_description = 18;
+ * optional string signature = 18;
+ * @return {string}
+ */
+proto.unpack.v1.ast.Function.prototype.getSignature = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.unpack.v1.ast.Function} returns this
+ */
+proto.unpack.v1.ast.Function.prototype.setSignature = function(value) {
+  return jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
+/**
+ * optional TypeDescription type_description = 19;
  * @return {?proto.unpack.v1.ast.TypeDescription}
  */
 proto.unpack.v1.ast.Function.prototype.getTypeDescription = function() {
   return /** @type{?proto.unpack.v1.ast.TypeDescription} */ (
-    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 18));
+    jspb.Message.getWrapperField(this, ast_type_name_pb.TypeDescription, 19));
 };
 
 
@@ -845,7 +875,7 @@ proto.unpack.v1.ast.Function.prototype.getTypeDescription = function() {
  * @return {!proto.unpack.v1.ast.Function} returns this
 */
 proto.unpack.v1.ast.Function.prototype.setTypeDescription = function(value) {
-  return jspb.Message.setWrapperField(this, 18, value);
+  return jspb.Message.setWrapperField(this, 19, value);
 };
 
 
@@ -863,7 +893,7 @@ proto.unpack.v1.ast.Function.prototype.clearTypeDescription = function() {
  * @return {boolean}
  */
 proto.unpack.v1.ast.Function.prototype.hasTypeDescription = function() {
-  return jspb.Message.getField(this, 18) != null;
+  return jspb.Message.getField(this, 19) != null;
 };
 
 
