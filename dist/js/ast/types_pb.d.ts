@@ -107,8 +107,8 @@ export enum NodeType {
   BIT_OR_OPERATION = 101,
   BIT_XOR_OPERATION = 102,
   SHIFT_OPERATION = 103,
-  UNARY_PREFIX = 104,
-  UNARY_SUFFIX = 105,
+  KIND_UNARY_PREFIX = 104,
+  KIND_UNARY_SUFFIX = 105,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

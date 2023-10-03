@@ -12327,12 +12327,12 @@
               "description": ""
             },
             {
-              "name": "UNARY_PREFIX",
+              "name": "KIND_UNARY_PREFIX",
               "number": "104",
               "description": ""
             },
             {
-              "name": "UNARY_SUFFIX",
+              "name": "KIND_UNARY_SUFFIX",
               "number": "105",
               "description": ""
             }
