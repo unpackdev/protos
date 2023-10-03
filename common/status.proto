@@ -1,8 +1,5 @@
 syntax = "proto3";
 option go_package = "github.com/unpackdev/protos/dist/go/common;common";
-
-import "google/protobuf/any.proto";
-
 package unpack.v1.common;
 
 // The `Status` type defines a logical error model that is suitable for
@@ -19,8 +16,4 @@ message Status {
     // A developer-facing human-readable error message in English. It should
     // both explain the error and offer an actionable resolution to it.
     string message = 3;
-
-    // Additional error information that the client code can use to handle
-    // the error, such as retry info or a help link.
-    repeated google.protobuf.Any details = 4;
 }

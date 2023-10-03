@@ -56,18 +56,6 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
-            },
-            {
-              "name": "details",
-              "description": "Additional error information that the client code can use to handle\nthe error, such as retry info or a help link.",
-              "label": "repeated",
-              "type": "Any",
-              "longType": "google.protobuf.Any",
-              "fullType": "google.protobuf.Any",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
             }
           ]
         }
@@ -12336,6 +12324,16 @@
             {
               "name": "SHIFT_OPERATION",
               "number": "103",
+              "description": ""
+            },
+            {
+              "name": "UNARY_PREFIX",
+              "number": "104",
+              "description": ""
+            },
+            {
+              "name": "UNARY_SUFFIX",
+              "number": "105",
               "description": ""
             }
           ]

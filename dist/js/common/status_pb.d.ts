@@ -1,6 +1,5 @@
 import * as jspb from 'google-protobuf'
 
-import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
 
 
 export class Status extends jspb.Message {
@@ -12,11 +11,6 @@ export class Status extends jspb.Message {
 
   getMessage(): string;
   setMessage(value: string): Status;
-
-  getDetailsList(): Array<google_protobuf_any_pb.Any>;
-  setDetailsList(value: Array<google_protobuf_any_pb.Any>): Status;
-  clearDetailsList(): Status;
-  addDetails(value?: google_protobuf_any_pb.Any, index?: number): google_protobuf_any_pb.Any;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Status.AsObject;
@@ -31,7 +25,6 @@ export namespace Status {
     code: number,
     reason: string,
     message: string,
-    detailsList: Array<google_protobuf_any_pb.Any.AsObject>,
   }
 }
 

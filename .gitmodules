@@ -4,3 +4,6 @@
 [submodule "third_party/xds"]
 	path = third_party/xds
 	url = git@github.com:cncf/xds.git
+[submodule "third_party/grpc-graphql-gateway"]
+	path = third_party/grpc-graphql-gateway
+	url = https://github.com/ysugimoto/grpc-graphql-gateway.git
