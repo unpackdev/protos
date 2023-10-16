@@ -36,6 +36,14 @@ export class Import extends jspb.Message {
   getSourceUnit(): number;
   setSourceUnit(value: number): Import;
 
+  getAs(): string;
+  setAs(value: string): Import;
+
+  getUnitAliasesList(): Array<string>;
+  setUnitAliasesList(value: Array<string>): Import;
+  clearUnitAliasesList(): Import;
+  addUnitAliases(value: string, index?: number): Import;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Import.AsObject;
   static toObject(includeInstance: boolean, msg: Import): Import.AsObject;
@@ -55,6 +63,8 @@ export namespace Import {
     scope: number,
     unitAlias: string,
     sourceUnit: number,
+    as: string,
+    unitAliasesList: Array<string>,
   }
 }
 

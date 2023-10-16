@@ -28,7 +28,7 @@ goog.exportSymbol('proto.unpack.v1.ast.Import', null, global);
  * @constructor
  */
 proto.unpack.v1.ast.Import = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.unpack.v1.ast.Import.repeatedFields_, null);
 };
 goog.inherits(proto.unpack.v1.ast.Import, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -38,6 +38,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.unpack.v1.ast.Import.displayName = 'proto.unpack.v1.ast.Import';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.unpack.v1.ast.Import.repeatedFields_ = [11];
 
 
 
@@ -78,7 +85,9 @@ proto.unpack.v1.ast.Import.toObject = function(includeInstance, msg) {
     file: jspb.Message.getFieldWithDefault(msg, 6, ""),
     scope: jspb.Message.getFieldWithDefault(msg, 7, 0),
     unitAlias: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    sourceUnit: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    sourceUnit: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    as: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    unitAliasesList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -152,6 +161,14 @@ proto.unpack.v1.ast.Import.deserializeBinaryFromReader = function(msg, reader) {
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setSourceUnit(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAs(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addUnitAliases(value);
       break;
     default:
       reader.skipField();
@@ -244,6 +261,20 @@ proto.unpack.v1.ast.Import.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       9,
+      f
+    );
+  }
+  f = message.getAs();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
+    );
+  }
+  f = message.getUnitAliasesList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      11,
       f
     );
   }
@@ -447,6 +478,61 @@ proto.unpack.v1.ast.Import.prototype.getSourceUnit = function() {
  */
 proto.unpack.v1.ast.Import.prototype.setSourceUnit = function(value) {
   return jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional string as = 10;
+ * @return {string}
+ */
+proto.unpack.v1.ast.Import.prototype.getAs = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.unpack.v1.ast.Import} returns this
+ */
+proto.unpack.v1.ast.Import.prototype.setAs = function(value) {
+  return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * repeated string unit_aliases = 11;
+ * @return {!Array<string>}
+ */
+proto.unpack.v1.ast.Import.prototype.getUnitAliasesList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 11));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.unpack.v1.ast.Import} returns this
+ */
+proto.unpack.v1.ast.Import.prototype.setUnitAliasesList = function(value) {
+  return jspb.Message.setField(this, 11, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.unpack.v1.ast.Import} returns this
+ */
+proto.unpack.v1.ast.Import.prototype.addUnitAliases = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.unpack.v1.ast.Import} returns this
+ */
+proto.unpack.v1.ast.Import.prototype.clearUnitAliasesList = function() {
+  return this.setUnitAliasesList([]);
 };
 
 

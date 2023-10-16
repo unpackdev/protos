@@ -3,7 +3,10 @@
 package server_pb
 
 import (
+	context "context"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -11,51 +14,88 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// ServerClient is the client API for Server service.
+// UnpackClient is the client API for Unpack service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServerClient interface {
+type UnpackClient interface {
+	Unpack(ctx context.Context, in *UnpackRequest, opts ...grpc.CallOption) (*UnpackResponse, error)
 }
 
-type serverClient struct {
+type unpackClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewServerClient(cc grpc.ClientConnInterface) ServerClient {
-	return &serverClient{cc}
+func NewUnpackClient(cc grpc.ClientConnInterface) UnpackClient {
+	return &unpackClient{cc}
 }
 
-// ServerServer is the server API for Server service.
-// All implementations must embed UnimplementedServerServer
+func (c *unpackClient) Unpack(ctx context.Context, in *UnpackRequest, opts ...grpc.CallOption) (*UnpackResponse, error) {
+	out := new(UnpackResponse)
+	err := c.cc.Invoke(ctx, "/unpack.v1.server.Unpack/Unpack", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UnpackServer is the server API for Unpack service.
+// All implementations must embed UnimplementedUnpackServer
 // for forward compatibility
-type ServerServer interface {
-	mustEmbedUnimplementedServerServer()
+type UnpackServer interface {
+	Unpack(context.Context, *UnpackRequest) (*UnpackResponse, error)
+	mustEmbedUnimplementedUnpackServer()
 }
 
-// UnimplementedServerServer must be embedded to have forward compatible implementations.
-type UnimplementedServerServer struct {
+// UnimplementedUnpackServer must be embedded to have forward compatible implementations.
+type UnimplementedUnpackServer struct {
 }
 
-func (UnimplementedServerServer) mustEmbedUnimplementedServerServer() {}
+func (UnimplementedUnpackServer) Unpack(context.Context, *UnpackRequest) (*UnpackResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Unpack not implemented")
+}
+func (UnimplementedUnpackServer) mustEmbedUnimplementedUnpackServer() {}
 
-// UnsafeServerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServerServer will
+// UnsafeUnpackServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnpackServer will
 // result in compilation errors.
-type UnsafeServerServer interface {
-	mustEmbedUnimplementedServerServer()
+type UnsafeUnpackServer interface {
+	mustEmbedUnimplementedUnpackServer()
 }
 
-func RegisterServerServer(s grpc.ServiceRegistrar, srv ServerServer) {
-	s.RegisterService(&Server_ServiceDesc, srv)
+func RegisterUnpackServer(s grpc.ServiceRegistrar, srv UnpackServer) {
+	s.RegisterService(&Unpack_ServiceDesc, srv)
 }
 
-// Server_ServiceDesc is the grpc.ServiceDesc for Server service.
+func _Unpack_Unpack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnpackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnpackServer).Unpack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/unpack.v1.server.Unpack/Unpack",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnpackServer).Unpack(ctx, req.(*UnpackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Unpack_ServiceDesc is the grpc.ServiceDesc for Unpack service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Server_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "unpack.v1.opcode.Server",
-	HandlerType: (*ServerServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "server/server.proto",
+var Unpack_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "unpack.v1.server.Unpack",
+	HandlerType: (*UnpackServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Unpack",
+			Handler:    _Unpack_Unpack_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "server/server.proto",
 }

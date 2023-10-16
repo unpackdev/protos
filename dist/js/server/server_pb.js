@@ -1,4 +1,4 @@
-// source: contracts/service.proto
+// source: server/server.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -12,7 +12,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var contracts_service_parameters_pb = require('../contracts/service_parameters_pb.js');
-goog.object.extend(proto, contracts_service_parameters_pb);
+var server_parameters_pb = require('../server/parameters_pb.js');
+goog.object.extend(proto, server_parameters_pb);
 var google_api_annotations_pb = require('../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);

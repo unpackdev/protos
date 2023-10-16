@@ -109,6 +109,7 @@ export enum NodeType {
   SHIFT_OPERATION = 103,
   KIND_UNARY_PREFIX = 104,
   KIND_UNARY_SUFFIX = 105,
+  INLINE_ARRAY = 106,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

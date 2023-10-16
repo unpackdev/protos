@@ -1,0 +1,16 @@
+syntax = "proto3";
+package unpack.v1.server;
+option go_package = "github.com/unpackdev/protos/dist/go/server;server_pb";
+
+import "server/parameters.proto";
+import "google/api/annotations.proto";
+
+// Service definition for the contracts operations.
+service Unpack {
+    rpc Unpack(unpack.v1.server.UnpackRequest) returns (unpack.v1.server.UnpackResponse) {
+        option (google.api.http) = {
+            post: "/v1/unpack"  // Endpoint for the unpack operation.
+            body: "*"  // The entire request object is used as the HTTP request body.
+        };
+    };
+}

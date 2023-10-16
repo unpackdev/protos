@@ -15,4 +15,6 @@ message Import {
     int64 scope = 7;
     string unit_alias = 8;
     int64 source_unit = 9;
+    string as = 10;
+    repeated string unit_aliases = 11;
 }

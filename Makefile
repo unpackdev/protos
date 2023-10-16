@@ -12,11 +12,10 @@ PROTOC := protoc
 PROTOC_PLUGIN_GO := --go-grpc_out=paths=source_relative:$(PROTO_GO_OUT) --go_out=paths=source_relative:$(PROTO_GO_OUT)
 PROTOC_PLUGIN_JS := --js_out=import_style=commonjs,binary:$(PROTO_JS_OUT) --grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:$(PROTO_JS_OUT)
 
-# Define color codes for output
+# Define the colors for the output messages
 GREEN := "\033[32m"
 RESET := "\033[0m"
 
-# Define the input files for your protobuf definitions
 PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/health/*.proto \
 	 $(PWD)/sources/*.proto \
@@ -29,6 +28,7 @@ PROTO_FILES := $(wildcard $(PWD)/common/*.proto \
 	 $(PWD)/opcode/*.proto \
 	 $(PWD)/audit/*.proto \
 	 $(PWD)/contracts/*.proto \
+	 $(PWD)/server/*.proto \
 )
 
 # Define the commands to generate protobuf files for Golang and JavaScript
@@ -82,11 +82,11 @@ deps: submodule
 
 help:
 	@echo "Available targets:"
-	@echo "  build     : Build Golang and JavaScript protobuf files"
-	@echo "  build-go  : Build Golang protobuf files"
-	@echo "  build-js  : Build JavaScript protobuf files"
-	@echo "  clean     : Remove all generated protobuf files"
-	@echo "  deps      : Install missing dependencies"
+	@echo "  build     		: Build Golang and JavaScript protobuf files"
+	@echo "  build-go  		: Build Golang protobuf files"
+	@echo "  build-js  		: Build JavaScript protobuf files"
+	@echo "  clean     		: Remove all generated protobuf files"
+	@echo "  deps      		: Install missing dependencies"
 
 .DEFAULT_GOAL := help
 

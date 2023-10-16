@@ -6957,6 +6957,30 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "as",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "unit_aliases",
+              "description": "",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         }
@@ -7161,6 +7185,116 @@
               "type": "TypedStruct",
               "longType": "xds.type.v3.TypedStruct",
               "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "unpack.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/inline_array.proto",
+      "description": "",
+      "package": "unpack.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "InlineArray",
+          "longName": "InlineArray",
+          "fullName": "unpack.v1.ast.InlineArray",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is_empty",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expressions",
+              "description": "",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_descriptions",
+              "description": "",
+              "label": "repeated",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "unpack.v1.ast.TypeDescription",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -12334,6 +12468,11 @@
             {
               "name": "KIND_UNARY_SUFFIX",
               "number": "105",
+              "description": ""
+            },
+            {
+              "name": "INLINE_ARRAY",
+              "number": "106",
               "description": ""
             }
           ]
@@ -18876,171 +19015,6 @@
       "services": []
     },
     {
-      "name": "contracts/service.proto",
-      "description": "",
-      "package": "unpack.v1.contracts",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": false,
-      "hasServices": true,
-      "enums": [],
-      "extensions": [],
-      "messages": [],
-      "services": [
-        {
-          "name": "Service",
-          "longName": "Service",
-          "fullName": "unpack.v1.contracts.Service",
-          "description": "Service definition for the contracts operations.",
-          "methods": [
-            {
-              "name": "Get",
-              "description": "",
-              "requestType": "Request",
-              "requestLongType": "Request",
-              "requestFullType": "unpack.v1.contracts.Request",
-              "requestStreaming": false,
-              "responseType": "Response",
-              "responseLongType": "Response",
-              "responseFullType": "unpack.v1.contracts.Response",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "GET",
-                      "pattern": "/v1/contracts/{chain_id}/{address}"
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              "name": "Unpack",
-              "description": "",
-              "requestType": "Request",
-              "requestLongType": "Request",
-              "requestFullType": "unpack.v1.contracts.Request",
-              "requestStreaming": false,
-              "responseType": "Response",
-              "responseLongType": "Response",
-              "responseFullType": "unpack.v1.contracts.Response",
-              "responseStreaming": false,
-              "options": {
-                "google.api.http": {
-                  "rules": [
-                    {
-                      "method": "POST",
-                      "pattern": "/v1/contracts/unpack",
-                      "body": "*"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "contracts/service_parameters.proto",
-      "description": "",
-      "package": "unpack.v1.contracts",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Request",
-          "longName": "Request",
-          "fullName": "unpack.v1.contracts.Request",
-          "description": "Represents a contract request message with details about a transaction.",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "network_id",
-              "description": "Identifier for the blockchain chain.",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "addresses",
-              "description": "Address associated with the transaction.",
-              "label": "repeated",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "name": "Response",
-          "longName": "Response",
-          "fullName": "unpack.v1.contracts.Response",
-          "description": "Represents a contract response message with details about a transaction.",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "status",
-              "description": "Status of the transaction.",
-              "label": "",
-              "type": "Status",
-              "longType": "unpack.v1.common.Status",
-              "fullType": "unpack.v1.common.Status",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "network_id",
-              "description": "Identifier for the blockchain chain.",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "contracts",
-              "description": "Contract details associated with the transaction.",
-              "label": "repeated",
-              "type": "Contract",
-              "longType": "Contract",
-              "fullType": "unpack.v1.contracts.Contract",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": []
-    },
-    {
       "name": "contracts/vulnerability.proto",
       "description": "",
       "package": "unpack.v1.contracts",
@@ -19281,6 +19255,221 @@
         }
       ],
       "services": []
+    },
+    {
+      "name": "server/parameters.proto",
+      "description": "",
+      "package": "unpack.v1.server",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "ContractQueueStatus",
+          "longName": "UnpackResponse.ContractQueueResponse.ContractQueueStatus",
+          "fullName": "unpack.v1.server.UnpackResponse.ContractQueueResponse.ContractQueueStatus",
+          "description": "",
+          "values": [
+            {
+              "name": "CQR_UNKNOWN",
+              "number": "0",
+              "description": ""
+            },
+            {
+              "name": "CQR_QUEUED",
+              "number": "1",
+              "description": ""
+            },
+            {
+              "name": "CQR_ERROR",
+              "number": "3",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "UnpackRequest",
+          "longName": "UnpackRequest",
+          "fullName": "unpack.v1.server.UnpackRequest",
+          "description": "Represents a contract request message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "network_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "addresses",
+              "description": "Address associated with the transaction.",
+              "label": "repeated",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "UnpackResponse",
+          "longName": "UnpackResponse",
+          "fullName": "unpack.v1.server.UnpackResponse",
+          "description": "Represents a contract response message with details about a transaction.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "Status of the transaction.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "network_id",
+              "description": "Identifier for the blockchain chain.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "contracts",
+              "description": "",
+              "label": "repeated",
+              "type": "ContractQueueResponse",
+              "longType": "UnpackResponse.ContractQueueResponse",
+              "fullType": "unpack.v1.server.UnpackResponse.ContractQueueResponse",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "ContractQueueResponse",
+          "longName": "UnpackResponse.ContractQueueResponse",
+          "fullName": "unpack.v1.server.UnpackResponse.ContractQueueResponse",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "status",
+              "description": "",
+              "label": "",
+              "type": "ContractQueueStatus",
+              "longType": "UnpackResponse.ContractQueueResponse.ContractQueueStatus",
+              "fullType": "unpack.v1.server.UnpackResponse.ContractQueueResponse.ContractQueueStatus",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "address",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "error",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "server/server.proto",
+      "description": "",
+      "package": "unpack.v1.server",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": false,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [],
+      "services": [
+        {
+          "name": "Unpack",
+          "longName": "Unpack",
+          "fullName": "unpack.v1.server.Unpack",
+          "description": "Service definition for the contracts operations.",
+          "methods": [
+            {
+              "name": "Unpack",
+              "description": "",
+              "requestType": "UnpackRequest",
+              "requestLongType": "UnpackRequest",
+              "requestFullType": "unpack.v1.server.UnpackRequest",
+              "requestStreaming": false,
+              "responseType": "UnpackResponse",
+              "responseLongType": "UnpackResponse",
+              "responseFullType": "unpack.v1.server.UnpackResponse",
+              "responseStreaming": false,
+              "options": {
+                "google.api.http": {
+                  "rules": [
+                    {
+                      "method": "POST",
+                      "pattern": "/v1/unpack",
+                      "body": "*"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "scalarValueTypes": [

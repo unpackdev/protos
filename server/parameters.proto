@@ -1,0 +1,34 @@
+syntax = "proto3";
+package unpack.v1.server;
+option go_package = "github.com/unpackdev/protos/dist/go/server;server_pb";
+
+// Represents a contract request message with details about a transaction.
+message UnpackRequest {
+    // Identifier for the blockchain chain.
+    int64  network_id = 1;
+    
+    // Address associated with the transaction.
+    repeated string addresses = 2;
+}
+
+// Represents a contract response message with details about a transaction.
+message UnpackResponse {
+    // Status of the transaction.
+    bool status = 1;
+    
+    // Identifier for the blockchain chain.
+    int64 network_id = 2;
+
+    message ContractQueueResponse {
+        enum ContractQueueStatus {
+            CQR_UNKNOWN = 0;
+            CQR_QUEUED = 1;
+            CQR_ERROR = 3;
+        }
+        ContractQueueStatus status = 1;
+        string address = 2;
+        string error = 3;
+    }
+
+    repeated ContractQueueResponse contracts = 3;
+}
