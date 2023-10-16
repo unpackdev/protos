@@ -12474,6 +12474,86 @@
               "name": "INLINE_ARRAY",
               "number": "106",
               "description": ""
+            },
+            {
+              "name": "YUL_IDENTIFIER",
+              "number": "107",
+              "description": ""
+            },
+            {
+              "name": "YUL_VARIABLE_NAME",
+              "number": "108",
+              "description": ""
+            },
+            {
+              "name": "YUL_LITERAL",
+              "number": "109",
+              "description": ""
+            },
+            {
+              "name": "YUL_FUNCTION_CALL",
+              "number": "110",
+              "description": ""
+            },
+            {
+              "name": "YUL_BLOCK",
+              "number": "111",
+              "description": ""
+            },
+            {
+              "name": "YUL_SWITCH",
+              "number": "112",
+              "description": ""
+            },
+            {
+              "name": "YUL_SWITCH_CASE",
+              "number": "113",
+              "description": ""
+            },
+            {
+              "name": "YUL_TERMINAL_NODE",
+              "number": "114",
+              "description": ""
+            },
+            {
+              "name": "DECIMAL_NUMBER",
+              "number": "115",
+              "description": ""
+            },
+            {
+              "name": "YUL_LEAVE",
+              "number": "116",
+              "description": ""
+            },
+            {
+              "name": "YUL_BREAK",
+              "number": "117",
+              "description": ""
+            },
+            {
+              "name": "YUL_CONTINUE",
+              "number": "118",
+              "description": ""
+            },
+            {
+              "name": "YUL_FOR",
+              "number": "119",
+              "description": ""
+            },
+            {
+              "name": "YUL_IF",
+              "number": "120",
+              "description": ""
+            },
+            {
+              "name": "YUL_FUNCTION_DEFINITION",
+              "number": "121",
+              "description": ""
+            },
+            {
+              "name": "YUL_VARIABLE_DECLARATION",
+              "number": "122",
+              "description": ""
             }
           ]
         },
