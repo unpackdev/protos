@@ -13,6 +13,9 @@ export class UnaryPrefix extends jspb.Message {
   getNodeType(): ast_types_pb.NodeType;
   setNodeType(value: ast_types_pb.NodeType): UnaryPrefix;
 
+  getKind(): ast_types_pb.NodeType;
+  setKind(value: ast_types_pb.NodeType): UnaryPrefix;
+
   getSrc(): ast_src_pb.Src | undefined;
   setSrc(value?: ast_src_pb.Src): UnaryPrefix;
   hasSrc(): boolean;
@@ -61,6 +64,7 @@ export namespace UnaryPrefix {
   export type AsObject = {
     id: number,
     nodeType: ast_types_pb.NodeType,
+    kind: ast_types_pb.NodeType,
     src?: ast_src_pb.Src.AsObject,
     operator: ast_types_pb.Operator,
     prefix: boolean,

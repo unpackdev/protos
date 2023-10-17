@@ -76,6 +76,7 @@ proto.unpack.v1.ast.UnarySuffix.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     nodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    kind: jspb.Message.getFieldWithDefault(msg, 13, 0),
     src: (f = msg.getSrc()) && ast_src_pb.Src.toObject(includeInstance, f),
     operator: jspb.Message.getFieldWithDefault(msg, 4, 0),
     prefix: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
@@ -129,6 +130,10 @@ proto.unpack.v1.ast.UnarySuffix.deserializeBinaryFromReader = function(msg, read
     case 2:
       var value = /** @type {!proto.unpack.v1.ast.NodeType} */ (reader.readEnum());
       msg.setNodeType(value);
+      break;
+    case 13:
+      var value = /** @type {!proto.unpack.v1.ast.NodeType} */ (reader.readEnum());
+      msg.setKind(value);
       break;
     case 3:
       var value = new ast_src_pb.Src;
@@ -213,6 +218,13 @@ proto.unpack.v1.ast.UnarySuffix.serializeBinaryToWriter = function(message, writ
   if (f !== 0.0) {
     writer.writeEnum(
       2,
+      f
+    );
+  }
+  f = message.getKind();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      13,
       f
     );
   }
@@ -325,6 +337,24 @@ proto.unpack.v1.ast.UnarySuffix.prototype.getNodeType = function() {
  */
 proto.unpack.v1.ast.UnarySuffix.prototype.setNodeType = function(value) {
   return jspb.Message.setProto3EnumField(this, 2, value);
+};
+
+
+/**
+ * optional NodeType kind = 13;
+ * @return {!proto.unpack.v1.ast.NodeType}
+ */
+proto.unpack.v1.ast.UnarySuffix.prototype.getKind = function() {
+  return /** @type {!proto.unpack.v1.ast.NodeType} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/**
+ * @param {!proto.unpack.v1.ast.NodeType} value
+ * @return {!proto.unpack.v1.ast.UnarySuffix} returns this
+ */
+proto.unpack.v1.ast.UnarySuffix.prototype.setKind = function(value) {
+  return jspb.Message.setProto3EnumField(this, 13, value);
 };
 
 

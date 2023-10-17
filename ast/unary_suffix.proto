@@ -10,6 +10,7 @@ import "xds/type/v3/typed_struct.proto";
 message UnarySuffix {
     int64 id = 1;
     unpack.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.NodeType kind = 13;
     unpack.v1.ast.Src src = 3;
     unpack.v1.ast.Operator operator = 4;
     bool prefix = 5;
