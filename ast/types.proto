@@ -126,6 +126,8 @@ enum NodeType {
   YUL_IF = 120;
   YUL_FUNCTION_DEFINITION = 121;
   YUL_VARIABLE_DECLARATION = 122;
+  YUL_EXPRESSION = 123;
+  HEX_NUMBER = 124;
 }
 
 enum Mutability {

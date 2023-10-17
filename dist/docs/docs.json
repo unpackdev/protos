@@ -3792,68 +3792,6 @@
       "services": []
     },
     {
-      "name": "ast/assembly.proto",
-      "description": "",
-      "package": "unpack.v1.ast",
-      "hasEnums": false,
-      "hasExtensions": false,
-      "hasMessages": true,
-      "hasServices": false,
-      "enums": [],
-      "extensions": [],
-      "messages": [
-        {
-          "name": "Assembly",
-          "longName": "Assembly",
-          "fullName": "unpack.v1.ast.Assembly",
-          "description": "",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "id",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "node_type",
-              "description": "",
-              "label": "",
-              "type": "NodeType",
-              "longType": "NodeType",
-              "fullType": "unpack.v1.ast.NodeType",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "src",
-              "description": "",
-              "label": "",
-              "type": "Src",
-              "longType": "Src",
-              "fullType": "unpack.v1.ast.Src",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        }
-      ],
-      "services": []
-    },
-    {
       "name": "ast/assignment.proto",
       "description": "",
       "package": "unpack.v1.ast",
@@ -12554,6 +12492,16 @@
               "name": "YUL_VARIABLE_DECLARATION",
               "number": "122",
               "description": ""
+            },
+            {
+              "name": "YUL_EXPRESSION",
+              "number": "123",
+              "description": ""
+            },
+            {
+              "name": "HEX_NUMBER",
+              "number": "124",
+              "description": ""
             }
           ]
         },
@@ -13502,6 +13450,1160 @@
               "type": "Body",
               "longType": "Body",
               "fullType": "unpack.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/yul.proto",
+      "description": "",
+      "package": "unpack.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "AssemblyStatement",
+          "longName": "AssemblyStatement",
+          "fullName": "unpack.v1.ast.AssemblyStatement",
+          "description": "AssemblyStatement represents a higher-level assembly statement.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the assembly statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the assembly statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "The body of the assembly statement.",
+              "label": "",
+              "type": "Body",
+              "longType": "Body",
+              "fullType": "unpack.v1.ast.Body",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulAssignmentStatement",
+          "longName": "YulAssignmentStatement",
+          "fullName": "unpack.v1.ast.YulAssignmentStatement",
+          "description": "YulAssignmentStatement represents an assignment operation in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the assignment statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the assignment statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "variable_names",
+              "description": "The variables being assigned to.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "The value being assigned.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulBlockStatement",
+          "longName": "YulBlockStatement",
+          "fullName": "unpack.v1.ast.YulBlockStatement",
+          "description": "YulBlockStatement represents a Yul block of statements.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the Yul block statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the Yul block statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "statements",
+              "description": "The statements within the block.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulBreakStatement",
+          "longName": "YulBreakStatement",
+          "fullName": "unpack.v1.ast.YulBreakStatement",
+          "description": "YulBreakStatement represents a \"break\" statement in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the break statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the break statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulContinueStatement",
+          "longName": "YulContinueStatement",
+          "fullName": "unpack.v1.ast.YulContinueStatement",
+          "description": "YulContinueStatement represents a \"continue\" statement in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the continue statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the continue statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulExpressionStatement",
+          "longName": "YulExpressionStatement",
+          "fullName": "unpack.v1.ast.YulExpressionStatement",
+          "description": "YulExpressionStatement represents an expression in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the expression statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the expression statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "expression",
+              "description": "The expression itself.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulForStatement",
+          "longName": "YulForStatement",
+          "fullName": "unpack.v1.ast.YulForStatement",
+          "description": "YulForStatement represents a \"for\" loop in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the for statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the for statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "pre",
+              "description": "Initialization part of the for loop.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "post",
+              "description": "Increment/decrement part of the for loop.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "Condition of the for loop.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "The body of the for loop.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulFunctionCallStatement",
+          "longName": "YulFunctionCallStatement",
+          "fullName": "unpack.v1.ast.YulFunctionCallStatement",
+          "description": "YulFunctionCallStatement represents a function call in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the function call statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the function call statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "function_name",
+              "description": "The name of the function being called.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "The arguments passed to the function.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulFunctionDefinition",
+          "longName": "YulFunctionDefinition",
+          "fullName": "unpack.v1.ast.YulFunctionDefinition",
+          "description": "YulFunctionDefinition represents a function definition in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the function definition.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the function definition.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "arguments",
+              "description": "The arguments of the function.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "The body of the function.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "return_parameters",
+              "description": "The return parameters of the function.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulIdentifier",
+          "longName": "YulIdentifier",
+          "fullName": "unpack.v1.ast.YulIdentifier",
+          "description": "YulIdentifier represents an identifier in the Yul language.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the identifier.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the identifier.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "The name of the identifier.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulIfStatement",
+          "longName": "YulIfStatement",
+          "fullName": "unpack.v1.ast.YulIfStatement",
+          "description": "YulIfStatement represents an \"if\" statement in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the if statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the if statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "condition",
+              "description": "The condition of the if statement.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "The body of the if statement.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulLeaveStatement",
+          "longName": "YulLeaveStatement",
+          "fullName": "unpack.v1.ast.YulLeaveStatement",
+          "description": "YulLeaveStatement represents a \"leave\" statement in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the leave statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the leave statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulLiteralStatement",
+          "longName": "YulLiteralStatement",
+          "fullName": "unpack.v1.ast.YulLiteralStatement",
+          "description": "YulLiteralStatement represents a literal value in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the literal.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "kind",
+              "description": "The kind of the literal (e.g., string, number).",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the literal.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "The literal value as a string.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "hex_value",
+              "description": "The literal value as a hexadecimal string.",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulStatement",
+          "longName": "YulStatement",
+          "fullName": "unpack.v1.ast.YulStatement",
+          "description": "YulStatement represents an individual Yul statement.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the Yul statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the Yul statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "statements",
+              "description": "Any sub-statements or expressions associated with this statement.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulSwitchCaseStatement",
+          "longName": "YulSwitchCaseStatement",
+          "fullName": "unpack.v1.ast.YulSwitchCaseStatement",
+          "description": "YulSwitchCaseStatement represents a case within a Yul switch statement.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the case statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the case statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "case",
+              "description": "The case value.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "body",
+              "description": "The body of the case.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulSwitchStatement",
+          "longName": "YulSwitchStatement",
+          "fullName": "unpack.v1.ast.YulSwitchStatement",
+          "description": "YulSwitchStatement represents a switch statement in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the switch statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the switch statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "cases",
+              "description": "The list of cases for the switch statement.",
+              "label": "repeated",
+              "type": "YulSwitchCaseStatement",
+              "longType": "YulSwitchCaseStatement",
+              "fullType": "unpack.v1.ast.YulSwitchCaseStatement",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "YulVariableStatement",
+          "longName": "YulVariableStatement",
+          "fullName": "unpack.v1.ast.YulVariableStatement",
+          "description": "YulVariableStatement represents a variable declaration in Yul.",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "Unique identifier for the variable statement.",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "The type of the node.",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "Source information for the variable statement.",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "let",
+              "description": "Specifies if it's a \"let\" declaration.",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "The value assigned to the variable.",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "variables",
+              "description": "List of variables declared.",
+              "label": "repeated",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",

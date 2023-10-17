@@ -126,6 +126,8 @@ export enum NodeType {
   YUL_IF = 120,
   YUL_FUNCTION_DEFINITION = 121,
   YUL_VARIABLE_DECLARATION = 122,
+  YUL_EXPRESSION = 123,
+  HEX_NUMBER = 124,
 }
 export enum Mutability { 
   M_DEFAULT = 0,

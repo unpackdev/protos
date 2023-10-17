@@ -1,0 +1,154 @@
+syntax = "proto3";
+option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
+package unpack.v1.ast;
+
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/body.proto";
+import "xds/type/v3/typed_struct.proto";
+
+// AssemblyStatement represents a higher-level assembly statement.
+message AssemblyStatement {
+    int64 id = 1;  // Unique identifier for the assembly statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the assembly statement.
+    unpack.v1.ast.Body body = 4;  // The body of the assembly statement.
+}
+
+// YulBlockStatement represents a Yul block of statements.
+message YulBlockStatement {
+    int64 id = 1;  // Unique identifier for the Yul block statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the Yul block statement.
+    repeated xds.type.v3.TypedStruct statements = 4;  // The statements within the block.
+}
+
+// YulStatement represents an individual Yul statement.
+message YulStatement {
+    int64 id = 1;  // Unique identifier for the Yul statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the Yul statement.
+    repeated xds.type.v3.TypedStruct statements = 4;  // Any sub-statements or expressions associated with this statement.
+}
+
+// YulIdentifier represents an identifier in the Yul language.
+message YulIdentifier {
+    int64 id = 1;  // Unique identifier for the identifier.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the identifier.
+    string name = 4;  // The name of the identifier.
+}
+
+// YulVariableStatement represents a variable declaration in Yul.
+message YulVariableStatement {
+    int64 id = 1;  // Unique identifier for the variable statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the variable statement.
+    bool let = 4;  // Specifies if it's a "let" declaration.
+    xds.type.v3.TypedStruct value = 5;  // The value assigned to the variable.
+    repeated xds.type.v3.TypedStruct variables = 6;  // List of variables declared.
+}
+
+// YulSwitchCaseStatement represents a case within a Yul switch statement.
+message YulSwitchCaseStatement {
+    int64 id = 1;  // Unique identifier for the case statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the case statement.
+    xds.type.v3.TypedStruct case = 4;  // The case value.
+    xds.type.v3.TypedStruct body = 5;  // The body of the case.
+}
+
+// YulSwitchStatement represents a switch statement in Yul.
+message YulSwitchStatement {
+    int64 id = 1;  // Unique identifier for the switch statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the switch statement.
+    repeated unpack.v1.ast.YulSwitchCaseStatement cases = 4;  // The list of cases for the switch statement.
+}
+
+// YulLiteralStatement represents a literal value in Yul.
+message YulLiteralStatement {
+    int64 id = 1;  // Unique identifier for the literal.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.NodeType kind = 3;  // The kind of the literal (e.g., string, number).
+    unpack.v1.ast.Src src = 4;  // Source information for the literal.
+    string value = 5;  // The literal value as a string.
+    string hex_value = 6;  // The literal value as a hexadecimal string.
+}
+
+// YulLeaveStatement represents a "leave" statement in Yul.
+message YulLeaveStatement {
+    int64 id = 1;  // Unique identifier for the leave statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the leave statement.
+}
+
+// YulBreakStatement represents a "break" statement in Yul.
+message YulBreakStatement {
+    int64 id = 1;  // Unique identifier for the break statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the break statement.
+}
+
+// YulContinueStatement represents a "continue" statement in Yul.
+message YulContinueStatement {
+    int64 id = 1;  // Unique identifier for the continue statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the continue statement.
+}
+
+// YulIfStatement represents an "if" statement in Yul.
+message YulIfStatement {
+    int64 id = 1;  // Unique identifier for the if statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the if statement.
+    xds.type.v3.TypedStruct condition = 4;  // The condition of the if statement.
+    xds.type.v3.TypedStruct body = 5;  // The body of the if statement.
+}
+
+// YulFunctionDefinition represents a function definition in Yul.
+message YulFunctionDefinition {
+    int64 id = 1;  // Unique identifier for the function definition.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the function definition.
+    repeated xds.type.v3.TypedStruct arguments = 4;  // The arguments of the function.
+    xds.type.v3.TypedStruct body = 5;  // The body of the function.
+    repeated xds.type.v3.TypedStruct return_parameters = 6;  // The return parameters of the function.
+}
+
+// YulFunctionCallStatement represents a function call in Yul.
+message YulFunctionCallStatement {
+    int64 id = 1;  // Unique identifier for the function call statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the function call statement.
+    xds.type.v3.TypedStruct function_name = 4;  // The name of the function being called.
+    repeated xds.type.v3.TypedStruct arguments = 5;  // The arguments passed to the function.
+}
+
+// YulAssignmentStatement represents an assignment operation in Yul.
+message YulAssignmentStatement {
+    int64 id = 1;  // Unique identifier for the assignment statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the assignment statement.
+    repeated xds.type.v3.TypedStruct variable_names = 4;  // The variables being assigned to.
+    xds.type.v3.TypedStruct value = 5;  // The value being assigned.
+}
+
+// YulExpressionStatement represents an expression in Yul.
+message YulExpressionStatement {
+    int64 id = 1;  // Unique identifier for the expression statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the expression statement.
+    xds.type.v3.TypedStruct expression = 4;  // The expression itself.
+}
+
+// YulForStatement represents a "for" loop in Yul.
+message YulForStatement {
+    int64 id = 1;  // Unique identifier for the for statement.
+    unpack.v1.ast.NodeType node_type = 2;  // The type of the node.
+    unpack.v1.ast.Src src = 3;  // Source information for the for statement.
+    xds.type.v3.TypedStruct pre = 4;  // Initialization part of the for loop.
+    xds.type.v3.TypedStruct post = 5;  // Increment/decrement part of the for loop.
+    xds.type.v3.TypedStruct condition = 6;  // Condition of the for loop.
+    xds.type.v3.TypedStruct body = 7;  // The body of the for loop.
+}
