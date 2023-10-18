@@ -1,0 +1,21 @@
+syntax = "proto3";
+package unpack.v1.ast;
+option go_package = "github.com/unpackdev/protos/dist/go/ast;ast_pb";
+
+import "ast/types.proto";
+import "ast/src.proto";
+import "ast/type_name.proto";
+
+message UserDefinedValueTypeDefinition {
+    int64 id = 1;
+    unpack.v1.ast.NodeType node_type = 2;
+    unpack.v1.ast.Src src = 3;
+    bool is = 4;
+    string type = 5;
+    unpack.v1.ast.Src type_location = 6;
+    string name = 7;
+    unpack.v1.ast.Src name_location = 8;
+    unpack.v1.ast.TypeName type_name = 9;
+    int64 referenced_declaration = 10;
+    unpack.v1.ast.TypeDescription type_description = 11;
+}

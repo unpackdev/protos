@@ -5,6 +5,7 @@ package unpack.v1.ast;
 import "ast/types.proto";
 import "ast/src.proto";
 import "ast/type_name.proto";
+import "xds/type/v3/typed_struct.proto";
 
 message StateVariable {
     int64 id = 1;
@@ -19,4 +20,5 @@ message StateVariable {
     unpack.v1.ast.Mutability state_mutability = 10;
     unpack.v1.ast.TypeName type_name = 11;
     unpack.v1.ast.TypeDescription type_description = 12;
+    xds.type.v3.TypedStruct initial_value = 13;
 }

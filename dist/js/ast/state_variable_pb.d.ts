@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf'
 import * as ast_types_pb from '../ast/types_pb';
 import * as ast_src_pb from '../ast/src_pb';
 import * as ast_type_name_pb from '../ast/type_name_pb';
+import * as xds_type_v3_typed_struct_pb from '../xds/type/v3/typed_struct_pb';
 
 
 export class StateVariable extends jspb.Message {
@@ -48,6 +49,11 @@ export class StateVariable extends jspb.Message {
   hasTypeDescription(): boolean;
   clearTypeDescription(): StateVariable;
 
+  getInitialValue(): xds_type_v3_typed_struct_pb.TypedStruct | undefined;
+  setInitialValue(value?: xds_type_v3_typed_struct_pb.TypedStruct): StateVariable;
+  hasInitialValue(): boolean;
+  clearInitialValue(): StateVariable;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): StateVariable.AsObject;
   static toObject(includeInstance: boolean, msg: StateVariable): StateVariable.AsObject;
@@ -70,6 +76,7 @@ export namespace StateVariable {
     stateMutability: ast_types_pb.Mutability,
     typeName?: ast_type_name_pb.TypeName.AsObject,
     typeDescription?: ast_type_name_pb.TypeDescription.AsObject,
+    initialValue?: xds_type_v3_typed_struct_pb.TypedStruct.AsObject,
   }
 }
 

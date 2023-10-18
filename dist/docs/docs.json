@@ -10496,6 +10496,18 @@
               "isoneof": false,
               "oneofdecl": "",
               "defaultValue": ""
+            },
+            {
+              "name": "initial_value",
+              "description": "",
+              "label": "",
+              "type": "TypedStruct",
+              "longType": "xds.type.v3.TypedStruct",
+              "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
             }
           ]
         }
@@ -12502,6 +12514,11 @@
               "name": "HEX_NUMBER",
               "number": "124",
               "description": ""
+            },
+            {
+              "name": "USER_DEFINED_VALUE_TYPE",
+              "number": "125",
+              "description": ""
             }
           ]
         },
@@ -13084,6 +13101,164 @@
               "type": "TypedStruct",
               "longType": "xds.type.v3.TypedStruct",
               "fullType": "xds.type.v3.TypedStruct",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "referenced_declaration",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_description",
+              "description": "",
+              "label": "",
+              "type": "TypeDescription",
+              "longType": "TypeDescription",
+              "fullType": "unpack.v1.ast.TypeDescription",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "ast/user_defined.proto",
+      "description": "",
+      "package": "unpack.v1.ast",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "UserDefinedValueTypeDefinition",
+          "longName": "UserDefinedValueTypeDefinition",
+          "fullName": "unpack.v1.ast.UserDefinedValueTypeDefinition",
+          "description": "",
+          "hasExtensions": false,
+          "hasFields": true,
+          "hasOneofs": false,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "id",
+              "description": "",
+              "label": "",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "node_type",
+              "description": "",
+              "label": "",
+              "type": "NodeType",
+              "longType": "NodeType",
+              "fullType": "unpack.v1.ast.NodeType",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "src",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "is",
+              "description": "",
+              "label": "",
+              "type": "bool",
+              "longType": "bool",
+              "fullType": "bool",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_location",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "name_location",
+              "description": "",
+              "label": "",
+              "type": "Src",
+              "longType": "Src",
+              "fullType": "unpack.v1.ast.Src",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "type_name",
+              "description": "",
+              "label": "",
+              "type": "TypeName",
+              "longType": "TypeName",
+              "fullType": "unpack.v1.ast.TypeName",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
