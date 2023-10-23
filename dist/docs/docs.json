@@ -12519,6 +12519,16 @@
               "name": "USER_DEFINED_VALUE_TYPE",
               "number": "125",
               "description": ""
+            },
+            {
+              "name": "SHIFT_LEFT_OPERATION",
+              "number": "126",
+              "description": ""
+            },
+            {
+              "name": "SHIFT_RIGHT_OPERATION",
+              "number": "127",
+              "description": ""
             }
           ]
         },

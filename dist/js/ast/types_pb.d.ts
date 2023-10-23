@@ -129,6 +129,8 @@ export enum NodeType {
   YUL_EXPRESSION = 123,
   HEX_NUMBER = 124,
   USER_DEFINED_VALUE_TYPE = 125,
+  SHIFT_LEFT_OPERATION = 126,
+  SHIFT_RIGHT_OPERATION = 127,
 }
 export enum Mutability { 
   M_DEFAULT = 0,
