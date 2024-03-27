@@ -5,7 +5,7 @@ option go_package = "github.com/unpackdev/protos/dist/go/contracts;contracts_pb"
 import "ir/eip.proto";
 import "contracts/vulnerability.proto";
 import "contracts/constructor.proto";
-
+import "sources/source.proto";
 
 // Represents details of a contract.
 message Contract {
@@ -55,4 +55,8 @@ message Contract {
 
     // ABI of the contract in raw JSON format.
     string abi = 26;
+
+    unpack.v1.sources.Sources sources = 27;
+
+    bool is_proxy = 28;
 }

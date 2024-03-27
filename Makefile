@@ -43,7 +43,6 @@ build-go:
 		-Ithird_party/googleapis \
 		-Ithird_party/xds \
 		--descriptor_set_out=$(PROTO_PROTOSETS_OUT)/$(PROTO_PROTOSETS_OUT_FILENAME) \
-		--doc_out=$(PROTO_DOCS_OUT) --doc_opt=json,docs.json \
 		--include_source_info \
 		--include_imports \
 		--proto_path=$(PWD) $(PROTO_FILES)
