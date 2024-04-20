@@ -5,6 +5,7 @@ option go_package = "github.com/unpackdev/protos/dist/go/contracts;contracts_pb"
 import "ir/eip.proto";
 import "contracts/vulnerability.proto";
 import "contracts/constructor.proto";
+import "contracts/proxy.proto";
 import "sources/source.proto";
 
 // Represents details of a contract.
@@ -23,40 +24,48 @@ message Contract {
     bool   verified = 12;           // Indicates if the contract is verified.
     string compiler_version = 13;   // Version of the compiler used.
     string evm_version = 14;        // Version of the EVM used.
-    bool   optimized = 15;          // Indicates if the contract is optimized.
-    int32  optimization_runs = 16;  // Number of optimization runs.
+    string solgo_version = 15;      // Version of the Solgo, used to decompile contract.
+    bool   optimized = 16;          // Indicates if the contract is optimized.
+    int32  optimization_runs = 17;  // Number of optimization runs.
 
     // List of possible contract types associated.
-    repeated string possible_contract_types = 17;
+    repeated string possible_contract_types = 18;
 
     // Total number of contracts discovered in the IR.
-    int32 contracts_count = 18;
+    int32 contracts_count = 19;
 
     // List of Ethereum Improvement Proposals (EIPs) associated with this IR.
-    repeated unpack.v1.ir.EIP standards = 19;
+    repeated unpack.v1.ir.EIP standards = 20;
 
     // Metadata URLs associated with the contract.
-    repeated string metadata_urls = 20;
+    repeated string metadata_urls = 21;
 
     // Implementations associated with the contract.
-    repeated unpack.v1.contracts.Implements implements = 21;
+    repeated unpack.v1.contracts.ProxyImplementation implementations = 22;
     
     // Constructor details of the contract.
-    unpack.v1.contracts.Constructor constructor = 22;
+    unpack.v1.contracts.Constructor constructor = 23;
 
     // Indicates if the contract has vulnerabilities.
-    bool has_vulnerabilities = 23;
+    bool has_vulnerabilities = 24;
 
     // Metrics of vulnerabilities associated with the contract.
-    repeated unpack.v1.contracts.VulnerabilityMetric vulnerability_metrics = 24;
+    repeated unpack.v1.contracts.VulnerabilityMetric vulnerability_metrics = 25;
 
     // Vulnerabilities associated with the contract.
-    repeated unpack.v1.contracts.Vulnerability vulnerabilities = 25;
+    repeated unpack.v1.contracts.Vulnerability vulnerabilities = 26;
 
     // ABI of the contract in raw JSON format.
-    string abi = 26;
+    string abi = 27;
 
-    unpack.v1.sources.Sources sources = 27;
+    unpack.v1.sources.Sources sources = 28;
 
-    bool is_proxy = 28;
+    bool is_proxy = 29;
+
+    bool self_destructed = 30;
+
+    repeated string processed_states = 31;
+    repeated string failed_states = 32;
+    bool processed = 33;
+    bool partial = 34;
 }
